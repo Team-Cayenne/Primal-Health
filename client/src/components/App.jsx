@@ -1,9 +1,10 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Nutritional from './Nutritional.jsx'
 import VideoDetail from './VideoDetail.jsx'
 import SupplierPage from './SupplierPage.jsx'
 import {BrowserRouter, Routes, Route, Link}  from "react-router-dom"
-// import LoginPage from './LoginPage.jsx'
+import LoginPage from './LoginPage.jsx';
+import firebase from '../firebase/firebase.js';
 
 // const App = () => {
 //   return (
@@ -63,10 +64,10 @@ class App extends React.Component {
     return (
       <div>
       <div>Primal Health Test</div>
-      {/* {true ? (
+      {true ? (
       <div>
         <LoginPage />
-        </div>) : null} */}
+        </div>) : null}
       </div>
 
     )
