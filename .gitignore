@@ -11,5 +11,8 @@ public/app.js
 ###TOKENS###
 config.js
 
+###FIREBASE KEY###
+config.json
+
 ###VS CODE SETTINGS###
 .vscode/settings.json
