@@ -1,7 +1,10 @@
 import React, {useState} from 'react';
 import Nutritional from './Nutritional.jsx'
+import PersonalizeYourPlan from './PersonalizeYourPlan.jsx'
 import VideoDetail from './VideoDetail.jsx'
 import SupplierPage from './SupplierPage.jsx'
+import Masthead from '../shared/Masthead.jsx'
+import SelectMeals from './SelectMeals.jsx'
 import {BrowserRouter, Routes, Route, Link}  from "react-router-dom"
 import LoginPage from './LoginPage.jsx';
 import firebase from '../firebase/firebase.js';
@@ -63,6 +66,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
+
       <div>Primal Health Test</div>
       {true ? (
       <div>
