@@ -6,7 +6,26 @@
   "scripts": {
     "watch": "webpack -w",
     "build": "webpack -d && copy src\\index.html dist\\index.html /y && webpack-dev-server --content-base src --inline --port 3000",
-    "start": "nodemon server"
+    "start": "nodemon server",
+    "test": "jest"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   },
   "repository": {
     "type": "git",
@@ -17,25 +36,35 @@
   "license": "ISC",
   "homepage": "",
   "dependencies": {
+    "@testing-library/jest-dom": "^5.16.2",
+    "@testing-library/react": "^12.1.4",
+    "@testing-library/user-event": "^13.5.0",
     "axios": "^0.25.0",
+    "babel-jest": "^27.5.1",
     "body-parser": "^1.19.2",
     "express": "^4.17.1",
-    "firebase": "^8.10.0",
+    "firebase": "^9.6.9",
     "firebase-admin": "^10.0.2",
     "phosphor-react": "^1.4.0",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
     "react-highlight-words": "^0.17.0",
+    "react-scripts": "5.0.0",
     "source-map-loader": "^3.0.1",
-    "styled-components": "^5.3.3"
+    "styled-components": "^5.3.3",
+    "web-vitals": "^2.1.4"
   },
   "devDependencies": {
     "@babel/core": "^7.11.6",
     "@babel/preset-env": "^7.11.5",
     "@babel/preset-react": "^7.10.4",
+    "@testing-library/react": "^12.1.4",
+    "babel-jest": "^27.5.1",
     "babel-loader": "^8.1.0",
+    "jest": "^27.5.1",
     "nodemon": "^2.0.4",
     "react-router-dom": "^6.2.2",
+    "react-test-renderer": "^17.0.2",
     "webpack": "^5.68.0",
     "webpack-cli": "^4.9.2"
   }
