@@ -2,9 +2,10 @@ const axios= require ("axios");
 const config = require("../config.js")
 
 const getMeals = async ({type}) => {
+  console.log("config.apiKey=====>", config.apiKey)
   try {
-    const response = await axios(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${config.apiKey}=${type}&number=20&maxReadyTime=30&type=main course`)
-    //add and return list from db
+    const response = await axios(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${config.apiKey}&diet=${type}&number=30&maxReadyTime=150&type=main course`)
+
       console.log('response.data response.data', response.data)
       return response.data
   } catch (err){

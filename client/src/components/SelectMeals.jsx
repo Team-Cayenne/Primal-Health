@@ -1,16 +1,12 @@
 import React from 'react'
 import { AppContext } from "../context.js";
-
-const SelectMeals= () =>{
-  // !Cheryl
-  const {meals, selectMeals, setSelectMeals} = useContext(AppContext);
-  // !Cheryl
 import Styled from 'styled-components'
-
 import ProgressMasthead from '../shared/ProgressMasthead.jsx'
 
-
-const SelectMeals = () =>{
+  const SelectMeals = () =>{
+    // !Cheryl
+    const {meals, selectMeals, setSelectMeals} = useContext(AppContext);
+    // !Cheryl
 
   return (
     <div>
