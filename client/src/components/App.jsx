@@ -5,6 +5,8 @@ import VideoDetail from './VideoDetail.jsx'
 import SupplierPage from './SupplierPage.jsx'
 import Masthead from '../shared/Masthead.jsx'
 import SelectMeals from './SelectMeals.jsx'
+import ReviewYourOrder from './ReviewYourOrder.jsx'
+import EnterCreditCard from './EnterCreditCard.jsx'
 import {BrowserRouter, Routes, Route, Link}  from "react-router-dom"
 // import LoginPage from './LoginPage.jsx'
 
@@ -64,6 +66,7 @@ class App extends React.Component {
 
   render() {
     return (
+      <EnterCreditCard />
       <div>
 
       <div>Primal Health Test</div>
