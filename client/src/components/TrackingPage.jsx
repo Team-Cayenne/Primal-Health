@@ -7,7 +7,6 @@ import { BottomContainer } from '../styles/confirmationPage/bottom';
 import { ProgressBarIMG } from '../styles/trackingPage/progressBar';
 
 const TrackingPage= () =>{
-
   return (
     <MainContainer>
       <TopContainer>
