@@ -62,7 +62,7 @@ const App = () => {
             {/* <Route path="/tracking" element={<TrackingPage />} /> */}
             <Route path="/user-profile" element={<UserProfile />} />
             {/* <Route path="/user-health" element={<UserHealthLogger />} /> */}
-            {/* <Route path="/user-orders" element={<UserOrderTracking />} /> */}
+            <Route path="/user-orders" element={<UserOrderTracking />} />
 
             {/* <Route path="/your-personal-pref" element={<PersonalizeYourPlan/>} />
           <Route path="/videos" element={<VideoDetail />} />
