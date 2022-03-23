@@ -5,7 +5,9 @@
   box-sizing: border-box;
   font-family: sans-serif;
 }
-
+.mainSubText {
+  font-family: Quicksand;
+}
 /* Default font-size is 16px. 1Rem=default font-size.
 Reset font-size to make calculations easier. Setting font-size to 62.5% makes 1Rem=10px. Using rems also allows the app to be responsive to screen size changes  */
 

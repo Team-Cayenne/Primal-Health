@@ -14,7 +14,6 @@ import UserOrderTracking from './UserOrderTracking.jsx';
 import GoogleLogin from '../Auth/GoogleLogin.js';
 import GoogleSignUp from '../Auth/GoogleSignUp.js';
 import Masthead from '../shared/Masthead.jsx'
-
 import ReviewYourOrder from './ReviewYourOrder.jsx'
 import EnterCreditCard from './EnterCreditCard.jsx'
 import EnterShippingInfo from './EnterShippingInfo.jsx'
@@ -271,7 +270,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <LandingPage />
+      <SupplierPage />
       // <div>
       //   <div>Primal Health Test</div>
       //   {this.state.userToggle
