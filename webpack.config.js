@@ -27,6 +27,7 @@ module.exports = {
   mode: 'development',
   resolve: {
     extensions: ['.js', '.jsx']
-  }
+  },
+  entry: ["regenerator-runtime/runtime.js", "<your enter js file>"]
 };
 
