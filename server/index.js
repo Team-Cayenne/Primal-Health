@@ -1,6 +1,11 @@
 const express = require("express");
+
+const controller = require('../controllers/todos.js');
+
+
 const axios = require("axios");
 const config = require("../config.js");
+
 const path = require("path");
 const app = express();
 const PORT = 3000;
@@ -8,11 +13,17 @@ const { getMeals, getRecipeSteps, getRecipeImages, getNutritional } = require ("
 app.use(express.static(path.join(__dirname, "..", "public")));
 app.use(express.json());
 
+
+
+// User routes
+app.post('/users', controller.addUser);
+
+app.get('/users', controller.getUsers);
+
 app.get('*', function(req, res) {
   res.sendFile('index.html', {root: path.join(__dirname, '../public/')});
 });
-// app.use(cors());
-// app.use(bodyParser.json());
+
 
 // Supplier routes
 app.post('/suppliers', controller.addSupplier);
@@ -23,6 +34,8 @@ app.get('/suppliers', controller.getSuppliers);
 app.post('/faqs', controller.addFAQ);
 
 app.get('/faqs', controller.getFAQs);
+
+
 
 // app.get('*', function(req, res) {
 //   res.sendFile('index.html', {root: path.join(__dirname, '../public/')});
@@ -71,34 +84,6 @@ app.post('/nutritionalinfo', async (req, res) => {
 // https://us-central1-primal-health.cloudfunctions.net/api
 
 
-app.get("/api", (req, res) => {
-  axios
-    .get(
-      `https://us-central1-primal-health.cloudfunctions.net/api`
-    )
-    .then((results) => {
-      console.log('results:', results)
-      res.status(200).send(results.data);
-    })
-    .catch((err) => {
-      res.sendStatus(404);
-    });
-});
-
-app.post("/api", (req, res) => {
-  let data = {name: 'austin'}
-  axios
-    .post(
-      `https://us-central1-primal-health.cloudfunctions.net/api`, data
-    )
-    .then((results) => {
-      console.log('results:', results)
-      res.status(200).send(results.data);
-    })
-    .catch((err) => {
-      res.sendStatus(404);
-    });
-});
 
 
 app.listen(PORT, () => {
