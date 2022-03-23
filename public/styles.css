@@ -8,7 +8,117 @@
 
 /* Default font-size is 16px. 1Rem=default font-size.
 Reset font-size to make calculations easier. Setting font-size to 62.5% makes 1Rem=10px. Using rems also allows the app to be responsive to screen size changes  */
-html {
+
+
+/* html {
   font-size: 200%;
+} */
+
+/* Supplier Page */
+.logo-image {
+  object-fit: cover;
+  height: 100px;
+  width: 100px;
+  cursor: pointer;
 }
 
+.supplier-modal-container {
+  align-self: center;
+  max-height: 5px;
+  overflow: visible;
+}
+
+.supplier-modal {
+  position: fixed;
+  top: 15%;
+  left: 25%;
+  max-width: 50%;
+  max-height: 80%;
+  background-color: white;
+  margin: auto;
+  padding: 40px;
+  border: 2px solid black;
+  box-shadow: 0 40px 40px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+  animation-name: animatetop;
+  animation-duration: 1s;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color:  black;
+  font-weight: bold;
+}
+
+.supplier-modal-image {
+  object-fit: cover;
+  height: 100px;
+  width: 100px;
+}
+
+.close-modal {
+  cursor: pointer;
+}
+
+
+/* UserProfile */
+.profile-order-history {
+  cursor: pointer;
+}
+
+.profile-health-logger {
+  cursor: pointer;
+}
+
+.profile-update {
+  cursor: pointer;
+}
+
+.user-info {
+  display: flex;
+  flex-direction: row;
+}
+
+.user-key {
+  margin-right: 200px;
+}
+
+.profile-update-modal-container {
+  align-self: center;
+  max-height: 5px;
+  overflow: visible;
+}
+
+.profile-update-modal {
+  position: fixed;
+  top: 15%;
+  left: 25%;
+  max-width: 50%;
+  max-height: 80%;
+  background-color: white;
+  margin: auto;
+  padding: 40px;
+  border: 2px solid black;
+  box-shadow: 0 40px 40px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+  animation-name: animatetop;
+  animation-duration: 1s;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color:  black;
+  font-weight: bold;
+}
+
+/* UserOrderTracking */
+.order-history {
+  display: flex;
+  flex-direction: row;
+}
+
+.order-key {
+  margin-right: 200px;
+}
+
+.order-value {
+  margin-bottom: 20px;
+}
