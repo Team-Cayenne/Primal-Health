@@ -18,6 +18,8 @@ app.get('/users', controller.getUsers);
 
 app.post('/suppliers', controller.addSupplier);
 
+app.get('/suppliers', controller.getSuppliers);
+
 
 app.post('/faqs', controller.addFAQ);
 
@@ -62,6 +64,7 @@ app.post('/recipecard', async (req, res) => {
   try {
     const results = await getRecipeSteps({id})
     const images = await getRecipeImages({id})
+    // const images = []
     console.log('results------results', results)
       res.status(200).send({results, images})
   } catch(err) {

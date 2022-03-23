@@ -1,6 +1,6 @@
 import React from 'react'
 import Styled from 'styled-components'
-
+import {Link}  from "react-router-dom";
 import ProgressMasthead from '../shared/ProgressMasthead.jsx'
 
 
@@ -60,7 +60,9 @@ const EnterShippingInfo = () =>{
                 </Total>
               </Cost>
             </OrderSummary>
-          <Button onClick={handleClick}>Next Step</Button>
+          <Button onClick={handleClick}>
+            <Link to="/credit-card-entry">Next Step</Link>
+            </Button>
         </RightSide>
 
       </EnterShippingContainer>

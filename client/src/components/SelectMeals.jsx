@@ -232,7 +232,8 @@ import axios from 'axios';
           Add Specialty Items
         </SpecialtyHeader>
           <SpecialtyItemsContainer>
-            {special.map((item, i) => {
+            {/* testMeals replace with special with working API */}
+            {testMeals.map((item, i) => {
               return <OneSpecialty>
                 <img src={item.food_item_url} width='170' height='150'/>
                 <p>{item.supplier_name}</p>

@@ -11,6 +11,7 @@ const MenuAndReview= () =>{
   const [id, setId] = useState(0);
   const [recipe, setRecipe] = useState([]);
   const [recipeTitle, setRecipeTitle] = useState("")
+  const [image, setImage] = useState("")
   const [close, setOnClose] = useState(false)
 
   const testMeals = [
@@ -166,10 +167,11 @@ const MenuAndReview= () =>{
     }
   ]
 
-  const handleRecipeSelect = async(id, title) => {
+  const handleRecipeSelect = async(id, title, image) => {
     setId(id)
     setRecipeTitle(title)
     setOnClose(true)
+    setImage(image)
     console.log('TYPE', id)
     try {
       const results = await axios.post('/recipecard', {id: id})
@@ -179,20 +181,20 @@ const MenuAndReview= () =>{
       console.log("UNABLE TO SET RECIPES", err)
     }
   }
-  console.log('ID', id)
+  // console.log('ID', id)
   console.log("RECIPE", recipe)
   return (
     <div>
       <Masthead />
-      <p>MenuAndReview</p>
+      <h2>Menu</h2>
       {testMeals.map((meal, i)=> {
         return <div key={i}>
-          <img src={meal.image} width='170' height='150' onClick={()=>handleRecipeSelect(meal.id, meal.title)}></img>
+          <img src={meal.image} width='170' height='150' onClick={()=>handleRecipeSelect(meal.id, meal.title, meal.image)}></img>
           <p>{meal.title}</p>
         </div>
       })}
 
-      <RecipeModalMenuAndReview id={id} recipe={recipe} testName={testMeals.name} testImage={testMeals.image} recipeTitle={recipeTitle} close={close} setOnClose={setOnClose}/>
+      <RecipeModalMenuAndReview id={id} recipe={recipe} image={image} recipeTitle={recipeTitle} close={close} setOnClose={setOnClose}/>
     </div>
   )
 

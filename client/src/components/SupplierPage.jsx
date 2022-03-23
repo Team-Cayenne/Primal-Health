@@ -2,7 +2,7 @@ import React from 'react'
 import SupplierModal from './SupplierModal';
 import Masthead from '../shared/Masthead.jsx'
 import axios from 'axios';
-
+import {Link}  from "react-router-dom";
 class SupplierPage extends React.Component {
   constructor(props) {
     super(props)
@@ -24,7 +24,7 @@ class SupplierPage extends React.Component {
   getSuppliers() {
     axios.get('/suppliers')
       .then(results => {
-        console.log('GET SUPPLIERS', results)
+        console.log('GET SUPPLIERS', results.data)
         this.setState({
           suppliers: results.data
         })
@@ -58,6 +58,7 @@ class SupplierPage extends React.Component {
           PRIMAL HEALTH is proud to collaborate with all of our purveyors!  These amazing artisans in their own crafts operate in sustainable, biodynamic practices.  Not only do they share their delicious and exceptional products with all of us, their holistic practices promote environmental rejuvanation, low waste policies and inclusive ecological preservation.
         </p>
         <br></br>
+        <Link to="/vendor-videos"> Purveyor Links</Link>
 
         {this.state.suppliers.map((supplier, i) => (
           <div className='supplier' key={i} onClick={() => this.selectSupplier(supplier)}>

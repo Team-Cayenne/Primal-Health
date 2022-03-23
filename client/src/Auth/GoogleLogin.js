@@ -2,12 +2,9 @@ import React from "react";
 import auth from "./firebase";
 import Styled from 'styled-components'
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
-<<<<<<< HEAD
 import {Link}  from "react-router-dom";
-=======
 import ProgressMasthead from '../shared/ProgressMasthead.jsx'
 
->>>>>>> c034ad737dd64c42fed6f13b6946b74fd0c07d8e
 
 export default class GoogleLogin extends React.Component {
   constructor(props) {
@@ -65,18 +62,6 @@ export default class GoogleLogin extends React.Component {
   render() {
     return (
       <div>
-        <label>Email</label>
-        <input type='email' onChange={this.addEmail}></input>
-        <label>Password</label>
-        <input onChange={this.addPassword}></input>
-        <button onClick={this.submit}>Login</button>
-        <button onClick={this.googleLogin} className="login-button">GOOGLE</button>
-        <button>
-        <Link to="/your-personal-pref">Choose Your Plan</Link>
-        </button>
-        <button>
-        <Link to="/">HOME</Link>
-        </button>
         <ProgressMasthead/>
         <Header>Welcome Back!</Header>
         <LoginContainer>
@@ -90,6 +75,12 @@ export default class GoogleLogin extends React.Component {
             <GoogleButton onClick={this.googleLogin} className="login-button">Continue with Google</GoogleButton>
           </LoginBox>
         </LoginContainer>
+        <button>
+        <Link to="/your-personal-pref">Choose Your Plan</Link>
+        </button>
+        <button>
+        <Link to="/">HOME</Link>
+        </button>
       </div>
     );
   }

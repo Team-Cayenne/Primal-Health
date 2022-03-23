@@ -29,7 +29,9 @@ const getRecipeSteps = async ({id}) => {
 
 const getRecipeImages = async ({id}) => {
   try {
-    const response = await axios(`https://api.spoonacular.com/recipes/${id}/ingredientWidget.png?apiKey=${config.apiKey}&measure=us`)
+    // const response = await axios(`https://api.spoonacular.com/recipes/${id}/ingredientWidget.png?apiKey=${config.apiKey}&measure=us`)
+
+    const response = await axios(`https://api.spoonacular.com/recipes/${id}/ingredientWidget?apiKey=${config.apiKey}&measure=us`)
     //add and return list from db
       console.log('response.data response.data', response.data)
       return response.data
@@ -41,7 +43,7 @@ const getRecipeImages = async ({id}) => {
 
 const getNutritional = async ({id}) => {
   try {
-    const response = await axios(`https://api.spoonacular.com/recipes/${id}/nutritionLabel.png?apiKey=${config.apiKey}`)
+    const response = await axios(`https://api.spoonacular.com/recipes/${id}/nutritionLabel?apiKey=${config.apiKey}`)
     //add and return list from db
       console.log('response.data response.data', response.data)
       return response.data
