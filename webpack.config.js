@@ -19,6 +19,11 @@ module.exports = {
         exclude: /node_modules/,
         use: 'babel-loader'
       }
+      ,
+      {
+        test: /\.(gif|svg|jpg|png)$/,
+        loader: "file-loader",
+      }
     ]
   },
   devServer: {
