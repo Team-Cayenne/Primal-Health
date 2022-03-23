@@ -18,8 +18,8 @@ import Masthead from '../shared/Masthead.jsx'
 import ReviewYourOrder from './ReviewYourOrder.jsx'
 import EnterCreditCard from './EnterCreditCard.jsx'
 import EnterShippingInfo from './EnterShippingInfo.jsx'
-import { BrowserRouter, Routes, Route, Link }  from "react-router-dom"
-import { AppContext } from "../context.js";
+// import { BrowserRouter, Routes, Route, Link }  from "react-router-dom"
+// import { AppContext } from "../context.js";
 
 // const AppProvider = (props) => {
 //   const [meals, setMeals] = useState([]);
@@ -71,7 +71,7 @@ import { AppContext } from "../context.js";
 //       </AppProvider>
 //     </BrowserRouter>
 //   );
-import { AppContext } from "../context.js";
+// import { AppContext } from "../context.js";
 
 
 // const AppProvider = (props) => {
@@ -285,7 +285,7 @@ class App extends React.Component {
       // </div>
       // <ConfirmationPage/>
 
-      <EnterCreditCard />
+      // <EnterCreditCard />
 
     )
   }
