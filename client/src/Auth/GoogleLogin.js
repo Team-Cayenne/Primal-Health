@@ -2,6 +2,7 @@ import React from "react";
 import auth from "./firebase";
 import Styled from 'styled-components'
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import {Link}  from "react-router-dom";
 import ProgressMasthead from '../shared/ProgressMasthead.jsx'
 
 
@@ -74,6 +75,12 @@ export default class GoogleLogin extends React.Component {
             <GoogleButton onClick={this.googleLogin} className="login-button">Continue with Google</GoogleButton>
           </LoginBox>
         </LoginContainer>
+        <button>
+        <Link to="/your-personal-pref">Choose Your Plan</Link>
+        </button>
+        <button>
+        <Link to="/">HOME</Link>
+        </button>
       </div>
     );
   }

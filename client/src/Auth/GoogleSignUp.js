@@ -2,6 +2,7 @@ import React from "react";
 import auth from "./firebase";
 import Styled from 'styled-components'
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import {Link}  from "react-router-dom";
 import ProgressMasthead from '../shared/ProgressMasthead.jsx'
 
 
@@ -39,6 +40,7 @@ export default class GoogleSignUp extends React.Component {
         const email = err.email;
         // The AuthCredential type that was used.
         const credential = GoogleAuthProvider.credentialFromError(err);
+
       })
   }
 
@@ -80,6 +82,7 @@ export default class GoogleSignUp extends React.Component {
           <GoogleButton onClick={this.googleLogin} className="login-button">GOOGLE</GoogleButton>
           </SignUpBox>
         </SignUpContainer>
+        <Link to="/shipping">Enter Shipping Info</Link>
       </div>
     );
   }
