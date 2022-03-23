@@ -1,12 +1,18 @@
 import React from 'react'
+import { useNavigate } from "react-router-dom";
 import { MainContainer } from '../styles/confirmationPage/styles';
 import { TopContainer, Logo } from '../styles/confirmationPage/top';
 import { MiddleContainer, ThankYou, OrderID, ThankYouRow, OrderConfirmation,
   OrderTitle, Line, TrackYourOrderButton, InnerPTittle, InnerPText } from '../styles/confirmationPage/middle';
 import { BottomContainer } from '../styles/confirmationPage/bottom';
+import {Link}  from "react-router-dom";
 
 const ConfirmationPage = () =>{
-
+  // let navigate = useNavigate();
+  // const routeChange = () =>{
+  //   let path = 'Primal-Health/client/src/components/TrackingPage.jsx';
+  //   navigate(path);
+  // }
   return (
     <MainContainer>
       <TopContainer>
@@ -44,5 +50,5 @@ const ConfirmationPage = () =>{
   )
 
 }
-
+//<TrackYourOrderButton onClick={routeChange}>Track your order</TrackYourOrderButton>
 export default ConfirmationPage

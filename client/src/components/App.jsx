@@ -7,7 +7,7 @@ import VideoDetail from './VideoDetail.jsx'
 import SupplierPage from './SupplierPage.jsx'
 import ConfirmationPage from './ConfirmationPage.jsx';
 import TrackingPage from './TrackingPage.jsx';
-import {BrowserRouter, Routes, Route, Link}  from "react-router-dom"
+import {BrowserRouter, Routes, Route, Link, useNavigate}  from "react-router-dom"
 import SelectMeals from './SelectMeals.jsx'
 import UserProfile from './UserProfile.jsx';
 import UserOrderTracking from './UserOrderTracking.jsx';
@@ -18,6 +18,7 @@ import Masthead from '../shared/Masthead.jsx'
 import ReviewYourOrder from './ReviewYourOrder.jsx'
 import EnterCreditCard from './EnterCreditCard.jsx'
 import { AppContext } from "../context.js";
+import ShippingInfoPage from './ShippingInfoPage.jsx';
 
 
 // const AppProvider = (props) => {
@@ -214,10 +215,11 @@ class App extends React.Component {
 
   render() {
     return (
+
+      // <EnterCreditCard />
       // <ConfirmationPage/>
-
-      <EnterCreditCard />
-
+      <ShippingInfoPage/>
+      // <TrackingPage/>
     )
   }
 }
