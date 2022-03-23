@@ -1,13 +1,24 @@
-// import { signInWithGoogle } from '../services/firebase';
+import React from 'react';
 
-// // import '../App.css';
+import {firebase} from '../firebase/firebase.js';
 
-// const LoginPage = () => {
-//   return (
-//     <div>
-//       <button className="button" onClick={signInWithGoogle}><i className="fab fa-google"></i>Sign in with google</button>
-//     </div>
-//   )
-// }
+  const LoginPage = () => {
 
-// export default LoginPage;
+    const signInWithGoogle = () => {
+      let provider = new firebase.auth.GoogleAuthProvider()
+      firebase.auth().signInWithPopup(provider)
+        .then(result => {
+          console.log(result)
+        })
+        .catch(err => {
+          console.error(err)
+        })
+    }
+    return (
+      <div>
+        <button className="button" onClick={signInWithGoogle}><i className="fab fa-google"></i>Sign in with google</button>
+      </div>
+    )
+  }
+
+export default LoginPage;

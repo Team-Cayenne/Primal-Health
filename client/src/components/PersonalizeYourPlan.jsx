@@ -1,10 +1,36 @@
-import React, { useState } from 'react'
+import { AppContext } from "../context.js";
+import React, { useState, useContext } from 'react'
 import Styled from 'styled-components'
-
 import ProgressMasthead from '../shared/ProgressMasthead.jsx'
+import axios from 'axios';
+import 'regenerator-runtime/runtime'
+import {Link}  from "react-router-dom";
 
-const PersonalizeYourPlan = (props) => {
+  const PersonalizeYourPlan = (props) => {
+    const {meals, setMeals} = useContext(AppContext);
+    const [type, setType] = useState('');
+    const mealTypes = {
+      "meat": "Whole30",
+      "vegetarian": "Vegetarian",
+      "pescetarian": "Pescetarian",
+      "paleo": "Paleo",
+      "Ketogenic": "Ketogenic",
+      "vegan": "Vegan"
+    }
 
+    const handleMealPref = async(mealType) => {
+      setType(mealType)
+      console.log('TYPE', type)
+      try {
+        const results = await axios.post('/mealchoice', {type: mealType})
+        setMeals(results.data.results)
+        console.log("results", results)
+      } catch (err) {
+        console.log("UNABLE TO SET MEALS", err)
+      }
+    }
+    console.log('MEALS', meals)
+    console.log("TYPE", type)
   return (
     <PersonalizeYourPlanContainer>
       <ProgressMasthead />
@@ -17,12 +43,12 @@ const PersonalizeYourPlan = (props) => {
           <StepOneButtonContainer>
 
             <PreferenceButtons>
-              <Image src="../assets/preferences/meatandveggies.png" width='70' height='40'></Image>
+              <Image src="../assets/preferences/meatandveggies.png" width='70' height='40'onClick={()=>handleMealPref(mealTypes['meat'])} ></Image>
               Meat and Veggies
             </PreferenceButtons>
 
             <PreferenceButtons>
-              <img src="../assets/preferences/veggies.png" width='70' height='40'></img>
+              <img src="../assets/preferences/veggies.png" width='70' height='40'onClick={()=>handleMealPref(mealTypes['vegetarian'])}></img>
               Veggies
             </PreferenceButtons>
 
@@ -32,17 +58,17 @@ const PersonalizeYourPlan = (props) => {
             </PreferenceButtons>
 
             <PreferenceButtons>
-              <Image src="../assets/preferences/fitandwholesome.png" width='60' height='40'></Image>
-              Fit & Wholesome
+              <Image src="../assets/preferences/fitandwholesome.png" width='60' height='40' onClick={()=>handleMealPref(mealTypes['vegan'])}></Image>
+              Vegan
             </PreferenceButtons>
 
             <PreferenceButtons>
-              <Image src="../assets/preferences/quickandeasy.png" width='40' height='40'></Image>
-              Quick & Easy
+              <Image src="../assets/preferences/quickandeasy.png" width='40' height='40' onClick={()=>handleMealPref(mealTypes['paleo'])}></Image>
+              Paleo
             </PreferenceButtons>
 
             <PreferenceButtons>
-              <img src="../assets/preferences/pescatarian.png" width='75' height='40'></img>
+              <img src="../assets/preferences/pescatarian.png" width='75' height='40' onClick={()=>handleMealPref(mealTypes['pescetarian'])}></img>
               Pescatarian
             </PreferenceButtons>
 
@@ -74,7 +100,7 @@ const PersonalizeYourPlan = (props) => {
 
           <OrderSummary>
             <MealSelection>
-              <div>Meat & Veggies</div>
+              <div>{type}</div>
               <div>4 Meals for 5 people per week</div>
               <div>20 Meals per week</div>
             </MealSelection>
@@ -85,14 +111,16 @@ const PersonalizeYourPlan = (props) => {
               </Shipping>
               <Total>
                 <div>Total</div>
-                <div>$199.80</div>
+                <div>$272.79</div>
               </Total>
             </Cost>
           </OrderSummary>
         </StepTwo>
       </StepsContainer>
       <ContinueContainer>
-        <ContinueButton>Select plan & continue</ContinueButton>
+        <ContinueButton>Select plan & continue
+          <Link to="/videos">Videos</Link>
+        </ContinueButton>
       </ContinueContainer>
     </PersonalizeYourPlanContainer>
   )
