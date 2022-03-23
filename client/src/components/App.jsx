@@ -1,5 +1,6 @@
 import React, { useState, useContext } from 'react';
 import axios from 'axios';
+import React, {useState} from 'react';
 import Nutritional from './Nutritional.jsx'
 import PersonalizeYourPlan from './PersonalizeYourPlan.jsx'
 import VideoDetail from './VideoDetail.jsx'
@@ -60,6 +61,8 @@ const App = () => {
     </BrowserRouter>
   );
 // import LoginPage from './LoginPage.jsx'
+import LoginPage from './LoginPage.jsx';
+import firebase from '../firebase/firebase.js';
 
 // const App = () => {
 //   return (
@@ -119,12 +122,21 @@ const App = () => {
   //   return (
   //     <div>
 
+<<<<<<< HEAD
   //     <div>Primal Health Test</div>
   //     {/* {true ? (
   //     <div>
   //       <LoginPage />
   //       </div>) : null} */}
   //     </div>
+=======
+      <div>Primal Health Test</div>
+      {true ? (
+      <div>
+        <LoginPage />
+        </div>) : null}
+      </div>
+>>>>>>> 17f7c380f3b7b16d54a18a5cd4893369379b29ef
 
   //   )
   // }

@@ -11,6 +11,22 @@ app.use(express.json());
 app.get('*', function(req, res) {
   res.sendFile('index.html', {root: path.join(__dirname, '../public/')});
 });
+// app.use(cors());
+// app.use(bodyParser.json());
+
+// Supplier routes
+app.post('/suppliers', controller.addSupplier);
+
+app.get('/suppliers', controller.getSuppliers);
+
+// FAQ routes
+app.post('/faqs', controller.addFAQ);
+
+app.get('/faqs', controller.getFAQs);
+
+// app.get('*', function(req, res) {
+//   res.sendFile('index.html', {root: path.join(__dirname, '../public/')});
+// });
 
 // !Cheryl Beginning
 app.post('/mealchoice', async (req, res) => {
