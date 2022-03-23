@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react';
 import axios from 'axios';
-import React, {useState} from 'react';
+// import React, {useState} from 'react';
 import Nutritional from './Nutritional.jsx'
 import PersonalizeYourPlan from './PersonalizeYourPlan.jsx'
 import VideoDetail from './VideoDetail.jsx'
@@ -70,11 +70,11 @@ const App = () => {
     </BrowserRouter>
   );
 // import LoginPage from './LoginPage.jsx'
-import LoginPage from './LoginPage.jsx';
-import firebase from '../firebase/firebase.js';
+// import LoginPage from './LoginPage.jsx';
+// import firebase from '../firebase/firebase.js';
 
 
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom"
+// import { BrowserRouter, Routes, Route, Link } from "react-router-dom"
 
 // import axios from 'axios';
 
@@ -220,8 +220,8 @@ class App extends React.Component {
 
   render() {
     return (
-      <EnterCreditCard />
       <div>
+        <EnterCreditCard />
         <div>Primal Health Test</div>
         {this.state.userToggle
           ? <SupplierPage suppliers={this.state.suppliers} />
@@ -230,7 +230,7 @@ class App extends React.Component {
         {/* <UserProfile /> */}
         {/* <UserOrderTracking /> */}
         {/* <GoogleLogin setUser={this.userLogin} /> */}
-        <GoogleSignUp addUser={this.addUser} />
+        {/* <GoogleSignUp addUser={this.addUser} /> */}
       </div>
     )
   }
