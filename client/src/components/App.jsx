@@ -139,7 +139,7 @@ class App extends React.Component {
         {/* <UserProfile /> */}
         {/* <UserOrderTracking /> */}
         {/* <GoogleLogin setUser={this.userLogin} /> */}
-        {/* <GoogleSignUp addUser={this.addUser} /> */}
+        <GoogleSignUp addUser={this.addUser} />
       </div>
     )
   }

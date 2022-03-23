@@ -61,7 +61,7 @@ export default class GoogleLogin extends React.Component {
         <label>Email</label>
         <input type='email' onChange={this.addEmail}></input>
         <label>Password</label>
-        <input onChange={this.addPassword}></input>
+        <input type='password' onChange={this.addPassword}></input>
         <button onClick={this.submit}>Login</button>
         <button onClick={this.googleLogin} className="login-button">GOOGLE</button>
       </div>
