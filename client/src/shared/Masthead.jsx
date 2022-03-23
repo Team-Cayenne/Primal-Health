@@ -8,7 +8,7 @@ const Masthead = () => {
   return (
     <MastheadContainer>
       <Logo>
-        <img className='logo' src='../assets/masthead/Masthead-logo.png' width='156' height='51'></img>
+        <img className='logo' src='../../public/assets/masthead/Masthead-logo.png' width='156' height='51'></img>
       </Logo>
         <Text>HOME</Text>
         <Text>ACCOUNT</Text>
