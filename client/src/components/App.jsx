@@ -270,13 +270,14 @@ class App extends React.Component {
 
   render() {
     return (
-      <SupplierPage />
-      // <div>
+      // <SupplierPage suppliers={this.state.suppliers} />
+      <PersonalizeYourPlan />
+            // <div>
       //   <div>Primal Health Test</div>
-      //   {this.state.userToggle
-      //     ? <SupplierPage suppliers={this.state.suppliers} />
-      //     : null
-      //   }
+        // {this.state.userToggle
+        //   ? <SupplierPage suppliers={this.state.suppliers} />
+        //   : null
+        // }
       //   {/* <UserProfile /> */}
       //   {/* <UserOrderTracking /> */}
       // <GoogleLogin setUser={this.userLogin}/>
