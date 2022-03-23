@@ -19,6 +19,11 @@ module.exports = {
         exclude: /node_modules/,
         use: 'babel-loader'
       }
+      ,
+      {
+        test: /\.(gif|svg|jpg|png)$/,
+        loader: "file-loader",
+      }
     ]
   },
   devServer: {
@@ -27,7 +32,8 @@ module.exports = {
   mode: 'development',
   resolve: {
     extensions: ['.js', '.jsx']
-  },
+  }
+  ,
   entry: ["regenerator-runtime/runtime.js", "<your enter js file>"]
 };
 
