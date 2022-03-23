@@ -9,6 +9,19 @@
 /* Default font-size is 16px. 1Rem=default font-size.
 Reset font-size to make calculations easier. Setting font-size to 62.5% makes 1Rem=10px. Using rems also allows the app to be responsive to screen size changes  */
 html {
+  font-size: medium;
+}
+
+.nutritionalExperts {
+  display: flex
+}
+
+.nutritionistInfo {
+  margin-top: 10px;
+}
+
+.healthPageBody {
+  display: flex;
   font-size: 100%;
 }
 
