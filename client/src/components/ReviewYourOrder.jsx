@@ -1,6 +1,6 @@
 import React from 'react'
 import Styled from 'styled-components'
-
+import {Link}  from "react-router-dom";
 import ProgressMasthead from '../shared/ProgressMasthead.jsx'
 
 const ReviewYourOrder = () => {
@@ -45,7 +45,9 @@ const ReviewYourOrder = () => {
             </Cost>
           </OrderSummary>
           <div>If your order contains alcoholic items, someone over the age of 21 must accept the order.</div>
-          <Button>Place Order</Button>
+          <Button>
+            <Link to="/order-confirmation">Place Order</Link>
+          </Button>
         </RightSide>
       </ReviewYourOrderContainer>
 

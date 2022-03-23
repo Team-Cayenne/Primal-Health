@@ -1,9 +1,16 @@
 import React from 'react'
+import Masthead from '../shared/Masthead.jsx'
+import {Link}  from "react-router-dom";
 
 const VideoDetail= () =>{
   return (
-    <div>Featured Videos
-      <div>
+
+    <div>
+      <Masthead />
+      <div>Featured Videos
+          <button>
+            <Link to="/nutrition-health">BACK</Link>
+          </button>
         <div>
           Yoga
         </div>

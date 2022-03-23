@@ -1,12 +1,185 @@
-import React from 'react'
+import React, {useContext, useState, useEffect} from 'react'
 import { AppContext } from "../context.js";
 import Styled from 'styled-components'
 import ProgressMasthead from '../shared/ProgressMasthead.jsx'
+import {Link}  from "react-router-dom";
+import axios from 'axios';
+
 
   const SelectMeals = () =>{
     // !Cheryl
-    const {meals, selectMeals, setSelectMeals} = useContext(AppContext);
+  const {meals, selectMeals, setSelectMeals} = useContext(AppContext);
+  const [special, setSpecial] = useState([]);
+
     // !Cheryl
+
+    useEffect(()=> {
+      getSuppliers()
+    }, []);
+
+    const getSuppliers=()=> {
+      axios.get('/suppliers')
+        .then(results => {
+          console.log('GET SUPPLIERS', results)
+          setSpecial(results.data)
+        })
+        .catch(err => {
+          console.log(err);
+        })
+    }
+    console.log("SPECIAL", special)
+    const testMeals = [
+      {
+        id: 716381,
+        title: 'Nigerian Snail Stew',
+        image: 'https://spoonacular.com/recipeImages/716381-312x231.jpg',
+        imageType: 'jpg'
+      },
+      {
+        id: 769774,
+        title: 'Shredded Roast Beef Stuffed Sweet Potatoes (Whole 30 & PALEO)',
+        image: 'https://spoonacular.com/recipeImages/769774-312x231.jpg',
+        imageType: 'jpg'
+      },
+      {
+        id: 639851,
+        title: 'Cod with Tomato-Olive-Chorizo Sauce and Mashed Potatoes',
+        image: 'https://spoonacular.com/recipeImages/639851-312x231.jpg',
+        imageType: 'jpg'
+      },
+      {
+        id: 633344,
+        title: 'Bacon Wrapped Pork Tenderloin',
+        image: 'https://spoonacular.com/recipeImages/633344-312x231.jpg',
+        imageType: 'jpg'
+      },
+      {
+        id: 716330,
+        title: 'Chicken and Mango Skewer',
+        image: 'https://spoonacular.com/recipeImages/716330-312x231.jpg',
+        imageType: 'jpg'
+      },
+      {
+        id: 659135,
+        title: 'Salmon with roasted vegetables',
+        image: 'https://spoonacular.com/recipeImages/659135-312x231.jpg',
+        imageType: 'jpg'
+      },
+      {
+        id: 638626,
+        title: 'Chimichurri Skirt Steak with Grilled Asparagus',
+        image: 'https://spoonacular.com/recipeImages/638626-312x231.jpg',
+        imageType: 'jpg'
+      },
+      {
+        id: 1046982,
+        title: 'How to Make the Perfect Sweet Potato Sloppy Joes',
+        image: 'https://spoonacular.com/recipeImages/1046982-312x231.jpg',
+        imageType: 'jpg'
+      },
+      {
+        id: 661578,
+        title: 'Steamed Plaice & Spinach Rolls',
+        image: 'https://spoonacular.com/recipeImages/661578-312x231.jpg',
+        imageType: 'jpg'
+      },
+      {
+        id: 648257,
+        title: 'Italian Steamed Artichokes',
+        image: 'https://spoonacular.com/recipeImages/648257-312x231.jpg',
+        imageType: 'jpg'
+      },
+      {
+        id: 648627,
+        title: 'Juicy & Tender ~ Pork Loin Roast',
+        image: 'https://spoonacular.com/recipeImages/648627-312x231.jpg',
+        imageType: 'jpg'
+      },
+      {
+        id: 648247,
+        title: 'Italian Seafood Stew',
+        image: 'https://spoonacular.com/recipeImages/648247-312x231.jpg',
+        imageType: 'jpg'
+      },
+      {
+        id: 665831,
+        title: 'fennel, Peppers, Lettuce Salad',
+        image: 'https://spoonacular.com/recipeImages/665831-312x231.jpg',
+        imageType: 'jpg'
+      },
+      {
+        id: 645856,
+        title: 'Grilled Salmon With Cherry, Pineapple, Mango Salsa',
+        image: 'https://spoonacular.com/recipeImages/645856-312x231.jpg',
+        imageType: 'jpg'
+      },
+      {
+        id: 654435,
+        title: 'Pan Seared Salmon',
+        image: 'https://spoonacular.com/recipeImages/654435-312x231.jpg',
+        imageType: 'jpg'
+      },
+      {
+        id: 659674,
+        title: 'Seared Pork Chops with Mango Salsa',
+        image: 'https://spoonacular.com/recipeImages/659674-312x231.jpg',
+        imageType: 'jpg'
+      },
+      {
+        id: 665261,
+        title: 'Whole Chicken Dinner',
+        image: 'https://spoonacular.com/recipeImages/665261-312x231.jpg',
+        imageType: 'jpg'
+      },
+      {
+        id: 716427,
+        title: 'Roasted Butterflied Chicken w. Onions & Carrots',
+        image: 'https://spoonacular.com/recipeImages/716427-312x231.jpg',
+        imageType: 'jpg'
+      },
+      {
+        id: 648721,
+        title: 'Kale and Roasted Sweet Potato Soup with Chicken Sausage',
+        image: 'https://spoonacular.com/recipeImages/648721-312x231.jpg',
+        imageType: 'jpg'
+      },
+      {
+        id: 643061,
+        title: 'Flank Steak with Herbed Salsa',
+        image: 'https://spoonacular.com/recipeImages/643061-312x231.jpg',
+        imageType: 'jpg'
+      },
+      {
+        id: 645863,
+        title: 'Grilled Salmon With Mango Salsa',
+        image: 'https://spoonacular.com/recipeImages/645863-312x231.jpg',
+        imageType: 'jpg'
+      },
+      {
+        id: 645422,
+        title: 'Sausages with Green Cabbage Mash',
+        image: 'https://spoonacular.com/recipeImages/645422-312x231.jpg',
+        imageType: 'jpg'
+      },
+      {
+        id: 640990,
+        title: 'Cuban Flank Steak With Avocado and Tomato Salad',
+        image: 'https://spoonacular.com/recipeImages/640990-312x231.jpg',
+        imageType: 'jpg'
+      },
+      {
+        id: 654352,
+        title: 'Pak Choi and Bean Sprouts Salad',
+        image: 'https://spoonacular.com/recipeImages/654352-312x231.jpg',
+        imageType: 'jpg'
+      },
+      {
+        id: 633088,
+        title: 'Authentic Jamaican Curry Chicken',
+        image: 'https://spoonacular.com/recipeImages/633088-312x231.jpg',
+        imageType: 'jpg'
+      }
+    ]
 
   return (
     <div>
@@ -17,48 +190,12 @@ import ProgressMasthead from '../shared/ProgressMasthead.jsx'
             <div>Select Recipes</div>
           </HeaderText>
           <OneRecipeRow>
-            <OneRecipe>
-              <img src="../assets/selectmeals/item1.png" width='170' height='150'></img>
-              <RecipeName>Placeholder for meal</RecipeName>
-              <RecipeInfo>Calories | Gluten-Free | Single Serve</RecipeInfo>
-            </OneRecipe>
-            <OneRecipe>
-              <img src="../assets/selectmeals/item2.png" width='170' height='150'></img>
-              <RecipeName>Placeholder for meal</RecipeName>
-              <RecipeInfo>Calories | Gluten-Free | Single Serve</RecipeInfo>
-            </OneRecipe>
-            <OneRecipe>
-              <img src="../assets/selectmeals/item3.png" width='170' height='150'></img>
-              <RecipeName>Placeholder for meal</RecipeName>
-              <RecipeInfo>Calories | Gluten-Free | Single Serve</RecipeInfo>
-            </OneRecipe>
-            <OneRecipe>
-              <img src="../assets/selectmeals/item4.png" width='170' height='150'></img>
-              <RecipeName>Placeholder for meal</RecipeName>
-              <RecipeInfo>Calories | Gluten-Free | Single Serve</RecipeInfo>
-            </OneRecipe>
-          </OneRecipeRow>
-          <OneRecipeRow>
-            <OneRecipe>
-              <img src="../assets/selectmeals/item5.png" width='170' height='150'></img>
-              <RecipeName>Placeholder for meal</RecipeName>
-              <RecipeInfo>Calories | Gluten-Free | Single Serve</RecipeInfo>
-            </OneRecipe>
-            <OneRecipe>
-              <img src="../assets/selectmeals/item6.png" width='170' height='150'></img>
-              <RecipeName>Placeholder for meal</RecipeName>
-              <RecipeInfo>Calories | Gluten-Free | Single Serve</RecipeInfo>
-            </OneRecipe>
-            <OneRecipe>
-              <img src="../assets/selectmeals/item7.png" width='170' height='150'></img>
-              <RecipeName>Placeholder for meal</RecipeName>
-              <RecipeInfo>Calories | Gluten-Free | Single Serve</RecipeInfo>
-            </OneRecipe>
-            <OneRecipe>
-              <img src="../assets/selectmeals/item8.png" width='170' height='150'></img>
-              <RecipeName>Placeholder for meal</RecipeName>
-              <RecipeInfo>Calories | Gluten-Free | Single Serve</RecipeInfo>
-            </OneRecipe>
+            {testMeals.map((meal, i)=> {
+              return <OneRecipe key={i}>
+              <img src={meal.image} width='170' height='150'></img>
+              <RecipeName>{meal.title}</RecipeName>
+              </OneRecipe>
+            })}
           </OneRecipeRow>
         </RecipesContainer>
 
@@ -84,7 +221,9 @@ import ProgressMasthead from '../shared/ProgressMasthead.jsx'
               </Cost>
           </SummaryBoxContainer>
           <ReviewOrderContainer>
-            <ReviewOrderButton>Review Order</ReviewOrderButton>
+            <ReviewOrderButton>
+            <Link to="/review-order">Review Order</Link>
+            </ReviewOrderButton>
           </ReviewOrderContainer>
         </OrderSummaryContainer>
 
@@ -93,26 +232,12 @@ import ProgressMasthead from '../shared/ProgressMasthead.jsx'
           Add Specialty Items
         </SpecialtyHeader>
           <SpecialtyItemsContainer>
-            <OneSpecialty>
-              <img src="../assets/selectmeals/item5.png" width='130' height='115'></img>
-              <SpecialtyName>Placeholder for specialty</SpecialtyName>
-              <SpecialtyInfo>$10.99</SpecialtyInfo>
-            </OneSpecialty>
-            <OneSpecialty>
-              <img src="../assets/selectmeals/item5.png" width='130' height='115'></img>
-              <SpecialtyName>Placeholder for specialty</SpecialtyName>
-              <SpecialtyInfo>$10.99</SpecialtyInfo>
-            </OneSpecialty>
-            <OneSpecialty>
-              <img src="../assets/selectmeals/item5.png" width='130' height='115'></img>
-              <SpecialtyName>Placeholder for specialty</SpecialtyName>
-              <SpecialtyInfo>$10.99</SpecialtyInfo>
-            </OneSpecialty>
-            <OneSpecialty>
-              <img src="../assets/selectmeals/item5.png" width='130' height='115'></img>
-              <SpecialtyName>Placeholder for specialty</SpecialtyName>
-              <SpecialtyInfo>$10.99</SpecialtyInfo>
-            </OneSpecialty>
+            {special.map((item, i) => {
+              return <OneSpecialty>
+                <img src={item.food_item_url} width='170' height='150'/>
+                <p>{item.supplier_name}</p>
+              </OneSpecialty>
+            })}
           </SpecialtyItemsContainer>
     </div>
   )
@@ -131,7 +256,9 @@ const RecipesContainer = Styled.div`
 `
 const OneRecipeRow = Styled.div`
   display: flex;
+  flex-wrap: wrap;
   margin-top: 10px;
+  gap: 20px
 `
 const OneRecipe = Styled.div`
   display: flex;
@@ -139,6 +266,7 @@ const OneRecipe = Styled.div`
 `
 const RecipeName = Styled.div`
   font-size: 12px;
+  width: 160px
 `
 const RecipeInfo = Styled.div`
   font-size: 9px;

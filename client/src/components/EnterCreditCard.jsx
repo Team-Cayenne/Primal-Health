@@ -1,6 +1,6 @@
 import React from 'react'
 import Styled from 'styled-components'
-
+import {Link}  from "react-router-dom";
 import ProgressMasthead from '../shared/ProgressMasthead.jsx'
 
 const EnterCreditCard = () =>{
@@ -55,7 +55,9 @@ const EnterCreditCard = () =>{
             </Cost>
           </OrderSummary>
           <div>If your order contains alcoholic items, someone over the age of 21 must accept the order.</div>
-          <Button onClick={handleClick}>Next Step</Button>
+          <Button onClick={handleClick}>
+          <Link to="/select-meals">Next Step</Link>
+          </Button>
         </RightSide>
       </EnterCreditCardContainer>
     </div>

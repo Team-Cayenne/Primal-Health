@@ -1,6 +1,7 @@
 import React from "react";
 import auth from "./firebase";
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import {Link}  from "react-router-dom";
 
 export default class GoogleLogin extends React.Component {
   constructor(props) {
@@ -64,6 +65,12 @@ export default class GoogleLogin extends React.Component {
         <input onChange={this.addPassword}></input>
         <button onClick={this.submit}>Login</button>
         <button onClick={this.googleLogin} className="login-button">GOOGLE</button>
+        <button>
+        <Link to="/your-personal-pref">Choose Your Plan</Link>
+        </button>
+        <button>
+        <Link to="/">HOME</Link>
+        </button>
       </div>
     );
   }

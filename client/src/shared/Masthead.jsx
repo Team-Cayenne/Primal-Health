@@ -1,6 +1,6 @@
 import React from 'react'
 import Styled from 'styled-components'
-
+import {Link}  from "react-router-dom";
 import Button from './Button.jsx'
 
 const Masthead = () => {
@@ -10,13 +10,22 @@ const Masthead = () => {
       <Logo>
         <img className='logo' src='../assets/masthead/Masthead-logo.png' width='156' height='51'></img>
       </Logo>
-        <Text>HOME</Text>
-        <Text>ACCOUNT</Text>
-        <Text>OUR PLANS</Text>
-        <Text>OUR RECIPES</Text>
-        <Text>OUR SUPPLIERS</Text>
-        <Text>ABOUT US</Text>
-        <Button type={'getStarted'}/>
+        <Text>
+          <Link to="/">HOME</Link>
+        </Text>
+        <Link to="/user-profile">ACCOUNT</Link>
+        {/* <Text>ACCOUNT</Text> */}
+        <Link to="/nutrition-health">HEALTH&NUTRITION</Link>
+        {/* <Text>OUR PLANS</Text> */}
+        <Link to="/recipe-menu">OUR RECIPES</Link>
+        {/* <Text>OUR RECIPES</Text> */}
+        <Link to="/meet-our-vendors">OUR SUPPLIERS</Link>
+        {/* <Text>OUR SUPPLIERS</Text> */}
+        {/* <Text>ABOUT US</Text> */}
+        {/* <Button type={'Login'}/> */}
+        <button>
+          <Link to="/login">LOGIN</Link>
+        </button>
     </MastheadContainer>
   )
 }

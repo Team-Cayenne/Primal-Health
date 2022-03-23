@@ -1,12 +1,13 @@
 import React from 'react';
 import {Link}  from "react-router-dom";
+import Masthead from '../shared/Masthead.jsx'
 
 const Nutritional= () =>{
 
   return (
     <div>
+      <Masthead />
       Nutritional Health Page
-      {/* <Masthead/> */}
       <Link to="/videos">Videos</Link>
       <div>Nutritional Experts
         <div>

@@ -1,4 +1,6 @@
 import React from 'react'
+import Masthead from '../shared/Masthead.jsx'
+import {Link}  from "react-router-dom";
 
 const UserOrderTracking = (props) => {
 
@@ -21,7 +23,11 @@ const UserOrderTracking = (props) => {
 
   return (
     <div>
+      <Masthead />
       {/* {props.orders.map((order, i) => (create order div))} */}
+      <button>
+      <Link to="/user-profile">BACK</Link>
+      </button>
       {orders.map((order, i) => (
         <div className='order-history' key={i}>
           <div className='order-key'>
