@@ -9,18 +9,15 @@ import SupplierPage from './SupplierPage.jsx'
 import RecipeModalMenuAndReview from './RecipeModalMenuAndReview.jsx'
 import ConfirmationPage from './ConfirmationPage.jsx'
 import TrackingPage from './TrackingPage.jsx'
-import ConfirmationPage from './ConfirmationPage.jsx';
-import TrackingPage from './TrackingPage.jsx';
 import {BrowserRouter, Routes, Route, Link}  from "react-router-dom"
 import SelectMeals from './SelectMeals.jsx'
 import UserProfile from './UserProfile.jsx';
 import UserOrderTracking from './UserOrderTracking.jsx';
 import GoogleLogin from '../Auth/GoogleLogin.js';
 import GoogleSignUp from '../Auth/GoogleSignUp.js';
-import SelectMeals from './SelectMeals.jsx'
 import Masthead from '../shared/Masthead.jsx'
 import MenuAndReview from './MenuAndReview.jsx'
-import Masthead from '../shared/Masthead.jsx'
+
 
 import ReviewYourOrder from './ReviewYourOrder.jsx'
 import EnterCreditCard from './EnterCreditCard.jsx'
@@ -78,6 +75,7 @@ const App = () => {
       </AppProvider>
     </BrowserRouter>
   );
+  }
 // import LoginPage from './LoginPage.jsx'
 
 // import axios from 'axios';
@@ -156,145 +154,145 @@ const App = () => {
 //   }
 
 
-class App extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      // suppliers: [],
-      users: [],
-      user: '',
-      userToggle: false
-    }
+// class App extends React.Component {
+//   constructor(props) {
+//     super(props)
+//     this.state = {
+//       // suppliers: [],
+//       users: [],
+//       user: '',
+//       userToggle: false
+//     }
 
-    this.getFAQs = this.getFAQs.bind(this);
-    // this.getSuppliers = this.getSuppliers.bind(this);
-    this.userLogin = this.userLogin.bind(this);
-    this.getUsers = this.getUsers.bind(this);
-    this.addUser = this.addUser.bind(this);
-    this.postUser = this.postUser.bind(this);
-  }
+//     this.getFAQs = this.getFAQs.bind(this);
+//     // this.getSuppliers = this.getSuppliers.bind(this);
+//     this.userLogin = this.userLogin.bind(this);
+//     this.getUsers = this.getUsers.bind(this);
+//     this.addUser = this.addUser.bind(this);
+//     this.postUser = this.postUser.bind(this);
+//   }
 
-  componentDidMount() {
-    // this.getFAQs()
-    this.getSuppliers()
-    this.getUsers();
-  }
-
-
-  getFAQs() {
-    axios.get('/faqs')
-      .then(results => {
-        console.log('get FAQs results:', results)
-      })
-  }
+//   componentDidMount() {
+//     // this.getFAQs()
+//     this.getSuppliers()
+//     this.getUsers();
+//   }
 
 
-  // getSuppliers() {
-  //   axios.get('/suppliers')
-  //     .then(results => {
-  //       this.setState({
-  //         suppliers: results.data
-  //       })
-  //     })
-  //     .catch(err => {
-  //       console.log(err);
-  //     })
+//   getFAQs() {
+//     axios.get('/faqs')
+//       .then(results => {
+//         console.log('get FAQs results:', results)
+//       })
+//   }
+
+
+//   // getSuppliers() {
+//   //   axios.get('/suppliers')
+//   //     .then(results => {
+//   //       this.setState({
+//   //         suppliers: results.data
+//   //       })
+//   //     })
+//   //     .catch(err => {
+//   //       console.log(err);
+//   //     })
+//   // }
+
+
+//   getUsers() {
+//     axios.get('/users')
+//       .then(results => {
+//         this.setState({
+//           users: results.data
+//         })
+//       })
+//       .catch(err => {
+//         console.log(err);
+//       })
+//   }
+
+//   userLogin(user) {
+//     if (user.password) {
+//       for (let i = 0; i < this.state.users.length; i++) {
+//         if (this.state.users[i].email === user.email && this.state.users[i].password === user.password) {
+//           this.setState({
+//             userToggle: true
+//           })
+//           return;
+//         }
+//       }
+//       alert('No User Matching These Credentials');
+
+//     } else {
+//       for (let i = 0; i < this.state.users.length; i++) {
+//         if (this.state.users[i].email === user.email) {
+//           this.setState({
+//             userToggle: true
+//           })
+//           return;
+//         }
+//       }
+//       alert('No User Matching These Credentials');
+//     }
+//   }
+
+//   addUser(user) {
+//     if (user.password) {
+//       for (let i = 0; i < this.state.users.length; i++) {
+//         if (this.state.users[i].email === user.email) {
+//           alert('Email Already Exists');
+//           return;
+//         }
+//       }
+//       this.postUser(user)
+//     } else {
+//       for (let i = 0; i < this.state.users.length; i++) {
+//         if (this.state.users[i].email === user.email) {
+//           alert('Email Already Exists');
+//           return;
+//         }
+//       }
+//       this.postUser(user);
+//     }
+//   }
+
+
+//   postUser(user) {
+//     axios.post('/users', user)
+//       .then(res => {
+//         console.log(res);
+//         this.setState({
+//           userToggle: true
+//         })
+//       })
+//       .catch(err => {
+//         console.log(err);
+//       })
+//   }
+// }
+
+//   render() {}
+  //   return (
+  //     <div>
+
+
+  //       {this.state.userToggle
+  //         ? <SupplierPage suppliers={this.state.suppliers} />
+  //         : null
+  //       }
+  //       {/* <UserProfile /> */}
+  //       {/* <UserOrderTracking /> */}
+  //       {/* <GoogleLogin setUser={this.userLogin} /> */}
+  //       {/* <GoogleSignUp addUser={this.addUser} /> */}
+  //     </div>
+  //     // <ConfirmationPage/>
+
+  //     <EnterCreditCard />
+
+  //   )
   // }
 
-
-  getUsers() {
-    axios.get('/users')
-      .then(results => {
-        this.setState({
-          users: results.data
-        })
-      })
-      .catch(err => {
-        console.log(err);
-      })
-  }
-
-  userLogin(user) {
-    if (user.password) {
-      for (let i = 0; i < this.state.users.length; i++) {
-        if (this.state.users[i].email === user.email && this.state.users[i].password === user.password) {
-          this.setState({
-            userToggle: true
-          })
-          return;
-        }
-      }
-      alert('No User Matching These Credentials');
-
-    } else {
-      for (let i = 0; i < this.state.users.length; i++) {
-        if (this.state.users[i].email === user.email) {
-          this.setState({
-            userToggle: true
-          })
-          return;
-        }
-      }
-      alert('No User Matching These Credentials');
-    }
-  }
-
-  addUser(user) {
-    if (user.password) {
-      for (let i = 0; i < this.state.users.length; i++) {
-        if (this.state.users[i].email === user.email) {
-          alert('Email Already Exists');
-          return;
-        }
-      }
-      this.postUser(user)
-    } else {
-      for (let i = 0; i < this.state.users.length; i++) {
-        if (this.state.users[i].email === user.email) {
-          alert('Email Already Exists');
-          return;
-        }
-      }
-      this.postUser(user);
-    }
-  }
-
-
-  postUser(user) {
-    axios.post('/users', user)
-      .then(res => {
-        console.log(res);
-        this.setState({
-          userToggle: true
-        })
-      })
-      .catch(err => {
-        console.log(err);
-      })
-  }
-
-
-  render() {
-    return (
-      <div>
-
-
-        {this.state.userToggle
-          ? <SupplierPage suppliers={this.state.suppliers} />
-          : null
-        }
-        {/* <UserProfile /> */}
-        {/* <UserOrderTracking /> */}
-        {/* <GoogleLogin setUser={this.userLogin} /> */}
-        {/* <GoogleSignUp addUser={this.addUser} /> */}
-      </div>
-      // <ConfirmationPage/>
-
-      <EnterCreditCard />
-
-    )
-  }
-}
 // const App = () => {
 //   return (
 //     <div>
