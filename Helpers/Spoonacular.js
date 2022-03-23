@@ -1,6 +1,7 @@
 const axios= require ("axios");
 const config = require("../config.js")
 
+
 const getMeals = async ({type}) => {
   console.log("config.apiKey=====>", config.apiKey)
   try {

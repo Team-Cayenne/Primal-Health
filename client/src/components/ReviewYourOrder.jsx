@@ -30,8 +30,8 @@ const ReviewYourOrder = () => {
           <OrderSummary>
             <MealSelection>
               <div>Meat & Veggies</div>
-              <div>4 Meals for 5 people per week</div>
-              <div>20 Meals per week</div>
+              <div>Count 2 people per week</div>
+              <div>42 Meals per week</div>
             </MealSelection>
             <Cost>
               <Shipping>
@@ -40,7 +40,7 @@ const ReviewYourOrder = () => {
               </Shipping>
               <Total>
                 <div>Total</div>
-                <div>$199.80</div>
+                <div>$272.79</div>
               </Total>
             </Cost>
           </OrderSummary>

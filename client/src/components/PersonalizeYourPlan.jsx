@@ -255,8 +255,8 @@ import {Link}  from "react-router-dom";
           <OrderSummary>
             <MealSelection>
               <div>{type}</div>
-              <div>4 Meals for 5 people per week</div>
-              <div>20 Meals per week</div>
+              <div>Count 2 people per week</div>
+              <div>42 Meals per week</div>
             </MealSelection>
             <Cost>
               <Shipping>

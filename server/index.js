@@ -9,7 +9,7 @@ const config = require("../config.js");
 const path = require("path");
 const app = express();
 const PORT = 3000;
-const { getMeals, getRecipeSteps, getRecipeImages, getNutritional } = require ("../helpers/Spoonacular")
+const { getMeals, getRecipeSteps, getRecipeImages, getNutritional } = require ("../Helpers/Spoonacular")
 app.use(express.static(path.join(__dirname, "..", "public")));
 app.use(express.json());
 
@@ -22,11 +22,9 @@ app.get('/users', controller.getUsers);
 
 app.post('/suppliers', controller.addSupplier);
 
-app.get('/suppliers', controller.getSuppliers);
 
 app.post('/faqs', controller.addFAQ);
 
-app.get('/faqs', controller.getFAQs);
 
 // app.get('*', function(req, res) {
 //   res.sendFile('index.html', {root: path.join(__dirname, '../public/')});

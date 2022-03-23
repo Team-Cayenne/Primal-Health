@@ -1,6 +1,7 @@
 import React from "react";
 import auth from "./firebase";
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import {Link}  from "react-router-dom";
 
 export default class GoogleSignUp extends React.Component {
   constructor(props) {
@@ -36,6 +37,7 @@ export default class GoogleSignUp extends React.Component {
         const email = err.email;
         // The AuthCredential type that was used.
         const credential = GoogleAuthProvider.credentialFromError(err);
+
       })
   }
 
@@ -70,6 +72,9 @@ export default class GoogleSignUp extends React.Component {
         <input onChange={this.addPassword}></input>
         <button onClick={this.submit}>Sign Up</button>
         <button onClick={this.googleLogin} className="login-button">GOOGLE</button>
+        <button>
+        <Link to="/credit-card-entry">Next Step</Link>
+        </button>
       </div>
     );
   }

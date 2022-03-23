@@ -216,7 +216,7 @@ import axios from 'axios';
                 </Shipping>
                 <Total>
                   <div>Total</div>
-                  <div>$199.80</div>
+                  <div>$272.79</div>
                 </Total>
               </Cost>
           </SummaryBoxContainer>
