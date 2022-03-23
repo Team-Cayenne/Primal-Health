@@ -1,11 +1,7 @@
 const express = require("express");
-
 const controller = require('../controllers/todos.js');
-
-
 const axios = require("axios");
 const config = require("../config.js");
-
 const path = require("path");
 const app = express();
 const PORT = 3000;
