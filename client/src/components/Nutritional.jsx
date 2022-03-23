@@ -1,11 +1,14 @@
-import React from 'react'
+import React from 'react';
+import {Link}  from "react-router-dom";
+import Masthead from '../shared/Masthead.jsx'
 
 const Nutritional= () =>{
 
   return (
     <div>
+      <Masthead />
       Nutritional Health Page
-      {/* <Masthead/> */}
+      <Link to="/videos">Videos</Link>
       <div>Nutritional Experts
         <div>
           <img src="https://media.istockphoto.com/photos/portrait-of-smiling-mixed-race-woman-looking-at-camera-picture-id1319763830?b=1&k=20&m=1319763830&s=170667a&w=0&h=wE44n9yP1nrefeqv5DCl5mE3ouU01FNNHeZPR0yDCWA="></img>
