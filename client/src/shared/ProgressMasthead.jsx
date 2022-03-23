@@ -7,7 +7,7 @@ const ProgressMasthead = (props) => {
   return (
     <Progress_container>
       <Logo>
-        <img className='logo' src='../assets/masthead/Masthead-logo-yellow.png' width='156' height='51'></img>
+        <img className='logo' src='../../public/assets/masthead/Masthead-logo-yellow.png' width='156' height='51'></img>
       </Logo>
       <ProgressText>
         <CurrentStep>Select Plan -----</CurrentStep>

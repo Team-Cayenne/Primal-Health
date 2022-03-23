@@ -18,6 +18,160 @@ import {Link}  from "react-router-dom";
       "vegan": "Vegan"
     }
 
+    const testMeals = [
+      {
+        id: 716381,
+        title: 'Nigerian Snail Stew',
+        image: 'https://spoonacular.com/recipeImages/716381-312x231.jpg',
+        imageType: 'jpg'
+      },
+      {
+        id: 769774,
+        title: 'Shredded Roast Beef Stuffed Sweet Potatoes (Whole 30 & PALEO)',
+        image: 'https://spoonacular.com/recipeImages/769774-312x231.jpg',
+        imageType: 'jpg'
+      },
+      {
+        id: 639851,
+        title: 'Cod with Tomato-Olive-Chorizo Sauce and Mashed Potatoes',
+        image: 'https://spoonacular.com/recipeImages/639851-312x231.jpg',
+        imageType: 'jpg'
+      },
+      {
+        id: 633344,
+        title: 'Bacon Wrapped Pork Tenderloin',
+        image: 'https://spoonacular.com/recipeImages/633344-312x231.jpg',
+        imageType: 'jpg'
+      },
+      {
+        id: 716330,
+        title: 'Chicken and Mango Skewer',
+        image: 'https://spoonacular.com/recipeImages/716330-312x231.jpg',
+        imageType: 'jpg'
+      },
+      {
+        id: 659135,
+        title: 'Salmon with roasted vegetables',
+        image: 'https://spoonacular.com/recipeImages/659135-312x231.jpg',
+        imageType: 'jpg'
+      },
+      {
+        id: 638626,
+        title: 'Chimichurri Skirt Steak with Grilled Asparagus',
+        image: 'https://spoonacular.com/recipeImages/638626-312x231.jpg',
+        imageType: 'jpg'
+      },
+      {
+        id: 1046982,
+        title: 'How to Make the Perfect Sweet Potato Sloppy Joes',
+        image: 'https://spoonacular.com/recipeImages/1046982-312x231.jpg',
+        imageType: 'jpg'
+      },
+      {
+        id: 661578,
+        title: 'Steamed Plaice & Spinach Rolls',
+        image: 'https://spoonacular.com/recipeImages/661578-312x231.jpg',
+        imageType: 'jpg'
+      },
+      {
+        id: 648257,
+        title: 'Italian Steamed Artichokes',
+        image: 'https://spoonacular.com/recipeImages/648257-312x231.jpg',
+        imageType: 'jpg'
+      },
+      {
+        id: 648627,
+        title: 'Juicy & Tender ~ Pork Loin Roast',
+        image: 'https://spoonacular.com/recipeImages/648627-312x231.jpg',
+        imageType: 'jpg'
+      },
+      {
+        id: 648247,
+        title: 'Italian Seafood Stew',
+        image: 'https://spoonacular.com/recipeImages/648247-312x231.jpg',
+        imageType: 'jpg'
+      },
+      {
+        id: 665831,
+        title: 'fennel, Peppers, Lettuce Salad',
+        image: 'https://spoonacular.com/recipeImages/665831-312x231.jpg',
+        imageType: 'jpg'
+      },
+      {
+        id: 645856,
+        title: 'Grilled Salmon With Cherry, Pineapple, Mango Salsa',
+        image: 'https://spoonacular.com/recipeImages/645856-312x231.jpg',
+        imageType: 'jpg'
+      },
+      {
+        id: 654435,
+        title: 'Pan Seared Salmon',
+        image: 'https://spoonacular.com/recipeImages/654435-312x231.jpg',
+        imageType: 'jpg'
+      },
+      {
+        id: 659674,
+        title: 'Seared Pork Chops with Mango Salsa',
+        image: 'https://spoonacular.com/recipeImages/659674-312x231.jpg',
+        imageType: 'jpg'
+      },
+      {
+        id: 665261,
+        title: 'Whole Chicken Dinner',
+        image: 'https://spoonacular.com/recipeImages/665261-312x231.jpg',
+        imageType: 'jpg'
+      },
+      {
+        id: 716427,
+        title: 'Roasted Butterflied Chicken w. Onions & Carrots',
+        image: 'https://spoonacular.com/recipeImages/716427-312x231.jpg',
+        imageType: 'jpg'
+      },
+      {
+        id: 648721,
+        title: 'Kale and Roasted Sweet Potato Soup with Chicken Sausage',
+        image: 'https://spoonacular.com/recipeImages/648721-312x231.jpg',
+        imageType: 'jpg'
+      },
+      {
+        id: 643061,
+        title: 'Flank Steak with Herbed Salsa',
+        image: 'https://spoonacular.com/recipeImages/643061-312x231.jpg',
+        imageType: 'jpg'
+      },
+      {
+        id: 645863,
+        title: 'Grilled Salmon With Mango Salsa',
+        image: 'https://spoonacular.com/recipeImages/645863-312x231.jpg',
+        imageType: 'jpg'
+      },
+      {
+        id: 645422,
+        title: 'Sausages with Green Cabbage Mash',
+        image: 'https://spoonacular.com/recipeImages/645422-312x231.jpg',
+        imageType: 'jpg'
+      },
+      {
+        id: 640990,
+        title: 'Cuban Flank Steak With Avocado and Tomato Salad',
+        image: 'https://spoonacular.com/recipeImages/640990-312x231.jpg',
+        imageType: 'jpg'
+      },
+      {
+        id: 654352,
+        title: 'Pak Choi and Bean Sprouts Salad',
+        image: 'https://spoonacular.com/recipeImages/654352-312x231.jpg',
+        imageType: 'jpg'
+      },
+      {
+        id: 633088,
+        title: 'Authentic Jamaican Curry Chicken',
+        image: 'https://spoonacular.com/recipeImages/633088-312x231.jpg',
+        imageType: 'jpg'
+      }
+    ]
+
+
     const handleMealPref = async(mealType) => {
       setType(mealType)
       console.log('TYPE', type)
@@ -101,8 +255,8 @@ import {Link}  from "react-router-dom";
           <OrderSummary>
             <MealSelection>
               <div>{type}</div>
-              <div>4 Meals for 5 people per week</div>
-              <div>20 Meals per week</div>
+              <div>Count 2 people per week</div>
+              <div>42 Meals per week</div>
             </MealSelection>
             <Cost>
               <Shipping>
@@ -118,8 +272,8 @@ import {Link}  from "react-router-dom";
         </StepTwo>
       </StepsContainer>
       <ContinueContainer>
-        <ContinueButton>Select plan & continue
-          <Link to="/videos">Videos</Link>
+        <ContinueButton>
+          <Link to="/signup">Select plan & continue</Link>
         </ContinueButton>
       </ContinueContainer>
     </PersonalizeYourPlanContainer>

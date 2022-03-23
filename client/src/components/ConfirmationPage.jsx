@@ -1,5 +1,4 @@
 import React from 'react'
-import { useNavigate } from "react-router-dom";
 import { MainContainer } from '../styles/confirmationPage/styles';
 import { TopContainer, Logo } from '../styles/confirmationPage/top';
 import { MiddleContainer, ThankYou, OrderID, ThankYouRow, OrderConfirmation,
@@ -42,7 +41,9 @@ const ConfirmationPage = () =>{
             Type: Paid with Visa **** **** **** 4012 <br/><div style={{alignSelf: 'flex-end', marginLeft: '300px'}}>$199.80</div> <br/>
           </InnerPText>
         </OrderConfirmation>
-          <TrackYourOrderButton>Track your order</TrackYourOrderButton>
+          <TrackYourOrderButton>
+            <Link to="/tracking">Place Order</Link>
+          </TrackYourOrderButton>
       </MiddleContainer>
       <BottomContainer>
       </BottomContainer>

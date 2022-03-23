@@ -10,6 +10,7 @@ public/app.js
 
 ###TOKENS###
 config.js
+config.json
 
 ###FIREBASE KEY###
 config.json

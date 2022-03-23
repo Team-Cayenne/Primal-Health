@@ -1,6 +1,6 @@
 import React from 'react'
 import Styled from 'styled-components'
-
+import {Link}  from "react-router-dom";
 import ProgressMasthead from '../shared/ProgressMasthead.jsx'
 
 const EnterCreditCard = () =>{
@@ -29,7 +29,8 @@ const EnterCreditCard = () =>{
               <CardCVV placeholder="CVV" onChange={handleInput}></CardCVV>
             </CardNumberInfoContainer>
             <ImageAndButton>
-              <img src="../assets/creditcards/creditcards.png"></img>
+              <img src="../../public/assets/creditcards/creditcards.png" width='123px' height='19px'>
+              </img>
               <AddPaymentButton onClick={handleClick}>Add payment</AddPaymentButton>
             </ImageAndButton>
           </PaymentInputContainer>
@@ -50,12 +51,14 @@ const EnterCreditCard = () =>{
               </Shipping>
               <Total>
                 <div>Total</div>
-                <div>$199.80</div>
+                <div>$272.79</div>
               </Total>
             </Cost>
           </OrderSummary>
           <div>If your order contains alcoholic items, someone over the age of 21 must accept the order.</div>
-          <Button onClick={handleClick}>Next Step</Button>
+          <Button onClick={handleClick}>
+          <Link to="/select-meals">Next Step</Link>
+          </Button>
         </RightSide>
       </EnterCreditCardContainer>
     </div>
@@ -65,27 +68,30 @@ const EnterCreditCard = () =>{
 const EnterCreditCardContainer = Styled.div`
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
+  justify-content: center;
+  margin-top: 30px;
 `
 const LeftSide = Styled.div`
-
+  margin-right: 33.5px;
 `
 const PaymentInputContainer = Styled.div`
   display: flex;
   flex-direction: column;
+  margin-top: 20px;
   width: 531px;
-  height: 159px;
+  height: 220px;
   border: 1px solid #C4C4C4;
   border-radius: 5px;
 `
 const HeaderText = Styled.div`
   font-size: 18px;
-  margin: 5px;
+  margin: 20px;
 `
 const CardholderName = Styled.input`
-  width: 490px;
+  width: 491px;
   height: 29px;
-  margin: auto;
+  margin: 0px 20px 10px 19px;
+  padding: 5px;
 `
 const CardNumberInfoContainer = Styled.div`
   display:flex;
@@ -95,26 +101,30 @@ const CardNumber = Styled.input`
   width: 277px;
   height: 29px;
   margin: 3px;
+  padding: 5px;
 `
 const CardExp = Styled.input`
   width: 101px;
   height: 29px;
   margin: 3px;
+  padding: 5px;
 `
 const CardCVV = Styled.input`
   width: 101px;
   height: 29px;
   margin: 3px;
+  padding: 5px;
 `
 const ImageAndButton = Styled.div`
   display: flex;
   flex-direction: column;
   align-items: end;
-  margin: 0px 35px 15px 0px;
+  margin: 10px 35px 15px 0px;
 `
 const AddPaymentButton = Styled.button`
   width: 128px;
   height: 25px;
+  margin-top: 5px;
   background-color: rgba(38, 191, 0, .25);
   border-radius: 5px;
   border-color: rgba(38, 191, 0, .25);
@@ -124,6 +134,7 @@ const AddPaymentButton = Styled.button`
 const RightSide = Styled.div`
   display: flex;
   flex-direction: column;
+  margin-left: 33.5px;
 `
 const MealSelection = Styled.div`
   margin: 15px 15px 30px 15px;
@@ -137,7 +148,6 @@ const OrderSummary = Styled.div`
   display: flex;
   flex-direction: column;
   margin-top: 20px;
-  margin-left: 86.5px;
   width: 400px;
   height: 200px;
   border: 1px solid #C4C4C4;
