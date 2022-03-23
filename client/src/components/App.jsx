@@ -221,22 +221,14 @@ export default App;
 //     })
 // }
 
-// render() {
-//   return (
-//     <EnterCreditCard />
-//     <div>
-//       <div>Primal Health Test</div>
-//       {this.state.userToggle
-//         ? <SupplierPage suppliers={this.state.suppliers} />
-//         : null
-//       }
-//       {/* <UserProfile /> */}
-//       {/* <UserOrderTracking /> */}
-//       {/* <GoogleLogin setUser={this.userLogin} /> */}
-//       {/* <GoogleSignUp addUser={this.addUser} /> */}
-//     </div>
-//   )
-// }
+//   render() {
+//     return (
+//       // <ConfirmationPage/>
+
+//       <EnterCreditCard />
+
+//     )
+//   }
 // }
 // const App = () => {
 //   return (

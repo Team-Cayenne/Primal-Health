@@ -28,12 +28,10 @@ app.get('*', function(req, res) {
 // Supplier routes
 app.post('/suppliers', controller.addSupplier);
 
-app.get('/suppliers', controller.getSuppliers);
 
 // FAQ routes
 app.post('/faqs', controller.addFAQ);
 
-app.get('/faqs', controller.getFAQs);
 
 
 
