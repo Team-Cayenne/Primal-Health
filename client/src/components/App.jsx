@@ -7,6 +7,8 @@ import VideoDetail from './VideoDetail.jsx'
 import SupplierPage from './SupplierPage.jsx'
 import Masthead from '../shared/Masthead.jsx'
 import SelectMeals from './SelectMeals.jsx'
+import ReviewYourOrder from './ReviewYourOrder.jsx'
+import EnterCreditCard from './EnterCreditCard.jsx'
 import {BrowserRouter, Routes, Route, Link}  from "react-router-dom"
 import { AppContext } from "../context.js";
 
@@ -118,25 +120,31 @@ import firebase from '../firebase/firebase.js';
 
   // }
 
+
+  render() {
+    return (
+      <EnterCreditCard />
+      <div>
+
   // render() {
   //   return (
   //     <div>
 
-<<<<<<< HEAD
+
   //     <div>Primal Health Test</div>
   //     {/* {true ? (
   //     <div>
   //       <LoginPage />
   //       </div>) : null} */}
   //     </div>
-=======
+
       <div>Primal Health Test</div>
       {true ? (
       <div>
         <LoginPage />
         </div>) : null}
       </div>
->>>>>>> 17f7c380f3b7b16d54a18a5cd4893369379b29ef
+
 
   //   )
   // }

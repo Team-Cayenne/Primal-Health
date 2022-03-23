@@ -3,7 +3,6 @@ import Styled from 'styled-components'
 
 import Button from './Button.jsx'
 
-
 const Masthead = () => {
 
   return (
