@@ -245,8 +245,25 @@ html {
 .order-value {
   /* background-color: #FFE5A4; */
   padding: 1%;
-
 }
+
+.video-detail-title {
+  margin-top: 5%;
+  text-align: center;
+}
+
+.video-detail-intro {
+  text-align: center;
+  /* width: 10%; */
+}
+
+/* .video {
+  background-color: #FFE5A4;
+  width: 50%;
+  padding: 2%;
+  border-radius: 10%;
+
+} */
 
 html {
   font-size: medium;
@@ -303,3 +320,4 @@ html {
     transform: rotate(360deg);
   }
 }
+
