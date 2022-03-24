@@ -21,7 +21,6 @@ class UserProfile extends React.Component {
 
   render() {
     return (
-
       <div>
         <Masthead />
         <div className="user-profile">

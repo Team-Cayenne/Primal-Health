@@ -20,7 +20,7 @@ import {Link}  from "react-router-dom";
 
     setRate((headCount * numRecipies * 12.99 + 9.99).toFixed(2))
     // const
-    console.log("headCount", headCount)
+    // console.log("headCount", headCount)
 
     const handleMealPref = async(mealType) => {
       setType(mealType)
@@ -33,8 +33,8 @@ import {Link}  from "react-router-dom";
         console.log("UNABLE TO SET MEALS", err)
       }
     }
-    console.log('MEALS', meals)
-    console.log("TYPE", type)
+    // console.log('MEALS', meals)
+    // console.log("TYPE", type)
   return (
     <PersonalizeYourPlanContainer>
       <ProgressMasthead />
@@ -49,6 +49,8 @@ import {Link}  from "react-router-dom";
             <PreferenceButtons>
               <Image src="../assets/preferences/meatandveggies.png" width='70' height='40'onClick={()=>handleMealPref(mealTypes['meat'])} ></Image>
               Whole 30 (Meat)
+            </PreferenceButtons>
+
             <PreferenceButtons onClick={()=>handleMealPref(mealTypes['meat'])}>
               {/* <Image src="../assets/preferences/meatandveggies.png" width='70' height='40'onClick={()=>handleMealPref(mealTypes['meat'])} ></Image> */}
               Whole 30
