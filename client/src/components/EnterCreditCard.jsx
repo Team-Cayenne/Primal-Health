@@ -1,6 +1,7 @@
-import React from 'react'
+import { AppContext } from "../context.js";
+import React, { useContext } from 'react'
 import Styled from 'styled-components'
-
+import {Link}  from "react-router-dom";
 import ProgressMasthead from '../shared/ProgressMasthead.jsx'
 
 // const EnterCreditCard = (props) =>{
@@ -13,6 +14,8 @@ class EnterCreditCard extends React.Component {
     this.handleInput = this.handleInput.bind(this);
     this.submit = this.submit.bind(this);
   }
+// const EnterCreditCard = () =>{
+//   const {rate, numRecipies, headCount} = useContext(AppContext);
 
   handleInput(event) {
     this.setState({
@@ -74,8 +77,59 @@ class EnterCreditCard extends React.Component {
       </div>
     )
   }
-}
 
+  // CORRECT CODE JUST NEED TO MAKE MY CHANGES INSIDE OF IT
+    //       <EnterCreditCardContainer>
+    //         <LeftSide>
+    //             <HeaderText>Payment Information</HeaderText>
+    //           <PaymentInputContainer>
+    //             <HeaderText>Add credit or debit card</HeaderText>
+    //             <CardholderName placeholder="Cardholder name" onChange={handleInput}></CardholderName>
+    //             <CardNumberInfoContainer>
+    //               <CardNumber placeholder="Card number" onChange={handleInput}></CardNumber>
+    //               <CardExp placeholder="Exp date" onChange={handleInput}></CardExp>
+    //               <CardCVV placeholder="CVV" onChange={handleInput}></CardCVV>
+    //             </CardNumberInfoContainer>
+    //             <ImageAndButton>
+    //               <img src="assets/creditcards/creditcards.png" width='123px' height='19px'>
+    //               </img>
+    //               <AddPaymentButton onClick={handleClick}>Add payment</AddPaymentButton>
+    //             </ImageAndButton>
+    //           </PaymentInputContainer>
+    //         </LeftSide>
+
+    //         <RightSide>
+    //           <HeaderText>Order Summary</HeaderText>
+    //           <OrderSummary>
+    //             <MealSelection>
+    //               <div>Meat & Veggies</div>
+    //               <div>4 Meals for {headCount} people per week</div>
+    //               <div>{numRecipies} Meals per week</div>
+    //             </MealSelection>
+    //             <Cost>
+    //               <Shipping>
+    //                 <SummaryText>Shipping</SummaryText>
+    //                 <SummaryText>$9.99</SummaryText>
+    //               </Shipping>
+    //               <Total>
+    //                 <div>Total</div>
+    //                 <div>$ {rate}</div>
+    //               </Total>
+    //             </Cost>
+    //           </OrderSummary>
+    //           <Button onClick={handleClick}>
+    //           <Link to="/select-meals" style={{ textDecoration: 'none' , color: '#26BF00' }}>Next Step</Link>
+    //           </Button>
+    //         </RightSide>
+    //       </EnterCreditCardContainer>
+    //     </div>
+    //   )
+    // }
+}
+const SummaryText = Styled.div`
+  font-family: 'Quicksand';
+  font-weight: 500;
+`
 const EnterCreditCardContainer = Styled.div`
   display: flex;
   flex-direction: row;
@@ -97,12 +151,14 @@ const PaymentInputContainer = Styled.div`
 const HeaderText = Styled.div`
   font-size: 18px;
   margin: 20px;
+  font-family: 'Quicksand';
 `
 const CardholderName = Styled.input`
   width: 491px;
   height: 29px;
   margin: 0px 20px 10px 19px;
   padding: 5px;
+  font-family: 'Quicksand';
 `
 const CardNumberInfoContainer = Styled.div`
   display:flex;
@@ -113,18 +169,22 @@ const CardNumber = Styled.input`
   height: 29px;
   margin: 3px;
   padding: 5px;
+  font-family: 'Quicksand';
+
 `
 const CardExp = Styled.input`
   width: 101px;
   height: 29px;
   margin: 3px;
   padding: 5px;
+  font-family: 'Quicksand';
 `
 const CardCVV = Styled.input`
   width: 101px;
   height: 29px;
   margin: 3px;
   padding: 5px;
+  font-family: 'Quicksand';
 `
 const ImageAndButton = Styled.div`
   display: flex;
@@ -135,7 +195,7 @@ const ImageAndButton = Styled.div`
 const AddPaymentButton = Styled.button`
   width: 128px;
   height: 25px;
-  margin-top: 5px;
+  margin-top: 10px;
   background-color: rgba(38, 191, 0, .25);
   border-radius: 5px;
   border-color: rgba(38, 191, 0, .25);
@@ -158,7 +218,6 @@ const Cost = Styled.div`
 const OrderSummary = Styled.div`
   display: flex;
   flex-direction: column;
-  margin-top: 20px;
   width: 400px;
   height: 200px;
   border: 1px solid #C4C4C4;
@@ -185,4 +244,4 @@ const Button = Styled.button`
   font-size: 18px;
 `
 
-export default EnterCreditCard
+export default EnterCreditCard;

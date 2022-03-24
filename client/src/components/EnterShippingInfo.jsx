@@ -1,38 +1,41 @@
-import React from 'react'
+import React, {useContext } from 'react'
 import Styled from 'styled-components'
-
+import {Link}  from "react-router-dom";
 import ProgressMasthead from '../shared/ProgressMasthead.jsx'
+import { AppContext } from "../context.js";
 
-class EnterShippingInfo extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      firstName: '',
-      lastName: '',
-      address1: '',
-      address2: '',
-      city: '',
-      state: '',
-      zip: '',
-      phone: ''
-    }
-    this.handleInput = this.handleInput.bind(this);
-    this.submit = this.submit.bind(this);
-  }
+// class EnterShippingInfo extends React.Component {
+//   constructor(props) {
+//     super(props)
+//     this.state = {
+//       firstName: '',
+//       lastName: '',
+//       address1: '',
+//       address2: '',
+//       city: '',
+//       state: '',
+//       zip: '',
+//       phone: ''
+//     }
+//     this.handleInput = this.handleInput.bind(this);
+//     this.submit = this.submit.bind(this);
+//   }
 
-  // const EnterShippingInfo = () =>{
 
-  handleInput(event) {
+const EnterShippingInfo = () => {
+  const {rate, numRecipies, headCount} = useContext(AppContext);
+
+  const handleInput = (event) => {
     this.setState({
       [event.target.id]: event.target.value
     })
   }
 
-  submit() {
+  const submit = () => {
     this.props.user(this.state)
   }
 
-  render() {
+  // render() {
     return (
       <div>
         <ProgressMasthead />
@@ -49,6 +52,17 @@ class EnterShippingInfo extends React.Component {
                 <State placeholder="State" id='state' onChange={this.handleInput}></State>
               </ShippingLeft>
 
+              {/* CORRECT CODE JUST NEED TO ADD MY CHANGES */}
+        {/* <LeftSide>
+          <HeaderText>Shipping Information</HeaderText>
+          <ShippingInfoContainer>
+            <ShippingLeft>
+              <FirstName placeholder="First name" onChange={handleInput}></FirstName>
+              <Address placeholder="Last name" onChange={handleInput}></Address>
+              <City placeholder="City" onChange={handleInput}></City>
+              <State placeholder="State" onChange={handleInput}></State>
+            </ShippingLeft> */}
+
               <ShippingRight>
                 <LastName placeholder="Last name" id='lastName' onChange={this.handleInput}></LastName>
                 <Apt placeholder="Apt, Suite, Floor" id='address2' onChange={this.handleInput}></Apt>
@@ -60,41 +74,51 @@ class EnterShippingInfo extends React.Component {
 
 
 
-          <RightSide>
-            <div>Order Summary</div>
+        <RightSide>
+          <HeaderText>Order Summary</HeaderText>
             <OrderSummary>
               <MealSelection>
                 <div>Meat & Veggies</div>
-                <div>4 Meals for 5 people per week</div>
-                <div>20 Meals per week</div>
+                <div>4 Meals for {headCount} people per week</div>
+                <div>{numRecipies} Meals per week</div>
               </MealSelection>
               <Cost>
                 <Shipping>
-                  <div>Shipping</div>
-                  <div>$9.99</div>
+                  <SummaryText>Shipping</SummaryText>
+                  <SummaryText>$9.99</SummaryText>
                 </Shipping>
                 <Total>
                   <div>Total</div>
-                  <div>$199.80</div>
+                  <div>$ {rate}</div>
                 </Total>
               </Cost>
             </OrderSummary>
-            <Button onClick={this.submit}>Next Step</Button>
-          </RightSide>
+          <Button onClick={this.submit}>
+            <Link to="/credit-card-entry" style={{ textDecoration: 'none' , color: '#26BF00' }}>Next Step</Link>
+            </Button>
+        </RightSide>
+      </EnterShippingContainer>
 
-        </EnterShippingContainer>
-      </div>
-    )
-  }
+    </div>
+  )
 }
 
+const SummaryText = Styled.div`
+  font-family: 'Quicksand';
+  font-weight: 500;
+`
 const EnterShippingContainer = Styled.div`
   display: flex;
   justify-content: center;
   margin-top: 30px;
 `
+const HeaderText = Styled.div`
+  font-size: 18px;
+  margin: 20px;
+  font-family: 'Quicksand';
+`
 const LeftSide = Styled.div`
-margin-right: 33.5px;
+  margin-right: 33.5px;
 `
 const ShippingInfoContainer = Styled.div`
   display: flex;
@@ -116,24 +140,28 @@ const FirstName = Styled.input`
   height: 29px;
   margin: 10px;
   padding: 5px;
+  font-family: 'Quicksand';
 `
 const Address = Styled.input`
   width: 217px;
   height: 29px;
   margin: 10px;
   padding: 5px;
+  font-family: 'Quicksand';
 `
 const City = Styled.input`
   width: 217px;
   height: 29px;
   margin: 10px;
   padding: 5px;
+  font-family: 'Quicksand';
 `
 const State = Styled.input`
   width: 217px;
   height: 29px;
   margin: 10px;
   padding: 5px;
+  font-family: 'Quicksand';
 `
 const ShippingRight = Styled.div`
   display: flex;
@@ -145,24 +173,28 @@ const LastName = Styled.input`
   height: 29px;
   margin: 10px;
   padding: 5px;
+  font-family: 'Quicksand';
 `
 const Apt = Styled.input`
   width: 217px;
   height: 29px;
   margin: 10px;
   padding: 5px;
+  font-family: 'Quicksand';
 `
 const Zip = Styled.input`
   width: 217px;
   height: 29px;
   margin: 10px;
   padding: 5px;
+  font-family: 'Quicksand';
 `
 const Phone = Styled.input`
   width: 217px;
   height: 29px;
   margin: 10px;
   padding: 5px;
+  font-family: 'Quicksand';
 `
 const RightSide = Styled.div`
   display: flex;
@@ -180,7 +212,6 @@ const Cost = Styled.div`
 const OrderSummary = Styled.div`
   display: flex;
   flex-direction: column;
-  margin-top: 20px;
   width: 400px;
   height: 200px;
   border: 1px solid #C4C4C4;
@@ -206,5 +237,13 @@ const Button = Styled.button`
   color: #26BF00;
   font-size: 18px;
 `
-
+export const Footer = Styled.div`
+  display: flex;
+  background-color: #FFE5A4;
+  width: 100%;
+  height: 95px;
+  flex-directon: row;
+  margin-bottom: auto;
+  align-self: flex-end;
+`
 export default EnterShippingInfo

@@ -4,6 +4,7 @@ import auth from "./firebase";
 import axios from 'axios';
 import Styled from 'styled-components'
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import {Link}  from "react-router-dom";
 import ProgressMasthead from '../shared/ProgressMasthead.jsx'
 
 
@@ -82,24 +83,50 @@ const GoogleLogin = () => {
     userLogin({ email: email, password: password })
   }
 
+    return (
+      <div>
+        <ProgressMasthead/>
+        <Header>Welcome Back!</Header>
+        <LoginContainer>
+          <LoginBox>
+            <Header2>Sign In</Header2>
+            <Text>Email</Text>
+            <Email type='email' onChange={addEmail}></Email>
+            <Text>Password</Text>
+            <Password type='password' onChange={addPassword}></Password>
+            <LoginButton onClick={submit}>Create account</LoginButton>
+            <GoogleButton onClick={googleLogin} className="login-button">
+            <img width="20px" style={{margin: '20px'}} alt="Google sign-in" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png" />Continue with Google</GoogleButton>
+          </LoginBox>
+        </LoginContainer>
+        <button>
+        <Link to="/your-personal-pref">Choose Your Plan</Link>
+        </button>
+        <button>
+        <Link to="/">HOME</Link>
+        </button>
+      </div>
+    );
 
-  return (
-    <div>
-      <ProgressMasthead />
-      <Header>Welcome Back!</Header>
-      <LoginContainer>
-        <LoginBox>
-          <Header2>Sign In</Header2>
-          <Text>Email</Text>
-          <Email type='email' onChange={addEmail}></Email>
-          <Text>Password</Text>
-          <Password type='password' onChange={addPassword}></Password>
-          <LoginButton onClick={submit}>Create account</LoginButton>
-          <GoogleButton onClick={googleLogin} className="login-button">Continue with Google</GoogleButton>
-        </LoginBox>
-      </LoginContainer>
-    </div>
-  );
+
+
+  // return (
+  //   <div>
+  //     <ProgressMasthead />
+  //     <Header>Welcome Back!</Header>
+  //     <LoginContainer>
+  //       <LoginBox>
+  //         <Header2>Sign In</Header2>
+  //         <Text>Email</Text>
+  //         <Email type='email' onChange={addEmail}></Email>
+  //         <Text>Password</Text>
+  //         <Password type='password' onChange={addPassword}></Password>
+  //         <LoginButton onClick={submit}>Create account</LoginButton>
+  //         <GoogleButton onClick={googleLogin} className="login-button">Continue with Google</GoogleButton>
+  //       </LoginBox>
+  //     </LoginContainer>
+  //   </div>
+  // );
 }
 
 const LoginContainer = Styled.div`
@@ -142,10 +169,12 @@ const LoginBox = Styled.div`
 const Email = Styled.input`
   width: 451px;
   height: 34px;
+  padding-left: 10px;
 `
 const Password = Styled.input`
   width: 451px;
   height: 34px;
+  padding-left: 10px;
 `
 const LoginButton = Styled.button`
   width: 277px;
@@ -159,9 +188,14 @@ const LoginButton = Styled.button`
   font-family: 'Quicksand';
 `
 const GoogleButton = Styled.button`
+  display: flex;
   width: 277px;
   height: 55px;
   margin: 10px;
+  font-size: 18px;
   font-family: 'Quicksand';
+  align-items: center;
 `
+
+
 export default GoogleLogin;

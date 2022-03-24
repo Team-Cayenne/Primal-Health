@@ -1,5 +1,5 @@
 import { AppContext } from "../context.js";
-import React, { useState, useContext } from 'react'
+import React, { useContext } from 'react'
 import Styled from 'styled-components'
 import ProgressMasthead from '../shared/ProgressMasthead.jsx'
 import axios from 'axios';
@@ -7,8 +7,8 @@ import 'regenerator-runtime/runtime'
 import {Link}  from "react-router-dom";
 
   const PersonalizeYourPlan = (props) => {
-    const {meals, setMeals} = useContext(AppContext);
-    const [type, setType] = useState('');
+    const {meals, setMeals, type, setType, rate, setRate, numRecipies, setNumRecipies,headCount, setHeadCount} = useContext(AppContext);
+
     const mealTypes = {
       "meat": "Whole30",
       "vegetarian": "Vegetarian",
@@ -17,6 +17,10 @@ import {Link}  from "react-router-dom";
       "Ketogenic": "Ketogenic",
       "vegan": "Vegan"
     }
+
+    setRate((headCount * numRecipies * 12.99 + 9.99).toFixed(2))
+    // const
+    console.log("headCount", headCount)
 
     const handleMealPref = async(mealType) => {
       setType(mealType)
@@ -44,31 +48,34 @@ import {Link}  from "react-router-dom";
 
             <PreferenceButtons>
               <Image src="../assets/preferences/meatandveggies.png" width='70' height='40'onClick={()=>handleMealPref(mealTypes['meat'])} ></Image>
-              Meat and Veggies
+              Whole 30 (Meat)
+            <PreferenceButtons onClick={()=>handleMealPref(mealTypes['meat'])}>
+              {/* <Image src="../assets/preferences/meatandveggies.png" width='70' height='40'onClick={()=>handleMealPref(mealTypes['meat'])} ></Image> */}
+              Whole 30
             </PreferenceButtons>
 
-            <PreferenceButtons>
-              <img src="../assets/preferences/veggies.png" width='70' height='40'onClick={()=>handleMealPref(mealTypes['vegetarian'])}></img>
-              Veggies
+            <PreferenceButtons onClick={()=>handleMealPref(mealTypes['vegetarian'])}>
+              {/* <img src="../assets/preferences/veggies.png" width='70' height='40'onClick={()=>handleMealPref(mealTypes['vegetarian'])}></img> */}
+              Vegetarian
             </PreferenceButtons>
 
-            <PreferenceButtons>
-              <Image src="../assets/preferences/familyfriendly.png" width='40' height='40'></Image>
-              Family Friendly
+            <PreferenceButtons onClick={()=>handleMealPref(mealTypes['ketogenic'])}>
+              {/* <Image src="../assets/preferences/familyfriendly.png" width='40' height='40'></Image> */}
+              Keto
             </PreferenceButtons>
 
-            <PreferenceButtons>
-              <Image src="../assets/preferences/fitandwholesome.png" width='60' height='40' onClick={()=>handleMealPref(mealTypes['vegan'])}></Image>
+            <PreferenceButtons onClick={()=>handleMealPref(mealTypes['vegan'])}>
+              {/* <Image src="../assets/preferences/fitandwholesome.png" width='60' height='40' onClick={()=>handleMealPref(mealTypes['vegan'])}></Image> */}
               Vegan
             </PreferenceButtons>
 
-            <PreferenceButtons>
-              <Image src="../assets/preferences/quickandeasy.png" width='40' height='40' onClick={()=>handleMealPref(mealTypes['paleo'])}></Image>
+            <PreferenceButtons onClick={()=>handleMealPref(mealTypes['paleo'])}>
+              {/* <Image src="../assets/preferences/quickandeasy.png" width='40' height='40' onClick={()=>handleMealPref(mealTypes['paleo'])}></Image> */}
               Paleo
             </PreferenceButtons>
 
-            <PreferenceButtons>
-              <img src="../assets/preferences/pescatarian.png" width='75' height='40' onClick={()=>handleMealPref(mealTypes['pescetarian'])}></img>
+            <PreferenceButtons onClick={()=>handleMealPref(mealTypes['pescetarian'])}>
+              {/* <img src="../assets/preferences/pescatarian.png" width='75' height='40' onClick={()=>handleMealPref(mealTypes['pescetarian'])}></img> */}
               Pescatarian
             </PreferenceButtons>
 
@@ -83,62 +90,67 @@ import {Link}  from "react-router-dom";
             <StepTwoText>
               Number of people
             </StepTwoText>
-            <PeopleButton>2</PeopleButton>
-            <PeopleButton>4</PeopleButton>
+            <PeopleButton onClick={()=>setHeadCount(2)}>
+              2
+            </PeopleButton>
+            <PeopleButton onClick={()=>setHeadCount(4)}>
+              4
+            </PeopleButton>
           </StepTwoNumberOfPeopleContainer>
 
           <StepTwoNumberOfRecipesContainer>
             <StepTwoText>
               Recipes per week
             </StepTwoText>
-            <RecipeButton>2</RecipeButton>
-            <RecipeButton>3</RecipeButton>
-            <RecipeButton>4</RecipeButton>
-            <RecipeButton>5</RecipeButton>
-            <RecipeButton>6</RecipeButton>
+            <RecipeButton onClick={()=>setNumRecipies(2)}>2</RecipeButton>
+            <RecipeButton onClick={()=>setNumRecipies(3)}>3</RecipeButton>
+            <RecipeButton onClick={()=>setNumRecipies(4)}>4</RecipeButton>
+            <RecipeButton onClick={()=>setNumRecipies(5)}>5</RecipeButton>
+            <RecipeButton onClick={()=>setNumRecipies(6)}>6</RecipeButton>
           </StepTwoNumberOfRecipesContainer>
 
           <OrderSummary>
             <MealSelection>
               <div>{type}</div>
-              <div>4 Meals for 5 people per week</div>
-              <div>20 Meals per week</div>
+              <div>{headCount}: Portion plan</div>
+              <div>{numRecipies}: No. of Recipes</div>
             </MealSelection>
             <Cost>
               <Shipping>
-                <div>Shipping</div>
-                <div>$9.99</div>
+                <SummaryText>Shipping</SummaryText>
+                <SummaryText>$9.99</SummaryText>
               </Shipping>
               <Total>
                 <div>Total</div>
-                <div>$272.79</div>
+                <div>$ {rate}</div>
               </Total>
             </Cost>
           </OrderSummary>
         </StepTwo>
       </StepsContainer>
       <ContinueContainer>
-        <ContinueButton>Select plan & continue
-          <Link to="/videos">Videos</Link>
+        <ContinueButton>
+          <Link to="/signup" style={{ textDecoration: 'none' , color: '#26BF00'}}>Select plan & continue</Link>
         </ContinueButton>
       </ContinueContainer>
     </PersonalizeYourPlanContainer>
   )
 }
 
+const SummaryText = Styled.div`
+  font-family: 'Quicksand';
+  font-weight: 500;
+  color: #264654;
+`
 const PersonalizeYourPlanContainer = Styled.div`
   @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
 `
 const Header = Styled.div`
-  font-family: 'Lato', sans-serif;
+  font-family: 'Quicksand';
   text-align: center;
   color: #264654;
   margin: 30px 0px;
   font-size: 44px;
-  font-weight: bold;
-`
-const Image = Styled.img`
-  margin: 0px 22px;
 `
 const StepsContainer = Styled.div`
   display: flex;
@@ -150,6 +162,9 @@ const StepsContainer = Styled.div`
 const StepOneHeader = Styled.div`
   margin: 20px;
   text-align: center;
+  font-family: 'Quicksand';
+  font-size: 20px;
+  color: #264654;
 `
 const StepOne = Styled.div`
   display: flex;
@@ -163,8 +178,8 @@ const StepOneButtonContainer = Styled.div`
   padding-left: 15px;
 `
 const PreferenceButtons = Styled.button`
-  font-family: 'Lato', sans-serif;
-  font-size: 13px;
+  font-family: 'Quicksand';
+  font-size: 16px;
   margin: 0px 0px 18px 12px;
   background-color: white;
   border-color: #C4C4C4;
@@ -180,9 +195,11 @@ const PreferenceButtons = Styled.button`
 const StepTwoHeader = Styled.div`
   margin: 20px;
   text-align: center;
+  font-family: 'Quicksand';
+  font-size: 20px;
+  color: #264654;
 `
 const StepTwo = Styled.div`
-  font-family: 'Lato', sans-serif;
   font-size: 17px;
   border-left: 1px solid #c4c4c4;
 `
@@ -190,6 +207,8 @@ const StepTwoText = Styled.div`
   font-size: 14px;
   margin-left: 83px;
   margin-right: 6px;
+  font-family: 'Quicksand';
+  color: #264654;
 `
 const StepTwoNumberOfPeopleContainer = Styled.div`
   display: flex;
@@ -197,7 +216,7 @@ const StepTwoNumberOfPeopleContainer = Styled.div`
   margin: 5px 0px;
 `
 const PeopleButton = Styled.button`
-  width: 145px;
+  width: 142px;
   height: 25px;
   background-color: white;
   border-color: #c4c4c4;
