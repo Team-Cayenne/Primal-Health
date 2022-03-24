@@ -46,15 +46,12 @@ import {Link}  from "react-router-dom";
           </StepOneHeader>
           <StepOneButtonContainer>
 
-<<<<<<< HEAD
             <PreferenceButtons>
               <Image src="../assets/preferences/meatandveggies.png" width='70' height='40'onClick={()=>handleMealPref(mealTypes['meat'])} ></Image>
               Whole 30 (Meat)
-=======
             <PreferenceButtons onClick={()=>handleMealPref(mealTypes['meat'])}>
               {/* <Image src="../assets/preferences/meatandveggies.png" width='70' height='40'onClick={()=>handleMealPref(mealTypes['meat'])} ></Image> */}
               Whole 30
->>>>>>> b35f6953804849e0aa067cadf4b7e17c78c340ad
             </PreferenceButtons>
 
             <PreferenceButtons onClick={()=>handleMealPref(mealTypes['vegetarian'])}>
@@ -62,16 +59,6 @@ import {Link}  from "react-router-dom";
               Vegetarian
             </PreferenceButtons>
 
-<<<<<<< HEAD
-            <PreferenceButtons>
-              <Image src="../assets/preferences/fitandwholesome.png" width='60' height='40' onClick={()=>handleMealPref(mealTypes['vegan'])}></Image>
-              Vegan
-            </PreferenceButtons>
-
-            <PreferenceButtons>
-              <Image src="../assets/preferences/fitandwholesome.png" width='60' height='40' onClick={()=>handleMealPref(mealTypes['ketogenic'])}></Image>
-              Ketogenic
-=======
             <PreferenceButtons onClick={()=>handleMealPref(mealTypes['ketogenic'])}>
               {/* <Image src="../assets/preferences/familyfriendly.png" width='40' height='40'></Image> */}
               Keto
@@ -80,7 +67,6 @@ import {Link}  from "react-router-dom";
             <PreferenceButtons onClick={()=>handleMealPref(mealTypes['vegan'])}>
               {/* <Image src="../assets/preferences/fitandwholesome.png" width='60' height='40' onClick={()=>handleMealPref(mealTypes['vegan'])}></Image> */}
               Vegan
->>>>>>> b35f6953804849e0aa067cadf4b7e17c78c340ad
             </PreferenceButtons>
 
             <PreferenceButtons onClick={()=>handleMealPref(mealTypes['paleo'])}>
@@ -125,15 +111,9 @@ import {Link}  from "react-router-dom";
 
           <OrderSummary>
             <MealSelection>
-<<<<<<< HEAD
               <div>{type}</div>
               <div>{headCount}: Portion plan</div>
               <div>{numRecipies}: No. of Recipes</div>
-=======
-              <SummaryText>{type}</SummaryText>
-              <SummaryText>Count 2 people per week</SummaryText>
-              <SummaryText>42 Meals per week</SummaryText>
->>>>>>> b35f6953804849e0aa067cadf4b7e17c78c340ad
             </MealSelection>
             <Cost>
               <Shipping>
@@ -141,13 +121,8 @@ import {Link}  from "react-router-dom";
                 <SummaryText>$9.99</SummaryText>
               </Shipping>
               <Total>
-<<<<<<< HEAD
                 <div>Total</div>
                 <div>$ {rate}</div>
-=======
-                <SummaryText>Total</SummaryText>
-                <SummaryText>$272.79</SummaryText>
->>>>>>> b35f6953804849e0aa067cadf4b7e17c78c340ad
               </Total>
             </Cost>
           </OrderSummary>
