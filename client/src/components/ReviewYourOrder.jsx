@@ -3,7 +3,11 @@ import Styled from 'styled-components'
 
 import ProgressMasthead from '../shared/ProgressMasthead.jsx'
 
-const ReviewYourOrder = () => {
+const ReviewYourOrder = (props) => {
+
+  const submitUser = () => {
+    props.addUser()
+  }
 
   return (
     <div>
@@ -45,7 +49,7 @@ const ReviewYourOrder = () => {
             </Cost>
           </OrderSummary>
           <div>If your order contains alcoholic items, someone over the age of 21 must accept the order.</div>
-          <Button>Place Order</Button>
+          <Button onClick={submitUser}>Place Order</Button>
         </RightSide>
       </ReviewYourOrderContainer>
 

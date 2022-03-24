@@ -6,7 +6,7 @@ const UpdateProfileModal = (props) => {
     <div className='profile-update-modal'>
       <span className='close-modal' onClick={() => props.changeModal()}>&times;</span>
       <form>
-                <div className='user-info'>
+        <div className='user-info'>
           <div className='user-key'>
             <div>Username:</div>
             <div>First Name:</div>
@@ -23,17 +23,17 @@ const UpdateProfileModal = (props) => {
             <div>Credit Card:</div>
           </div>
           <div className='user-value'>
-            <div>Allie</div>
-            <div>Diorio</div>
-            <div>111 Rainbow Drive</div>
-            <div>Mt. Hope, Vermont, 87989</div>
-            <div>444-444-4444</div>
-            <div>user@email.com</div>
+            <div>{props.user.firstName}</div>
+            <div>{props.user.lastName}</div>
+            <div>{props.user.address1}</div>
+            <div>{props.user.city}, {props.user.state}, {props.user.zip}</div>
+            <div>{props.user.phone}</div>
+            <div>{props.user.email}</div>
             <div>The Big One</div>
-            <div>7</div>
+            <div>5</div>
+            <div>2</div>
             <div>$100</div>
-            <div>?</div>
-            <div>XXXX-XXXX-XXXX-1234</div>
+            <div>XXXX-XXXX-XXXX-{props.user.creditCard?.slice(props.user.creditCard.length - 4)}</div>
           </div>
         </div>
       </form>

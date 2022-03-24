@@ -1,15 +1,11 @@
 const express = require("express");
-
 const controller = require('../controllers/todos.js');
-
-
 const axios = require("axios");
 const config = require("../config.js");
-
 const path = require("path");
 const app = express();
 const PORT = 3000;
-const { getMeals, getRecipeSteps, getRecipeImages, getNutritional } = require ("../helpers/Spoonacular")
+const { getMeals, getRecipeSteps, getRecipeImages, getNutritional } = require ("../Helpers/Spoonacular")
 app.use(express.static(path.join(__dirname, "..", "public")));
 app.use(express.json());
 
@@ -28,12 +24,11 @@ app.get('*', function(req, res) {
 // Supplier routes
 app.post('/suppliers', controller.addSupplier);
 
-app.get('/suppliers', controller.getSuppliers);
+
 
 // FAQ routes
 app.post('/faqs', controller.addFAQ);
 
-app.get('/faqs', controller.getFAQs);
 
 
 

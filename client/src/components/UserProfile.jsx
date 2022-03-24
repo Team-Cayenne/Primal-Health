@@ -28,7 +28,6 @@ class UserProfile extends React.Component {
         </div>
         <div className='user-info'>
           <div className='user-key'>
-            <div>Username:</div>
             <div>First Name:</div>
             <div>Last Name:</div>
             <div>Address:</div>
@@ -39,21 +38,20 @@ class UserProfile extends React.Component {
             <div>Meals Per Week:</div>
             <div>Portion Plan:</div>
             <div>Plan Rate:</div>
-            <div>Payment Info:</div>
             <div>Credit Card:</div>
           </div>
           <div className='user-value'>
-            <div>Allie</div>
-            <div>Diorio</div>
-            <div>111 Rainbow Drive</div>
-            <div>Mt. Hope, Vermont, 87989</div>
-            <div>444-444-4444</div>
-            <div>user@email.com</div>
+            <div>{this.props.user.firstName}</div>
+            <div>{this.props.user.lastName}</div>
+            <div>{this.props.user.address1}</div>
+            <div>{this.props.user.city}, {this.props.user.state}, {this.props.user.zip}</div>
+            <div>{this.props.user.phone}</div>
+            <div>{this.props.user.email}</div>
             <div>The Big One</div>
-            <div>7</div>
+            <div>5</div>
+            <div>2</div>
             <div>$100</div>
-            <div>?</div>
-            <div>XXXX-XXXX-XXXX-1234</div>
+            <div>XXXX-XXXX-XXXX-{this.props.user.creditCard?.slice(this.props.user.creditCard.length - 4)}</div>
           </div>
         </div>
         <div>
@@ -62,7 +60,7 @@ class UserProfile extends React.Component {
         <button className='profile-update' onClick={this.changeModal}>Update</button>
         <span className='profile-update-modal-container'>
           {this.state.toggle
-            ? <UpdateProfileModal changeModal={this.changeModal} />
+            ? <UpdateProfileModal changeModal={this.changeModal} user={this.props.user}/>
             : null
           }
         </span>
