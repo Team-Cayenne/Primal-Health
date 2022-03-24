@@ -12,23 +12,6 @@ const Masthead = () => {
         <img className='logo' src='assets/masthead/Masthead-logo.png' width='156' height='51'></img>
         </Link>
       </Logo>
-<<<<<<< HEAD
-        <Text>
-          <Link to="/">HOME</Link>
-        </Text>
-        <Link to="/user-profile">ACCOUNT</Link>
-
-        <Link to="/nutrition-health">HEALTH&NUTRITION</Link>
-
-        <Link to="/recipe-menu">OUR RECIPES</Link>
-
-        <Link to="/meet-our-vendors">OUR SUPPLIERS</Link>
-
-        <LoginButton>
-          <Link to="/login">LOGIN</Link>
-        </LoginButton>
-
-=======
 
       <Link to="/" style={{ textDecoration: 'none' , color: '#264654', fontFamily: 'Quicksand' }}>HOME</Link>
       <Link to="/user-profile" style={{ textDecoration: 'none' , color: '#264654', fontFamily: 'Quicksand' }}>ACCOUNT</Link>
@@ -38,7 +21,6 @@ const Masthead = () => {
       <LoginButton>
       <Link to="/login" style={{ textDecoration: 'none' , color: '#26BF00', fontFamily: 'Quicksand' }}>LOGIN</Link>
       </LoginButton>
->>>>>>> b35f6953804849e0aa067cadf4b7e17c78c340ad
     </MastheadContainer>
   )
 }

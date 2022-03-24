@@ -1,19 +1,8 @@
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> b35f6953804849e0aa067cadf4b7e17c78c340ad
 import React from 'react'
 import UpdateProfileModal from './UpdateProfileModal.jsx';
 import Masthead from '../shared/Masthead.jsx'
 import {Link}  from "react-router-dom";
-<<<<<<< HEAD
-=======
-=======
-import React from "react";
-import UpdateProfileModal from "./UpdateProfileModal.jsx";
-import Masthead from "../shared/Masthead.jsx";
->>>>>>> 7fe3ef59552efb8e6774b1715c0bccda3613936a
->>>>>>> b35f6953804849e0aa067cadf4b7e17c78c340ad
+
 
 class UserProfile extends React.Component {
   constructor(props) {
@@ -33,55 +22,7 @@ class UserProfile extends React.Component {
 
   render() {
     return (
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
 
-      <div className='user-profile'>
-        <Masthead />
-        <div className='profile-links'>
-          <div>Profile</div>
-          <br/>
-          {/* <div className='profile-order-history'><a href=''>Order History</a></div> */}
-          <Link to="/user-orders">Order History</Link>
-          {/* <div className='profile-health-logger'><a href=''>Health Logger</a></div> */}
-          {/* <Link to="/user-orders">Order History</Link> */}
-        </div>
-        <div className='user-info'>
-          <div className='user-key'>
-            <div>Username:</div>
-            <div>First Name:</div>
-            <div>Last Name:</div>
-            <div>Address:</div>
-            <br></br>
-            <div>Phone:</div>
-            <div>Email:</div>
-            <div>Current Subscription:</div>
-            <div>Portion Plan:</div>
-            <div>Meals Per Week:</div>
-            <div>Plan Rate:</div>
-            {/* <div>Payment Info:</div> */}
-            <div>Credit Card:</div>
-          </div>
-          <div className='user-value'>
-            <div>The Big One</div>
-            <div>Allie</div>
-            <div>Diorio</div>
-            <div>111 Rainbow Drive</div>
-            <div>Mt. Hope, Vermont, 87989</div>
-            <div>444-444-4444</div>
-            <div>user@email.com</div>
-            <div>7</div>
-            <div>2 people</div>
-            <div>42</div>
-            <div>$545.58</div>
-            {/* <div>?</div> */}
-            <div>XXXX-XXXX-XXXX-1234</div>
-          </div>
-        </div>
-        <div>
-=======
->>>>>>> b35f6953804849e0aa067cadf4b7e17c78c340ad
       <div>
         <Masthead />
         <div className="user-profile">
@@ -91,6 +32,7 @@ class UserProfile extends React.Component {
               <div>Links</div>
               <br />
               <div className="profile-order-history">
+              <Link to="/user-orders">Order History</Link>
                 <a href="">Order History</a>
               </div>
               <br />
@@ -112,11 +54,6 @@ class UserProfile extends React.Component {
                 <div>Address:</div>
                 <br />
                 {this.state.addressLine2 ? (<div><br /></div>) : null}
-<<<<<<< HEAD
-=======
->>>>>>> 7fe3ef59552efb8e6774b1715c0bccda3613936a
->>>>>>> b35f6953804849e0aa067cadf4b7e17c78c340ad
-
                 <br></br>
                 <div>Phone:</div>
                 <br />

@@ -75,16 +75,10 @@ import axios from 'axios';
           </HeaderText>
             <SummaryBoxContainer>
               <MealSelection>
-<<<<<<< HEAD
                 <div>Meat & Veggies</div>
                 <div>4 Meals for {headCount} people per week</div>
                 <div>{numRecipies} Meals per week</div>
                 <div>{selectMeals}</div>
-=======
-                <SummaryText>Meat & Veggies</SummaryText>
-                <SummaryText>4 Meals for 5 people per week</SummaryText>
-                <SummaryText>20 Meals per week</SummaryText>
->>>>>>> b35f6953804849e0aa067cadf4b7e17c78c340ad
               </MealSelection>
               <div>
                 {specialBuy.map((item, i) => {
@@ -100,13 +94,8 @@ import axios from 'axios';
                   <SummaryText>$9.99</SummaryText>
                 </Shipping>
                 <Total>
-<<<<<<< HEAD
                   <div>Total</div>
                   <div>$ {rate}</div>
-=======
-                  <SummaryText>Total</SummaryText>
-                  <SummaryText>$272.79</SummaryText>
->>>>>>> b35f6953804849e0aa067cadf4b7e17c78c340ad
                 </Total>
               </Cost>
           </SummaryBoxContainer>

@@ -47,15 +47,9 @@ const EnterShippingInfo = () =>{
           <HeaderText>Order Summary</HeaderText>
             <OrderSummary>
               <MealSelection>
-<<<<<<< HEAD
                 <div>Meat & Veggies</div>
                 <div>4 Meals for {headCount} people per week</div>
                 <div>{numRecipies} Meals per week</div>
-=======
-                <SummaryText>Meat & Veggies</SummaryText>
-                <SummaryText>4 Meals for 5 people per week</SummaryText>
-                <SummaryText>20 Meals per week</SummaryText>
->>>>>>> b35f6953804849e0aa067cadf4b7e17c78c340ad
               </MealSelection>
               <Cost>
                 <Shipping>
@@ -63,13 +57,8 @@ const EnterShippingInfo = () =>{
                   <SummaryText>$9.99</SummaryText>
                 </Shipping>
                 <Total>
-<<<<<<< HEAD
                   <div>Total</div>
                   <div>$ {rate}</div>
-=======
-                  <SummaryText>Total</SummaryText>
-                  <SummaryText>$199.80</SummaryText>
->>>>>>> b35f6953804849e0aa067cadf4b7e17c78c340ad
                 </Total>
               </Cost>
             </OrderSummary>
