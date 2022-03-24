@@ -1,14 +1,6 @@
-<<<<<<< HEAD
-import React from 'react';
-// import {firebase} from '../firebase/firebase.js';
-// import {firebase} from '../firebase/firebase.js';
-
-// './firebase'
-=======
 // import React from 'react';
 
 // import {firebase} from '../firebase/firebase.js';
->>>>>>> 7fe3ef59552efb8e6774b1715c0bccda3613936a
 
 //   const LoginPage = () => {
 
