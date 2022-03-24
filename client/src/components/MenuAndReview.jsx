@@ -159,17 +159,17 @@ const MenuAndReview= () =>{
     <div>
       <Masthead />
       <h2>Menu</h2>
+      <RecipeModalMenuAndReview id={id} recipe={recipe} image={image} recipeTitle={recipeTitle} close={close} setOnClose={setOnClose}/>
       <Menu>
       {/* replace testMeals with selectMeals if API IS WORKING */}
       {meals.map((meal, i)=> {
-        return <div key={i}>
-          <img src={meal.image} width='170' height='150' onClick={()=>handleRecipeSelect(meal.id, meal.title, meal.image)}></img>
+        return <Meal key={i}>
+          <img src={meal.image} width='170' height='150' className="mealImage" onClick={()=>handleRecipeSelect(meal.id, meal.title, meal.image)}></img>
           <p>{meal.title}</p>
-        </div>
+        </Meal>
       })}
       </Menu>
 
-      <RecipeModalMenuAndReview id={id} recipe={recipe} image={image} recipeTitle={recipeTitle} close={close} setOnClose={setOnClose}/>
     </div>
   )
 }
@@ -180,6 +180,16 @@ const Menu = Styled.div`
   justify-content: center;
   margin-top: 50px;
   justify-content: space-evenly;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 140px;
+  border-radius: 5px
+`
+
+const Meal = Styled.div`
+  width: 200px;
+  border-radius: 5px;
+  margin-bottom: 11px;
 `
 
 export default MenuAndReview

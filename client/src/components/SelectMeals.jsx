@@ -47,62 +47,7 @@ import axios from 'axios';
     console.log("SPECIALBUY", specialBuy)
 
     console.log("SPECIAL", special)
-    const testMeals = [
-      {
-        id: 716381,
-        title: 'Nigerian Snail Stew',
-        image: 'https://spoonacular.com/recipeImages/716381-312x231.jpg',
-        imageType: 'jpg'
-      },
-      {
-        id: 769774,
-        title: 'Shredded Roast Beef Stuffed Sweet Potatoes (Whole 30 & PALEO)',
-        image: 'https://spoonacular.com/recipeImages/769774-312x231.jpg',
-        imageType: 'jpg'
-      },
-      {
-        id: 639851,
-        title: 'Cod with Tomato-Olive-Chorizo Sauce and Mashed Potatoes',
-        image: 'https://spoonacular.com/recipeImages/639851-312x231.jpg',
-        imageType: 'jpg'
-      },
-      {
-        id: 633344,
-        title: 'Bacon Wrapped Pork Tenderloin',
-        image: 'https://spoonacular.com/recipeImages/633344-312x231.jpg',
-        imageType: 'jpg'
-      },
-      {
-        id: 716330,
-        title: 'Chicken and Mango Skewer',
-        image: 'https://spoonacular.com/recipeImages/716330-312x231.jpg',
-        imageType: 'jpg'
-      },
-      {
-        id: 659135,
-        title: 'Salmon with roasted vegetables',
-        image: 'https://spoonacular.com/recipeImages/659135-312x231.jpg',
-        imageType: 'jpg'
-      },
-      {
-        id: 638626,
-        title: 'Chimichurri Skirt Steak with Grilled Asparagus',
-        image: 'https://spoonacular.com/recipeImages/638626-312x231.jpg',
-        imageType: 'jpg'
-      },
-      {
-        id: 1046982,
-        title: 'How to Make the Perfect Sweet Potato Sloppy Joes',
-        image: 'https://spoonacular.com/recipeImages/1046982-312x231.jpg',
-        imageType: 'jpg'
-      },
-      {
-        id: 633088,
-        title: 'Authentic Jamaican Curry Chicken',
-        image: 'https://spoonacular.com/recipeImages/633088-312x231.jpg',
-        imageType: 'jpg'
-      }
-    ]
+
     console.log('select MEALS', selectMeals)
 
   return (
