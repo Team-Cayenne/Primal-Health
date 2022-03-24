@@ -119,10 +119,11 @@ const App = () => {
             {/* <Route path="/user-health" element={<UserHealthLogger />} /> */}
             <Route path="/user-orders" element={<UserOrderTracking />} />
 
-            {/* <Route path="/your-personal-pref" element={<PersonalizeYourPlan/>} />
+            {/* <Route path="/your-personal-pref" element={<PersonalizeYourPlan/>} /> */}
           <Route path="/videos" element={<VideoDetail />} />
-          <Route path="/" element={<Nutritional />}>
-          <Route index element={<SupplierPage />} /> */}
+          {/* <Route path="/" element={<Nutritional />}> */}
+          {/* <Route index element={<SupplierPage />} /> */}
+          <Route path='/suppliers' element={<SupplierPage />} />
             {/* <Route path="*" element={<NoPage />} /> */}
             {/* </Route> */}
           </Routes>
