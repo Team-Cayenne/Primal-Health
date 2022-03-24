@@ -9,11 +9,9 @@
 /* Default font-size is 16px. 1Rem=default font-size.
 Reset font-size to make calculations easier. Setting font-size to 62.5% makes 1Rem=10px. Using rems also allows the app to be responsive to screen size changes  */
 
-
-
-/* html {
-  font-size: 200%;
-} */
+html {
+  font-size: 62.5%;
+}
 
 /* Supplier Page */
 .logo-image {
@@ -39,14 +37,14 @@ Reset font-size to make calculations easier. Setting font-size to 62.5% makes 1R
   margin: auto;
   padding: 40px;
   border: 2px solid black;
-  box-shadow: 0 40px 40px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+  box-shadow: 0 40px 40px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   animation-name: animatetop;
   animation-duration: 1s;
   z-index: 1;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  color:  black;
+  /* align-items: center; */
+  color: black;
   font-weight: bold;
 }
 
@@ -58,10 +56,22 @@ Reset font-size to make calculations easier. Setting font-size to 62.5% makes 1R
 
 .close-modal {
   cursor: pointer;
+  align-items: flex-end;
 }
 
-
 /* UserProfile */
+
+.user-profile {
+  margin-left: 3%;
+
+}
+
+.user-profile-title {
+  text-align: center;
+  margin-top: 5%;
+  margin-bottom: 2%;
+}
+
 .profile-order-history {
   cursor: pointer;
 }
@@ -74,19 +84,64 @@ Reset font-size to make calculations easier. Setting font-size to 62.5% makes 1R
   cursor: pointer;
 }
 
+.profile-sections {
+  /* display: flex;
+  flex-direction: row; */
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+
+}
+
+.profile-links {
+  /* margin-right: 5%; */
+  grid-column: 2 / 2;
+  background-color: #FFE5A4;
+  /* display: flex;
+  flex-direction: row; */
+  justify-content: center;
+  padding: 15%;
+  border-radius: 10%;
+  height: 150px;
+}
+
 .user-info {
+  /* display: flex;
+  flex-direction: row; */
+}
+
+.user-info-data {
+  /* display: flex;
+  flex-direction: row; */
+  /* grid-column-start: col-start 2; */
+  /* grid-column-start: col-start first; */
+  grid-column: 4 / 7;
+  /* display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr; */
+  background-color: #FFE5A4;
   display: flex;
   flex-direction: row;
+  justify-content: center;
+  padding: 5%;
+  border-radius: 10%;
 }
 
 .user-key {
-  margin-right: 200px;
+  margin-right: 10%;
+  /* width: 200px; */
+  /* grid-column: 2 / 4; */
+}
+
+.user-value {
+  /* margin-right: 10%; */
+  /* width: 300px; */
+  /* grid-column: 4 / 4; */
 }
 
 .profile-update-modal-container {
   align-self: center;
   max-height: 5px;
   overflow: visible;
+  /* grid-column: 2 / 3; */
 }
 
 .profile-update-modal {
@@ -98,38 +153,124 @@ Reset font-size to make calculations easier. Setting font-size to 62.5% makes 1R
   background-color: white;
   margin: auto;
   padding: 40px;
-  border: 2px solid black;
-  box-shadow: 0 40px 40px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+  /* border: 2px solid black; */
+  box-shadow: 0 40px 40px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   animation-name: animatetop;
   animation-duration: 1s;
   z-index: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
-  color:  black;
-  font-weight: bold;
+  color: black;
+  /* font-weight: bold; */
 }
 
-/* UserOrderTracking */
-.order-history {
+.profile-modal-background {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.update-user-modal-user-info-sections {
   display: flex;
   flex-direction: row;
 }
 
+.update-user-modal-user-key {
+  margin-right: 10%;
+  width: 300px;
+}
+
+.update-user-modal-user-value {
+  margin-right: 10%;
+  width: 300px;
+}
+
+.update-user-button {
+  /* @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap'); */
+  background: rgba(38, 191, 0, .25);
+  border-color: rgba(38, 191, 0, .25);
+  border-radius: 5px;
+  color: #26BF00;
+  height: 50px;
+  width: 130px;
+  font-size: 18px;
+  font-family: 'Lato';
+  font-weight: semi-bold;
+}
+
+/* UserOrderTracking */
+
+.user-orders {
+  margin-top: 5%;
+}
+
+.user-orders-title {
+  text-align: center;
+  margin-top: 3%;
+  margin-bottom: 1%;
+}
+
+.order-history {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 1%;
+}
+
+.order {
+  background-color: #FFE5A4;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 2%;
+  width: 30%;
+  border-radius: 10%;
+
+}
+
 .order-key {
-  margin-right: 200px;
+  /* background-color: #FFE5A4; */
+  width: 50%;
+  margin-right: 3%;
+  padding: 1%;
 }
 
 .order-value {
-  margin-bottom: 20px;
+  /* background-color: #FFE5A4; */
+  padding: 1%;
 }
+
+.video-detail-title {
+  margin-top: 5%;
+  text-align: center;
+}
+
+.video-detail-intro {
+  text-align: center;
+  /* width: 10%; */
+}
+
+/* .video {
+  background-color: #FFE5A4;
+  width: 50%;
+  padding: 2%;
+  border-radius: 10%;
+
+} */
 
 html {
   font-size: medium;
 }
 
 .nutritionalExperts {
-  display: flex
+  display: flex;
 }
 
 .nutritionistInfo {

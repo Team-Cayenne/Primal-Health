@@ -8,7 +8,7 @@ import App from '../App.jsx';
 
 test('should render App component', () => {
   render(<App/>);
-  const appElement = screen.getByTestId('App-1');
+  const appElement = screen.getByTestId('AppProvider-1');
   expect(appElement).toBeTruthy();
 })
 
