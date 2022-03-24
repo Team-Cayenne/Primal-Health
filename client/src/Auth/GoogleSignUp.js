@@ -79,7 +79,10 @@ export default class GoogleSignUp extends React.Component {
           <Text>Password</Text>
           <Password onChange={this.addPassword}></Password>
           <SignUpButton onClick={this.submit}>Sign Up</SignUpButton>
-          <GoogleButton onClick={this.googleLogin} className="login-button">GOOGLE</GoogleButton>
+          <GoogleButton onClick={this.googleLogin} className="login-button">
+          <img width="20px" style={{margin: '20px'}} alt="Google sign-in" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png" />
+            Continue with Google
+          </GoogleButton>
           </SignUpBox>
         </SignUpContainer>
         <Link to="/shipping">Enter Shipping Info</Link>
@@ -128,10 +131,12 @@ const SignUpBox = Styled.div`
 const Email = Styled.input`
   width: 451px;
   height: 34px;
+  padding-left: 10px;
 `
 const Password = Styled.input`
   width: 451px;
   height: 34px;
+  padding-left: 10px;
 `
 const SignUpButton = Styled.button`
   width: 277px;
@@ -145,8 +150,11 @@ const SignUpButton = Styled.button`
   font-family: 'Quicksand';
 `
 const GoogleButton = Styled.button`
+  display: flex;
   width: 277px;
   height: 55px;
   margin: 10px;
+  font-size: 18px;
   font-family: 'Quicksand';
+  align-items: center;
 `

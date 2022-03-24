@@ -4,7 +4,6 @@ import LandingPage from './LandingPage.jsx'
 import Nutritional from './Nutritional.jsx'
 import PersonalizeYourPlan from './PersonalizeYourPlan.jsx'
 import VideoDetail from './VideoDetail.jsx'
-import LoginPage from './LoginPage.jsx'
 import SupplierPage from './SupplierPage.jsx'
 import RecipeModalMenuAndReview from './RecipeModalMenuAndReview.jsx'
 import ConfirmationPage from './ConfirmationPage.jsx'
@@ -18,8 +17,6 @@ import GoogleSignUp from '../Auth/GoogleSignUp.js';
 import Masthead from '../shared/Masthead.jsx'
 import MenuAndReview from './MenuAndReview.jsx'
 import SupplierVideos from './SupplierVideos.jsx'
-
-
 import ReviewYourOrder from './ReviewYourOrder.jsx'
 import EnterCreditCard from './EnterCreditCard.jsx'
 import EnterShippingInfo from './EnterShippingInfo.jsx'
@@ -91,9 +88,6 @@ const App = () => {
     </BrowserRouter>
   );
   }
-// import LoginPage from './LoginPage.jsx'
-
-// import axios from 'axios';
 
 export default App;
 
@@ -138,6 +132,29 @@ export default App;
 //       userToggle: false
 //     }
 
+// class App extends React.Component {
+//   constructor(props) {
+//     super(props)
+//     this.state = {
+//       // suppliers: [],
+//       users: [],
+//       user: '',
+//       userToggle: false
+//     }
+
+//     this.getFAQs = this.getFAQs.bind(this);
+//     // this.getSuppliers = this.getSuppliers.bind(this);
+//     this.userLogin = this.userLogin.bind(this);
+//     this.getUsers = this.getUsers.bind(this);
+//     this.addUser = this.addUser.bind(this);
+//     this.postUser = this.postUser.bind(this);
+//   }
+
+//   componentDidMount() {
+//     // this.getFAQs()
+//     this.getSuppliers()
+//     this.getUsers();
+//   }
 //     this.getFAQs = this.getFAQs.bind(this);
 //     this.getSuppliers = this.getSuppliers.bind(this);
 //     this.userLogin = this.userLogin.bind(this);
@@ -202,7 +219,29 @@ export default App;
 //         console.log('get FAQs results:', results)
 //       })
 //   }
+// getUsers() {
+//   axios.get('/users')
+//     .then(results => {
+//       this.setState({
+//         users: results.data
+//       })
+//     })
+//     .catch(err => {
+//       console.log(err);
+//     })
+// }
 
+// userLogin(user) {
+//   if (user.password) {
+//     for (let i = 0; i < this.state.users.length; i++) {
+//       if (this.state.users[i].email === user.email && this.state.users[i].password === user.password) {
+//         this.setState({
+//           userToggle: true
+//         })
+//         return;
+//       }
+//     }
+//     alert('No User Matching These Credentials');
 
 //   // getSuppliers() {
 //   //   axios.get('/suppliers')
@@ -215,7 +254,38 @@ export default App;
 //   //       console.log(err);
 //   //     })
 //   // }
+//   } else {
+//     for (let i = 0; i < this.state.users.length; i++) {
+//       if (this.state.users[i].email === user.email) {
+//         this.setState({
+//           userToggle: true
+//         })
+//         return;
+//       }
+//     }
+//     alert('No User Matching These Credentials');
+//   }
+// }
 
+// addUser(user) {
+//   if (user.password) {
+//     for (let i = 0; i < this.state.users.length; i++) {
+//       if (this.state.users[i].email === user.email) {
+//         alert('Email Already Exists');
+//         return;
+//       }
+//     }
+//     this.postUser(user)
+//   } else {
+//     for (let i = 0; i < this.state.users.length; i++) {
+//       if (this.state.users[i].email === user.email) {
+//         alert('Email Already Exists');
+//         return;
+//       }
+//     }
+//     this.postUser(user);
+//   }
+// }
 
 //   getUsers() {
 //     axios.get('/users')
@@ -396,7 +466,10 @@ export default App;
       // </div>
       // <ConfirmationPage/>
 
-      // <EnterCreditCard />
+  //     <EnterCreditCard />
+
+  //   )
+  // }
 
 //     )
 //   }

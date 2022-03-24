@@ -1,6 +1,17 @@
+<<<<<<< HEAD
 import React from 'react'
 import Masthead from '../shared/Masthead.jsx'
 import {Link}  from "react-router-dom";
+=======
+<<<<<<< HEAD
+import React from 'react'
+import Masthead from '../shared/Masthead.jsx'
+import {Link}  from "react-router-dom";
+=======
+import React from "react";
+import Masthead from "../shared/Masthead.jsx";
+>>>>>>> 7fe3ef59552efb8e6774b1715c0bccda3613936a
+>>>>>>> b35f6953804849e0aa067cadf4b7e17c78c340ad
 
 const orders = [
   {
@@ -25,6 +36,35 @@ class UserOrderTracking extends React.Component {
     this.state = {};
   }
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+  return (
+    <div>
+      <Masthead />
+      {/* {props.orders.map((order, i) => (create order div))} */}
+      <button>
+      <Link to="/user-profile">BACK</Link>
+      </button>
+      {orders.map((order, i) => (
+        <div className='order-history' key={i}>
+          <div className='order-key'>
+            <div>Order #:</div>
+            <div>Tracking Details:</div>
+            <div>Order Details:</div>
+          </div>
+          <div className='order-value'>
+            <div>{order.order}</div>
+            <div>{order.tracking}</div>
+            <div>
+              <div>{order.plan}</div>
+              <div>Quantity {order.quantity}</div>
+              <div>Selected Meals:</div>
+              {order.meal.map((meal, j) => (
+                <div key={j}>{meal}</div>
+              ))}
+=======
+>>>>>>> b35f6953804849e0aa067cadf4b7e17c78c340ad
   render() {
     return (
       <div>
@@ -69,6 +109,10 @@ class UserOrderTracking extends React.Component {
                   <br />
                 </div>
               </div>
+<<<<<<< HEAD
+=======
+>>>>>>> 7fe3ef59552efb8e6774b1715c0bccda3613936a
+>>>>>>> b35f6953804849e0aa067cadf4b7e17c78c340ad
             </div>
           ))}
         </div>

@@ -56,7 +56,7 @@ import axios from 'axios';
       <SelectRecipesContainer>
         <RecipesContainer>
           <HeaderText>
-            <div>Select Recipes</div>
+            Select Recipes
           </HeaderText>
           <OneRecipeRow>
             {/* testMeals replace with meals if API is functioning */}
@@ -71,14 +71,20 @@ import axios from 'axios';
 
         <OrderSummaryContainer>
           <HeaderText>
-            <div>Order Summary</div>
+            Order Summary
           </HeaderText>
             <SummaryBoxContainer>
               <MealSelection>
+<<<<<<< HEAD
                 <div>Meat & Veggies</div>
                 <div>4 Meals for {headCount} people per week</div>
                 <div>{numRecipies} Meals per week</div>
                 <div>{selectMeals}</div>
+=======
+                <SummaryText>Meat & Veggies</SummaryText>
+                <SummaryText>4 Meals for 5 people per week</SummaryText>
+                <SummaryText>20 Meals per week</SummaryText>
+>>>>>>> b35f6953804849e0aa067cadf4b7e17c78c340ad
               </MealSelection>
               <div>
                 {specialBuy.map((item, i) => {
@@ -90,18 +96,23 @@ import axios from 'axios';
               </div>
               <Cost>
                 <Shipping>
-                  <div>Shipping</div>
-                  <div>$9.99</div>
+                  <SummaryText>Shipping</SummaryText>
+                  <SummaryText>$9.99</SummaryText>
                 </Shipping>
                 <Total>
+<<<<<<< HEAD
                   <div>Total</div>
                   <div>$ {rate}</div>
+=======
+                  <SummaryText>Total</SummaryText>
+                  <SummaryText>$272.79</SummaryText>
+>>>>>>> b35f6953804849e0aa067cadf4b7e17c78c340ad
                 </Total>
               </Cost>
           </SummaryBoxContainer>
           <ReviewOrderContainer>
             <ReviewOrderButton>
-            <Link to="/review-order">Review Order</Link>
+            <Link to="/review-order" style={{ textDecoration: 'none' , color: '#26BF00' }}>Review Order</Link>
             </ReviewOrderButton>
           </ReviewOrderContainer>
         </OrderSummaryContainer>
@@ -123,7 +134,10 @@ import axios from 'axios';
     </div>
   )
 }
-
+const SummaryText = Styled.div`
+  font-family: 'Quicksand';
+  font-weight: 500;
+`
 const SelectRecipesContainer = Styled.div`
   display: flex;
   flex-direction: row;
@@ -180,8 +194,7 @@ const ReviewOrderButton = Styled.button`
   font-size: 18px;
 `
 const HeaderText = Styled.div`
-  @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
-  font-family: 'Lato', sans-serif;
+  font-family: 'Quicksand';
   font-size: 18px;
   margin-left: 5px;
 `
@@ -192,16 +205,6 @@ const MealSelection = Styled.div`
 const Cost = Styled.div`
   margin: 0px 15px 0px 15px;
   line-height: 25px;
-`
-const OrderSummary = Styled.div`
-  display: flex;
-  flex-direction: column;
-  margin-top: 20px;
-  margin-left: 86.5px;
-  width: 400px;
-  height: 200px;
-  border: 1px solid #C4C4C4;
-  border-radius: 5px;
 `
 const Shipping = Styled.div`
   display: flex;
@@ -217,6 +220,7 @@ const SpecialtyHeader =  Styled.div`
   font-size: 18px;
   margin: 30px 20px 10px 20px;
   text-align: center;
+  font-family: 'Quicksand';
 `
 const SpecialtyItemsContainer = Styled.div`
   display: flex;

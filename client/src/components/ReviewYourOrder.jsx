@@ -17,38 +17,50 @@ const ReviewYourOrder = () => {
 
       <ReviewYourOrderContainer>
         <LeftSide>
-          <div>Shipping Information</div>
+          <HeaderText>Shipping Information</HeaderText>
           <ShippingInfo>
             <div>Customer Name</div>
             <div>Customer Address Information</div>
           </ShippingInfo>
-          <div>Payment Information</div>
+          <HeaderText>Payment Information</HeaderText>
           <PaymentInfo>
             <div>Customer Payment Information</div>
           </PaymentInfo>
         </LeftSide>
 
         <RightSide>
+        <HeaderText>Order Summary</HeaderText>
           <OrderSummary>
             <MealSelection>
+<<<<<<< HEAD
               <div>Meat & Veggies</div>
               <div>Count {headCount} people per week</div>
               <div>{numRecipies} Meals per week</div>
+=======
+              <SummaryText>Meat & Veggies</SummaryText>
+              <SummaryText>Count 2 people per week</SummaryText>
+              <SummaryText>42 Meals per week</SummaryText>
+>>>>>>> b35f6953804849e0aa067cadf4b7e17c78c340ad
             </MealSelection>
             <Cost>
               <Shipping>
-                <div>Shipping</div>
-                <div>$9.99</div>
+                <SummaryText>Shipping</SummaryText>
+                <SummaryText>$9.99</SummaryText>
               </Shipping>
               <Total>
+<<<<<<< HEAD
                 <div>Total</div>
                 <div>$ {rate}</div>
+=======
+                <SummaryText>Total</SummaryText>
+                <SummaryText>$272.79</SummaryText>
+>>>>>>> b35f6953804849e0aa067cadf4b7e17c78c340ad
               </Total>
             </Cost>
           </OrderSummary>
-          <div>If your order contains alcoholic items, someone over the age of 21 must accept the order.</div>
+          <Alcohol>If your order contains alcoholic items, someone over the age of 21 must accept the order.</Alcohol>
           <Button>
-            <Link to="/order-confirmation">Place Order</Link>
+            <Link to="/order-confirmation" style={{ textDecoration: 'none' , color: '#26BF00' }}>Place Order</Link>
           </Button>
         </RightSide>
       </ReviewYourOrderContainer>
@@ -57,25 +69,43 @@ const ReviewYourOrder = () => {
   )
 }
 
+const Alcohol = Styled.div`
+  font-family: 'Quicksand';
+  width: 400px;
+  margin-top: 10px;
+  margin-left: 10px;
+`
+const HeaderText = Styled.div`
+  font-size: 18px;
+  margin: 20px;
+  font-family: 'Quicksand';
+`
+const SummaryText = Styled.div`
+  font-family: 'Quicksand';
+  font-weight: 500;
+`
 const Header = Styled.div`
-  font-size: 24px;
+  font-family: 'Quicksand';
   text-align: center;
-  margin-top: 53px;
+  color: #264654;
+  margin: 30px 0px;
+  font-size: 44px;
 `
 const ReviewYourOrderContainer = Styled.div`
   display: flex;
   justify-content: center;
+  margin-top: 20px;
 `
 const LeftSide = Styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: start;
+  margin-right: 33.5px;
+
 `
 const ShippingInfo = Styled.div`
   display: flex;
   flex-direction: column;
-  margin-top: 20px;
-  margin-left: 86.5px;
   width: 400px;
   height: 200px;
   border: 1px solid #C4C4C4;
@@ -84,8 +114,6 @@ const ShippingInfo = Styled.div`
 const PaymentInfo = Styled.div`
   display: flex;
   flex-direction: column;
-  margin-top: 20px;
-  margin-left: 86.5px;
   width: 400px;
   height: 200px;
   border: 1px solid #C4C4C4;
@@ -94,6 +122,8 @@ const PaymentInfo = Styled.div`
 const RightSide = Styled.div`
   display: flex;
   flex-direction: column;
+  margin-left: 33.5px;
+
 `
 const MealSelection = Styled.div`
   margin: 15px 15px 30px 15px;
@@ -106,8 +136,6 @@ const Cost = Styled.div`
 const OrderSummary = Styled.div`
   display: flex;
   flex-direction: column;
-  margin-top: 20px;
-  margin-left: 86.5px;
   width: 400px;
   height: 200px;
   border: 1px solid #C4C4C4;
@@ -124,9 +152,9 @@ const Total = Styled.div`
   justify-content: space-between;
 `
 const Button = Styled.button`
-  width: 355px;
+  width: 277px;
   height: 55px;
-  margin: 50px;
+  margin: 20px 0px 0px 70px;
   background-color: rgba(38, 191, 0, .25);
   border-radius: 5px;
   border-color: rgba(38, 191, 0, .25);

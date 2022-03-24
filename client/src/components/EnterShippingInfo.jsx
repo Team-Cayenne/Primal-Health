@@ -23,7 +23,7 @@ const EnterShippingInfo = () =>{
       <EnterShippingContainer>
 
         <LeftSide>
-          <div>Shipping Information</div>
+          <HeaderText>Shipping Information</HeaderText>
           <ShippingInfoContainer>
             <ShippingLeft>
               <FirstName placeholder="First name" onChange={handleInput}></FirstName>
@@ -44,41 +44,60 @@ const EnterShippingInfo = () =>{
 
 
         <RightSide>
-          <div>Order Summary</div>
+          <HeaderText>Order Summary</HeaderText>
             <OrderSummary>
               <MealSelection>
+<<<<<<< HEAD
                 <div>Meat & Veggies</div>
                 <div>4 Meals for {headCount} people per week</div>
                 <div>{numRecipies} Meals per week</div>
+=======
+                <SummaryText>Meat & Veggies</SummaryText>
+                <SummaryText>4 Meals for 5 people per week</SummaryText>
+                <SummaryText>20 Meals per week</SummaryText>
+>>>>>>> b35f6953804849e0aa067cadf4b7e17c78c340ad
               </MealSelection>
               <Cost>
                 <Shipping>
-                  <div>Shipping</div>
-                  <div>$9.99</div>
+                  <SummaryText>Shipping</SummaryText>
+                  <SummaryText>$9.99</SummaryText>
                 </Shipping>
                 <Total>
+<<<<<<< HEAD
                   <div>Total</div>
                   <div>$ {rate}</div>
+=======
+                  <SummaryText>Total</SummaryText>
+                  <SummaryText>$199.80</SummaryText>
+>>>>>>> b35f6953804849e0aa067cadf4b7e17c78c340ad
                 </Total>
               </Cost>
             </OrderSummary>
           <Button onClick={handleClick}>
-            <Link to="/credit-card-entry">Next Step</Link>
+            <Link to="/credit-card-entry" style={{ textDecoration: 'none' , color: '#26BF00' }}>Next Step</Link>
             </Button>
         </RightSide>
-
       </EnterShippingContainer>
+
     </div>
   )
 }
-
+const SummaryText = Styled.div`
+  font-family: 'Quicksand';
+  font-weight: 500;
+`
 const EnterShippingContainer = Styled.div`
   display: flex;
   justify-content: center;
   margin-top: 30px;
 `
+const HeaderText = Styled.div`
+  font-size: 18px;
+  margin: 20px;
+  font-family: 'Quicksand';
+`
 const LeftSide = Styled.div`
-margin-right: 33.5px;
+  margin-right: 33.5px;
 `
 const ShippingInfoContainer = Styled.div`
   display: flex;
@@ -100,24 +119,28 @@ const FirstName = Styled.input`
   height: 29px;
   margin: 10px;
   padding: 5px;
+  font-family: 'Quicksand';
 `
 const Address = Styled.input`
   width: 217px;
   height: 29px;
   margin: 10px;
   padding: 5px;
+  font-family: 'Quicksand';
 `
 const City = Styled.input`
   width: 217px;
   height: 29px;
   margin: 10px;
   padding: 5px;
+  font-family: 'Quicksand';
 `
 const State = Styled.input`
   width: 217px;
   height: 29px;
   margin: 10px;
   padding: 5px;
+  font-family: 'Quicksand';
 `
 const ShippingRight = Styled.div`
   display: flex;
@@ -129,24 +152,28 @@ const LastName = Styled.input`
   height: 29px;
   margin: 10px;
   padding: 5px;
+  font-family: 'Quicksand';
 `
 const Apt = Styled.input`
   width: 217px;
   height: 29px;
   margin: 10px;
   padding: 5px;
+  font-family: 'Quicksand';
 `
 const Zip = Styled.input`
   width: 217px;
   height: 29px;
   margin: 10px;
   padding: 5px;
+  font-family: 'Quicksand';
 `
 const Phone = Styled.input`
   width: 217px;
   height: 29px;
   margin: 10px;
   padding: 5px;
+  font-family: 'Quicksand';
 `
 const RightSide = Styled.div`
   display: flex;
@@ -164,7 +191,6 @@ const Cost = Styled.div`
 const OrderSummary = Styled.div`
   display: flex;
   flex-direction: column;
-  margin-top: 20px;
   width: 400px;
   height: 200px;
   border: 1px solid #C4C4C4;
@@ -190,5 +216,13 @@ const Button = Styled.button`
   color: #26BF00;
   font-size: 18px;
 `
-
+export const Footer = Styled.div`
+  display: flex;
+  background-color: #FFE5A4;
+  width: 100%;
+  height: 95px;
+  flex-directon: row;
+  margin-bottom: auto;
+  align-self: flex-end;
+`
 export default EnterShippingInfo
