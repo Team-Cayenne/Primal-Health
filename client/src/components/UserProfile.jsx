@@ -3,7 +3,6 @@ import UpdateProfileModal from './UpdateProfileModal.jsx';
 import Masthead from '../shared/Masthead.jsx'
 import {Link}  from "react-router-dom";
 
-
 class UserProfile extends React.Component {
   constructor(props) {
     super(props);
@@ -33,7 +32,7 @@ class UserProfile extends React.Component {
               <br />
               <div className="profile-order-history">
               <Link to="/user-orders">Order History</Link>
-                <a href="">Order History</a>
+
               </div>
               <br />
               <div className="profile-health-logger">
@@ -54,6 +53,7 @@ class UserProfile extends React.Component {
                 <div>Address:</div>
                 <br />
                 {this.state.addressLine2 ? (<div><br /></div>) : null}
+
                 <br></br>
                 <div>Phone:</div>
                 <br />

@@ -3,6 +3,7 @@ import React from 'react'
 import Masthead from '../shared/Masthead.jsx'
 import {Link}  from "react-router-dom";
 
+
 const VideoDetail = () => {
   return (
     <div>
@@ -15,6 +16,7 @@ const VideoDetail = () => {
           <button>
             <Link to="/nutrition-health">BACK</Link>
           </button>
+
         </div>
         <br />
         <div className="video">
