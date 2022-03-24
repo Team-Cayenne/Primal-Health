@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import emailImage from "../img/mail.png";
 import phoneImage from "../img/phone.jpg";
+import chatImage from "../img/chat.png";
 // import logoImage from "../img/logo.png"
 
 export const SeperatorBar = styled.div`
@@ -47,11 +48,12 @@ export const NutritionalTitle = styled.div`
   // align-self: center;
 `
 export const EmailRow = styled.div`
-height: 35px;
-width: 300px;
-margin-left: -12px;
-display: flex;
-flex-direction: row;
+  height: 35px;
+  width: 300px;
+  margin-left: -12px;
+  margin-top: -7px;
+  display: flex;
+  flex-direction: row;
 `
 export const EmailIcon = styled.div`
   height: 30px;
@@ -70,6 +72,7 @@ export const EmailText = styled.div`
 export const PhoneRow = styled.div`
 height: 35px;
 width: 200px;
+margin-top: -14px;
 margin-left: -12px;
 display: flex;
 flex-direction: row;
@@ -87,6 +90,13 @@ export const PhoneText = styled.div`
   font-weight: 600;
   color: #264654;
   align-self: baseline;
+`
+export const ChatIcon = styled.div`
+  height: 30px;
+  width: 30px;
+  background-image: url(${chatImage});
+  background-size: cover;
+  margin: 0px 5px 0px 0px;
 `
 export const DescriptionBox = styled.div`
   display: flex;

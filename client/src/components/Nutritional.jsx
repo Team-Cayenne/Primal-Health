@@ -5,7 +5,7 @@ import { BottomContainer } from '../styles/confirmationPage/bottom.js';
 import { Line } from '../styles/confirmationPage/middle.js';
 import { NutritionMainContainer, NutritionalTitle, NutritionalBox, NutritionalContactBox,
   EmailIcon, EmailRow, PhoneIcon, EmailText, PhoneRow, PhoneText, DescriptionBox,
-  InnerTitle, SeperatorBar, VideosButton } from '../styles/nutritionalPage/styles';
+  InnerTitle, SeperatorBar, VideosButton, ChatIcon } from '../styles/nutritionalPage/styles';
 
 
 const Nutritional= () =>{
@@ -30,6 +30,7 @@ const Nutritional= () =>{
           <li>Sun-Diego, CA</li> <br/>
           <EmailRow><EmailIcon/><EmailText>nclarkrd@rcn.com</EmailText></EmailRow><br/>
           <PhoneRow><PhoneIcon/><PhoneText>(617)795-1875</PhoneText></PhoneRow><br/>
+          <PhoneRow><ChatIcon/><PhoneText>Available to chat</PhoneText></PhoneRow><br/>
         </NutritionalContactBox>
       </NutritionalBox>
       <DescriptionBox>
@@ -65,6 +66,7 @@ Self pay</li>
           <li>SunnyVale, CA</li> <br/>
           <EmailRow><EmailIcon/><EmailText>Bforester@healthprofs.com</EmailText></EmailRow><br/>
           <PhoneRow><PhoneIcon/><PhoneText>(916)795-1875</PhoneText></PhoneRow><br/>
+          <PhoneRow><ChatIcon/><PhoneText>Available to chat</PhoneText></PhoneRow><br/>
         </NutritionalContactBox>
       </NutritionalBox>
         <DescriptionBox>
