@@ -4,7 +4,8 @@ import Masthead from '../shared/Masthead.jsx'
 import { BottomContainer } from '../styles/confirmationPage/bottom.js';
 import { Line } from '../styles/confirmationPage/middle.js';
 import { NutritionMainContainer, NutritionalTitle, NutritionalBox, NutritionalContactBox,
-  EmailIcon, EmailRow, PhoneIcon, EmailText, PhoneRow, PhoneText, DescriptionBox, InnerTitle } from '../styles/nutritionalPage/styles';
+  EmailIcon, EmailRow, PhoneIcon, EmailText, PhoneRow, PhoneText, DescriptionBox,
+  InnerTitle, Logo } from '../styles/nutritionalPage/styles';
 
 const Nutritional= () =>{
 

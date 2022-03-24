@@ -1,12 +1,19 @@
 import styled from "styled-components";
 import emailImage from "../img/mail.png";
 import phoneImage from "../img/phone.jpg";
+// import logoImage from "../img/logo.png"
 
 //align-self: flex-end;
+// const Logo = styled.div`
+//   height: 55px;
+//   width: 167px;
+//   background-image: url(${logoImage});
+//   background-size: cover;
+//   margin: 13px;
+// `
 export const NutritionMainContainer = styled.div`
-
   display: flex;
-  background-color: white;
+  // background-color: white;
   width: 100%;
   flex-direction: column;
   // align-items: center;
