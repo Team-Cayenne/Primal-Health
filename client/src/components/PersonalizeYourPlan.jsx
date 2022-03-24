@@ -46,9 +46,9 @@ import {Link}  from "react-router-dom";
           </StepOneHeader>
           <StepOneButtonContainer>
 
-            <PreferenceButtons>
+            {/* <PreferenceButtons>
               <Image src="../assets/preferences/meatandveggies.png" width='70' height='40'onClick={()=>handleMealPref(mealTypes['meat'])} ></Image>
-              Whole 30 (Meat)
+              Whole 30 (Meat) */}
             <PreferenceButtons onClick={()=>handleMealPref(mealTypes['meat'])}>
               {/* <Image src="../assets/preferences/meatandveggies.png" width='70' height='40'onClick={()=>handleMealPref(mealTypes['meat'])} ></Image> */}
               Whole 30
