@@ -1,10 +1,12 @@
-import React from 'react'
+import React, {useContext } from 'react'
 import Styled from 'styled-components'
 import {Link}  from "react-router-dom";
 import ProgressMasthead from '../shared/ProgressMasthead.jsx'
+import { AppContext } from "../context.js";
 
 
 const EnterShippingInfo = () =>{
+  const {rate, numRecipies, headCount} = useContext(AppContext);
 
   const handleInput = (e) => {
     console.log(e.target.value)
@@ -45,9 +47,9 @@ const EnterShippingInfo = () =>{
           <HeaderText>Order Summary</HeaderText>
             <OrderSummary>
               <MealSelection>
-                <SummaryText>Meat & Veggies</SummaryText>
-                <SummaryText>4 Meals for 5 people per week</SummaryText>
-                <SummaryText>20 Meals per week</SummaryText>
+                <div>Meat & Veggies</div>
+                <div>4 Meals for {headCount} people per week</div>
+                <div>{numRecipies} Meals per week</div>
               </MealSelection>
               <Cost>
                 <Shipping>
@@ -55,8 +57,8 @@ const EnterShippingInfo = () =>{
                   <SummaryText>$9.99</SummaryText>
                 </Shipping>
                 <Total>
-                  <SummaryText>Total</SummaryText>
-                  <SummaryText>$199.80</SummaryText>
+                  <div>Total</div>
+                  <div>$ {rate}</div>
                 </Total>
               </Cost>
             </OrderSummary>

@@ -1,5 +1,8 @@
-import React from "react";
-import Masthead from "../shared/Masthead.jsx";
+
+import React from 'react'
+import Masthead from '../shared/Masthead.jsx'
+import {Link}  from "react-router-dom";
+
 
 const VideoDetail = () => {
   return (
@@ -10,6 +13,10 @@ const VideoDetail = () => {
         <br />
         <div className="video-detail-intro">
           At Primal Health, a fitness focused, health conscious lifestyle is the number one priority for both ourselves and our community. Below are some of our favorite fitness videos! Enjoy!
+          <button>
+            <Link to="/nutrition-health">BACK</Link>
+          </button>
+
         </div>
         <br />
         <div className="video">
