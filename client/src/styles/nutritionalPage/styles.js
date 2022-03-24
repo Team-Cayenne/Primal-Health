@@ -39,13 +39,21 @@ export const NutritionalContactBox = styled.div`
   color: #264654;
   font-weight: 600;
 `
-export const NutritionalTitle = styled.div`
+export const SeperatorTitle = styled.div`
   display: flex;
   margin: 25px 0px 40px 0px;
   font-weight: bold;
   font-size: 2.3em;
   color: #264654;
-  // align-self: center;
+  align-self: start;
+`
+export const NutritionalTitle = styled.div`
+  display: flex;
+  margin: -30px 0px 30px 200px;
+  font-weight: bold;
+  font-size: 2.3em;
+  color: #264654;
+  align-self: start;
 `
 export const EmailRow = styled.div`
   height: 35px;

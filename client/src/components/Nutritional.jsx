@@ -5,7 +5,7 @@ import { BottomContainer } from '../styles/confirmationPage/bottom.js';
 import { Line } from '../styles/confirmationPage/middle.js';
 import { NutritionMainContainer, NutritionalTitle, NutritionalBox, NutritionalContactBox,
   EmailIcon, EmailRow, PhoneIcon, EmailText, PhoneRow, PhoneText, DescriptionBox,
-  InnerTitle, SeperatorBar, VideosButton, ChatIcon } from '../styles/nutritionalPage/styles';
+  InnerTitle, SeperatorBar, SeperatorTitle, VideosButton, ChatIcon } from '../styles/nutritionalPage/styles';
 
 
 const Nutritional= () =>{
@@ -14,9 +14,9 @@ const Nutritional= () =>{
     <NutritionMainContainer>
       <Masthead />
       <SeperatorBar>
-        <NutritionalTitle>Nutritional Experts</NutritionalTitle>
+        <SeperatorTitle>We are here for you!</SeperatorTitle>
       </SeperatorBar>
-
+      <NutritionalTitle>Nutritional Experts</NutritionalTitle>
 
       {/* <NutritionalTitle>Nutritional Experts</NutritionalTitle> */}
       <NutritionalBox>
@@ -52,7 +52,7 @@ Self pay</li>
       </DescriptionBox>
       <br/>
       <SeperatorBar>
-
+        <SeperatorTitle>We bring our best!</SeperatorTitle>
       </SeperatorBar>
       <br/><br/><br/>
       <NutritionalBox>
