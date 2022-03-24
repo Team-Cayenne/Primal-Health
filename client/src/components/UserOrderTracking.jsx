@@ -3,7 +3,6 @@ import Masthead from '../shared/Masthead.jsx'
 import {Link}  from "react-router-dom";
 
 
-
 const orders = [
   {
     order: "12345566",
@@ -27,6 +26,7 @@ class UserOrderTracking extends React.Component {
     this.state = {};
   }
 
+<<<<<<< HEAD
 
   // return (
   //   <div>
@@ -53,6 +53,8 @@ class UserOrderTracking extends React.Component {
   //               <div key={j}>{meal}</div>
   //             ))}
 
+=======
+>>>>>>> 2f14d1202779bd42479990b3a09873d2914ed6e9
   render() {
     return (
       <div>
@@ -62,6 +64,9 @@ class UserOrderTracking extends React.Component {
         </button>
         <div className="user-orders">
           <h2 className="user-orders-title">Your Order History</h2>
+          <button>
+      <Link to="/user-profile">BACK</Link>
+      </button>
           {/* {props.orders.map((order, i) => (create order div))} */}
           {orders.map((order, i) => (
             <div className="order-history" key={i}>
@@ -97,7 +102,6 @@ class UserOrderTracking extends React.Component {
                   <br />
                 </div>
               </div>
-
             </div>
           ))}
         </div>

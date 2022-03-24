@@ -21,6 +21,7 @@ import ReviewYourOrder from './ReviewYourOrder.jsx'
 import EnterCreditCard from './EnterCreditCard.jsx'
 import EnterShippingInfo from './EnterShippingInfo.jsx'
 import { AppContext } from "../context.js";
+import ShippingInfoPage from './ShippingInfoPage.jsx';
 
 
 const AppProvider = (props) => {
@@ -87,7 +88,68 @@ const App = () => {
       </AppProvider>
     </BrowserRouter>
   );
-  }
+}
+
+
+// import LoginPage from './LoginPage.jsx'
+
+// import axios from 'axios';
+
+//   console.log("mealsfromapp", meals);
+//   return (
+//     <AppContext.Provider
+//       value={{
+//         meals,
+//         setMeals,
+//         selectMeals,
+//         setSelectMeals,
+//         id,
+//         setId,
+//       }}
+//     >
+//       {props.children}
+//     </AppContext.Provider>
+//   );
+// };
+
+// const App = () => {
+//   return (
+//     <div data-testid="AppProvider-1">
+//       <BrowserRouter>
+//         <AppProvider>
+//           <Routes>
+//             {/* <Route path="/order-confirmation" element={<ConfirmationPage />} /> */}
+//             {/* <Route path="/credit-card-entry" element={<EnterCreditCard />} /> */}
+//             {/* <Route path="/shipping" element={<EnterShippingInfo />} /> */}
+//             {/* <Route path="/logged-in" element={<LoggedInOut />} /> */}
+//             {/* <Route path="/health-log" element={<Logger />} /> */}
+//             {/* <Route path="/login" element={<LoginPage />} /> */}
+//             {/* <Route path="/recipe-menu" element={<MenuAndReview />} /> */}
+//             {/* <Route path="/your-thoughts" element={<ModalWriteAReview />} /> */}
+//             {/* <Route path="/nutritional-breakdown" element={<NutritionalInfoModalMenuAndReview />} /> */}
+//             {/* <Route path="/recipe-card" element={<RecipeModalMenuAndReview />} /> */}
+//             {/* <Route path="/review-order" element={<ReviewYourOrder />} /> */}
+//             {/* <Route path="/select-meals" element={<SelectMeals />} /> */}
+//             {/* <Route path="/meet-our-vendors" element={<SupplierPage />} /> */}
+//             {/* <Route path="/tracking" element={<TrackingPage />} /> */}
+//             <Route path="/user-profile" element={<UserProfile />} />
+//             {/* <Route path="/user-health" element={<UserHealthLogger />} /> */}
+//             <Route path="/user-orders" element={<UserOrderTracking />} />
+
+//             {/* <Route path="/your-personal-pref" element={<PersonalizeYourPlan/>} /> */}
+//           <Route path="/videos" element={<VideoDetail />} />
+//           {/* <Route path="/" element={<Nutritional />}> */}
+//           {/* <Route index element={<SupplierPage />} /> */}
+//           <Route path='/suppliers' element={<SupplierPage />} />
+//             {/* <Route path="*" element={<NoPage />} /> */}
+//             {/* </Route> */}
+//           </Routes>
+//         </AppProvider>
+//       </BrowserRouter>
+//     </div>
+//   );
+// };
+
 
 export default App;
 
@@ -357,12 +419,6 @@ export default App;
 //         console.log(err);
 //       })
 //   }
-// }
-
-//   render() {}
-  //   return (
-  //     <div>
-
 
   //       {this.state.userToggle
   //         ? <SupplierPage suppliers={this.state.suppliers} />
