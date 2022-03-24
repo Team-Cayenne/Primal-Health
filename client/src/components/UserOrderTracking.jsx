@@ -1,11 +1,6 @@
-<<<<<<< HEAD
 import React from 'react'
 import Masthead from '../shared/Masthead.jsx'
 import {Link}  from "react-router-dom";
-=======
-import React from "react";
-import Masthead from "../shared/Masthead.jsx";
->>>>>>> 7fe3ef59552efb8e6774b1715c0bccda3613936a
 
 const orders = [
   {
@@ -30,38 +25,15 @@ class UserOrderTracking extends React.Component {
     this.state = {};
   }
 
-<<<<<<< HEAD
-  return (
-    <div>
-      <Masthead />
-      {/* {props.orders.map((order, i) => (create order div))} */}
-      <button>
-      <Link to="/user-profile">BACK</Link>
-      </button>
-      {orders.map((order, i) => (
-        <div className='order-history' key={i}>
-          <div className='order-key'>
-            <div>Order #:</div>
-            <div>Tracking Details:</div>
-            <div>Order Details:</div>
-          </div>
-          <div className='order-value'>
-            <div>{order.order}</div>
-            <div>{order.tracking}</div>
-            <div>
-              <div>{order.plan}</div>
-              <div>Quantity {order.quantity}</div>
-              <div>Selected Meals:</div>
-              {order.meal.map((meal, j) => (
-                <div key={j}>{meal}</div>
-              ))}
-=======
   render() {
     return (
       <div>
         <Masthead />
         <div className="user-orders">
           <h2 className="user-orders-title">Your Order History</h2>
+          <button>
+      <Link to="/user-profile">BACK</Link>
+      </button>
           {/* {props.orders.map((order, i) => (create order div))} */}
           {orders.map((order, i) => (
             <div className="order-history" key={i}>
@@ -97,7 +69,6 @@ class UserOrderTracking extends React.Component {
                   <br />
                 </div>
               </div>
->>>>>>> 7fe3ef59552efb8e6774b1715c0bccda3613936a
             </div>
           ))}
         </div>
