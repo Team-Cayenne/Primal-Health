@@ -1,8 +1,25 @@
+<<<<<<< HEAD
+import React from 'react'
+import Masthead from '../shared/Masthead.jsx'
+import {Link}  from "react-router-dom";
+=======
 import React from "react";
 import Masthead from "../shared/Masthead.jsx";
+>>>>>>> 7fe3ef59552efb8e6774b1715c0bccda3613936a
 
 const VideoDetail = () => {
   return (
+<<<<<<< HEAD
+
+    <div>
+      <Masthead />
+      <div>Featured Videos
+          <button>
+            <Link to="/nutrition-health">BACK</Link>
+          </button>
+        <div>
+          Yoga
+=======
     <div>
       <Masthead />
       <div>
@@ -10,6 +27,7 @@ const VideoDetail = () => {
         <br />
         <div className="video-detail-intro">
           At Primal Health, a fitness focused, health conscious lifestyle is the number one priority for both ourselves and our community. Below are some of our favorite fitness videos! Enjoy!
+>>>>>>> 7fe3ef59552efb8e6774b1715c0bccda3613936a
         </div>
         <br />
         <div className="video">

@@ -99,6 +99,7 @@ const addSupplier = (req, res) => {
 }
 
 const getSuppliers = (req, res) => {
+  console.log("SUPPLIERS FROM TODOS")
   firebase.collection('suppliers').get()
     .then((data) => {
       let suppliers = [];
@@ -114,6 +115,7 @@ const getSuppliers = (req, res) => {
           food_item_reviews: doc.data().item_reviews
         })
       })
+
       res.send(suppliers);
     })
     .catch((err) => {

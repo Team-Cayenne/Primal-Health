@@ -1,6 +1,6 @@
 import React from 'react'
 import Styled from 'styled-components'
-
+import {Link}  from "react-router-dom";
 import ProgressMasthead from '../shared/ProgressMasthead.jsx'
 
 const EnterCreditCard = () =>{
@@ -19,7 +19,7 @@ const EnterCreditCard = () =>{
 
       <EnterCreditCardContainer>
         <LeftSide>
-            <div>Payment Information</div>
+            <HeaderText>Payment Information</HeaderText>
           <PaymentInputContainer>
             <HeaderText>Add credit or debit card</HeaderText>
             <CardholderName placeholder="Cardholder name" onChange={handleInput}></CardholderName>
@@ -29,7 +29,7 @@ const EnterCreditCard = () =>{
               <CardCVV placeholder="CVV" onChange={handleInput}></CardCVV>
             </CardNumberInfoContainer>
             <ImageAndButton>
-              <img src="../../public/assets/creditcards/creditcards.png" width='123px' height='19px'>
+              <img src="assets/creditcards/creditcards.png" width='123px' height='19px'>
               </img>
               <AddPaymentButton onClick={handleClick}>Add payment</AddPaymentButton>
             </ImageAndButton>
@@ -37,32 +37,37 @@ const EnterCreditCard = () =>{
         </LeftSide>
 
         <RightSide>
-          <div>Order Summary</div>
+          <HeaderText>Order Summary</HeaderText>
           <OrderSummary>
             <MealSelection>
-              <div>Meat & Veggies</div>
-              <div>4 Meals for 5 people per week</div>
-              <div>20 Meals per week</div>
+              <SummaryText>Meat & Veggies</SummaryText>
+              <SummaryText>4 Meals for 5 people per week</SummaryText>
+              <SummaryText>20 Meals per week</SummaryText>
             </MealSelection>
             <Cost>
               <Shipping>
-                <div>Shipping</div>
-                <div>$9.99</div>
+                <SummaryText>Shipping</SummaryText>
+                <SummaryText>$9.99</SummaryText>
               </Shipping>
               <Total>
-                <div>Total</div>
-                <div>$199.80</div>
+                <SummaryText>Total</SummaryText>
+                <SummaryText>$272.79</SummaryText>
               </Total>
             </Cost>
           </OrderSummary>
-          <div>If your order contains alcoholic items, someone over the age of 21 must accept the order.</div>
-          <Button onClick={handleClick}>Next Step</Button>
+          <Button onClick={handleClick}>
+          <Link to="/select-meals" style={{ textDecoration: 'none' , color: '#26BF00' }}>Next Step</Link>
+          </Button>
         </RightSide>
       </EnterCreditCardContainer>
     </div>
   )
 }
 
+const SummaryText = Styled.div`
+  font-family: 'Quicksand';
+  font-weight: 500;
+`
 const EnterCreditCardContainer = Styled.div`
   display: flex;
   flex-direction: row;
@@ -84,12 +89,14 @@ const PaymentInputContainer = Styled.div`
 const HeaderText = Styled.div`
   font-size: 18px;
   margin: 20px;
+  font-family: 'Quicksand';
 `
 const CardholderName = Styled.input`
   width: 491px;
   height: 29px;
   margin: 0px 20px 10px 19px;
   padding: 5px;
+  font-family: 'Quicksand';
 `
 const CardNumberInfoContainer = Styled.div`
   display:flex;
@@ -100,18 +107,22 @@ const CardNumber = Styled.input`
   height: 29px;
   margin: 3px;
   padding: 5px;
+  font-family: 'Quicksand';
+
 `
 const CardExp = Styled.input`
   width: 101px;
   height: 29px;
   margin: 3px;
   padding: 5px;
+  font-family: 'Quicksand';
 `
 const CardCVV = Styled.input`
   width: 101px;
   height: 29px;
   margin: 3px;
   padding: 5px;
+  font-family: 'Quicksand';
 `
 const ImageAndButton = Styled.div`
   display: flex;
@@ -122,7 +133,7 @@ const ImageAndButton = Styled.div`
 const AddPaymentButton = Styled.button`
   width: 128px;
   height: 25px;
-  margin-top: 5px;
+  margin-top: 10px;
   background-color: rgba(38, 191, 0, .25);
   border-radius: 5px;
   border-color: rgba(38, 191, 0, .25);
@@ -145,7 +156,6 @@ const Cost = Styled.div`
 const OrderSummary = Styled.div`
   display: flex;
   flex-direction: column;
-  margin-top: 20px;
   width: 400px;
   height: 200px;
   border: 1px solid #C4C4C4;
