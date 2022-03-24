@@ -87,7 +87,9 @@ Self pay</li>
         <li>Nutrition Coaching</li>
         <li>NutritionCounseling</li>
       </DescriptionBox>
-      <VideosButton><Link to="/videos">WATCH Nutritional Health Videos</Link></VideosButton>
+      <Link to="/videos" style={{ textDecoration: 'none' , color: '#26BF00', fontFamily: 'Quicksand', alignSelf: 'center'}}>
+        <VideosButton>WATCH Nutritional Health Videos</VideosButton>
+      </Link>
       <SeperatorBar style={{marginBottom: '0px'}}>
 
       </SeperatorBar>
