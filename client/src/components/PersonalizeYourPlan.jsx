@@ -1,5 +1,5 @@
 import { AppContext } from "../context.js";
-import React, { useState, useContext } from 'react'
+import React, { useContext } from 'react'
 import Styled from 'styled-components'
 import ProgressMasthead from '../shared/ProgressMasthead.jsx'
 import axios from 'axios';
@@ -7,8 +7,8 @@ import 'regenerator-runtime/runtime'
 import {Link}  from "react-router-dom";
 
   const PersonalizeYourPlan = (props) => {
-    const {meals, setMeals} = useContext(AppContext);
-    const [type, setType] = useState('');
+    const {meals, setMeals, type, setType, rate, setRate, numRecipies, setNumRecipies,headCount, setHeadCount} = useContext(AppContext);
+
     const mealTypes = {
       "meat": "Whole30",
       "vegetarian": "Vegetarian",
@@ -18,6 +18,9 @@ import {Link}  from "react-router-dom";
       "vegan": "Vegan"
     }
 
+    setRate((headCount * numRecipies * 12.99 + 9.99).toFixed(2))
+    // const
+    console.log("headCount", headCount)
     const testMeals = [
       {
         id: 716381,
@@ -198,7 +201,7 @@ import {Link}  from "react-router-dom";
 
             <PreferenceButtons>
               <Image src="../assets/preferences/meatandveggies.png" width='70' height='40'onClick={()=>handleMealPref(mealTypes['meat'])} ></Image>
-              Meat and Veggies
+              Whole 30 (Meat)
             </PreferenceButtons>
 
             <PreferenceButtons>
@@ -207,13 +210,13 @@ import {Link}  from "react-router-dom";
             </PreferenceButtons>
 
             <PreferenceButtons>
-              <Image src="../assets/preferences/familyfriendly.png" width='40' height='40'></Image>
-              Family Friendly
+              <Image src="../assets/preferences/fitandwholesome.png" width='60' height='40' onClick={()=>handleMealPref(mealTypes['vegan'])}></Image>
+              Vegan
             </PreferenceButtons>
 
             <PreferenceButtons>
-              <Image src="../assets/preferences/fitandwholesome.png" width='60' height='40' onClick={()=>handleMealPref(mealTypes['vegan'])}></Image>
-              Vegan
+              <Image src="../assets/preferences/fitandwholesome.png" width='60' height='40' onClick={()=>handleMealPref(mealTypes['ketogenic'])}></Image>
+              Ketogenic
             </PreferenceButtons>
 
             <PreferenceButtons>
@@ -237,26 +240,30 @@ import {Link}  from "react-router-dom";
             <StepTwoText>
               Number of people
             </StepTwoText>
-            <PeopleButton>2</PeopleButton>
-            <PeopleButton>4</PeopleButton>
+            <PeopleButton onClick={()=>setHeadCount(2)}>
+              2
+            </PeopleButton>
+            <PeopleButton onClick={()=>setHeadCount(4)}>
+              4
+            </PeopleButton>
           </StepTwoNumberOfPeopleContainer>
 
           <StepTwoNumberOfRecipesContainer>
             <StepTwoText>
               Recipes per week
             </StepTwoText>
-            <RecipeButton>2</RecipeButton>
-            <RecipeButton>3</RecipeButton>
-            <RecipeButton>4</RecipeButton>
-            <RecipeButton>5</RecipeButton>
-            <RecipeButton>6</RecipeButton>
+            <RecipeButton onClick={()=>setNumRecipies(2)}>2</RecipeButton>
+            <RecipeButton onClick={()=>setNumRecipies(3)}>3</RecipeButton>
+            <RecipeButton onClick={()=>setNumRecipies(4)}>4</RecipeButton>
+            <RecipeButton onClick={()=>setNumRecipies(5)}>5</RecipeButton>
+            <RecipeButton onClick={()=>setNumRecipies(6)}>6</RecipeButton>
           </StepTwoNumberOfRecipesContainer>
 
           <OrderSummary>
             <MealSelection>
               <div>{type}</div>
-              <div>Count 2 people per week</div>
-              <div>42 Meals per week</div>
+              <div>{headCount}: Portion plan</div>
+              <div>{numRecipies}: No. of Recipes</div>
             </MealSelection>
             <Cost>
               <Shipping>
@@ -265,7 +272,7 @@ import {Link}  from "react-router-dom";
               </Shipping>
               <Total>
                 <div>Total</div>
-                <div>$272.79</div>
+                <div>$ {rate}</div>
               </Total>
             </Cost>
           </OrderSummary>

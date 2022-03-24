@@ -1,9 +1,11 @@
-import React from 'react'
+import { AppContext } from "../context.js";
+import React, { useContext } from 'react'
 import Styled from 'styled-components'
 import {Link}  from "react-router-dom";
 import ProgressMasthead from '../shared/ProgressMasthead.jsx'
 
 const ReviewYourOrder = () => {
+  const {meals, setMeals, type, setType, rate, setRate, numRecipies, setNumRecipies,headCount, setHeadCount} = useContext(AppContext);
 
   return (
     <div>
@@ -30,8 +32,8 @@ const ReviewYourOrder = () => {
           <OrderSummary>
             <MealSelection>
               <div>Meat & Veggies</div>
-              <div>Count 2 people per week</div>
-              <div>42 Meals per week</div>
+              <div>Count {headCount} people per week</div>
+              <div>{numRecipies} Meals per week</div>
             </MealSelection>
             <Cost>
               <Shipping>
@@ -40,7 +42,7 @@ const ReviewYourOrder = () => {
               </Shipping>
               <Total>
                 <div>Total</div>
-                <div>$272.79</div>
+                <div>$ {rate}</div>
               </Total>
             </Cost>
           </OrderSummary>

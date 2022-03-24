@@ -6,7 +6,7 @@ import axios from 'axios'
 
 const MenuAndReview= () =>{
   // !Cheryl
-  // const {meals, id, setId} = useContext(AppContext);
+  const {selectMeals} = useContext(AppContext);
   // !Cheryl
   const [id, setId] = useState(0);
   const [recipe, setRecipe] = useState([]);
@@ -130,36 +130,6 @@ const MenuAndReview= () =>{
       imageType: 'jpg'
     },
     {
-      id: 643061,
-      title: 'Flank Steak with Herbed Salsa',
-      image: 'https://spoonacular.com/recipeImages/643061-312x231.jpg',
-      imageType: 'jpg'
-    },
-    {
-      id: 645863,
-      title: 'Grilled Salmon With Mango Salsa',
-      image: 'https://spoonacular.com/recipeImages/645863-312x231.jpg',
-      imageType: 'jpg'
-    },
-    {
-      id: 645422,
-      title: 'Sausages with Green Cabbage Mash',
-      image: 'https://spoonacular.com/recipeImages/645422-312x231.jpg',
-      imageType: 'jpg'
-    },
-    {
-      id: 640990,
-      title: 'Cuban Flank Steak With Avocado and Tomato Salad',
-      image: 'https://spoonacular.com/recipeImages/640990-312x231.jpg',
-      imageType: 'jpg'
-    },
-    {
-      id: 654352,
-      title: 'Pak Choi and Bean Sprouts Salad',
-      image: 'https://spoonacular.com/recipeImages/654352-312x231.jpg',
-      imageType: 'jpg'
-    },
-    {
       id: 633088,
       title: 'Authentic Jamaican Curry Chicken',
       image: 'https://spoonacular.com/recipeImages/633088-312x231.jpg',
@@ -187,7 +157,8 @@ const MenuAndReview= () =>{
     <div>
       <Masthead />
       <h2>Menu</h2>
-      {testMeals.map((meal, i)=> {
+      {/* replace testMeals with selectMeals if API IS WORKING */}
+      {selectMeals.map((meal, i)=> {
         return <div key={i}>
           <img src={meal.image} width='170' height='150' onClick={()=>handleRecipeSelect(meal.id, meal.title, meal.image)}></img>
           <p>{meal.title}</p>
