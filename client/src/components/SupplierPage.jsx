@@ -95,7 +95,7 @@ const SupplierContainer = Styled.div`
 `
 const YellowSeperator = Styled.div`
   width: 100%;
-  height: 140px;
+  height: 160px;
   background-color: #FFE5A4;
 `
 const Header = Styled.div`
