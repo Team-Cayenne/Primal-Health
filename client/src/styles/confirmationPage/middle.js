@@ -8,7 +8,6 @@ export const MiddleContainer = styled.div`
   flex-direction: column;
   align-items: center;
 
-  margin-top: 100px;
 `
 
 export const ThankYouRow = styled.div`
@@ -18,6 +17,7 @@ export const ThankYouRow = styled.div`
   justify-content: center;
   flex-direction: row;
   align-items: flex-end;
+  margin: 80px;
 `
 export const ThankYou = styled.div`
   display: flex;
@@ -39,18 +39,19 @@ export const OrderConfirmation = styled.div`
   background-color: white;
   width: 40%;
   flex-direction: column;
-  margin-top: 80px;
+  margin-top: -20px;
 `
 export const OrderTitle = styled.div`
   color: #264654;
   margin-top: 30px;
   align-self: center;
-  margin-bottom: -20px;
+
 `
 export const Line = styled.div`
   color: #264654;
   align-self: center;
   margin-bottom: 30px;
+  margin-top: -10px
 `
 export const TrackYourOrderButton = styled.button`
   display: flex;

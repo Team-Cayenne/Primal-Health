@@ -20,7 +20,7 @@ import {Link}  from "react-router-dom";
 
     setRate((headCount * numRecipies * 12.99 + 9.99).toFixed(2))
     // const
-    console.log("headCount", headCount)
+    // console.log("headCount", headCount)
 
     const handleMealPref = async(mealType) => {
       setType(mealType)
@@ -33,8 +33,8 @@ import {Link}  from "react-router-dom";
         console.log("UNABLE TO SET MEALS", err)
       }
     }
-    console.log('MEALS', meals)
-    console.log("TYPE", type)
+    // console.log('MEALS', meals)
+    // console.log("TYPE", type)
   return (
     <PersonalizeYourPlanContainer>
       <ProgressMasthead />
