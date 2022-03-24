@@ -20,9 +20,12 @@ Reset font-size to make calculations easier. Setting font-size to 62.5% makes 1R
 /* Supplier Page */
 .logo-image {
   object-fit: cover;
-  height: 100px;
-  width: 100px;
+  height: 150px;
+  width: 150px;
   cursor: pointer;
+  border-radius: 50%;
+  border: 3px solid #26BF00;
+  margin: 100px;
 }
 
 .supplier-modal-container {

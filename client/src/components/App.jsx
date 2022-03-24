@@ -18,8 +18,6 @@ import GoogleSignUp from '../Auth/GoogleSignUp.js';
 import Masthead from '../shared/Masthead.jsx'
 import MenuAndReview from './MenuAndReview.jsx'
 import SupplierVideos from './SupplierVideos.jsx'
-
-
 import ReviewYourOrder from './ReviewYourOrder.jsx'
 import EnterCreditCard from './EnterCreditCard.jsx'
 import EnterShippingInfo from './EnterShippingInfo.jsx'

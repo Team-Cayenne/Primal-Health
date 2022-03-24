@@ -1,4 +1,5 @@
 import React from 'react'
+import {Link}  from "react-router-dom";
 import Styled from 'styled-components'
 
 
@@ -7,7 +8,9 @@ const ProgressMasthead = (props) => {
   return (
     <Progress_container>
       <Logo>
-        <img className='logo' src='../../public/assets/masthead/Masthead-logo-yellow.png' width='156' height='51'></img>
+        <Link to="/" style={{ textDecoration: 'none' , color: '#264654', fontFamily: 'Quicksand' }}>
+        <img className='logo' src='assets/masthead/Masthead-logo-yellow.png' width='156' height='51'></img>
+        </Link>
       </Logo>
       <ProgressText>
         <CurrentStep>Select Plan -----</CurrentStep>
