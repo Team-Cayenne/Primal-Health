@@ -211,31 +211,31 @@ export default App;
 //     }
 //   }
 
-//   userSignup(user) {
-//     if (user.password) {
-//       for (let i = 0; i < this.state.users.length; i++) {
-//         if (this.state.users[i].email === user.email) {
-//           alert('Email Already Exists');
-//           return;
-//         }
-//       }
-//       // this.postUser(user)
-//       this.setState({
-//         userToggle: true,
-//         user: {
-//           email: user.email,
-//           password: user.password
-//         }
-//       })
-//     } else {
+  // userSignup(user) {
+  //   if (user.password) {
+  //     for (let i = 0; i < this.state.users.length; i++) {
+  //       if (this.state.users[i].email === user.email) {
+  //         alert('Email Already Exists');
+  //         return;
+  //       }
+  //     }
+  //     // this.postUser(user)
+  //     this.setState({
+  //       userToggle: true,
+  //       user: {
+  //         email: user.email,
+  //         password: user.password
+  //       }
+  //     })
+  //   } else {
 
-//       for (let i = 0; i < this.state.users.length; i++) {
-//         if (this.state.users[i].email === user.email) {
-//           alert('Email Already Exists');
-//           return;
-//         }
+  //     for (let i = 0; i < this.state.users.length; i++) {
+  //       if (this.state.users[i].email === user.email) {
+  //         alert('Email Already Exists');
+  //         return;
+  //       }
 
-//       }
+  //     }
 //       // this.postUser(user);
 //       this.setState({
 //         userToggle: true,
@@ -258,19 +258,19 @@ export default App;
 //   }
 
 
-//   postUser() {
-//     console.log(this.state.user)
-//     // axios.post('/users', this.state.user)
-//     //   .then(res => {
-//     //     console.log(res);
-//     //     // this.setState({
-//     //     //   userToggle: true
-//     //     // })
-//     //   })
-//     //   .catch(err => {
-//     //     console.log(err);
-//     //   })
-//   }
+  // postUser() {
+
+  //   axios.post('/users', this.state.user)
+  //     .then(res => {
+  //       console.log(res);
+  //       // this.setState({
+  //       //   userToggle: true
+  //       // })
+  //     })
+  //     .catch(err => {
+  //       console.log(err);
+  //     })
+  // }
 
 
 //   render() {
