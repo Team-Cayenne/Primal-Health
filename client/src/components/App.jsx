@@ -2,7 +2,7 @@ import React, { useState, useContext } from 'react';
 import axios from 'axios';
 import LandingPage from './LandingPage.jsx'
 import Nutritional from './Nutritional.jsx'
-import PersonalizeYourPlan from './PersonalizeYourPlan.jsx'
+// import PersonalizeYourPlan from './PersonalizeYourPlan.jsx'
 import VideoDetail from './VideoDetail.jsx'
 import SupplierPage from './SupplierPage.jsx'
 import RecipeModalMenuAndReview from './RecipeModalMenuAndReview.jsx'
@@ -77,10 +77,9 @@ const App = () => {
           <Route path="/user-orders" element={<UserOrderTracking />} />
           <Route path="/nutrition-health" element={<Nutritional />} />
 
-          <Route path="/your-personal-pref" element={<PersonalizeYourPlan/>} />
+          {/* <Route path="/your-personal-pref" element={<PersonalizeYourPlan/>} /> */}
           <Route path="/videos" element={<VideoDetail />} />
           <Route path="/" element={<LandingPage />}>
-          <Route index element={<SupplierPage />} />
           {/* <Route path="*" element={<NoPage />} /> */}
           </Route>
         </Routes>

@@ -44,7 +44,7 @@ import {Link}  from "react-router-dom";
           <StepOneHeader>
             1. Choose your preferences
           </StepOneHeader>
-          <StepOneButtonContainer>
+          {/* <StepOneButtonContainer>
 
             <PreferenceButtons>
               <Image src="../assets/preferences/meatandveggies.png" width='70' height='40'onClick={()=>handleMealPref(mealTypes['meat'])} ></Image>
@@ -79,7 +79,7 @@ import {Link}  from "react-router-dom";
               Pescatarian
             </PreferenceButtons>
 
-          </StepOneButtonContainer>
+          </StepOneButtonContainer> */}
         </StepOne>
 
         <StepTwo>
