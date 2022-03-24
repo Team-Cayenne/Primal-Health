@@ -1,9 +1,15 @@
+<<<<<<< HEAD
 import React from 'react'
 import Masthead from '../shared/Masthead.jsx'
 import {Link}  from "react-router-dom";
+=======
+import React from "react";
+import Masthead from "../shared/Masthead.jsx";
+>>>>>>> 7fe3ef59552efb8e6774b1715c0bccda3613936a
 
-const VideoDetail= () =>{
+const VideoDetail = () => {
   return (
+<<<<<<< HEAD
 
     <div>
       <Masthead />
@@ -13,49 +19,84 @@ const VideoDetail= () =>{
           </button>
         <div>
           Yoga
-        </div>
-        <iframe
-          width="600"
-          height="300"
-          src="https://www.youtube.com/embed/Vry_VI76_Es"
-          frameBorder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
-          title="Embedded youtube"
-        />
-      </div>
-      <br/>
+=======
+    <div>
+      <Masthead />
       <div>
-        <div>
-          Zumba
+        <h2 className="video-detail-title">Featured Videos</h2>
+        <br />
+        <div className="video-detail-intro">
+          At Primal Health, a fitness focused, health conscious lifestyle is the number one priority for both ourselves and our community. Below are some of our favorite fitness videos! Enjoy!
+>>>>>>> 7fe3ef59552efb8e6774b1715c0bccda3613936a
         </div>
-        <iframe
-          width="600"
-          height="300"
-          src="https://www.youtube.com/embed/drdrLQeXD3s"
-          frameBorder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
-          title="Embedded youtube"
-        />
-      </div>
-      <br/>
-      <div>
-        <div>
-          Disco Funk
+        <br />
+        <div className="video">
+          <br />
+          <h3 style={{ textAlign: "center" }}>Yoga</h3>
+          <br />
+          <iframe
+            style={{
+              display: "block",
+              marginLeft: "auto",
+              marginRight: "auto",
+            }}
+            width="600"
+            height="300"
+            src="https://www.youtube.com/embed/Vry_VI76_Es"
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+            title="Embedded youtube"
+          />
+          <br />
+          <br />
         </div>
-        <iframe
-          width="600"
-          height="300"
-          src="https://www.youtube.com/embed/cgDppkLnImI"
-          frameBorder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
-          title="Embedded youtube"
-        />
+        <br />
+        <div>
+          <br />
+          <h3 style={{ textAlign: "center" }}>Zumba</h3>
+          <br />
+          <iframe
+            style={{
+              display: "block",
+              marginLeft: "auto",
+              marginRight: "auto",
+            }}
+            width="600"
+            height="300"
+            src="https://www.youtube.com/embed/drdrLQeXD3s"
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+            title="Embedded youtube"
+          />
+          <br />
+          <br />
+        </div>
+        <br />
+        <div>
+          <br />
+          <h3 style={{ textAlign: "center" }}>Disco Funk</h3>
+          <br />
+          <iframe
+            style={{
+              display: "block",
+              marginLeft: "auto",
+              marginRight: "auto",
+            }}
+            width="600"
+            height="300"
+            src="https://www.youtube.com/embed/cgDppkLnImI"
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+            title="Embedded youtube"
+          />
+        </div>
       </div>
+      <br /><br /><br /><br />
     </div>
-  )
-}
+  );
+};
 
-export default VideoDetail
+export default VideoDetail;
