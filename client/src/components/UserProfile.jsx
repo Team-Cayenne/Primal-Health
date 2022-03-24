@@ -1,6 +1,7 @@
-import React from "react";
-import UpdateProfileModal from "./UpdateProfileModal.jsx";
-import Masthead from "../shared/Masthead.jsx";
+import React from 'react'
+import UpdateProfileModal from './UpdateProfileModal.jsx';
+import Masthead from '../shared/Masthead.jsx'
+import {Link}  from "react-router-dom";
 
 class UserProfile extends React.Component {
   constructor(props) {
@@ -29,7 +30,8 @@ class UserProfile extends React.Component {
               <div>Links</div>
               <br />
               <div className="profile-order-history">
-                <a href="">Order History</a>
+              <Link to="/user-orders">Order History</Link>
+
               </div>
               <br />
               <div className="profile-health-logger">

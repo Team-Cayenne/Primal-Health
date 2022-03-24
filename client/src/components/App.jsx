@@ -27,6 +27,12 @@ import ShippingInfoPage from './ShippingInfoPage.jsx';
 const AppProvider = (props) => {
   const [meals, setMeals] = useState([]);
   const [selectMeals, setSelectMeals] = useState([]);
+  const [type, setType] = useState('');
+  const [headCount, setHeadCount] = useState(0);
+  const [numRecipies, setNumRecipies] = useState(0);
+  const [rate, setRate] = useState(0);
+  const [specialBuy, setSpecialBuy] = useState([]);
+
   // const [id, setId] = useState(0)
 
   console.log("mealsfromapp", meals)
@@ -34,6 +40,11 @@ const AppProvider = (props) => {
     <AppContext.Provider value= {{
       meals, setMeals,
       selectMeals, setSelectMeals,
+      type, setType,
+      headCount, setHeadCount,
+      numRecipies, setNumRecipies,
+      rate, setRate,
+      specialBuy, setSpecialBuy
       // id, setId
       }}>
       {props.children}
@@ -78,6 +89,8 @@ const App = () => {
     </BrowserRouter>
   );
 }
+
+
 // import LoginPage from './LoginPage.jsx'
 
 // import axios from 'axios';
@@ -136,6 +149,7 @@ const App = () => {
 //     </div>
 //   );
 // };
+
 
 export default App;
 
@@ -235,6 +249,31 @@ export default App;
 //       console.log(err);
 //     })
 // }
+
+// class App extends React.Component {
+//   constructor(props) {
+//     super(props)
+//     this.state = {
+//       // suppliers: [],
+//       users: [],
+//       user: '',
+//       userToggle: false
+//     }
+
+//     this.getFAQs = this.getFAQs.bind(this);
+//     // this.getSuppliers = this.getSuppliers.bind(this);
+//     this.userLogin = this.userLogin.bind(this);
+//     this.getUsers = this.getUsers.bind(this);
+//     this.addUser = this.addUser.bind(this);
+//     this.postUser = this.postUser.bind(this);
+//   }
+
+//   componentDidMount() {
+//     // this.getFAQs()
+//     this.getSuppliers()
+//     this.getUsers();
+//   }
+
 
 //   getFAQs() {
 //     axios.get('/faqs')
@@ -391,6 +430,69 @@ export default App;
   //       {/* <GoogleSignUp addUser={this.addUser} /> */}
   //     </div>
   //     // <ConfirmationPage/>
+
+  //     <EnterCreditCard />
+
+  //   )
+  // }
+
+// getUsers() {
+//   axios.get('/users')
+//     .then(results => {
+//       this.setState({
+//         users: results.data
+//       })
+//     })
+//     .catch(err => {
+//       console.log(err);
+//     })
+// }
+
+// userLogin(user) {
+//   if (user.password) {
+//     for (let i = 0; i < this.state.users.length; i++) {
+//       if (this.state.users[i].email === user.email && this.state.users[i].password === user.password) {
+//         this.setState({
+//           userToggle: true
+//         })
+//         return;
+//       }
+//     }
+//     alert('No User Matching These Credentials');
+
+//   } else {
+//     for (let i = 0; i < this.state.users.length; i++) {
+//       if (this.state.users[i].email === user.email) {
+//         this.setState({
+//           userToggle: true
+//         })
+//         return;
+//       }
+//     }
+//     alert('No User Matching These Credentials');
+//   }
+// }
+
+// addUser(user) {
+//   if (user.password) {
+//     for (let i = 0; i < this.state.users.length; i++) {
+//       if (this.state.users[i].email === user.email) {
+//         alert('Email Already Exists');
+//         return;
+//       }
+//     }
+//     this.postUser(user)
+//   } else {
+//     for (let i = 0; i < this.state.users.length; i++) {
+//       if (this.state.users[i].email === user.email) {
+//         alert('Email Already Exists');
+//         return;
+//       }
+//     }
+//     this.postUser(user);
+//   }
+// }
+
 // postUser(user) {
 //   axios.post('/users', user)
 //     .then(res => {

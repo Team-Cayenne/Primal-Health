@@ -3,14 +3,15 @@ import emailImage from "../img/mail.png";
 import phoneImage from "../img/phone.jpg";
 // import logoImage from "../img/logo.png"
 
-//align-self: flex-end;
-// const Logo = styled.div`
-//   height: 55px;
-//   width: 167px;
-//   background-image: url(${logoImage});
-//   background-size: cover;
-//   margin: 13px;
-// `
+export const SeperatorBar = styled.div`
+  display: flex;
+  width: 100%;
+  height: 95px;
+  background-color: #FFE5A4;
+  justify-content: center;
+  // align-items: center;
+  margin-bottom: 100px;
+`
 export const NutritionMainContainer = styled.div`
   display: flex;
   // background-color: white;
@@ -39,11 +40,11 @@ export const NutritionalContactBox = styled.div`
 `
 export const NutritionalTitle = styled.div`
   display: flex;
-  margin: 0px 0px 40px 0px;
+  margin: 25px 0px 40px 0px;
   font-weight: bold;
   font-size: 2.3em;
   color: #264654;
-  align-self: center;
+  // align-self: center;
 `
 export const EmailRow = styled.div`
 height: 35px;
@@ -95,7 +96,7 @@ export const DescriptionBox = styled.div`
 
   flex-direction: column;
   margin-left: 200px;
-  margin-bottom: 100px;
+  margin-bottom: 50px;
   color: #264654;
   font-weight: 300;
 `
@@ -106,4 +107,17 @@ export const InnerTitle = styled.div`
 
   color: #264654;
   // align-self: center;
+`
+export const VideosButton = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 70px;
+  color: #26BF00;
+  background-color: #CCFCBE;
+  font-size: 1.2em;
+  width: 320px;
+  height: 90px;
+  border-radius: 8px;
+  align-self: center;
 `

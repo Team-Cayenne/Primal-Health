@@ -5,16 +5,20 @@ import { BottomContainer } from '../styles/confirmationPage/bottom.js';
 import { Line } from '../styles/confirmationPage/middle.js';
 import { NutritionMainContainer, NutritionalTitle, NutritionalBox, NutritionalContactBox,
   EmailIcon, EmailRow, PhoneIcon, EmailText, PhoneRow, PhoneText, DescriptionBox,
-  InnerTitle, Logo } from '../styles/nutritionalPage/styles';
+  InnerTitle, SeperatorBar, VideosButton } from '../styles/nutritionalPage/styles';
+
 
 const Nutritional= () =>{
 
   return (
     <NutritionMainContainer>
       <Masthead />
-      Nutritional Health Page
-      <Link to="/videos">Videos</Link>
-      <NutritionalTitle>Nutritional Experts</NutritionalTitle>
+      <SeperatorBar>
+        <NutritionalTitle>Nutritional Experts</NutritionalTitle>
+      </SeperatorBar>
+
+
+      {/* <NutritionalTitle>Nutritional Experts</NutritionalTitle> */}
       <NutritionalBox>
         <div>
           <img src="https://media.istockphoto.com/photos/portrait-of-smiling-mixed-race-woman-looking-at-camera-picture-id1319763830?b=1&k=20&m=1319763830&s=170667a&w=0&h=wE44n9yP1nrefeqv5DCl5mE3ouU01FNNHeZPR0yDCWA="></img>
@@ -37,7 +41,7 @@ const Nutritional= () =>{
 Self pay</li>
         <InnerTitle> LANGUAGES </InnerTitle>
         <li>English</li>
-        <InnerTitle> Specialty </InnerTitle>
+        <InnerTitle> SPECIALITY </InnerTitle>
         <li>Eating Disorders</li>
         <li>Health Coach</li>
         <li>Healthy Eating-Wellness</li>
@@ -46,7 +50,9 @@ Self pay</li>
         <li>Weight Management-Adults, Children and Teens</li>
       </DescriptionBox>
       <br/>
-      <Line>_________________________________________________________________</Line>
+      <SeperatorBar>
+
+      </SeperatorBar>
       <br/><br/><br/>
       <NutritionalBox>
         <div>
@@ -79,7 +85,10 @@ Self pay</li>
         <li>Nutrition Coaching</li>
         <li>NutritionCounseling</li>
       </DescriptionBox>
-       <BottomContainer> </BottomContainer>
+      <VideosButton><Link to="/videos">WATCH Nutritional Health Videos</Link></VideosButton>
+      <SeperatorBar style={{marginBottom: '0px'}}>
+
+      </SeperatorBar>
     </NutritionMainContainer>
   )
 }
