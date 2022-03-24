@@ -156,40 +156,75 @@ const MenuAndReview= () =>{
   console.log("RECIPE", recipe)
   // console.log("selectMeals from menu", selectMeals)
   return (
-    <div>
+    <MenuContainer>
       <Masthead />
-      <h2>Menu</h2>
-      <RecipeModalMenuAndReview id={id} recipe={recipe} image={image} recipeTitle={recipeTitle} close={close} setOnClose={setOnClose}/>
-      <Menu>
+      <YellowSeperator>
+        <Header>Menu</Header>
+      </YellowSeperator>
+
+      <CenterModal>
+        <RecipeModalMenuAndReview id={id} recipe={recipe} image={image} recipeTitle={recipeTitle} close={close} setOnClose={setOnClose}/>
+      </CenterModal>
+
+      <Center>
+      <MenuSelection>
       {/* replace testMeals with selectMeals if API IS WORKING */}
       {meals.map((meal, i)=> {
         return <Meal key={i}>
           <img src={meal.image} width='170' height='150' className="mealImage" onClick={()=>handleRecipeSelect(meal.id, meal.title, meal.image)}></img>
-          <p>{meal.title}</p>
+          <RecipeName>{meal.title}</RecipeName>
         </Meal>
       })}
-      </Menu>
-
-    </div>
+      </MenuSelection>
+      </Center>
+    </MenuContainer>
   )
 }
-
-const Menu = Styled.div`
+const MenuContainer = Styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+`
+const YellowSeperator = Styled.div`
+  width: 100%;
+  height: 95px;
+  background-color: #FFE5A4;
+`
+const Center = Styled.div`
+  display: flex;
+  justify-content: center;
+`
+const CenterModal = Styled.div`
+`
+const Header = Styled.div`
+  text-align: center;
+  font-size: 24px;
+  font-style: italic;
+  font-weight: bold;
+  font-family: 'Lato';
+  color: #264654;
+  margin-top: 35px;
+`
+const MenuSelection = Styled.div`
   display: flex;
   flex-direction: row;
-  justify-content: center;
-  margin-top: 50px;
-  justify-content: space-evenly;
   flex-wrap: wrap;
-  gap: 10px;
-  margin-top: 140px;
+  // justify-content: center;
+  // align-items: center;
+  margin-top: 30px;
+  width: 800px;
   border-radius: 5px
 `
-
+const RecipeName = Styled.div`
+  font-family: 'Quicksand';
+  margin-top: 10px;
+  font-size: 12px;
+  width: 160px
+`
 const Meal = Styled.div`
-  width: 200px;
+  width: auto;
   border-radius: 5px;
-  margin-bottom: 11px;
+  margin: 15px
 `
 
 export default MenuAndReview

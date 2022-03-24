@@ -46,11 +46,9 @@ import {Link}  from "react-router-dom";
           </StepOneHeader>
           <StepOneButtonContainer>
 
-            <PreferenceButtons>
+            {/* <PreferenceButtons>
               <Image src="../assets/preferences/meatandveggies.png" width='70' height='40'onClick={()=>handleMealPref(mealTypes['meat'])} ></Image>
-              Whole 30 (Meat)
-            </PreferenceButtons>
-
+              Whole 30 (Meat) */}
             <PreferenceButtons onClick={()=>handleMealPref(mealTypes['meat'])}>
               {/* <Image src="../assets/preferences/meatandveggies.png" width='70' height='40'onClick={()=>handleMealPref(mealTypes['meat'])} ></Image> */}
               Whole 30
@@ -131,9 +129,7 @@ import {Link}  from "react-router-dom";
         </StepTwo>
       </StepsContainer>
       <ContinueContainer>
-        <ContinueButton>
-          <Link to="/signup" style={{ textDecoration: 'none' , color: '#26BF00'}}>Select plan & continue</Link>
-        </ContinueButton>
+          <Link to="/signup" style={{ textDecoration: 'none' , color: '#26BF00'}}><ContinueButton>Select plan & continue</ContinueButton></Link>
       </ContinueContainer>
     </PersonalizeYourPlanContainer>
   )
@@ -193,6 +189,7 @@ const PreferenceButtons = Styled.button`
     border-radius: 10px;
     border: 2.5px solid #26BF00;
   }
+  cursor: pointer;
 `
 const StepTwoHeader = Styled.div`
   margin: 20px;
@@ -228,6 +225,7 @@ const PeopleButton = Styled.button`
     border-radius: 5px;
     border: 2.5px solid #26BF00;
   }
+  cursor: pointer;
 `
 const StepTwoNumberOfRecipesContainer = Styled.div`
   display: flex;
@@ -246,6 +244,7 @@ const RecipeButton = Styled.button`
     border-radius: 5px;
     border: 2.5px solid #26BF00;
   }
+  cursor: pointer;
 `
 const MealSelection = Styled.div`
   margin: 15px 15px 30px 15px;
@@ -287,5 +286,6 @@ const ContinueButton = Styled.button`
   border-color: rgba(38, 191, 0, .25);
   color: #26BF00;
   font-size: 18px;
+  cursor: pointer;
 `
 export default PersonalizeYourPlan;
