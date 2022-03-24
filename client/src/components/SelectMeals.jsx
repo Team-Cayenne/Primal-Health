@@ -8,7 +8,7 @@ import axios from 'axios';
 
   const SelectMeals = () =>{
     // !Cheryl
-  const {meals, selectMeals, setSelectMeals, rate, setRate, numRecipies, headCount, specialBuy, setSpecialBuy} = useContext(AppContext);
+  const {meals, selectMeals, setSelectMeals, rate, setRate, numRecipies, headCount, specialBuy, setSpecialBuy, type} = useContext(AppContext);
   const [special, setSpecial] = useState([]);
 
     // !Cheryl
@@ -62,7 +62,7 @@ import axios from 'axios';
             {/* testMeals replace with meals if API is functioning */}
             {meals.map((meal, i)=> {
               return <OneRecipe key={i} onClick={()=>userSelectedRecipes(meal.title)}>
-              <img src={meal.image} width='170' height='150'></img>
+              <img src={meal.image} width='170' height='150' style={{cursor: 'pointer'}}></img>
               <RecipeName>{meal.title}</RecipeName>
               </OneRecipe>
             })}
@@ -75,38 +75,47 @@ import axios from 'axios';
           </HeaderText>
             <SummaryBoxContainer>
               <MealSelection>
-                <div>Meat & Veggies</div>
-                <div>4 Meals for {headCount} people per week</div>
-                <div>{numRecipies} Meals per week</div>
-                <div>{selectMeals}</div>
+                <SummaryText>{type}</SummaryText>
+                <SummaryText>{numRecipies} Meals for {headCount} people per week</SummaryText>
+                <SummaryText>{numRecipies * headCount} Meals per week</SummaryText>
+                {/* <SummaryText>{selectMeals}</SummaryText> */}
+                <div>
+                  {selectMeals.map((oneMeal, i) => {
+                    return <div>
+                      <SummaryText> - {oneMeal}</SummaryText>
+                      {/* <SummaryText>$ {item.price}</SummaryText> */}
+                      </div>
+                  })}
+                </div>
+                <div>
+                  {specialBuy.map((item, i) => {
+                    return <div>
+                      <SummaryText> - {item.title} ${item.price}</SummaryText>
+                      {/* <SummaryText>$ {item.price}</SummaryText> */}
+                      </div>
+                  })}
+                </div>
               </MealSelection>
-              <div>
-                {specialBuy.map((item, i) => {
-                  return <div>
-                    <p>{item.title}</p>
-                    <p>$ {item.price}</p>
-                    </div>
-                })}
-              </div>
               <Cost>
                 <Shipping>
                   <SummaryText>Shipping</SummaryText>
                   <SummaryText>$9.99</SummaryText>
                 </Shipping>
                 <Total>
-                  <div>Total</div>
-                  <div>$ {rate}</div>
+                  <SummaryText>Total</SummaryText>
+                  <SummaryText>${rate}</SummaryText>
                 </Total>
               </Cost>
           </SummaryBoxContainer>
           <ReviewOrderContainer>
-            <ReviewOrderButton>
-            <Link to="/review-order" style={{ textDecoration: 'none' , color: '#26BF00' }}>Review Order</Link>
-            </ReviewOrderButton>
+            <Link to="/review-order" style={{ textDecoration: 'none' , color: '#26BF00' }}>
+              <ReviewOrderButton>Review Order</ReviewOrderButton>
+            </Link>
           </ReviewOrderContainer>
         </OrderSummaryContainer>
 
       </SelectRecipesContainer>
+
         <SpecialtyHeader>
           Add Specialty Items
         </SpecialtyHeader>
@@ -114,9 +123,9 @@ import axios from 'axios';
             {/* testMeals replace with special with working API */}
             {special.map((item, i) => {
               return <OneSpecialty onClick={()=>userBuysSpecial(item.food_item, item.food_item_price)}>
-                <img src={item.food_item_url} width='170' height='150'/>
-                <p>{item.supplier_name}</p>
-                <p>{item.food_item}</p>
+                <img src={item.food_item_url} width='153' height='135' style={{cursor: 'pointer'}}/>
+                <SpecialtyName>{item.supplier_name}</SpecialtyName>
+                <SpecialtyName>{item.food_item}</SpecialtyName>
               </OneSpecialty>
             })}
           </SpecialtyItemsContainer>
@@ -126,21 +135,23 @@ import axios from 'axios';
 const SummaryText = Styled.div`
   font-family: 'Quicksand';
   font-weight: 500;
+  font-size: 16px;
 `
 const SelectRecipesContainer = Styled.div`
   display: flex;
   flex-direction: row;
   justify-content: center;
   margin-top: 50px;
-  justify-content: space-evenly;
 `
 const RecipesContainer = Styled.div`
   display: flex;
   flex-direction: column;
+// align-items:center;
 `
 const OneRecipeRow = Styled.div`
   display: flex;
   flex-wrap: wrap;
+  width: 800px;
   margin-top: 10px;
   gap: 20px
 `
@@ -149,6 +160,8 @@ const OneRecipe = Styled.div`
   flex-direction: column;
 `
 const RecipeName = Styled.div`
+  font-family: 'Quicksand';
+  margin-top: 10px;
   font-size: 12px;
   width: 160px
 `
@@ -164,7 +177,8 @@ const SummaryBoxContainer = Styled.div`
   flex-direction: column;
   margin-top: 10px;
   width: 400px;
-  height: 200px;
+  height: 300px;
+  overflow: auto;
   border: 1px solid #C4C4C4;
   border-radius: 5px;
   font-size: 13px;
@@ -181,6 +195,7 @@ const ReviewOrderButton = Styled.button`
   border-color: rgba(38, 191, 0, .25);
   color: #26BF00;
   font-size: 18px;
+  cursor: pointer;
 `
 const HeaderText = Styled.div`
   font-family: 'Quicksand';
@@ -204,6 +219,7 @@ const Shipping = Styled.div`
 const Total = Styled.div`
   display: flex;
   justify-content: space-between;
+  margin-bottom: 20px;
 `
 const SpecialtyHeader =  Styled.div`
   font-size: 18px;
@@ -222,9 +238,8 @@ const OneSpecialty = Styled.div`
   margin: 0px 5px;
 `
 const SpecialtyName = Styled.div`
-  font-size: 9px;
-`
-const SpecialtyInfo = Styled.div`
-  font-size: 9px;
+  margin-top: 5px;
+  font-size: 16px;
+  font-family: 'Quicksand';
 `
 export default SelectMeals

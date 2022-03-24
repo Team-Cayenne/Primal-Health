@@ -24,7 +24,7 @@ const RecipeModalMenuAndReview= (props) =>{
   }
   console.log("render")
   return (
-    <div>
+    <ModalContainer>
       {/* <div className="Title">{props.recipeTitle}</div> */}
       {/* <img src={props.image} width='170' height='150'/> */}
       {/* <div dangerouslySetInnerHTML={{__html: props.recipe.images}} /> */}
@@ -34,24 +34,37 @@ const RecipeModalMenuAndReview= (props) =>{
       {/* })} */}
       <NutritionalInfoModalMenuAndReview nutrition={nutrition} closeNutModal={closeNutModal}setCloseNutModal={setCloseNutModal}/>
       <RecipeCard>
-      <img src={props.recipe.images?.url} width='603' height='676'/>
+      <img src={props.recipe.images?.url} width='603' height='auto'/>
 
-      <CloseButton onClick={(()=>props.setOnClose(false))}>
-        Close
-      </CloseButton>
-       <NutritionalButton onClick={(()=>handleNutritional(props.id))}>Nutritional Info</NutritionalButton>
+      <ButtonContainer>
+        <CloseButton onClick={(()=>props.setOnClose(false))}>
+          Close
+        </CloseButton>
+        <NutritionalButton onClick={(()=>handleNutritional(props.id))}>Nutritional Info</NutritionalButton>
+      </ButtonContainer>
       </RecipeCard>
-    </div>
+    </ModalContainer>
   )
 }
 
+const ModalContainer = Styled.div`
+  display: flex;
+  justify-content: center;
+  text-align: center;
+`
 const RecipeCard = Styled.div`
-  padding-right: 50px;
   height:675px;
   width: 603px;
   position:fixed;
+  border: 2px solid #264654;
   border-radius: 11px
-  margin: auto
+  margin: auto;
+  overflow: auto;
+  align-items: center;
+`
+const ButtonContainer = Styled.div`
+  display: flex;
+  justify-content: space-evenly;
 `
 const CloseButton = Styled.button`
   @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');

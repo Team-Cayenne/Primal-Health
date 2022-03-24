@@ -9,15 +9,19 @@ const NutritionalInfoModalMenuAndReview = (props) =>{
   }
 
   return (
-    <div>NutritionalInfoModalMenuAndReview
+    <ModalContainer>NutritionalInfoModalMenuAndReview
       <NutritionalModal>
         <div dangerouslySetInnerHTML={{__html: props.nutrition}} />
       <CloseNutritionalButton onClick={(()=>props.setCloseNutModal(false))}>Close</CloseNutritionalButton>
       </NutritionalModal>
-    </div>
+    </ModalContainer>
   )
 }
 
+const ModalContainer = Styled.div`
+  display: flex;
+  justify-content: center;
+`
 const CloseNutritionalButton = Styled.button`
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
 background: rgba(38, 191, 0, .25);
@@ -36,6 +40,8 @@ z-index: 1;
 width: 370px;
 height:673px;
 background-color: beige;
+border: 2px solid #264654;
+margin: 20px;
 `
 
 

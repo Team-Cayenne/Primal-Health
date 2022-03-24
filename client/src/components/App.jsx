@@ -21,6 +21,7 @@ import ReviewYourOrder from './ReviewYourOrder.jsx'
 import EnterCreditCard from './EnterCreditCard.jsx'
 import EnterShippingInfo from './EnterShippingInfo.jsx'
 import { AppContext } from "../context.js";
+import ShippingInfoPage from './ShippingInfoPage.jsx';
 
 
 const AppProvider = (props) => {
@@ -86,7 +87,7 @@ const App = () => {
       </AppProvider>
     </BrowserRouter>
   );
-  }
+}
 
 
 // import LoginPage from './LoginPage.jsx'
@@ -417,12 +418,6 @@ export default App;
 //         console.log(err);
 //       })
 //   }
-// }
-
-//   render() {}
-  //   return (
-  //     <div>
-
 
   //       {this.state.userToggle
   //         ? <SupplierPage suppliers={this.state.suppliers} />
