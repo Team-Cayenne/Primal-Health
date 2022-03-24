@@ -62,9 +62,9 @@ app.post('/recipecard', async (req, res) => {
   console.log("params---->", req.body)
   let id = req.body.id;
   try {
-    const results = await getRecipeSteps({id})
+    // const results = await getRecipeSteps({id})
     const images = await getRecipeImages({id})
-    // const images = []
+    const results = []
     console.log('results------results', results)
       res.status(200).send({results, images})
   } catch(err) {

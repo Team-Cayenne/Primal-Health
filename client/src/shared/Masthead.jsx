@@ -14,18 +14,17 @@ const Masthead = () => {
           <Link to="/">HOME</Link>
         </Text>
         <Link to="/user-profile">ACCOUNT</Link>
-        {/* <Text>ACCOUNT</Text> */}
+
         <Link to="/nutrition-health">HEALTH&NUTRITION</Link>
-        {/* <Text>OUR PLANS</Text> */}
+
         <Link to="/recipe-menu">OUR RECIPES</Link>
-        {/* <Text>OUR RECIPES</Text> */}
+
         <Link to="/meet-our-vendors">OUR SUPPLIERS</Link>
-        {/* <Text>OUR SUPPLIERS</Text> */}
-        {/* <Text>ABOUT US</Text> */}
-        {/* <Button type={'Login'}/> */}
+
         <LoginButton>
           <Link to="/login">LOGIN</Link>
         </LoginButton>
+
     </MastheadContainer>
   )
 }

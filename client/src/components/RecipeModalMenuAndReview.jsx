@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import NutritionalInfoModalMenuAndReview from './NutritionalInfoModalMenuAndReview.jsx';
 import axios from 'axios';
+import Styled from 'styled-components'
 
 const RecipeModalMenuAndReview= (props) =>{
   const [nutrition, setNutrition] = useState('')
@@ -24,19 +25,27 @@ const RecipeModalMenuAndReview= (props) =>{
   console.log("render")
   return (
     <div>
-      RecipeModalMenuAndReview
-      <div className="Title">{props.recipeTitle}</div>
-      <img src={props.Image} width='170' height='150'/>
-      <div dangerouslySetInnerHTML={{__html: props.recipe.images}} />
-      {props.recipe.results&&props.recipe.results.length&&props.recipe.results[0].steps.map((step, i) => {
-        // console.log("STEP", step)
-        return <div> {step.number},  {step.step}</div>
-      })}
+      {/* <div className="Title">{props.recipeTitle}</div> */}
+      {/* <img src={props.image} width='170' height='150'/> */}
+      {/* <div dangerouslySetInnerHTML={{__html: props.recipe.images}} /> */}
+      {/* {props.recipe.results&&props.recipe.results.length&&props.recipe.results[0].steps.map((step, i) => { */}
+        {/* // console.log("STEP", step) */}
+        {/* return <div> {step.number},  {step.step}</div> */}
+      {/* })} */}
+      <RecipeCard>
+      <img src={props.recipe.images?.url} width='650' height='800'/>
       <button onClick={(()=>props.setOnClose(false))}>Close</button>
       // <button onClick={(()=>handleNutritional(props.id))}>Nutritional</button>
       <NutritionalInfoModalMenuAndReview nutrition={nutrition} closeNutModal={closeNutModal}setCloseNutModal={setCloseNutModal}/>
+      </RecipeCard>
     </div>
   )
 }
+
+const RecipeCard = Styled.div`
+  padding-right: 50px;
+  height:825px;
+  width: 675px;
+`
 
 export default RecipeModalMenuAndReview

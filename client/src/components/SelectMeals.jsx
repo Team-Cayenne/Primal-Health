@@ -103,6 +103,7 @@ import axios from 'axios';
         imageType: 'jpg'
       }
     ]
+    console.log('select MEALS', selectMeals)
 
   return (
     <div>

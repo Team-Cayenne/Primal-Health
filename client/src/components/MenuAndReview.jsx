@@ -3,10 +3,11 @@ import { AppContext } from "../context.js";
 import Masthead from '../shared/Masthead.jsx';
 import RecipeModalMenuAndReview from './RecipeModalMenuAndReview.jsx';
 import axios from 'axios'
+import Styled from 'styled-components'
 
 const MenuAndReview= () =>{
   // !Cheryl
-  const {selectMeals} = useContext(AppContext);
+  const {meals} = useContext(AppContext);
   // !Cheryl
   const [id, setId] = useState(0);
   const [recipe, setRecipe] = useState([]);
@@ -153,22 +154,32 @@ const MenuAndReview= () =>{
   }
   // console.log('ID', id)
   console.log("RECIPE", recipe)
+  // console.log("selectMeals from menu", selectMeals)
   return (
     <div>
       <Masthead />
       <h2>Menu</h2>
+      <Menu>
       {/* replace testMeals with selectMeals if API IS WORKING */}
-      {selectMeals.map((meal, i)=> {
+      {meals.map((meal, i)=> {
         return <div key={i}>
           <img src={meal.image} width='170' height='150' onClick={()=>handleRecipeSelect(meal.id, meal.title, meal.image)}></img>
           <p>{meal.title}</p>
         </div>
       })}
+      </Menu>
 
       <RecipeModalMenuAndReview id={id} recipe={recipe} image={image} recipeTitle={recipeTitle} close={close} setOnClose={setOnClose}/>
     </div>
   )
-
 }
+
+const Menu = Styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 50px;
+  justify-content: space-evenly;
+`
 
 export default MenuAndReview
