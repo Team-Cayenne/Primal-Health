@@ -26,7 +26,6 @@ class UserOrderTracking extends React.Component {
     this.state = {};
   }
 
-<<<<<<< HEAD
 
   // return (
   //   <div>
@@ -53,8 +52,6 @@ class UserOrderTracking extends React.Component {
   //               <div key={j}>{meal}</div>
   //             ))}
 
-=======
->>>>>>> 2f14d1202779bd42479990b3a09873d2914ed6e9
   render() {
     return (
       <div>

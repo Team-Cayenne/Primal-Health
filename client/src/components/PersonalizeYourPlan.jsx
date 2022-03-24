@@ -8,7 +8,7 @@ import {Link}  from "react-router-dom";
 
   const PersonalizeYourPlan = (props) => {
     const {meals, setMeals, type, setType, rate, setRate, numRecipies, setNumRecipies,headCount, setHeadCount} = useContext(AppContext);
-
+    console.log("MEALS...........",meals)
     const mealTypes = {
       "meat": "Whole30",
       "vegetarian": "Vegetarian",
@@ -48,13 +48,7 @@ import {Link}  from "react-router-dom";
 
             {/* <PreferenceButtons>
               <Image src="../assets/preferences/meatandveggies.png" width='70' height='40'onClick={()=>handleMealPref(mealTypes['meat'])} ></Image>
-<<<<<<< HEAD
               Whole 30 (Meat) */}
-=======
-              Whole 30 (Meat)
-            </PreferenceButtons>
-
->>>>>>> 2f14d1202779bd42479990b3a09873d2914ed6e9
             <PreferenceButtons onClick={()=>handleMealPref(mealTypes['meat'])}>
               {/* <Image src="../assets/preferences/meatandveggies.png" width='70' height='40'onClick={()=>handleMealPref(mealTypes['meat'])} ></Image> */}
               Whole 30
