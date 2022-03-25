@@ -7,6 +7,7 @@ import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import {Link}  from "react-router-dom";
 import ProgressMasthead from '../shared/ProgressMasthead.jsx'
 import { Progress_container, ProgressText, TextZ, CurrentStep, Logo} from '../styles/pesonalizeYourPlan/styles.js';
+import { Footer } from "../components/EnterShippingInfo.jsx"
 
 
  const GoogleSignUp = () => {
@@ -133,6 +134,7 @@ import { Progress_container, ProgressText, TextZ, CurrentStep, Logo} from '../st
           </SignUpBox>
           <Link to="/shipping"><Button>Continue to shipping</Button></Link>
         </SignUpContainer>
+        <Footer style={{marginTop: '50px'}}></Footer>
       </div>
     );
 }

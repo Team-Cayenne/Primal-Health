@@ -1,21 +1,26 @@
 import React from "react";
 import Masthead from "../shared/Masthead.jsx";
 import { Link } from "react-router-dom";
+import { Footer } from './EnterShippingInfo.jsx';
+import { SeperatorTitle, SeperatorBar } from "../styles/nutritionalPage/styles.js";
+import { Button } from "./EnterShippingInfo.jsx";
 
 const VideoDetail = () => {
   return (
     <div>
       <Masthead />
+      <SeperatorBar> <SeperatorTitle>Featured Videos</SeperatorTitle></SeperatorBar>
       <div>
-        <h2 className="video-detail-title">Featured Videos</h2>
+
         <br />
         <div className="video-detail-intro">
           At Primal Health, a fitness focused, health conscious lifestyle is the number one priority for both ourselves and our community. Below are some of our favorite fitness videos! Enjoy!
           <br />
           <br />
-          <button className="update-user-button">
+          {/* <button className="update-user-button">
             <Link to="/nutrition-health">BACK</Link>
-          </button>
+          </button> */}
+          <Link to="/nutrition-health" style={{ textDecoration: 'none' , color: '#26BF00' }}><Button>BACK</Button></Link>
           <br />
           <br />
         </div>
@@ -84,10 +89,7 @@ const VideoDetail = () => {
           />
         </div>
       </div>
-      <br />
-      <br />
-      <br />
-      <br />
+      <Footer style={{display: 'flex', marginTop: '50px'}}></Footer>
     </div>
   );
 };

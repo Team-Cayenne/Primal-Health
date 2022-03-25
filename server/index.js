@@ -52,7 +52,7 @@ app.post('/mealchoice', async (req, res) => {
   let type = req.body.type;
   try {
     const results = await getMeals({type})
-    console.log('results------results', results)
+    // console.log('results------results', results)
       res.status(200).send(results)
   } catch(err) {
     res.status(400).send("ERROR FROM SPOONACULAR GETTING MEALS SERVER")
@@ -66,7 +66,7 @@ app.post('/recipecard', async (req, res) => {
     // const results = await getRecipeSteps({id})
     const images = await getRecipeImages({id})
     const results = []
-    console.log('results------results', results)
+    // console.log('results------results', results)
       res.status(200).send({results, images})
   } catch(err) {
     res.status(400).send("ERROR FROM SPOONACULAR GETTING RECIPE CARD & IMAGE SERVER")
@@ -78,7 +78,7 @@ app.post('/nutritionalinfo', async (req, res) => {
   let id = req.body.id;
   try {
     const results = await getNutritional({id})
-    console.log('results------results', results)
+    // console.log('results------results', results)
       res.status(200).send(results)
   } catch(err) {
     res.status(400).send("ERROR FROM SPOONACULAR GETTING NUTRITIONAL INFO SERVER")

@@ -4,6 +4,7 @@ import Styled from 'styled-components'
 import {Link}  from "react-router-dom";
 import ProgressMasthead from '../shared/ProgressMasthead.jsx';
 import { Progress_container, ProgressText, TextZ, CurrentStep, Logo} from '../styles/pesonalizeYourPlan/styles.js';
+import { Footer } from "./EnterShippingInfo.jsx";
 
 
 
@@ -90,7 +91,7 @@ const EnterCreditCard = () => {
           </ProgressText>
         </Progress_container>
       {/*##### end of the TOP ##### */}
-      <EnterCreditCardContainer>
+      <EnterCreditCardContainer style={{display: 'flex', marginTop: '100px'}}>
         <LeftSide>
           <HeaderText>Payment Information</HeaderText>
           <PaymentInputContainer>
@@ -132,6 +133,7 @@ const EnterCreditCard = () => {
           </Link>
         </RightSide>
       </EnterCreditCardContainer>
+      <Footer style={{display: 'flex', marginTop: '250px'}}></Footer>
     </div>
   )
 }
