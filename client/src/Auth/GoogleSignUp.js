@@ -10,18 +10,6 @@ import { Progress_container, ProgressText, TextZ, CurrentStep, Logo} from '../st
 
 
  const GoogleSignUp = () => {
-  // constructor(props) {
-  //   super(props)
-  //   this.state = {
-  //     email: '',
-  //     password: ''
-  //   }
-
-  //   this.googleLogin = this.googleLogin.bind(this);
-  //   this.addEmail = this.addEmail.bind(this);
-  //   this.addPassword = this.addPassword.bind(this);
-  //   this.submit = this.submit.bind(this);
-  // }
 
   const { users, setUsers, currentUser, setCurrentUser, email, setEmail, password, setPassword } = useContext(AppContext);
 
@@ -63,6 +51,11 @@ import { Progress_container, ProgressText, TextZ, CurrentStep, Logo} from '../st
   }
 
 
+  // const emailLogin = () => {
+
+  // }
+
+
   const userSignup = (user) => {
     if (user.password) {
       for (let i = 0; i < users.length; i++) {
@@ -83,19 +76,6 @@ import { Progress_container, ProgressText, TextZ, CurrentStep, Logo} from '../st
     }
   }
 
-
-  // postUser() {
-  //   axios.post('/users', this.state.user)
-  //     .then(res => {
-  //       console.log(res);
-  //       // this.setState({
-  //       //   userToggle: true
-  //       // })
-  //     })
-  //     .catch(err => {
-  //       console.log(err);
-  //     })
-  // }
 
   const addEmail = (event) => {
     setEmail(event.target.value);
