@@ -303,7 +303,7 @@ setCurrentUser({...currentUser, headCount, numRecipies, type})
               }
             >
               {/* <img src="../assets/preferences/pescatarian.png" width='75' height='40' onClick={()=>handleMealPref(mealTypes['pescetarian'])}></img> */}
-              Pescatarian
+              Pesctarian
             </PreferenceButtons>
           </StepOneButtonContainer>
         </StepOne>
