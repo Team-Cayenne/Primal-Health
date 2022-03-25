@@ -71,7 +71,7 @@ export default class GoogleLogin extends React.Component {
             <Email type='email' onChange={this.addEmail}></Email>
             <Text>Password</Text>
             <Password onChange={this.addPassword}></Password>
-            <LoginButton onClick={this.submit}>Create account</LoginButton>
+            <LoginButton onClick={this.submit}>Sign In</LoginButton>
             <GoogleButton onClick={this.googleLogin} className="login-button">
             <img width="20px" style={{margin: '20px'}} alt="Google sign-in" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png" />Continue with Google</GoogleButton>
           </LoginBox>

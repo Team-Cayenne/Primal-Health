@@ -6,5 +6,5 @@ export const ProgressBarIMG = styled.div`
   width: 900px;
   background-image: url(${progressBar});
   background-size: cover;
-  margin: 100px;
+  margin: 50px;
 `

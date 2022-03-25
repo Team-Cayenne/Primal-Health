@@ -55,15 +55,11 @@ class SupplierPage extends React.Component {
       <Masthead />
       <SupplierContainer>
         <YellowSeperator>
-          <Header>MEET OUR TEAM!</Header>
+          <Header>Meet Our Team!</Header>
+        </YellowSeperator>
           <SubHeader>
             PRIMAL HEALTH is proud to collaborate with all of our purveyors!  These amazing artisans in their own crafts operate in sustainable, biodynamic practices.  Not only do they share their delicious and exceptional products with all of us, their holistic practices promote environmental rejuvanation, low waste policies and inclusive ecological preservation.
           </SubHeader>
-        </YellowSeperator>
-
-        <LiveFeed>
-          <Link to="/vendor-videos" style={{ textDecoration: 'none' , color: '#264654' }}>Live feed from our suppliers!</Link>
-        </LiveFeed>
 
         <OneSupplierContainer>
         {this.state.suppliers.map((supplier, i) => (
@@ -80,6 +76,12 @@ class SupplierPage extends React.Component {
             : null
           }
         </span>
+
+
+        <Link to="/vendor-videos" style={{ textDecoration: 'none' , color: '#264654' }}>
+          <LiveFeed>Live feed from our suppliers!</LiveFeed>
+        </Link>
+
       </SupplierContainer>
       <YellowSeperator></YellowSeperator>
       </div>
@@ -95,7 +97,7 @@ const SupplierContainer = Styled.div`
 `
 const YellowSeperator = Styled.div`
   width: 100%;
-  height: 160px;
+  height: 95px;
   background-color: #FFE5A4;
 `
 const Header = Styled.div`
@@ -111,10 +113,12 @@ const Header = Styled.div`
 const SubHeader = Styled.div`
   display: flex;
   text-align: center;
-  font-size: 14px;
+  font-size: 18px;
   justify-content: center;
+  font-family: 'Quicksand';
+  font-weight: 600;
   width: 50%;
-  margin: auto;
+  margin-top: 30px;
   color: #264654
 `
 const OneSupplierContainer = Styled.div`
@@ -129,8 +133,16 @@ const OneSupplierText = Styled.div`
   font-family: 'Quicksand'
 `
 const LiveFeed = Styled.button`
-  font-size: 24px;
-  margin-top: 50px;
-  width: 315px;
+  width: 400px;
+  height: 55px;
+  margin-top: 100px;
+  background-color: rgba(38, 191, 0, .25);
+  border-radius: 5px;
+  border-color: rgba(38, 191, 0, .25);
+  color: #26BF00;
+  font-size: 22px;
+  font-family: 'Lato';
+  font-weight: 500;
+  cursor: pointer;
 `
 export default SupplierPage;

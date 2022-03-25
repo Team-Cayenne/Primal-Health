@@ -111,9 +111,9 @@ import {Link}  from "react-router-dom";
 
           <OrderSummary>
             <MealSelection>
-              <div>{type}</div>
-              <div>{headCount}: Portion plan</div>
-              <div>{numRecipies}: No. of Recipes</div>
+              <SummaryText>{type}</SummaryText>
+              <SummaryText>{headCount}: Portion plan</SummaryText>
+              <SummaryText>{numRecipies}: No. of Recipes</SummaryText>
             </MealSelection>
             <Cost>
               <Shipping>
@@ -121,8 +121,8 @@ import {Link}  from "react-router-dom";
                 <SummaryText>$9.99</SummaryText>
               </Shipping>
               <Total>
-                <div>Total</div>
-                <div>$ {rate}</div>
+                <SummaryText>Total</SummaryText>
+                <SummaryText>$ {rate}</SummaryText>
               </Total>
             </Cost>
           </OrderSummary>
@@ -138,6 +138,7 @@ import {Link}  from "react-router-dom";
 const SummaryText = Styled.div`
   font-family: 'Quicksand';
   font-weight: 500;
+  font-size: 16px;
   color: #264654;
 `
 const PersonalizeYourPlanContainer = Styled.div`
@@ -286,6 +287,7 @@ const ContinueButton = Styled.button`
   border-color: rgba(38, 191, 0, .25);
   color: #26BF00;
   font-size: 18px;
+  font-family: 'Quicksand';
   cursor: pointer;
 `
 export default PersonalizeYourPlan;

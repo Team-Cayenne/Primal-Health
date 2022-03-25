@@ -69,6 +69,7 @@ const SummaryText = Styled.div`
   font-family: 'Quicksand';
   font-weight: 500;
   font-size: 16px;
+  color: #264654;
 `
 const EnterShippingContainer = Styled.div`
   display: flex;
@@ -76,9 +77,10 @@ const EnterShippingContainer = Styled.div`
   margin-top: 30px;
 `
 const HeaderText = Styled.div`
-  font-size: 18px;
   margin: 20px;
   font-family: 'Quicksand';
+  font-size: 20px;
+  color: #264654;
 `
 const LeftSide = Styled.div`
   margin-right: 33.5px;
@@ -197,6 +199,7 @@ const Button = Styled.button`
   background-color: rgba(38, 191, 0, .25);
   border-radius: 5px;
   border-color: rgba(38, 191, 0, .25);
+  font-family: 'Quicksand';
   color: #26BF00;
   font-size: 18px;
   cursor: pointer;
