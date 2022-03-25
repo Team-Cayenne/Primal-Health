@@ -42,7 +42,7 @@ import { Progress_container, ProgressText, TextZ, CurrentStep, Logo} from '../st
     const userBuysSpecial = (title, price) => {
       console.log("click")
       setSpecialBuy([...specialBuy, {title, price}])
-      setRate(+rate + price)
+      setRate((+rate + price).toFixed(2))
 
     }
 
@@ -99,7 +99,7 @@ import { Progress_container, ProgressText, TextZ, CurrentStep, Logo} from '../st
               <MealSelection>
                 <SummaryText>{type}</SummaryText>
                 <SummaryText>{numRecipies} Meals for {headCount} people per week</SummaryText>
-                <SummaryText>{numRecipies * headCount} Meals per week</SummaryText>
+                <SummaryText>{numRecipies * headCount} Portions per week</SummaryText>
                 {/* <SummaryText>{selectMeals}</SummaryText> */}
                 <div>
                   {selectMeals.map((oneMeal, i) => {
@@ -125,7 +125,7 @@ import { Progress_container, ProgressText, TextZ, CurrentStep, Logo} from '../st
                 </Shipping>
                 <Total>
                   <SummaryText>Total</SummaryText>
-                  <SummaryText>${rate}</SummaryText>
+                  <SummaryText>$ {rate}</SummaryText>
                 </Total>
               </Cost>
           </SummaryBoxContainer>

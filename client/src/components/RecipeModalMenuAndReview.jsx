@@ -51,6 +51,7 @@ const ModalContainer = Styled.div`
   display: flex;
   justify-content: center;
   text-align: center;
+  background-color: white;
 `
 const RecipeCard = Styled.div`
   height:675px;
@@ -61,10 +62,12 @@ const RecipeCard = Styled.div`
   margin: auto;
   overflow: auto;
   align-items: center;
+  background-color: white;
 `
 const ButtonContainer = Styled.div`
   display: flex;
   justify-content: space-evenly;
+  background-color: white;
 `
 const CloseButton = Styled.button`
   @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');

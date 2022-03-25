@@ -102,7 +102,7 @@ return (
               </Shipping>
               <Total>
                 <SummaryText>Total</SummaryText>
-                <SummaryText>${rate}</SummaryText>
+                <SummaryText>$ {rate} </SummaryText>
               </Total>
             </Cost>
           </OrderSummary>
