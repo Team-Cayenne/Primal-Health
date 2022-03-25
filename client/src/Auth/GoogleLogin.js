@@ -1,26 +1,36 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
+import { AppContext } from '../context.js';
 import auth from "./firebase";
+import axios from 'axios';
 import Styled from 'styled-components'
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import {Link}  from "react-router-dom";
-import ProgressMasthead from '../shared/ProgressMasthead.jsx'
+import ProgressMasthead from '../shared/ProgressMasthead.jsx';
+import { Progress_container, ProgressText, TextZ, CurrentStep, Logo} from '../styles/pesonalizeYourPlan/styles.js';
 
 
-export default class GoogleLogin extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      email: '',
-      password: ''
-    }
 
-    this.googleLogin = this.googleLogin.bind(this);
-    this.addEmail = this.addEmail.bind(this);
-    this.addPassword = this.addPassword.bind(this);
-    this.submit = this.submit.bind(this);
+
+const GoogleLogin = () => {
+
+  const { users, setUsers, setCurrentUser, email, setEmail, password, setPassword } = useContext(AppContext);
+
+
+  useEffect(() => {
+    getUsers();
+  }, []);
+
+  const getUsers = () => {
+    axios.get('/users')
+      .then(results => {
+        setUsers(results.data)
+      })
+      .catch(err => {
+        console.log(err);
+      })
   }
 
-  googleLogin() {
+  const googleLogin = () => {
     const provider = new GoogleAuthProvider();
     const auth = getAuth();
     signInWithPopup(auth, provider)
@@ -30,7 +40,7 @@ export default class GoogleLogin extends React.Component {
         // The signed-in user info.
         const user = result.user;
 
-        this.props.setUser(user)
+        userLogin(user);
 
       })
       .catch((err) => {
@@ -43,48 +53,100 @@ export default class GoogleLogin extends React.Component {
       })
   }
 
-  addEmail(event) {
-    this.setState({
-      email: event.target.value
-    })
+  const userLogin = (user) => {
+    if (user.password) {
+      for (let i = 0; i < users.length; i++) {
+        if (users[i].email === user.email && users[i].password === user.password) {
+          setCurrentUser(users[i]);
+          return;
+        }
+      }
+      alert('No User Matching These Credentials');
+
+    } else {
+      for (let i = 0; i < users.length; i++) {
+        if (users[i].email === user.email) {
+          setCurrentUser(users[i]);
+          return;
+        }
+      }
+      alert('No User Matching These Credentials');
+    }
   }
 
-  addPassword(event) {
-    this.setState({
-      password: event.target.value
-    })
+  const addEmail = (event) => {
+    setEmail(event.target.value)
   }
 
-  submit() {
-    this.props.setUser(this.state)
+  const addPassword = (event) => {
+    setPassword(event.target.value)
   }
 
-  render() {
+  const submit = () => {
+    userLogin({ email: email, password: password })
+  }
+
     return (
       <div>
-        <ProgressMasthead/>
+        {/*##### Top, with the progress bar #####*/}
+        <Progress_container>
+          <Logo>
+            <Link to="/" style={{ textDecoration: 'none' , color: '#264654', fontFamily: 'Quicksand' }}>
+            <img className='logo' src='assets/masthead/Masthead-logo-yellow.png' width='156' height='51'></img>
+
+            </Link>
+          </Logo>
+          <ProgressText>
+              <TextZ style={{color: '#26BF00'}}>Login -----</TextZ>
+              <TextZ>Delivery Info -----</TextZ>
+              <TextZ>Select Meals -----</TextZ>
+              <TextZ>Review Order -----</TextZ>
+              <TextZ>All Done!</TextZ>
+          </ProgressText>
+        </Progress_container>
+      {/*##### end of the TOP ##### */}
         <Header>Welcome Back!</Header>
         <LoginContainer>
           <LoginBox>
             <Header2>Sign In</Header2>
             <Text>Email</Text>
-            <Email type='email' onChange={this.addEmail}></Email>
+            <Email type='email' onChange={addEmail}></Email>
             <Text>Password</Text>
-            <Password onChange={this.addPassword}></Password>
-            <LoginButton onClick={this.submit}>Create account</LoginButton>
-            <GoogleButton onClick={this.googleLogin} className="login-button">
+            <Password type='password' onChange={addPassword}></Password>
+            <LoginButton onClick={submit}>Create account</LoginButton>
+            <GoogleButton onClick={googleLogin} className="login-button">
             <img width="20px" style={{margin: '20px'}} alt="Google sign-in" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png" />Continue with Google</GoogleButton>
           </LoginBox>
         </LoginContainer>
         <button>
-        <Link to="/your-personal-pref">Choose Your Plan</Link>
+        <Link to="/shipping">Enter Shipping Info</Link>
+        {/* <Link to="/your-personal-pref">Choose Your Plan</Link> */}
         </button>
         <button>
         <Link to="/">HOME</Link>
         </button>
       </div>
     );
-  }
+
+
+
+  // return (
+  //   <div>
+  //     <ProgressMasthead />
+  //     <Header>Welcome Back!</Header>
+  //     <LoginContainer>
+  //       <LoginBox>
+  //         <Header2>Sign In</Header2>
+  //         <Text>Email</Text>
+  //         <Email type='email' onChange={addEmail}></Email>
+  //         <Text>Password</Text>
+  //         <Password type='password' onChange={addPassword}></Password>
+  //         <LoginButton onClick={submit}>Create account</LoginButton>
+  //         <GoogleButton onClick={googleLogin} className="login-button">Continue with Google</GoogleButton>
+  //       </LoginBox>
+  //     </LoginContainer>
+  //   </div>
+  // );
 }
 
 const LoginContainer = Styled.div`
@@ -156,3 +218,5 @@ const GoogleButton = Styled.button`
   align-items: center;
   cursor: pointer;
 `
+
+export default GoogleLogin;

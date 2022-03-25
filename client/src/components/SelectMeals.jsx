@@ -10,7 +10,7 @@ import { Progress_container, ProgressText, TextZ, CurrentStep, Logo} from '../st
 
   const SelectMeals = () =>{
     // !Cheryl
-  const {meals, selectMeals, setSelectMeals, rate, setRate, numRecipies, headCount, specialBuy, setSpecialBuy, type} = useContext(AppContext);
+  const {meals, selectMeals, setSelectMeals, rate, setRate, numRecipies, headCount, specialBuy, setSpecialBuy, type, currentUser, setCurrentUser} = useContext(AppContext);
   const [special, setSpecial] = useState([]);
 
     // !Cheryl
@@ -46,11 +46,12 @@ import { Progress_container, ProgressText, TextZ, CurrentStep, Logo} from '../st
 
     }
 
-    console.log("SPECIALBUY", specialBuy)
+    const submit = () => {
+      setCurrentUser({...currentUser, selectMeals, specialBuy, rate})
+    }
 
-    console.log("SPECIAL", special)
 
-    console.log('select MEALS', selectMeals)
+
 
   return (
     <div>
@@ -130,7 +131,7 @@ import { Progress_container, ProgressText, TextZ, CurrentStep, Logo} from '../st
           </SummaryBoxContainer>
           <ReviewOrderContainer>
             <Link to="/review-order" style={{ textDecoration: 'none' , color: '#26BF00' }}>
-              <ReviewOrderButton>Review Order</ReviewOrderButton>
+              <ReviewOrderButton onClick={submit}>Review Order</ReviewOrderButton>
             </Link>
           </ReviewOrderContainer>
         </OrderSummaryContainer>
