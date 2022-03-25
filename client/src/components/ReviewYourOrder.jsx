@@ -36,18 +36,21 @@ return (
     <ReviewYourOrderContainer>
       <LeftSide>
         <HeaderText>Shipping Information</HeaderText>
-        <ShippingInfo>
-          <div>Customer Address Information</div>
-          <div>{firstName} {lastName}</div>
-          <div>{address1} {address2}</div>
-          <div>{city}, {state} {zip}</div>
-          <div>{phone}</div>
-        </ShippingInfo>
+        <ShippingContainer>
+          <MealSelection>
+            <SummaryText>{firstName.toUpperCase()} {lastName.toUpperCase()}</SummaryText>
+            <SummaryText>{address1.toUpperCase()} {address2.toUpperCase()}</SummaryText>
+            <SummaryText>{city.toUpperCase()}, {state.toUpperCase()} {zip.toUpperCase()}</SummaryText>
+            <SummaryText>{phone}</SummaryText>
+          </MealSelection>
+        </ShippingContainer>
+
         <HeaderText>Payment Information</HeaderText>
-        <PaymentInfo>
-          <div>Customer Payment Information</div>
-          <div>XXXX-XXXX-XXXX-{creditCard.slice(creditCard.length-4)}</div>
-        </PaymentInfo>
+        <PaymentContainer>
+          <MealSelection>
+            <SummaryText>XXXX-XXXX-XXXX-{creditCard.slice(creditCard.length-4)}</SummaryText>
+          </MealSelection>
+        </PaymentContainer>
       </LeftSide>
 
       <RightSide>
@@ -138,6 +141,7 @@ const ShippingInfo = Styled.div`
   height: 200px;
   border: 1px solid #C4C4C4;
   border-radius: 5px;
+  line-height: 25px;
 `
 const PaymentInfo = Styled.div`
   display: flex;
@@ -156,6 +160,24 @@ const RightSide = Styled.div`
 const MealSelection = Styled.div`
   margin: 15px 15px 30px 15px;
   line-height: 25px;
+`
+const ShippingContainer = Styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  height: 200px;
+  overflow: auto;
+  border: 1px solid #C4C4C4;
+  border-radius: 5px;
+`
+const PaymentContainer = Styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  height: 100px;
+  overflow: auto;
+  border: 1px solid #C4C4C4;
+  border-radius: 5px;
 `
 const Cost = Styled.div`
   margin: 0px 15px 0px 15px;

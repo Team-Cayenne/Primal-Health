@@ -9,7 +9,7 @@ import { MiddleContainer, ThankYou, OrderID, ThankYouRow, OrderConfirmation,
 import { BottomContainer } from '../styles/confirmationPage/bottom';
 
 const ConfirmationPage = () =>{
-  const {meals, setMeals, type, setType, rate, setRate, numRecipies, setNumRecipies,headCount, setHeadCount, selectMeals, specialBuy} = useContext(AppContext);
+  const {meals, setMeals, type, setType, rate, setRate, numRecipies, setNumRecipies,headCount, setHeadCount, selectMeals, specialBuy, currentUser, firstName, lastName, address1, address2, city, state, zip, phone, creditCard,} = useContext(AppContext);
 
   return (
     <MainContainer>
@@ -38,7 +38,7 @@ const ConfirmationPage = () =>{
 
                   {specialBuy.map((item, i) => {
                     return <div>
-                      <Items>{item.title} ${item.price}</Items>
+                      <Items> - {item.title} ${item.price}</Items>
                       {/* <SummaryText>$ {item.price}</SummaryText> */}
                       </div>
                   })}

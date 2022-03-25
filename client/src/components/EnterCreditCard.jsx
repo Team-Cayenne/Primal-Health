@@ -83,7 +83,7 @@ const EnterCreditCard = () => {
             <ImageAndButton>
               <img src="assets/creditcards/creditcards.png" width='123px' height='19px'>
               </img>
-              <AddPaymentButton>Add payment</AddPaymentButton>
+              {/* <AddPaymentButton>Add payment</AddPaymentButton> */}
             </ImageAndButton>
           </PaymentInputContainer>
         </LeftSide>
