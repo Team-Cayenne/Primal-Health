@@ -7,9 +7,6 @@ import ProgressMasthead from '../shared/ProgressMasthead.jsx';
 import { Progress_container, ProgressText, TextZ, CurrentStep, Logo} from '../styles/pesonalizeYourPlan/styles.js';
 
 
-
-
-
 const ReviewYourOrder = () => {
 
   const { currentUser, firstName, lastName, address1, address2, city, state, zip, phone, creditCard, email, password, meals, setMeals, type, setType, rate, setRate, numRecipies, setNumRecipies, headCount, setHeadCount, specialBuy, selectMeals} = useContext(AppContext);
@@ -56,18 +53,21 @@ return (
     <ReviewYourOrderContainer>
       <LeftSide>
         <HeaderText>Shipping Information</HeaderText>
-        <ShippingInfo>
-          <div>Customer Address Information</div>
-          <div>{firstName} {lastName}</div>
-          <div>{address1} {address2}</div>
-          <div>{city}, {state} {zip}</div>
-          <div>{phone}</div>
-        </ShippingInfo>
+        <ShippingContainer>
+          <MealSelection>
+            <SummaryText>{firstName.toUpperCase()} {lastName.toUpperCase()}</SummaryText>
+            <SummaryText>{address1.toUpperCase()} {address2.toUpperCase()}</SummaryText>
+            <SummaryText>{city.toUpperCase()}, {state.toUpperCase()} {zip.toUpperCase()}</SummaryText>
+            <SummaryText>{phone}</SummaryText>
+          </MealSelection>
+        </ShippingContainer>
+
         <HeaderText>Payment Information</HeaderText>
-        <PaymentInfo>
-          <div>Customer Payment Information</div>
-          <div>XXXX-XXXX-XXXX-{creditCard.slice(creditCard.length-4)}</div>
-        </PaymentInfo>
+        <PaymentContainer>
+          <MealSelection>
+            <SummaryText>XXXX-XXXX-XXXX-{creditCard.slice(creditCard.length-4)}</SummaryText>
+          </MealSelection>
+        </PaymentContainer>
       </LeftSide>
 
       <RightSide>
@@ -88,7 +88,7 @@ return (
                 <div>
                   {specialBuy.map((item, i) => {
                     return <div>
-                      <SummaryText>{item.title} ${item.price}</SummaryText>
+                      <SummaryText> - {item.title} ${item.price}</SummaryText>
                       {/* <SummaryText>$ {item.price}</SummaryText> */}
                       </div>
                   })}
@@ -121,14 +121,16 @@ const Alcohol = Styled.div`
   margin-left: 10px;
 `
 const HeaderText = Styled.div`
-  font-size: 18px;
   margin: 20px;
   font-family: 'Quicksand';
+  font-size: 20px;
+  color: #264654;
 `
 const SummaryText = Styled.div`
   font-family: 'Quicksand';
   font-weight: 500;
   font-size: 16px;
+  color: #264654;
 `
 const Header = Styled.div`
   font-family: 'Quicksand';
@@ -156,6 +158,7 @@ const ShippingInfo = Styled.div`
   height: 200px;
   border: 1px solid #C4C4C4;
   border-radius: 5px;
+  line-height: 25px;
 `
 const PaymentInfo = Styled.div`
   display: flex;
@@ -174,6 +177,24 @@ const RightSide = Styled.div`
 const MealSelection = Styled.div`
   margin: 15px 15px 30px 15px;
   line-height: 25px;
+`
+const ShippingContainer = Styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  height: 200px;
+  overflow: auto;
+  border: 1px solid #C4C4C4;
+  border-radius: 5px;
+`
+const PaymentContainer = Styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  height: 100px;
+  overflow: auto;
+  border: 1px solid #C4C4C4;
+  border-radius: 5px;
 `
 const Cost = Styled.div`
   margin: 0px 15px 0px 15px;
@@ -207,6 +228,7 @@ const Button = Styled.button`
   border-color: rgba(38, 191, 0, .25);
   color: #26BF00;
   font-size: 18px;
+  font-family: 'Quicksand';
   cursor: pointer;
 `
 export default ReviewYourOrder

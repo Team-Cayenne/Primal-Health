@@ -158,6 +158,7 @@ const SummaryText = Styled.div`
   font-family: 'Quicksand';
   font-weight: 500;
   font-size: 16px;
+  color: #264654;
 `
 const SelectRecipesContainer = Styled.div`
   display: flex;
@@ -220,9 +221,10 @@ const ReviewOrderButton = Styled.button`
   cursor: pointer;
 `
 const HeaderText = Styled.div`
+  margin: 20px;
   font-family: 'Quicksand';
-  font-size: 18px;
-  margin-left: 5px;
+  font-size: 20px;
+  color: #264654;
 `
 const MealSelection = Styled.div`
   margin: 15px 15px 30px 15px;
