@@ -8,6 +8,7 @@ import { ProgressBarIMG } from '../styles/trackingPage/progressBar';
 import { ShippingInfoContainer, ShippingInfoTitle, ShippingMiddleContainer,
   OrderSummaryContainer, ShippingInfoBox, Input, InputBox } from '../styles/shippingInfoPage/styles';
 
+
 const ShippingInfoPage= () =>{
   return (
     <MainContainer>
