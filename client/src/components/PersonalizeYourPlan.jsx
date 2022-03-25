@@ -7,7 +7,7 @@ import 'regenerator-runtime/runtime'
 import { Link } from "react-router-dom";
 
 const PersonalizeYourPlan = (props) => {
-  const { meals, setMeals, type, setType, rate, setRate, numRecipies, setNumRecipies, headCount, setHeadCount, currentUser, setCurrentUser } = useContext(AppContext);
+  const { meals, setMeals, type, setType, rate, setRate, setSubscriptionRate, numRecipies, setNumRecipies, headCount, setHeadCount, currentUser, setCurrentUser } = useContext(AppContext);
 
   const mealTypes = {
     "meat": "Whole30",
@@ -19,6 +19,7 @@ const PersonalizeYourPlan = (props) => {
   }
 
     setRate((headCount * numRecipies * 12.99 + 9.99).toFixed(2))
+    setSubscriptionRate((headCount * numRecipies * 12.99 + 9.99).toFixed(2))
     // const
     // console.log("headCount", headCount)
 

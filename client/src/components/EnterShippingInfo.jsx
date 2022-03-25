@@ -24,7 +24,7 @@ import { AppContext } from "../context.js";
 
 const EnterShippingInfo = () => {
 
-  const {email, password, rate, numRecipies, headCount, type, firstName, setFirstName, lastName, setLastName, address1, setAddress1, address2, setAddress2, city, setCity, state, setState, zip, setZip, phone, setPhone, currentUser, setCurrentUser} = useContext(AppContext);
+  const {email, password, rate, subscriptionRate, numRecipies, headCount, type, firstName, setFirstName, lastName, setLastName, address1, setAddress1, address2, setAddress2, city, setCity, state, setState, zip, setZip, phone, setPhone, currentUser, setCurrentUser} = useContext(AppContext);
 
   const getFirstName = (event) => {
     // setCurrentUser(currentUser[event.target.id] = event.target.value)
@@ -68,7 +68,7 @@ const EnterShippingInfo = () => {
 
 
   const submit = () => {
-    setCurrentUser({...currentUser, firstName, lastName, address1, address2, city, state, zip, phone, email, password});
+    setCurrentUser({...currentUser, firstName, lastName, address1, address2, city, state, zip, phone, email, password, rate, subscriptionRate});
   }
 
   // render() {

@@ -8,7 +8,7 @@ import { MiddleContainer, ThankYou, OrderID, ThankYouRow, OrderConfirmation,
 import { BottomContainer } from '../styles/confirmationPage/bottom';
 
 const ConfirmationPage = () =>{
-  const {meals, setMeals, type, setType, rate, setRate, numRecipies, setNumRecipies,headCount, setHeadCount} = useContext(AppContext);
+  const {currentUser, meals, setMeals, type, setType, rate, setRate, numRecipies, setNumRecipies,headCount, setHeadCount} = useContext(AppContext);
 
   return (
     <MainContainer>
@@ -23,20 +23,19 @@ const ConfirmationPage = () =>{
         <OrderConfirmation>
           <OrderTitle> Order confirmation </OrderTitle>
           <Line>____________________________</Line>
-          <InnerPTittle>Meat and Veggins Plan:</InnerPTittle>
+          <InnerPTittle>{type} Plan:</InnerPTittle>
           <InnerPText>
-            4 Recipes for {headCount} people per week <br/>
-            {numRecipies} Meals per week
+          {numRecipies} recipes for {headCount} people per week <br/>
           </InnerPText>
           <InnerPTittle>Shipping Information:</InnerPTittle>
           <InnerPText>
-            Name: John Smith <br/>
-            Address: 104 Centre St, CA, 05478
+            Name: {currentUser.firstName} {currentUser.lastName} <br/>
+            Address: {currentUser.address1} {currentUser.address2}, {currentUser.city}, {currentUser.state} {currentUser.zip}
           </InnerPText>
           <InnerPTittle>Payment:</InnerPTittle>
           <InnerPText>
-            Date: 04/13/2022 <br/>
-            Type: Paid with Visa **** **** **** 4012 <br/><div style={{alignSelf: 'flex-end', marginLeft: '300px'}}>$ {rate}</div> <br/>
+            Date: 03/25/2022 <br/>
+            Type: Paid with Visa {currentUser.creditCard.slice(currentUser.creditCard.length-4)} <br/><div style={{alignSelf: 'flex-end', marginLeft: '300px'}}>$ {rate}</div> <br/>
           </InnerPText>
         </OrderConfirmation>
           <TrackYourOrderButton>

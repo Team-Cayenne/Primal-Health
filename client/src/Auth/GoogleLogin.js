@@ -3,7 +3,7 @@ import { AppContext } from '../context.js';
 import auth from "./firebase";
 import axios from 'axios';
 import Styled from 'styled-components'
-import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import { getAuth, signInWithPopup, GoogleAuthProvider, signInWithEmailAndPassword } from "firebase/auth";
 import {Link}  from "react-router-dom";
 import ProgressMasthead from '../shared/ProgressMasthead.jsx'
 
@@ -50,6 +50,21 @@ const GoogleLogin = () => {
       })
   }
 
+  // const emailLogin = (email, password) => {
+  //   const auth = getAuth();
+  //   signInWithEmailAndPassword(auth, email, password)
+  //     .then((userCredential) => {
+  //       // Signed in
+  //       const user = userCredential.user;
+  //       console.log(user)
+  //       // ...
+  //     })
+  //     .catch((error) => {
+  //       const errorCode = error.code;
+  //       const errorMessage = error.message;
+  //     });
+  //   }
+
   const userLogin = (user) => {
     if (user.password) {
       for (let i = 0; i < users.length; i++) {
@@ -82,6 +97,10 @@ const GoogleLogin = () => {
   const submit = () => {
     userLogin({ email: email, password: password })
   }
+
+  // const submit = () => {
+  //   emailLogin(email, password)
+  // }
 
     return (
       <div>
