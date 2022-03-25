@@ -7,22 +7,10 @@ import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import {Link}  from "react-router-dom";
 import ProgressMasthead from '../shared/ProgressMasthead.jsx'
 import { Progress_container, ProgressText, TextZ, CurrentStep, Logo} from '../styles/pesonalizeYourPlan/styles.js';
-import { Button, Footer } from "../components/EnterShippingInfo.jsx"
+import { Footer } from "../components/EnterShippingInfo.jsx"
 
 
  const GoogleSignUp = () => {
-  // constructor(props) {
-  //   super(props)
-  //   this.state = {
-  //     email: '',
-  //     password: ''
-  //   }
-
-  //   this.googleLogin = this.googleLogin.bind(this);
-  //   this.addEmail = this.addEmail.bind(this);
-  //   this.addPassword = this.addPassword.bind(this);
-  //   this.submit = this.submit.bind(this);
-  // }
 
   const { users, setUsers, currentUser, setCurrentUser, email, setEmail, password, setPassword } = useContext(AppContext);
 
@@ -64,6 +52,11 @@ import { Button, Footer } from "../components/EnterShippingInfo.jsx"
   }
 
 
+  // const emailLogin = () => {
+
+  // }
+
+
   const userSignup = (user) => {
     if (user.password) {
       for (let i = 0; i < users.length; i++) {
@@ -84,19 +77,6 @@ import { Button, Footer } from "../components/EnterShippingInfo.jsx"
     }
   }
 
-
-  // postUser() {
-  //   axios.post('/users', this.state.user)
-  //     .then(res => {
-  //       console.log(res);
-  //       // this.setState({
-  //       //   userToggle: true
-  //       // })
-  //     })
-  //     .catch(err => {
-  //       console.log(err);
-  //     })
-  // }
 
   const addEmail = (event) => {
     setEmail(event.target.value);
@@ -152,14 +132,9 @@ import { Button, Footer } from "../components/EnterShippingInfo.jsx"
             Continue with Google
           </GoogleButton>
           </SignUpBox>
+          <Link to="/shipping"><Button>Continue to shipping</Button></Link>
         </SignUpContainer>
-        <div style={{display: 'flex', justifyContent: 'flex-end', alignItems: 'center'}}>
-        <Link to="/shipping" style={{ textDecoration: 'none' , color: '#26BF00' }}>
-          <Button style={{display: 'flex', alignSelf: 'center', justifyContent: 'center', alignItems: 'center'}}>Next Step</Button>
-        </Link>
-        </div>
-        <Footer></Footer>
-
+        <Footer style={{marginTop: '50px'}}></Footer>
       </div>
     );
 }
@@ -168,8 +143,8 @@ const SignUpContainer = Styled.div`
   @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
 
   display: flex;
-  justify-content: center;
-  align-items: start;
+  flex-direction: column;
+  align-items: center;
 `
 const Text = Styled.div`
   display: flex;
@@ -231,6 +206,18 @@ const GoogleButton = Styled.button`
   font-size: 18px;
   font-family: 'Quicksand';
   align-items: center;
+  cursor: pointer;
+`
+const Button = Styled.button`
+  width: 277px;
+  height: 55px;
+  margin: 30px 15px 0px 15px;
+  background-color: rgba(38, 191, 0, .25);
+  border-radius: 5px;
+  border-color: rgba(38, 191, 0, .25);
+  color: #26BF00;
+  font-size: 18px;
+  font-family: 'Quicksand';
   cursor: pointer;
 `
 export default GoogleSignUp;

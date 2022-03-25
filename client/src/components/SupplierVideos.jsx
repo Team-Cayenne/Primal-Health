@@ -13,9 +13,11 @@ const SupplierVideos = () => {
           Featured Videos
         </h2>
         <div style={{ textAlign: "center" }}>
-          <button className="update-user-button">
-            <Link to="/meet-our-vendors">BACK</Link>
-          </button>
+            <Link to="/meet-our-vendors">
+              <button className="update-user-button">
+                BACK
+              </button>
+            </Link>
         </div>
         <br />
         <br />

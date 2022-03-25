@@ -25,7 +25,7 @@ import { Progress_container, ProgressText, TextZ, CurrentStep, Logo} from '../st
 
 const EnterShippingInfo = () => {
 
-  const {email, password, rate, numRecipies, headCount, type, firstName, setFirstName, lastName, setLastName, address1, setAddress1, address2, setAddress2, city, setCity, state, setState, zip, setZip, phone, setPhone, currentUser, setCurrentUser} = useContext(AppContext);
+  const {email, password, rate, subscriptionRate, numRecipies, headCount, type, firstName, setFirstName, lastName, setLastName, address1, setAddress1, address2, setAddress2, city, setCity, state, setState, zip, setZip, phone, setPhone, currentUser, setCurrentUser} = useContext(AppContext);
 
   const getFirstName = (event) => {
     // setCurrentUser(currentUser[event.target.id] = event.target.value)
@@ -69,7 +69,7 @@ const EnterShippingInfo = () => {
 
 
   const submit = () => {
-    setCurrentUser({...currentUser, firstName, lastName, address1, address2, city, state, zip, phone, email, password});
+    setCurrentUser({...currentUser, firstName, lastName, address1, address2, city, state, zip, phone, email, password, rate, subscriptionRate});
   }
 
   // render() {
@@ -94,7 +94,7 @@ const EnterShippingInfo = () => {
           </ProgressText>
         </Progress_container>
         {/*##### end of the TOP ##### */}
-        <EnterShippingContainer>
+        <EnterShippingContainer style={{display: 'flex', marginTop: '100px'}}>
         <LeftSide>
           <HeaderText>Shipping Information</HeaderText>
           <ShippingInfoContainer>
@@ -138,6 +138,7 @@ const EnterShippingInfo = () => {
             </Link>
         </RightSide>
       </EnterShippingContainer>
+      <Footer style={{display: 'flex', marginTop: '220px'}}></Footer>
     </div>
   )
 }
@@ -146,6 +147,7 @@ const SummaryText = Styled.div`
   font-family: 'Quicksand';
   font-weight: 500;
   font-size: 16px;
+  color: #264654;
 `
 const EnterShippingContainer = Styled.div`
   display: flex;
@@ -153,9 +155,10 @@ const EnterShippingContainer = Styled.div`
   margin-top: 30px;
 `
 const HeaderText = Styled.div`
-  font-size: 18px;
   margin: 20px;
   font-family: 'Quicksand';
+  font-size: 20px;
+  color: #264654;
 `
 const LeftSide = Styled.div`
   margin-right: 33.5px;
@@ -274,6 +277,7 @@ export const Button = Styled.button`
   background-color: rgba(38, 191, 0, .25);
   border-radius: 5px;
   border-color: rgba(38, 191, 0, .25);
+  font-family: 'Quicksand';
   color: #26BF00;
   font-size: 18px;
   cursor: pointer;

@@ -171,12 +171,14 @@ const MenuAndReview= () =>{
       {/* replace testMeals with selectMeals if API IS WORKING */}
       {meals.map((meal, i)=> {
         return <Meal key={i}>
-          <img src={meal.image} width='170' height='150' className="mealImage" onClick={()=>handleRecipeSelect(meal.id, meal.title, meal.image)}></img>
+          <img src={meal.image} width='204' height='180' className="mealImage" onClick={()=>handleRecipeSelect(meal.id, meal.title, meal.image)}></img>
           <RecipeName>{meal.title}</RecipeName>
         </Meal>
       })}
       </MenuSelection>
       </Center>
+
+      <YellowSeperator style={{marginTop: '100px'}}></YellowSeperator>
     </MenuContainer>
   )
 }
@@ -184,6 +186,7 @@ const MenuContainer = Styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  justify-content: space-between;
 `
 const YellowSeperator = Styled.div`
   width: 100%;
@@ -193,6 +196,7 @@ const YellowSeperator = Styled.div`
 const Center = Styled.div`
   display: flex;
   justify-content: center;
+  margin-top: 50px;
 `
 const CenterModal = Styled.div`
 `
@@ -212,18 +216,18 @@ const MenuSelection = Styled.div`
   // justify-content: center;
   // align-items: center;
   margin-top: 30px;
-  width: 800px;
+  width: 936px;
   border-radius: 5px
 `
 const RecipeName = Styled.div`
   font-family: 'Quicksand';
   margin-top: 10px;
-  font-size: 12px;
-  width: 160px
+  font-size: 16px;
+  width: 200px
 `
 const Meal = Styled.div`
   width: auto;
-  border-radius: 5px;
+  border-radius: 1px;
   margin: 15px
 `
 

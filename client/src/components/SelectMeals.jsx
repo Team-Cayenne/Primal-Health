@@ -5,6 +5,7 @@ import ProgressMasthead from '../shared/ProgressMasthead.jsx'
 import {Link}  from "react-router-dom";
 import axios from 'axios';
 import { Progress_container, ProgressText, TextZ, CurrentStep, Logo} from '../styles/pesonalizeYourPlan/styles.js';
+import { Footer } from './EnterShippingInfo.jsx';
 
 
 
@@ -139,7 +140,8 @@ import { Progress_container, ProgressText, TextZ, CurrentStep, Logo} from '../st
       </SelectRecipesContainer>
 
         <SpecialtyHeader>
-          Add Specialty Items
+          <div style={{display: 'flex', color: '#264654', fontFamily: 'Quicksand', justifyContent: 'center', fontWeight: '600',
+        margin: '50px', fontSize: '1.2em', borderTop: '1px solid #264654', lineHeight: '80px'}}>Add Specialty Items</div>
         </SpecialtyHeader>
           <SpecialtyItemsContainer>
             {/* testMeals replace with special with working API */}
@@ -151,6 +153,7 @@ import { Progress_container, ProgressText, TextZ, CurrentStep, Logo} from '../st
               </OneSpecialty>
             })}
           </SpecialtyItemsContainer>
+          <Footer style={{marginTop: '50px'}}></Footer>
     </div>
   )
 }
@@ -158,6 +161,7 @@ const SummaryText = Styled.div`
   font-family: 'Quicksand';
   font-weight: 500;
   font-size: 16px;
+  color: #264654;
 `
 const SelectRecipesContainer = Styled.div`
   display: flex;
@@ -220,9 +224,10 @@ const ReviewOrderButton = Styled.button`
   cursor: pointer;
 `
 const HeaderText = Styled.div`
+  margin: 20px;
   font-family: 'Quicksand';
-  font-size: 18px;
-  margin-left: 5px;
+  font-size: 20px;
+  color: #264654;
 `
 const MealSelection = Styled.div`
   margin: 15px 15px 30px 15px;

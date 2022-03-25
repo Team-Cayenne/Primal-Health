@@ -4,19 +4,20 @@ import Styled from 'styled-components'
 import {Link}  from "react-router-dom";
 import ProgressMasthead from '../shared/ProgressMasthead.jsx';
 import { Progress_container, ProgressText, TextZ, CurrentStep, Logo} from '../styles/pesonalizeYourPlan/styles.js';
+import { Footer } from "./EnterShippingInfo.jsx";
 
 
 
 const EnterCreditCard = () => {
 
-  const { email, password, rate, type, numRecipies, headCount, creditCard, setCreditCard, setCurrentUser, currentUser } = useContext(AppContext);
+  const { email, password, rate, subscriptionRate, type, numRecipies, headCount, creditCard, setCreditCard, setCurrentUser, currentUser } = useContext(AppContext);
 
   const handleInput = (event) => {
     setCreditCard(event.target.value)
   }
 
   const submit = () => {
-    setCurrentUser({ ...currentUser, creditCard, email, password });
+    setCurrentUser({ ...currentUser, creditCard, email, password, subscriptionRate });
   }
 
 
@@ -90,7 +91,7 @@ const EnterCreditCard = () => {
           </ProgressText>
         </Progress_container>
       {/*##### end of the TOP ##### */}
-      <EnterCreditCardContainer>
+      <EnterCreditCardContainer style={{display: 'flex', marginTop: '100px'}}>
         <LeftSide>
           <HeaderText>Payment Information</HeaderText>
           <PaymentInputContainer>
@@ -104,7 +105,7 @@ const EnterCreditCard = () => {
             <ImageAndButton>
               <img src="assets/creditcards/creditcards.png" width='123px' height='19px'>
               </img>
-              <AddPaymentButton>Add payment</AddPaymentButton>
+              {/* <AddPaymentButton>Add payment</AddPaymentButton> */}
             </ImageAndButton>
           </PaymentInputContainer>
         </LeftSide>
@@ -132,6 +133,7 @@ const EnterCreditCard = () => {
           </Link>
         </RightSide>
       </EnterCreditCardContainer>
+      <Footer style={{display: 'flex', marginTop: '250px'}}></Footer>
     </div>
   )
 }
@@ -140,6 +142,7 @@ const SummaryText = Styled.div`
   font-family: 'Quicksand';
   font-weight: 500;
   font-size: 16px;
+  color: #264654;
 `
 const EnterCreditCardContainer = Styled.div`
   display: flex;
@@ -160,9 +163,10 @@ const PaymentInputContainer = Styled.div`
   border-radius: 5px;
 `
 const HeaderText = Styled.div`
-  font-size: 18px;
-  margin: 20px;
-  font-family: 'Quicksand';
+margin: 20px;
+font-family: 'Quicksand';
+font-size: 20px;
+color: #264654;
 `
 const CardholderName = Styled.input`
   width: 491px;
@@ -212,6 +216,7 @@ const AddPaymentButton = Styled.button`
   border-color: rgba(38, 191, 0, .25);
   color: #26BF00;
   font-size: 12px;
+  font-family: 'Quicksand';
 `
 const RightSide = Styled.div`
   display: flex;
@@ -253,6 +258,7 @@ const Button = Styled.button`
   border-color: rgba(38, 191, 0, .25);
   color: #26BF00;
   font-size: 18px;
+  font-family: 'Quicksand';
   cursor: pointer;
 `
 

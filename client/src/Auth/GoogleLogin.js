@@ -3,10 +3,11 @@ import { AppContext } from '../context.js';
 import auth from "./firebase";
 import axios from 'axios';
 import Styled from 'styled-components'
-import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import { getAuth, signInWithPopup, GoogleAuthProvider, signInWithEmailAndPassword } from "firebase/auth";
 import {Link}  from "react-router-dom";
 import ProgressMasthead from '../shared/ProgressMasthead.jsx';
 import { Progress_container, ProgressText, TextZ, CurrentStep, Logo} from '../styles/pesonalizeYourPlan/styles.js';
+import { Footer } from "../components/EnterShippingInfo.jsx";
 
 
 
@@ -53,6 +54,22 @@ const GoogleLogin = () => {
       })
   }
 
+  // const emailLogin = (email, password) => {
+  //   const auth = getAuth();
+  //   signInWithEmailAndPassword(auth, email, password)
+  //     .then((userCredential) => {
+  //       // Signed in
+  //       const user = userCredential.user;
+  //       console.log(user)
+  //       // ...
+  //     })
+  //     .catch((error) => {
+  //       const errorCode = error.code;
+  //       const errorMessage = error.message;
+  //     });
+  //   }
+
+
   const userLogin = (user) => {
     if (user.password) {
       for (let i = 0; i < users.length; i++) {
@@ -86,6 +103,10 @@ const GoogleLogin = () => {
     userLogin({ email: email, password: password })
   }
 
+  // const submit = () => {
+  //   emailLogin(email, password)
+  // }
+
     return (
       <div>
         {/*##### Top, with the progress bar #####*/}
@@ -113,18 +134,16 @@ const GoogleLogin = () => {
             <Email type='email' onChange={addEmail}></Email>
             <Text>Password</Text>
             <Password type='password' onChange={addPassword}></Password>
-            <LoginButton onClick={submit}>Create account</LoginButton>
+            <LoginButton onClick={submit}>Sign In</LoginButton>
             <GoogleButton onClick={googleLogin} className="login-button">
             <img width="20px" style={{margin: '20px'}} alt="Google sign-in" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png" />Continue with Google</GoogleButton>
           </LoginBox>
+          <BottomButtonContainer>
+            <Link to="/your-personal-pref"><BottomButtons>Begin Customizing Your Plan!</BottomButtons></Link>
+            <Link to="/"><BottomButtons>Return Home</BottomButtons></Link>
+          </BottomButtonContainer>
         </LoginContainer>
-        <button>
-        <Link to="/shipping">Enter Shipping Info</Link>
-        {/* <Link to="/your-personal-pref">Choose Your Plan</Link> */}
-        </button>
-        <button>
-        <Link to="/">HOME</Link>
-        </button>
+        <Footer style={{display: 'flex', marginTop: '50px'}}></Footer>
       </div>
     );
 
@@ -151,10 +170,9 @@ const GoogleLogin = () => {
 
 const LoginContainer = Styled.div`
   @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
-
   display: flex;
-  justify-content: center;
-  align-items: start;
+  flex-direction: column;
+  align-items: center;
 `
 const Text = Styled.div`
   display: flex;
@@ -218,5 +236,19 @@ const GoogleButton = Styled.button`
   align-items: center;
   cursor: pointer;
 `
-
+const BottomButtonContainer = Styled.div`
+  display: flex;
+`
+const BottomButtons = Styled.button`
+  width: 277px;
+  height: 55px;
+  margin: 30px 15px 0px 15px;
+  background-color: rgba(38, 191, 0, .25);
+  border-radius: 5px;
+  border-color: rgba(38, 191, 0, .25);
+  color: #26BF00;
+  font-size: 18px;
+  font-family: 'Quicksand';
+  cursor: pointer;
+`
 export default GoogleLogin;

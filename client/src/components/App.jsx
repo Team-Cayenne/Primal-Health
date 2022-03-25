@@ -50,10 +50,24 @@ const AppProvider = (props) => {
   const [meals, setMeals] = useState([]);
   const [selectMeals, setSelectMeals] = useState([]);
   const [type, setType] = useState('');
+  const [whole30, whole30Selected] = useState(false);
+  const [vegetarian, vegetarianSelected] = useState(false);
+  const [keto, ketoSelected] = useState(false);
+  const [vegan, veganSelected] = useState(false);
+  const [paleo, paleoSelected] = useState(false);
+  const [pescatarian, pescatarianSelected] = useState(false);
+  const [people2, people2Selected] = useState(false);
+  const [people4, people4Selected] = useState(false);
+  const [recipe2, recipe2Selected] = useState(false);
+  const [recipe3, recipe3Selected] = useState(false);
+  const [recipe4, recipe4Selected] = useState(false);
+  const [recipe5, recipe5Selected] = useState(false);
+  const [recipe6, recipe6Selected] = useState(false);
   const [headCount, setHeadCount] = useState(0);
   const [numRecipies, setNumRecipies] = useState(0);
   const [rate, setRate] = useState(0);
   const [specialBuy, setSpecialBuy] = useState([]);
+  const [subscriptionRate, setSubscriptionRate] = useState(0);
 
   const [users, setUsers] = useState([]);
   const [currentUser, setCurrentUser] = useState({});
@@ -68,8 +82,9 @@ const AppProvider = (props) => {
   const [state, setState] = useState('');
   const [zip, setZip] = useState('');
   const [phone, setPhone] = useState('');
-
   const [creditCard, setCreditCard] = useState('');
+
+  const [toggleProfile, setToggleProfile] = useState(false);
 
   // const [id, setId] = useState(0)
 
@@ -83,6 +98,20 @@ const AppProvider = (props) => {
       numRecipies, setNumRecipies,
       rate, setRate,
       specialBuy, setSpecialBuy,
+      subscriptionRate, setSubscriptionRate,
+      whole30, whole30Selected,
+      vegetarian, vegetarianSelected,
+      keto, ketoSelected,
+      vegan, veganSelected,
+      paleo, paleoSelected,
+      pescatarian, pescatarianSelected,
+      people2, people2Selected,
+      people4, people4Selected,
+      recipe2, recipe2Selected,
+      recipe3, recipe3Selected,
+      recipe4, recipe4Selected,
+      recipe5, recipe5Selected,
+      recipe6, recipe6Selected,
       users, setUsers,
       currentUser, setCurrentUser,
       email, setEmail,
@@ -95,7 +124,8 @@ const AppProvider = (props) => {
       state, setState,
       zip, setZip,
       phone, setPhone,
-      creditCard, setCreditCard
+      creditCard, setCreditCard,
+      toggleProfile, setToggleProfile
 
 
 
