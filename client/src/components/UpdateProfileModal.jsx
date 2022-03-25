@@ -152,11 +152,13 @@ class UpdateProfileModal extends React.Component {
   render() {
     return (
       <div className="profile-modal-background">
+
         <div className="profile-update-modal">
           <form onSubmit={this.handleuserUpdateSubmit}>
             <div className="update-user-modal-user-info-sections">
               <div className="update-user-modal-user-key">
                 <div className="update-user-modal-user-info">
+                <span className="close-modal" onClick={() => this.props.changeModal()}>&times;</span>
                   <div>Username:</div>
                   <br />
                   <div>First Name:</div>
@@ -331,12 +333,7 @@ class UpdateProfileModal extends React.Component {
             className="update-user-button"
             type="submit" value="Submit" />
           </form>
-          <span
-            className="close-modal"
-            onClick={() => this.props.changeModal()}
-          >
-            &times;
-          </span>
+          {/* <span className="close-modal" onClick={() => this.props.changeModal()}>&times;</span> */}
         </div>
       </div>
     );
