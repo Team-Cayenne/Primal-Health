@@ -113,18 +113,15 @@ const GoogleLogin = () => {
             <Email type='email' onChange={addEmail}></Email>
             <Text>Password</Text>
             <Password type='password' onChange={addPassword}></Password>
-            <LoginButton onClick={submit}>Create account</LoginButton>
+            <LoginButton onClick={submit}>Sign In</LoginButton>
             <GoogleButton onClick={googleLogin} className="login-button">
             <img width="20px" style={{margin: '20px'}} alt="Google sign-in" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png" />Continue with Google</GoogleButton>
           </LoginBox>
+          <BottomButtonContainer>
+            <Link to="/your-personal-pref"><BottomButtons>Begin Customizing Your Plan!</BottomButtons></Link>
+            <Link to="/"><BottomButtons>Return Home</BottomButtons></Link>
+          </BottomButtonContainer>
         </LoginContainer>
-        <button>
-        <Link to="/shipping">Enter Shipping Info</Link>
-        {/* <Link to="/your-personal-pref">Choose Your Plan</Link> */}
-        </button>
-        <button>
-        <Link to="/">HOME</Link>
-        </button>
       </div>
     );
 
@@ -151,10 +148,9 @@ const GoogleLogin = () => {
 
 const LoginContainer = Styled.div`
   @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
-
   display: flex;
-  justify-content: center;
-  align-items: start;
+  flex-direction: column;
+  align-items: center;
 `
 const Text = Styled.div`
   display: flex;
@@ -218,5 +214,19 @@ const GoogleButton = Styled.button`
   align-items: center;
   cursor: pointer;
 `
-
+const BottomButtonContainer = Styled.div`
+  display: flex;
+`
+const BottomButtons = Styled.button`
+  width: 277px;
+  height: 55px;
+  margin: 30px 15px 0px 15px;
+  background-color: rgba(38, 191, 0, .25);
+  border-radius: 5px;
+  border-color: rgba(38, 191, 0, .25);
+  color: #26BF00;
+  font-size: 18px;
+  font-family: 'Quicksand';
+  cursor: pointer;
+`
 export default GoogleLogin;

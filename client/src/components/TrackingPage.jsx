@@ -1,6 +1,5 @@
 
 import {Link}  from "react-router-dom";
-
 import React from 'react';
 import { MainContainer } from '../styles/confirmationPage/styles';
 import { TopContainer, Logo } from '../styles/confirmationPage/top';
@@ -29,9 +28,9 @@ const TrackingPage= () =>{
           fontSize: '1.7em',
           alignSelf: 'center'
         }}> Your food is on the way! </ThankYou>
-        <TrackYourOrderButton style={{marginTop: '150px', fontSize: '1em'}}>
-          <Link to="/">Continue Shopping</Link>
-        </TrackYourOrderButton>
+        <Link to="/">
+          <TrackYourOrderButton style={{marginTop: '150px', fontSize: '1em'}}>Continue Shopping</TrackYourOrderButton>
+        </Link>
 
       </MiddleContainer>
       <BottomContainer>

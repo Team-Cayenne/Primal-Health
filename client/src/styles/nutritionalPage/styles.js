@@ -41,9 +41,11 @@ export const NutritionalContactBox = styled.div`
 `
 export const SeperatorTitle = styled.div`
   display: flex;
-  margin: 25px 0px 40px 0px;
+  margin: 35px 0px 40px 0px;
+  font-family: 'Lato';
+  font-style: italic;
   font-weight: bold;
-  font-size: 2.3em;
+  font-size: 24px;
   color: #264654;
   align-self: start;
 `
@@ -127,15 +129,15 @@ export const InnerTitle = styled.div`
   // align-self: center;
 `
 export const VideosButton = styled.button`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 70px;
-  color: #26BF00;
-  background-color: #CCFCBE;
-  font-size: 1.2em;
-  width: 320px;
-  height: 90px;
-  border-radius: 8px;
-  align-self: center;
+width: 400px;
+height: 55px;
+margin-bottom: 50px;
+background-color: rgba(38, 191, 0, .25);
+border-radius: 5px;
+border-color: rgba(38, 191, 0, .25);
+color: #26BF00;
+font-size: 22px;
+font-family: 'Lato';
+font-weight: 500;
+cursor: pointer;
 `
