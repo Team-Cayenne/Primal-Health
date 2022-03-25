@@ -15,12 +15,12 @@ This project was a 1 week sprint in which our team attempted to complete a MVP f
 -Primal Health was born out of a passionate desire to expose and engage local communities to a healthy lifestlye and community with local purveyors and health professionals.
 
 ## Tech Stack
--JavaScript, React, Node, Firebase, Webpack, CSS, Styled Components, Jest, Axios, Babel, Express, Spoonacular API, Edamam API, React Router, Logo Design
+-JavaScript, React, Node, Firebase, Webpack, CSS, Styled Components, Jest, Axios, Babel, Express, Spoonacular API, Edamam API, React Router, Logo Design, Trello
 ## Video Demo
 
 ![test](https://imgur.com/a/Y3MI4BJ)
 ## Technical Challenges (Anticipated and Unexpected)
-
+-Trying to overcome
 
 
 ## How does the app work?
@@ -28,8 +28,10 @@ This project was a 1 week sprint in which our team attempted to complete a MVP f
 
 
 ## Required Research & Insights
+-Firebase, React Routes, Figma, useContext, Spoonacular API, User Authentication, Jest, Biodynamic Standards and Practices, Styled Components,
 
 
 ## Non MVP Tickets?
+-The nutritional portion of the site was not planned to be included in our first phase, however, ew did add the visuals to build off of.
 
 
