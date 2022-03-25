@@ -1,6 +1,9 @@
 import React from "react";
 import Masthead from "../shared/Masthead.jsx";
 import { Link } from "react-router-dom";
+import { Footer } from "./EnterShippingInfo.jsx";
+import { SeperatorTitle, SeperatorBar } from "../styles/nutritionalPage/styles.js";
+import { Button } from "./EnterShippingInfo.jsx";
 
 const orders = [
   {
@@ -55,13 +58,12 @@ class UserOrderTracking extends React.Component {
     return (
       <div>
         <Masthead />
+        <SeperatorBar> <SeperatorTitle>Your Order History</SeperatorTitle></SeperatorBar>
         <div className="user-orders">
-          <h2 className="user-orders-title">Your Order History</h2>
           <div style={{textAlign: "center"}}>
-            <button className="update-user-button">
-              <Link to="/user-profile">BACK</Link>
-            </button>
+            <Link to="/user-profile" style={{ textDecoration: 'none' , color: '#26BF00' }}><Button style={{marginTop: '-5%'}}>BACK</Button></Link>
           </div>
+
           {orders.map((order, i) => (
             <div className="order-history" key={i}>
               <div className="order">
@@ -99,6 +101,7 @@ class UserOrderTracking extends React.Component {
             </div>
           ))}
         </div>
+        <Footer style={{display: 'flex', marginTop: '50px'}}></Footer>
       </div>
     );
   }
