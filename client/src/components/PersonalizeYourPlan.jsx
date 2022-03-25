@@ -241,9 +241,9 @@ const PersonalizeYourPlan = (props) => {
                 borderRadius: whole30 ? "10px" : null,
                 border: whole30 ? "2.5px solid #26BF00" : null,
               }}
-              onClick={
-                (() => {handleMealPref(mealTypes["meat"]), whole30S()})
-              }
+              onClick={() => {
+                handleMealPref(mealTypes["meat"]), whole30S();
+              }}
             >
               {/* <Image src="../assets/preferences/meatandveggies.png" width='70' height='40'onClick={()=>handleMealPref(mealTypes['meat'])} ></Image> */}
               Whole 30
@@ -255,10 +255,9 @@ const PersonalizeYourPlan = (props) => {
                 borderRadius: vegetarian ? "10px" : null,
                 border: vegetarian ? "2.5px solid #26BF00" : null,
               }}
-              onClick={
-                (() => {handleMealPref(mealTypes["vegetarian"]),
-                vegetarianS()})
-              }
+              onClick={() => {
+                handleMealPref(mealTypes["vegetarian"]), vegetarianS();
+              }}
             >
               {/* <img src="../assets/preferences/veggies.png" width='70' height='40'onClick={()=>handleMealPref(mealTypes['vegetarian'])}></img> */}
               Vegetarian
@@ -270,9 +269,9 @@ const PersonalizeYourPlan = (props) => {
                 borderRadius: keto ? "10px" : null,
                 border: keto ? "2.5px solid #26BF00" : null,
               }}
-              onClick={
-                (() => {handleMealPref(mealTypes["Ketogenic"]), ketoS()})
-              }
+              onClick={() => {
+                handleMealPref(mealTypes["Ketogenic"]), ketoS();
+              }}
             >
               {/* <Image src="../assets/preferences/familyfriendly.png" width='40' height='40'></Image> */}
               Keto
@@ -284,9 +283,9 @@ const PersonalizeYourPlan = (props) => {
                 borderRadius: vegan ? "10px" : null,
                 border: vegan ? "2.5px solid #26BF00" : null,
               }}
-              onClick={
-                (() => {handleMealPref(mealTypes["vegan"]), veganS()})
-              }
+              onClick={() => {
+                handleMealPref(mealTypes["vegan"]), veganS();
+              }}
             >
               {/* <Image src="../assets/preferences/fitandwholesome.png" width='60' height='40' onClick={()=>handleMealPref(mealTypes['vegan'])}></Image> */}
               Vegan
@@ -298,9 +297,9 @@ const PersonalizeYourPlan = (props) => {
                 borderRadius: paleo ? "10px" : null,
                 border: paleo ? "2.5px solid #26BF00" : null,
               }}
-              onClick={
-                (() => {handleMealPref(mealTypes["paleo"]), paleoS()})
-              }
+              onClick={() => {
+                handleMealPref(mealTypes["paleo"]), paleoS();
+              }}
             >
               {/* <Image src="../assets/preferences/quickandeasy.png" width='40' height='40' onClick={()=>handleMealPref(mealTypes['paleo'])}></Image> */}
               Paleo
@@ -312,10 +311,9 @@ const PersonalizeYourPlan = (props) => {
                 borderRadius: pescatarian ? "10px" : null,
                 border: pescatarian ? "2.5px solid #26BF00" : null,
               }}
-              onClick={
-                (() => {handleMealPref(mealTypes["pescetarian"]),
-                pescatarianS()})
-              }
+              onClick={() => {
+                handleMealPref(mealTypes["pescetarian"]), pescatarianS();
+              }}
             >
               {/* <img src="../assets/preferences/pescatarian.png" width='75' height='40' onClick={()=>handleMealPref(mealTypes['pescetarian'])}></img> */}
               Pescatarian
@@ -333,7 +331,9 @@ const PersonalizeYourPlan = (props) => {
                 borderRadius: people2 ? "5px" : null,
                 border: people2 ? "2.5px solid #26BF00" : null,
               }}
-              onClick={(() => {setHeadCount(2), people2S()})}
+              onClick={() => {
+                setHeadCount(2), people2S();
+              }}
             >
               2
             </PeopleButton>
@@ -343,7 +343,9 @@ const PersonalizeYourPlan = (props) => {
                 borderRadius: people4 ? "5px" : null,
                 border: people4 ? "2.5px solid #26BF00" : null,
               }}
-              onClick={(() => {setHeadCount(4), people4S()})}
+              onClick={() => {
+                setHeadCount(4), people4S();
+              }}
             >
               4
             </PeopleButton>
@@ -357,7 +359,9 @@ const PersonalizeYourPlan = (props) => {
                 borderRadius: recipe2 ? "5px" : null,
                 border: recipe2 ? "2.5px solid #26BF00" : null,
               }}
-              onClick={(() => {setNumRecipies(2), recipe2S()})}
+              onClick={() => {
+                setNumRecipies(2), recipe2S();
+              }}
             >
               2
             </RecipeButton>
@@ -367,7 +371,9 @@ const PersonalizeYourPlan = (props) => {
                 borderRadius: recipe3 ? "5px" : null,
                 border: recipe3 ? "2.5px solid #26BF00" : null,
               }}
-              onClick={(() => {setNumRecipies(3), recipe3S()})}
+              onClick={() => {
+                setNumRecipies(3), recipe3S();
+              }}
             >
               3
             </RecipeButton>
@@ -377,7 +383,9 @@ const PersonalizeYourPlan = (props) => {
                 borderRadius: recipe4 ? "5px" : null,
                 border: recipe4 ? "2.5px solid #26BF00" : null,
               }}
-              onClick={(() => {setNumRecipies(4), recipe4S()})}
+              onClick={() => {
+                setNumRecipies(4), recipe4S();
+              }}
             >
               4
             </RecipeButton>
@@ -387,7 +395,9 @@ const PersonalizeYourPlan = (props) => {
                 borderRadius: recipe5 ? "5px" : null,
                 border: recipe5 ? "2.5px solid #26BF00" : null,
               }}
-              onClick={(() => {setNumRecipies(5), recipe5S()})}
+              onClick={() => {
+                setNumRecipies(5), recipe5S();
+              }}
             >
               5
             </RecipeButton>
@@ -397,7 +407,9 @@ const PersonalizeYourPlan = (props) => {
                 borderRadius: recipe6 ? "5px" : null,
                 border: recipe6 ? "2.5px solid #26BF00" : null,
               }}
-              onClick={(() => {setNumRecipies(6), recipe6S()})}
+              onClick={() => {
+                setNumRecipies(6), recipe6S();
+              }}
             >
               6
             </RecipeButton>
