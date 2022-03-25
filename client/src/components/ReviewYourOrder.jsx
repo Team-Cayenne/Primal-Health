@@ -1,34 +1,56 @@
 import { AppContext } from "../context.js";
 import React, { useContext } from 'react'
+import axios from 'axios';
 import Styled from 'styled-components'
-import {Link}  from "react-router-dom";
+import { Link } from "react-router-dom";
 import ProgressMasthead from '../shared/ProgressMasthead.jsx'
 
+
+
+
 const ReviewYourOrder = () => {
-  const {meals, setMeals, type, setType, rate, setRate, numRecipies, setNumRecipies,headCount, setHeadCount, specialBuy, selectMeals} = useContext(AppContext);
 
-  return (
-    <div>
-      <ProgressMasthead />
+  const { currentUser, firstName, lastName, address1, address2, city, state, zip, phone, creditCard, email, password, meals, setMeals, type, setType, rate, setRate, numRecipies, setNumRecipies, headCount, setHeadCount, specialBuy, selectMeals} = useContext(AppContext);
 
-      <Header>
-        Review your order
-      </Header>
+  // refactor this to not use props and use context
+  const submitUser = () => {
+    axios.post('/users', currentUser)
+      .then(res => {
+        console.log(res);
+      })
+      .catch(err => {
+        console.log(err);
+      })
+  }
 
-      <ReviewYourOrderContainer>
-        <LeftSide>
-          <HeaderText>Shipping Information</HeaderText>
-          <ShippingInfo>
-            <div>Customer Name</div>
-            <div>Customer Address Information</div>
-          </ShippingInfo>
-          <HeaderText>Payment Information</HeaderText>
-          <PaymentInfo>
-            <div>Customer Payment Information</div>
-          </PaymentInfo>
-        </LeftSide>
+console.log(currentUser)
 
-        <RightSide>
+return (
+  <div>
+    <ProgressMasthead />
+
+    <Header>
+      Review your order
+    </Header>
+
+    <ReviewYourOrderContainer>
+      <LeftSide>
+        <HeaderText>Shipping Information</HeaderText>
+        <ShippingInfo>
+          <div>Customer Address Information</div>
+          <div>{firstName} {lastName}</div>
+          <div>{address1} {address2}</div>
+          <div>{city}, {state} {zip}</div>
+          <div>{phone}</div>
+        </ShippingInfo>
+        <HeaderText>Payment Information</HeaderText>
+        <PaymentInfo>
+          <div>Customer Payment Information</div>
+          <div>XXXX-XXXX-XXXX-{creditCard.slice(creditCard.length-4)}</div>
+        </PaymentInfo>
+      </LeftSide>
+
+      <RightSide>
         <HeaderText>Order Summary</HeaderText>
           <OrderSummary>
             <MealSelection>
@@ -46,7 +68,7 @@ const ReviewYourOrder = () => {
                 <div>
                   {specialBuy.map((item, i) => {
                     return <div>
-                      <SummaryText>{item.title} ${item.price}</SummaryText>
+                      <SummaryText> - {item.title} ${item.price}</SummaryText>
                       {/* <SummaryText>$ {item.price}</SummaryText> */}
                       </div>
                   })}
@@ -64,12 +86,12 @@ const ReviewYourOrder = () => {
             </Cost>
           </OrderSummary>
           <Alcohol>If your order contains alcoholic items, someone over the age of 21 must accept the order.</Alcohol>
-            <Link to="/order-confirmation" style={{ textDecoration: 'none' , color: '#26BF00' }}><Button>Place Order</Button></Link>
+            <Link to="/order-confirmation" style={{ textDecoration: 'none' , color: '#26BF00' }}><Button onClick={submitUser}>Place Order</Button></Link>
         </RightSide>
       </ReviewYourOrderContainer>
 
-    </div>
-  )
+  </div>
+)
 }
 
 const Alcohol = Styled.div`

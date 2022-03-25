@@ -4,40 +4,97 @@ import {Link}  from "react-router-dom";
 import ProgressMasthead from '../shared/ProgressMasthead.jsx'
 import { AppContext } from "../context.js";
 
+// class EnterShippingInfo extends React.Component {
+//   constructor(props) {
+//     super(props)
+//     this.state = {
+//       firstName: '',
+//       lastName: '',
+//       address1: '',
+//       address2: '',
+//       city: '',
+//       state: '',
+//       zip: '',
+//       phone: ''
+//     }
+//     this.handleInput = this.handleInput.bind(this);
+//     this.submit = this.submit.bind(this);
+//   }
 
-const EnterShippingInfo = () =>{
-  const {rate, numRecipies, headCount, type} = useContext(AppContext);
 
-  const handleInput = (e) => {
-    console.log(e.target.value)
+const EnterShippingInfo = () => {
+
+  const {email, password, rate, numRecipies, headCount, type, firstName, setFirstName, lastName, setLastName, address1, setAddress1, address2, setAddress2, city, setCity, state, setState, zip, setZip, phone, setPhone, currentUser, setCurrentUser} = useContext(AppContext);
+
+  const getFirstName = (event) => {
+    // setCurrentUser(currentUser[event.target.id] = event.target.value)
+    setFirstName(event.target.value);
   }
 
-  const handleClick = (e) => {
-    console.log('clicked')
+  const getLastName = (event) => {
+    // setCurrentUser(currentUser[event.target.id] = event.target.value)
+    setLastName(event.target.value);
   }
 
-  return (
-    <div>
-      <ProgressMasthead />
-      <EnterShippingContainer>
+  const getAddress1 = (event) => {
+    // setCurrentUser(currentUser[event.target.id] = event.target.value)
+    setAddress1(event.target.value);
+  }
+
+  const getAddress2 = (event) => {
+    // setCurrentUser(currentUser[event.target.id] = event.target.value)
+    setAddress2(event.target.value);
+  }
+
+  const getCity = (event) => {
+    // setCurrentUser(currentUser[event.target.id] = event.target.value)
+    setCity(event.target.value);
+  }
+
+  const getState = (event) => {
+    // setCurrentUser(currentUser[event.target.id] = event.target.value)
+    setState(event.target.value);
+  }
+
+  const getZip = (event) => {
+    // setCurrentUser(currentUser[event.target.id] = event.target.value)
+    setZip(event.target.value);
+  }
+
+  const getPhone = (event) => {
+    // setCurrentUser(currentUser[event.target.id] = event.target.value)
+    setPhone(event.target.value);
+  }
+
+
+  const submit = () => {
+    setCurrentUser({...currentUser, firstName, lastName, address1, address2, city, state, zip, phone, email, password});
+  }
+
+  // render() {
+    return (
+      <div>
+        <ProgressMasthead />
+        <EnterShippingContainer>
         <LeftSide>
           <HeaderText>Shipping Information</HeaderText>
           <ShippingInfoContainer>
+
             <ShippingLeft>
-              <FirstName placeholder="First name" onChange={handleInput}></FirstName>
-              <Address placeholder="Last name" onChange={handleInput}></Address>
-              <City placeholder="City" onChange={handleInput}></City>
-              <State placeholder="State" onChange={handleInput}></State>
+              <FirstName placeholder="First name" id='firstName' onChange={getFirstName}></FirstName>
+              <Address placeholder="Address" id='address1' onChange={getAddress1}></Address>
+              <City placeholder="City" id='city' onChange={getCity}></City>
+              <State placeholder="State" id='state' onChange={getState}></State>
             </ShippingLeft>
 
-            <ShippingRight>
-              <LastName placeholder="Last name" onChange={handleInput}></LastName>
-              <Apt placeholder="Apt, Suite, Floor" onChange={handleInput}></Apt>
-              <Zip placeholder="Zip code" onChange={handleInput}></Zip>
-              <Phone placeholder="Phone Nnmber" onChange={handleInput}></Phone>
-            </ShippingRight>
-          </ShippingInfoContainer>
-        </LeftSide>
+              <ShippingRight>
+                <LastName placeholder="Last name" id='lastName' onChange={getLastName}></LastName>
+                <Apt placeholder="Apt, Suite, Floor" id='address2' onChange={getAddress2}></Apt>
+                <Zip placeholder="Zip code" id='zip' onChange={getZip}></Zip>
+                <Phone placeholder="Phone Nnmber" id='phone' onChange={getPhone}></Phone>
+              </ShippingRight>
+            </ShippingInfoContainer>
+          </LeftSide>
 
         <RightSide>
           <HeaderText>Order Summary</HeaderText>
@@ -58,13 +115,14 @@ const EnterShippingInfo = () =>{
                 </Total>
               </Cost>
             </OrderSummary>
-            <Link to="/credit-card-entry" style={{ textDecoration: 'none' , color: '#26BF00' }}><Button onClick={handleClick}>Next Step</Button>
+            <Link to="/credit-card-entry" style={{ textDecoration: 'none' , color: '#26BF00' }}><Button onClick={submit}>Next Step</Button>
             </Link>
         </RightSide>
       </EnterShippingContainer>
     </div>
   )
 }
+
 const SummaryText = Styled.div`
   font-family: 'Quicksand';
   font-weight: 500;
