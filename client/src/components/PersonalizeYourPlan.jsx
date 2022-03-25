@@ -1,11 +1,17 @@
 import { AppContext } from "../context.js";
-import React, { useContext } from 'react'
-import Styled from 'styled-components'
-import ProgressMasthead from '../shared/ProgressMasthead.jsx'
-import axios from 'axios';
-import 'regenerator-runtime/runtime'
-import {Link}  from "react-router-dom";
-import { Progress_container, ProgressText, TextZ, CurrentStep, Logo} from '../styles/pesonalizeYourPlan/styles.js';
+import React, { useContext } from "react";
+import Styled from "styled-components";
+import ProgressMasthead from "../shared/ProgressMasthead.jsx";
+import axios from "axios";
+import "regenerator-runtime/runtime";
+import { Link } from "react-router-dom";
+import {
+  Progress_container,
+  ProgressText,
+  TextZ,
+  CurrentStep,
+  Logo,
+} from "../styles/pesonalizeYourPlan/styles.js";
 
 const PersonalizeYourPlan = (props) => {
   const {
@@ -19,7 +25,8 @@ const PersonalizeYourPlan = (props) => {
     setNumRecipies,
     headCount,
     setHeadCount,
-    currentUser, setCurrentUser,
+    currentUser,
+    setCurrentUser,
     whole30,
     whole30Selected,
     vegetarian,
@@ -62,20 +69,20 @@ const PersonalizeYourPlan = (props) => {
   // console.log("headCount", headCount)
 
   const handleMealPref = async (mealType) => {
-setType(mealType)
-// console.log('TYPE', type)
-try {
-  const results = await axios.post('/mealchoice', { type: mealType })
-  setMeals(results.data.results)
-  console.log("results", results)
-} catch (err) {
-  console.log("UNABLE TO SET MEALS", err)
-}
-}
+    setType(mealType);
+    // console.log('TYPE', type)
+    try {
+      const results = await axios.post("/mealchoice", { type: mealType });
+      setMeals(results.data.results);
+      console.log("results", results);
+    } catch (err) {
+      console.log("UNABLE TO SET MEALS", err);
+    }
+  };
 
-const submit = () => {
-setCurrentUser({...currentUser, headCount, numRecipies, type})
-}
+  const submit = () => {
+    setCurrentUser({ ...currentUser, headCount, numRecipies, type });
+  };
 
   const whole30S = () => {
     whole30Selected(true);
@@ -187,31 +194,39 @@ setCurrentUser({...currentUser, headCount, numRecipies, type})
     <PersonalizeYourPlanContainer>
       {/*##### Top, with the progress bar #####*/}
       <Progress_container>
-      <Logo>
-        <Link to="/" style={{ textDecoration: 'none' , color: '#264654', fontFamily: 'Quicksand' }}>
-        <img className='logo' src='assets/masthead/Masthead-logo-yellow.png' width='156' height='51'></img>
-
-        </Link>
-      </Logo>
-      <ProgressText>
-        <CurrentStep>Select Plan -----</CurrentStep>
-        <TextZ>Register -----</TextZ>
-        <TextZ>Delivery Info -----</TextZ>
-        <TextZ>Payment Info -----</TextZ>
-        <TextZ>Select Meals -----</TextZ>
-        <TextZ>Review Order -----</TextZ>
-        <TextZ>All Done!</TextZ>
-      </ProgressText>
-    </Progress_container>
+        <Logo>
+          <Link
+            to="/"
+            style={{
+              textDecoration: "none",
+              color: "#264654",
+              fontFamily: "Quicksand",
+            }}
+          >
+            <img
+              className="logo"
+              src="assets/masthead/Masthead-logo-yellow.png"
+              width="156"
+              height="51"
+            ></img>
+          </Link>
+        </Logo>
+        <ProgressText>
+          <CurrentStep>Select Plan -----</CurrentStep>
+          <TextZ>Register -----</TextZ>
+          <TextZ>Delivery Info -----</TextZ>
+          <TextZ>Payment Info -----</TextZ>
+          <TextZ>Select Meals -----</TextZ>
+          <TextZ>Review Order -----</TextZ>
+          <TextZ>All Done!</TextZ>
+        </ProgressText>
+      </Progress_container>
       {/*##### end of the TOP ##### */}
       <Header>Personalize your plan</Header>
       <StepsContainer>
         <StepOne>
-          <StepOneHeader>
-            1. Choose your preferences
-          </StepOneHeader>
+          <StepOneHeader>1. Choose your preferences</StepOneHeader>
           <StepOneButtonContainer>
-
             {/* <PreferenceButtons>
               <Image src="../assets/preferences/meatandveggies.png" width='70' height='40' onClick={() => handleMealPref(mealTypes['meat'])} ></Image>
               Whole 30 (Meat) */}
@@ -408,7 +423,11 @@ setCurrentUser({...currentUser, headCount, numRecipies, type})
         </StepTwo>
       </StepsContainer>
       <ContinueContainer>
-          <Link to="/signup" style={{ textDecoration: 'none' , color: '#26BF00'}}><ContinueButton onClick={submit}>Select plan & continue</ContinueButton></Link>
+        <Link to="/signup" style={{ textDecoration: "none", color: "#26BF00" }}>
+          <ContinueButton onClick={submit}>
+            Select plan & continue
+          </ContinueButton>
+        </Link>
       </ContinueContainer>
     </PersonalizeYourPlanContainer>
   );
