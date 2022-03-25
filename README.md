@@ -19,7 +19,7 @@ This project was a 1 week sprint in which our team attempted to complete a MVP f
 
 ## Video Demo
 
-![test](https://imgur.com/a/Y3MI4BJ.jpg)
+![test](https://imgur.com/a/Y3MI4BJ)
 
 ## How does the app work?/Behind the scenes
 
