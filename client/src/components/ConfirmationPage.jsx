@@ -67,13 +67,13 @@ const ConfirmationPage = () =>{
           </InnerPText>
           <InnerPTitle>Shipping Information:</InnerPTitle>
           <InnerPText>
-            Name: John Smith <br/>
-            Address: 104 Centre St, CA, 05478
+            Name: {currentUser.firstName} {currentUser.lastName} <br/>
+            Address: {currentUser.address1} {currentUser.address2}, {currentUser.city}, {currentUser.state} {currentUser.zip}
           </InnerPText>
           <InnerPTitle>Payment:</InnerPTitle>
           <InnerPText>
-            Date: 04/13/2022 <br/>
-            Type: Paid with Visa **** **** **** 4012 <br/> <div style={{textAlign:'end', marginTop: '40px', marginRight:'60px', fontFamily:'Quicksand', fontWeight:'bold'}}>Total: ${rate}</div> <br/>
+            Date: 03/25/2022 <br/>
+            Type: Paid with Visa **** **** **** {currentUser.creditCard.slice(currentUser.creditCard.length - 4)} <br/> <div style={{textAlign:'end', marginTop: '40px', marginRight:'60px', fontFamily:'Quicksand', fontWeight:'bold'}}>Total: ${rate}</div> <br/>
           </InnerPText>
         </OrderConfirmation>
           <Link to="/tracking">

@@ -9,14 +9,14 @@ import { Progress_container, ProgressText, TextZ, CurrentStep, Logo} from '../st
 
 const EnterCreditCard = () => {
 
-  const { email, password, rate, type, numRecipies, headCount, creditCard, setCreditCard, setCurrentUser, currentUser } = useContext(AppContext);
+  const { email, password, rate, subscriptionRate, type, numRecipies, headCount, creditCard, setCreditCard, setCurrentUser, currentUser } = useContext(AppContext);
 
   const handleInput = (event) => {
     setCreditCard(event.target.value)
   }
 
   const submit = () => {
-    setCurrentUser({ ...currentUser, creditCard, email, password });
+    setCurrentUser({ ...currentUser, creditCard, email, password, subscriptionRate });
   }
 
 
