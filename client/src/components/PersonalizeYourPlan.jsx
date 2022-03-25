@@ -5,6 +5,7 @@ import ProgressMasthead from '../shared/ProgressMasthead.jsx'
 import axios from 'axios';
 import 'regenerator-runtime/runtime'
 import {Link}  from "react-router-dom";
+import { Progress_container, ProgressText, TextZ, CurrentStep, Logo} from '../styles/pesonalizeYourPlan/styles.js';
 
   const PersonalizeYourPlan = (props) => {
     const {meals, setMeals, type, setType, rate, setRate, numRecipies, setNumRecipies,headCount, setHeadCount} = useContext(AppContext);
@@ -35,9 +36,29 @@ import {Link}  from "react-router-dom";
     }
     // console.log('MEALS', meals)
     // console.log("TYPE", type)
+
+    // style={{color: '#26BF00'}}
   return (
     <PersonalizeYourPlanContainer>
-      <ProgressMasthead />
+      {/*##### Top, with the progress bar #####*/}
+      <Progress_container>
+      <Logo>
+        <Link to="/" style={{ textDecoration: 'none' , color: '#264654', fontFamily: 'Quicksand' }}>
+        <img className='logo' src='assets/masthead/Masthead-logo-yellow.png' width='156' height='51'></img>
+
+        </Link>
+      </Logo>
+      <ProgressText>
+        <CurrentStep>Select Plan -----</CurrentStep>
+        <TextZ>Register -----</TextZ>
+        <TextZ>Delivery Info -----</TextZ>
+        <TextZ>Payment Info -----</TextZ>
+        <TextZ>Select Meals -----</TextZ>
+        <TextZ>Review Order -----</TextZ>
+        <TextZ>All Done!</TextZ>
+      </ProgressText>
+    </Progress_container>
+      {/*##### end of the TOP ##### */}
       <Header>Personalize your plan</Header>
       <StepsContainer>
         <StepOne>

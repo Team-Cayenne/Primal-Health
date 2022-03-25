@@ -3,6 +3,7 @@ import Styled from 'styled-components'
 import {Link}  from "react-router-dom";
 import ProgressMasthead from '../shared/ProgressMasthead.jsx'
 import { AppContext } from "../context.js";
+import { Progress_container, ProgressText, TextZ, CurrentStep, Logo} from '../styles/pesonalizeYourPlan/styles.js';
 
 
 const EnterShippingInfo = () =>{
@@ -18,7 +19,26 @@ const EnterShippingInfo = () =>{
 
   return (
     <div>
-      <ProgressMasthead />
+      {/* <ProgressMasthead /> */}
+      {/*##### Top, with the progress bar #####*/}
+      <Progress_container>
+        <Logo>
+          <Link to="/" style={{ textDecoration: 'none' , color: '#264654', fontFamily: 'Quicksand' }}>
+          <img className='logo' src='assets/masthead/Masthead-logo-yellow.png' width='156' height='51'></img>
+
+          </Link>
+        </Logo>
+        <ProgressText>
+          <CurrentStep>Select Plan -----</CurrentStep>
+            <TextZ style={{color: '#26BF00'}}>Register -----</TextZ>
+            <TextZ style={{color: '#26BF00'}}>Delivery Info -----</TextZ>
+            <TextZ>Payment Info -----</TextZ>
+            <TextZ>Select Meals -----</TextZ>
+            <TextZ>Review Order -----</TextZ>
+            <TextZ>All Done!</TextZ>
+          </ProgressText>
+        </Progress_container>
+      {/*##### end of the TOP ##### */}
       <EnterShippingContainer>
         <LeftSide>
           <HeaderText>Shipping Information</HeaderText>
