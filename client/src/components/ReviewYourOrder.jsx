@@ -5,6 +5,7 @@ import Styled from 'styled-components'
 import {Link}  from "react-router-dom";
 import ProgressMasthead from '../shared/ProgressMasthead.jsx';
 import { Progress_container, ProgressText, TextZ, CurrentStep, Logo} from '../styles/pesonalizeYourPlan/styles.js';
+import { Footer } from './EnterShippingInfo.jsx';
 
 
 const ReviewYourOrder = () => {
@@ -66,7 +67,7 @@ return (
         <HeaderText>Payment Information</HeaderText>
         <PaymentContainer>
           <MealSelection>
-            <SummaryText>**** **** **** {creditCard.slice(creditCard.length-4)}</SummaryText>
+            <SummaryText>**** **** **** {creditCard?.slice(creditCard.length-4)}</SummaryText>
           </MealSelection>
         </PaymentContainer>
       </LeftSide>
@@ -110,6 +111,7 @@ return (
             <Link to="/order-confirmation" style={{ textDecoration: 'none' , color: '#26BF00' }}><Button onClick={submitUser}>Place Order</Button></Link>
         </RightSide>
       </ReviewYourOrderContainer>
+      <Footer style={{display: 'flex', marginTop: '150px'}}></Footer>
 
   </div>
 )

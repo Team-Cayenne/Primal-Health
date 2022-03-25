@@ -12,6 +12,7 @@ import {
   CurrentStep,
   Logo,
 } from "../styles/pesonalizeYourPlan/styles.js";
+import { Footer } from "../components/EnterShippingInfo.jsx";
 
 const PersonalizeYourPlan = () => {
 
@@ -444,6 +445,8 @@ const PersonalizeYourPlan = () => {
           </ContinueButton>
         </Link>
       </ContinueContainer>
+
+      <Footer style={{display: 'flex', marginTop: '50px'}}></Footer>
     </PersonalizeYourPlanContainer>
   );
 };

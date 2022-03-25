@@ -94,7 +94,7 @@ const EnterShippingInfo = () => {
           </ProgressText>
         </Progress_container>
         {/*##### end of the TOP ##### */}
-        <EnterShippingContainer>
+        <EnterShippingContainer style={{display: 'flex', marginTop: '100px'}}>
         <LeftSide>
           <HeaderText>Shipping Information</HeaderText>
           <ShippingInfoContainer>
@@ -138,6 +138,7 @@ const EnterShippingInfo = () => {
             </Link>
         </RightSide>
       </EnterShippingContainer>
+      <Footer style={{display: 'flex', marginTop: '220px'}}></Footer>
     </div>
   )
 }
@@ -269,7 +270,7 @@ const Total = Styled.div`
   display: flex;
   justify-content: space-between;
 `
-const Button = Styled.button`
+export const Button = Styled.button`
   width: 277px;
   height: 55px;
   margin: 50px;

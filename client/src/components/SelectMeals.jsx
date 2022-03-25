@@ -5,6 +5,7 @@ import ProgressMasthead from '../shared/ProgressMasthead.jsx'
 import {Link}  from "react-router-dom";
 import axios from 'axios';
 import { Progress_container, ProgressText, TextZ, CurrentStep, Logo} from '../styles/pesonalizeYourPlan/styles.js';
+import { Footer } from './EnterShippingInfo.jsx';
 
 
 
@@ -139,7 +140,8 @@ import { Progress_container, ProgressText, TextZ, CurrentStep, Logo} from '../st
       </SelectRecipesContainer>
 
         <SpecialtyHeader>
-          Add Specialty Items
+          <div style={{display: 'flex', color: '#264654', fontFamily: 'Quicksand', justifyContent: 'center', fontWeight: '600',
+        margin: '50px', fontSize: '1.2em', borderTop: '1px solid #264654', lineHeight: '80px'}}>Add Specialty Items</div>
         </SpecialtyHeader>
           <SpecialtyItemsContainer>
             {/* testMeals replace with special with working API */}
@@ -151,6 +153,7 @@ import { Progress_container, ProgressText, TextZ, CurrentStep, Logo} from '../st
               </OneSpecialty>
             })}
           </SpecialtyItemsContainer>
+          <Footer style={{marginTop: '50px'}}></Footer>
     </div>
   )
 }
