@@ -6,6 +6,7 @@ import Styled from 'styled-components'
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import {Link}  from "react-router-dom";
 import ProgressMasthead from '../shared/ProgressMasthead.jsx'
+import { Progress_container, ProgressText, TextZ, CurrentStep, Logo} from '../styles/pesonalizeYourPlan/styles.js';
 
 
  const GoogleSignUp = () => {
@@ -117,7 +118,25 @@ import ProgressMasthead from '../shared/ProgressMasthead.jsx'
 
     return (
       <div>
-        <ProgressMasthead/>
+        {/*##### Top, with the progress bar #####*/}
+        <Progress_container>
+        <Logo>
+          <Link to="/" style={{ textDecoration: 'none' , color: '#264654', fontFamily: 'Quicksand' }}>
+          <img className='logo' src='assets/masthead/Masthead-logo-yellow.png' width='156' height='51'></img>
+
+          </Link>
+        </Logo>
+        <ProgressText>
+          <CurrentStep>Select Plan -----</CurrentStep>
+            <TextZ style={{color: '#26BF00'}}>Register -----</TextZ>
+            <TextZ>Delivery Info -----</TextZ>
+            <TextZ>Payment Info -----</TextZ>
+            <TextZ>Select Meals -----</TextZ>
+            <TextZ>Review Order -----</TextZ>
+            <TextZ>All Done!</TextZ>
+          </ProgressText>
+        </Progress_container>
+      {/*##### end of the TOP ##### */}
         <Header>Create an account</Header>
         <SignUpContainer>
           <SignUpBox>

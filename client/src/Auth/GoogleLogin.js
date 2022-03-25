@@ -5,7 +5,10 @@ import axios from 'axios';
 import Styled from 'styled-components'
 import { getAuth, signInWithPopup, GoogleAuthProvider, signInWithEmailAndPassword } from "firebase/auth";
 import {Link}  from "react-router-dom";
-import ProgressMasthead from '../shared/ProgressMasthead.jsx'
+import ProgressMasthead from '../shared/ProgressMasthead.jsx';
+import { Progress_container, ProgressText, TextZ, CurrentStep, Logo} from '../styles/pesonalizeYourPlan/styles.js';
+
+
 
 
 const GoogleLogin = () => {
@@ -104,7 +107,23 @@ const GoogleLogin = () => {
 
     return (
       <div>
-        <ProgressMasthead/>
+        {/*##### Top, with the progress bar #####*/}
+        <Progress_container>
+          <Logo>
+            <Link to="/" style={{ textDecoration: 'none' , color: '#264654', fontFamily: 'Quicksand' }}>
+            <img className='logo' src='assets/masthead/Masthead-logo-yellow.png' width='156' height='51'></img>
+
+            </Link>
+          </Logo>
+          <ProgressText>
+              <TextZ style={{color: '#26BF00'}}>Login -----</TextZ>
+              <TextZ>Delivery Info -----</TextZ>
+              <TextZ>Select Meals -----</TextZ>
+              <TextZ>Review Order -----</TextZ>
+              <TextZ>All Done!</TextZ>
+          </ProgressText>
+        </Progress_container>
+      {/*##### end of the TOP ##### */}
         <Header>Welcome Back!</Header>
         <LoginContainer>
           <LoginBox>
@@ -119,7 +138,8 @@ const GoogleLogin = () => {
           </LoginBox>
         </LoginContainer>
         <button>
-        <Link to="/your-personal-pref">Choose Your Plan</Link>
+        <Link to="/shipping">Enter Shipping Info</Link>
+        {/* <Link to="/your-personal-pref">Choose Your Plan</Link> */}
         </button>
         <button>
         <Link to="/">HOME</Link>
