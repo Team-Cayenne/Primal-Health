@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-expressions */
 import { AppContext } from "../context.js";
 import React, { useContext } from 'react'
 import Styled from 'styled-components'
@@ -7,10 +8,8 @@ import 'regenerator-runtime/runtime'
 import {Link}  from "react-router-dom";
 import { Progress_container, ProgressText, TextZ, CurrentStep, Logo} from '../styles/pesonalizeYourPlan/styles.js';
 
-const PersonalizeYourPlan = () => {
-
+const PersonalizeYourPlan = (props) => {
   const {
-    setSubscriptionRate,
     meals,
     setMeals,
     type,
@@ -50,6 +49,7 @@ const PersonalizeYourPlan = () => {
     recipe6Selected,
   } = useContext(AppContext);
 
+
   const mealTypes = {
     meat: "Whole30",
     vegetarian: "Vegetarian",
@@ -59,10 +59,9 @@ const PersonalizeYourPlan = () => {
     vegan: "Vegan",
   };
 
-    setRate((headCount * numRecipies * 12.99 + 9.99).toFixed(2))
-    setSubscriptionRate((headCount * numRecipies * 12.99 + 9.99).toFixed(2))
-    // const
-    // console.log("headCount", headCount)
+  setRate((headCount * numRecipies * 12.99 + 9.99).toFixed(2));
+
+  setSubscriptionRate((headCount * numRecipies * 12.99 + 9.99).toFixed(2))
 
   const handleMealPref = async (mealType) => {
 setType(mealType)
@@ -80,14 +79,14 @@ const submit = () => {
 setCurrentUser({...currentUser, headCount, numRecipies, type})
 }
 
-  const whole30S = () => {
-    whole30Selected(true);
-    vegetarianSelected(false);
-    ketoSelected(false);
-    veganSelected(false);
-    paleoSelected(false);
-    pescatarianSelected(false);
-  };
+const whole30S = () => {
+  whole30Selected(true);
+  vegetarianSelected(false);
+  ketoSelected(false);
+  veganSelected(false);
+  paleoSelected(false);
+  pescatarianSelected(false);
+};
 
   const vegetarianS = () => {
     whole30Selected(false);
