@@ -1,7 +1,6 @@
-import React from 'react'
-import Masthead from '../shared/Masthead.jsx'
-import {Link}  from "react-router-dom";
-
+import React from "react";
+import Masthead from "../shared/Masthead.jsx";
+import { Link } from "react-router-dom";
 
 const orders = [
   {
@@ -26,20 +25,17 @@ class UserOrderTracking extends React.Component {
     this.state = {};
   }
 
-
   render() {
     return (
       <div>
         <Masthead />
-        <button>
-        <Link to="/user-profile">BACK</Link>
-        </button>
         <div className="user-orders">
           <h2 className="user-orders-title">Your Order History</h2>
-          <button>
-      <Link to="/user-profile">BACK</Link>
-      </button>
-          {/* {props.orders.map((order, i) => (create order div))} */}
+          <div style={{textAlign: "center"}}>
+            <button className="update-user-button">
+              <Link to="/user-profile">BACK</Link>
+            </button>
+          </div>
           {orders.map((order, i) => (
             <div className="order-history" key={i}>
               <div className="order">
@@ -74,7 +70,6 @@ class UserOrderTracking extends React.Component {
                   <br />
                 </div>
               </div>
-
             </div>
           ))}
         </div>

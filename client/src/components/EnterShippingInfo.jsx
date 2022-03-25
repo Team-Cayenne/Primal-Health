@@ -24,7 +24,7 @@ import { AppContext } from "../context.js";
 
 const EnterShippingInfo = () => {
 
-  const {email, password, rate, numRecipies, headCount, firstName, setFirstName, lastName, setLastName, address1, setAddress1, address2, setAddress2, city, setCity, state, setState, zip, setZip, phone, setPhone, currentUser, setCurrentUser} = useContext(AppContext);
+  const {email, password, rate, numRecipies, headCount, type, firstName, setFirstName, lastName, setLastName, address1, setAddress1, address2, setAddress2, city, setCity, state, setState, zip, setZip, phone, setPhone, currentUser, setCurrentUser} = useContext(AppContext);
 
   const getFirstName = (event) => {
     // setCurrentUser(currentUser[event.target.id] = event.target.value)
@@ -96,15 +96,13 @@ const EnterShippingInfo = () => {
             </ShippingInfoContainer>
           </LeftSide>
 
-
-
         <RightSide>
           <HeaderText>Order Summary</HeaderText>
             <OrderSummary>
               <MealSelection>
-                <div>Meat & Veggies</div>
-                <div>4 Meals for {headCount} people per week</div>
-                <div>{numRecipies} Meals per week</div>
+                <SummaryText>{type}</SummaryText>
+                <SummaryText>{numRecipies} Meals for {headCount} people per week</SummaryText>
+                <SummaryText>{numRecipies * headCount} Meals per week</SummaryText>
               </MealSelection>
               <Cost>
                 <Shipping>
@@ -112,17 +110,15 @@ const EnterShippingInfo = () => {
                   <SummaryText>$9.99</SummaryText>
                 </Shipping>
                 <Total>
-                  <div>Total</div>
-                  <div>$ {rate}</div>
+                  <SummaryText>Total</SummaryText>
+                  <SummaryText>${rate}</SummaryText>
                 </Total>
               </Cost>
             </OrderSummary>
-          <Button onClick={submit}>
-            <Link to="/credit-card-entry" style={{ textDecoration: 'none' , color: '#26BF00' }}>Next Step</Link>
-            </Button>
+            <Link to="/credit-card-entry" style={{ textDecoration: 'none' , color: '#26BF00' }}><Button onClick={submit}>Next Step</Button>
+            </Link>
         </RightSide>
       </EnterShippingContainer>
-
     </div>
   )
 }
@@ -130,6 +126,7 @@ const EnterShippingInfo = () => {
 const SummaryText = Styled.div`
   font-family: 'Quicksand';
   font-weight: 500;
+  font-size: 16px;
 `
 const EnterShippingContainer = Styled.div`
   display: flex;
@@ -260,6 +257,7 @@ const Button = Styled.button`
   border-color: rgba(38, 191, 0, .25);
   color: #26BF00;
   font-size: 18px;
+  cursor: pointer;
 `
 export const Footer = Styled.div`
   display: flex;

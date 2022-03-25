@@ -195,6 +195,7 @@ const SignUpButton = Styled.button`
   color: #26BF00;
   font-size: 18px;
   font-family: 'Quicksand';
+  cursor: pointer;
 `
 const GoogleButton = Styled.button`
   display: flex;
@@ -204,5 +205,6 @@ const GoogleButton = Styled.button`
   font-size: 18px;
   font-family: 'Quicksand';
   align-items: center;
+  cursor: pointer;
 `
 export default GoogleSignUp;
