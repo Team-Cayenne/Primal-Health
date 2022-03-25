@@ -19,7 +19,7 @@ const Masthead = () => {
       <Link to="/nutrition-health" style={{ textDecoration: 'none' , color: '#264654', fontFamily: 'Quicksand' }}>HEALTH & NUTRITION</Link>
       <Link to="/recipe-menu" style={{ textDecoration: 'none' , color: '#264654', fontFamily: 'Quicksand' }}>OUR RECIPES</Link>
       <Link to="/meet-our-vendors" style={{ textDecoration: 'none' , color: '#264654', fontFamily: 'Quicksand' }}>OUR SUPPLIERS</Link>
-      <Link to="/login" style={{ textDecoration: 'none' , color: '#26BF00', fontFamily: 'Quicksand' }}><LoginButton>LOGIN</LoginButton></Link>
+      <Link to="/login" style={{ textDecoration: 'none' , color: '#26BF00', fontFamily: 'Quicksand' }}><LoginButton>Login</LoginButton></Link>
     </MastheadContainer>
   )
 }
@@ -41,6 +41,7 @@ const MastheadContainer = Styled.div`
   margin-bottom: 24px;
   margin-top: 24px;
   width: 100%;
+  font-weight: 600;
 `
 const Logo = Styled.div`
   padding-right: 50px;
@@ -54,8 +55,7 @@ const LoginButton = Styled.button`
   height: 50px;
   width: 130px;
   font-size: 18px;
-  font-family: 'Lato';
-  font-weight: semi-bold;
+  font-family: 'Quicksand';
   cursor: pointer;
 `
 

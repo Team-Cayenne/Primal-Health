@@ -145,7 +145,7 @@ const Button = Styled.button`
   border-color: rgba(38, 191, 0, .25);
   color: #26BF00;
   font-size: 18px;
-  font-family: 'Lato';
+  font-family: 'Quicksand';
   font-weight: 500;
   cursor: pointer;
 `
