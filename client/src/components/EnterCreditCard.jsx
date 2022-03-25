@@ -1,131 +1,131 @@
 import { AppContext } from "../context.js";
 import React, { useContext } from 'react'
 import Styled from 'styled-components'
-import {Link}  from "react-router-dom";
+import { Link } from "react-router-dom";
 import ProgressMasthead from '../shared/ProgressMasthead.jsx'
 
 // const EnterCreditCard = (props) =>{
-class EnterCreditCard extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      creditCard: ''
-    }
-    this.handleInput = this.handleInput.bind(this);
-    this.submit = this.submit.bind(this);
-  }
-// const EnterCreditCard = () =>{
-//   const {rate, numRecipies, headCount} = useContext(AppContext);
+// class EnterCreditCard extends React.Component {
+//   constructor(props) {
+//     super(props)
+//     this.state = {
+//       creditCard: ''
+//     }
+//     this.handleInput = this.handleInput.bind(this);
+//     this.submit = this.submit.bind(this);
+//   }
 
-  handleInput(event) {
-    this.setState({
-      creditCard: event.target.value
-    })
-  }
+const EnterCreditCard = () => {
 
-  submit() {
-    this.props.user(this.state)
+  const { email, password, rate, numRecipies, headCount, creditCard, setCreditCard, setCurrentUser, currentUser } = useContext(AppContext);
+
+  const handleInput = (event) => {
+    setCreditCard(event.target.value)
   }
 
-  render() {
-    return (
-      <div>
-        <ProgressMasthead />
-
-        <EnterCreditCardContainer>
-          <LeftSide>
-            <div>Payment Information</div>
-            <PaymentInputContainer>
-              <HeaderText>Add credit or debit card</HeaderText>
-              <CardholderName placeholder="Cardholder name" ></CardholderName>
-              <CardNumberInfoContainer>
-                <CardNumber placeholder="Card number" onChange={this.handleInput}></CardNumber>
-                <CardExp placeholder="Exp date"></CardExp>
-                <CardCVV placeholder="CVV"></CardCVV>
-              </CardNumberInfoContainer>
-              <ImageAndButton>
-                <img src="../../public/assets/creditcards/creditcards.png" width='123px' height='19px'>
-                </img>
-                <AddPaymentButton onClick={this.submit}>Add payment</AddPaymentButton>
-              </ImageAndButton>
-            </PaymentInputContainer>
-          </LeftSide>
-
-          <RightSide>
-            <div>Order Summary</div>
-            <OrderSummary>
-              <MealSelection>
-                <div>Meat & Veggies</div>
-                <div>4 Meals for 5 people per week</div>
-                <div>20 Meals per week</div>
-              </MealSelection>
-              <Cost>
-                <Shipping>
-                  <div>Shipping</div>
-                  <div>$9.99</div>
-                </Shipping>
-                <Total>
-                  <div>Total</div>
-                  <div>$199.80</div>
-                </Total>
-              </Cost>
-            </OrderSummary>
-            <div>If your order contains alcoholic items, someone over the age of 21 must accept the order.</div>
-            <Button >Next Step</Button>
-          </RightSide>
-        </EnterCreditCardContainer>
-      </div>
-    )
+  const submit = () => {
+    setCurrentUser({ ...currentUser, creditCard, email, password });
   }
 
-  // CORRECT CODE JUST NEED TO MAKE MY CHANGES INSIDE OF IT
+
+  return (
+    //     <div>
+    //       <ProgressMasthead />
+
     //       <EnterCreditCardContainer>
     //         <LeftSide>
-    //             <HeaderText>Payment Information</HeaderText>
+    //           <div>Payment Information</div>
     //           <PaymentInputContainer>
     //             <HeaderText>Add credit or debit card</HeaderText>
-    //             <CardholderName placeholder="Cardholder name" onChange={handleInput}></CardholderName>
+    //             <CardholderName placeholder="Cardholder name" ></CardholderName>
     //             <CardNumberInfoContainer>
     //               <CardNumber placeholder="Card number" onChange={handleInput}></CardNumber>
-    //               <CardExp placeholder="Exp date" onChange={handleInput}></CardExp>
-    //               <CardCVV placeholder="CVV" onChange={handleInput}></CardCVV>
+    //               <CardExp placeholder="Exp date"></CardExp>
+    //               <CardCVV placeholder="CVV"></CardCVV>
     //             </CardNumberInfoContainer>
     //             <ImageAndButton>
-    //               <img src="assets/creditcards/creditcards.png" width='123px' height='19px'>
+    //               <img src="../../public/assets/creditcards/creditcards.png" width='123px' height='19px'>
     //               </img>
-    //               <AddPaymentButton onClick={handleClick}>Add payment</AddPaymentButton>
+    //               <AddPaymentButton onClick={submit}>Add payment</AddPaymentButton>
     //             </ImageAndButton>
     //           </PaymentInputContainer>
     //         </LeftSide>
 
     //         <RightSide>
-    //           <HeaderText>Order Summary</HeaderText>
+    //           <div>Order Summary</div>
     //           <OrderSummary>
     //             <MealSelection>
     //               <div>Meat & Veggies</div>
-    //               <div>4 Meals for {headCount} people per week</div>
-    //               <div>{numRecipies} Meals per week</div>
+    //               <div>4 Meals for 5 people per week</div>
+    //               <div>20 Meals per week</div>
     //             </MealSelection>
     //             <Cost>
     //               <Shipping>
-    //                 <SummaryText>Shipping</SummaryText>
-    //                 <SummaryText>$9.99</SummaryText>
+    //                 <div>Shipping</div>
+    //                 <div>$9.99</div>
     //               </Shipping>
     //               <Total>
     //                 <div>Total</div>
-    //                 <div>$ {rate}</div>
+    //                 <div>$199.80</div>
     //               </Total>
     //             </Cost>
     //           </OrderSummary>
-    //           <Button onClick={handleClick}>
-    //           <Link to="/select-meals" style={{ textDecoration: 'none' , color: '#26BF00' }}>Next Step</Link>
-    //           </Button>
+    //           <div>If your order contains alcoholic items, someone over the age of 21 must accept the order.</div>
+    //           <Button >Next Step</Button>
     //         </RightSide>
     //       </EnterCreditCardContainer>
     //     </div>
     //   )
     // }
+    <div>
+      <ProgressMasthead />
+      <EnterCreditCardContainer>
+        <LeftSide>
+          <HeaderText>Payment Information</HeaderText>
+          <PaymentInputContainer>
+            <HeaderText>Add credit or debit card</HeaderText>
+            <CardholderName placeholder="Cardholder name" ></CardholderName>
+            <CardNumberInfoContainer>
+              <CardNumber placeholder="Card number" onChange={handleInput}></CardNumber>
+              <CardExp placeholder="Exp date" ></CardExp>
+              <CardCVV placeholder="CVV" ></CardCVV>
+            </CardNumberInfoContainer>
+            <ImageAndButton>
+              <img src="assets/creditcards/creditcards.png" width='123px' height='19px'>
+              </img>
+              <AddPaymentButton>Add payment</AddPaymentButton>
+            </ImageAndButton>
+          </PaymentInputContainer>
+        </LeftSide>
+
+        <RightSide>
+          <HeaderText>Order Summary</HeaderText>
+          <OrderSummary>
+            <MealSelection>
+              <div>Meat & Veggies</div>
+              <div>4 Meals for {headCount} people per week</div>
+              <div>{numRecipies} Meals per week</div>
+            </MealSelection>
+            <Cost>
+              <Shipping>
+                <SummaryText>Shipping</SummaryText>
+                <SummaryText>$9.99</SummaryText>
+              </Shipping>
+              <Total>
+                <div>Total</div>
+                <div>$ {rate}</div>
+              </Total>
+            </Cost>
+          </OrderSummary>
+          <Button onClick={submit}>
+            <Link to="/select-meals" style={{ textDecoration: 'none', color: '#26BF00' }}>Next Step</Link>
+          </Button>
+        </RightSide>
+      </EnterCreditCardContainer>
+    </div>
+  )
 }
+
 const SummaryText = Styled.div`
   font-family: 'Quicksand';
   font-weight: 500;

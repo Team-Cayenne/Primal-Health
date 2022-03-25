@@ -47,7 +47,6 @@ import ProgressMasthead from '../shared/ProgressMasthead.jsx'
         const token = credential.accessToken;
         // The signed-in user info.
         const user = result.user;
-
         userSignup(user)
 
       })
@@ -71,18 +70,15 @@ import ProgressMasthead from '../shared/ProgressMasthead.jsx'
           return;
         }
       }
-      setCurrentUser(currentUser.email = user.email);
-      setCurrentUser(currentUser.password = user.password)
+      setCurrentUser({...currentUser, email, password})
     } else {
-
       for (let i = 0; i < users.length; i++) {
         if (users[i].email === user.email) {
           alert('Email Already Exists');
           return;
         }
       }
-      setCurrentUser(currentUser.email = email);
-      setCurrentUser(currentUser.password = '');
+      setEmail(user.email)
     }
   }
 
@@ -118,7 +114,6 @@ import ProgressMasthead from '../shared/ProgressMasthead.jsx'
       userSignup({email: email, password: password})
     }
   }
-
 
     return (
       <div>

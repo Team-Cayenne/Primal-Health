@@ -4,37 +4,41 @@ import Styled from 'styled-components'
 import ProgressMasthead from '../shared/ProgressMasthead.jsx'
 import axios from 'axios';
 import 'regenerator-runtime/runtime'
-import {Link}  from "react-router-dom";
+import { Link } from "react-router-dom";
 
-  const PersonalizeYourPlan = (props) => {
-    const {meals, setMeals, type, setType, rate, setRate, numRecipies, setNumRecipies,headCount, setHeadCount} = useContext(AppContext);
+const PersonalizeYourPlan = (props) => {
+  const { meals, setMeals, type, setType, rate, setRate, numRecipies, setNumRecipies, headCount, setHeadCount, currentUser, setCurrentUser } = useContext(AppContext);
 
-    const mealTypes = {
-      "meat": "Whole30",
-      "vegetarian": "Vegetarian",
-      "pescetarian": "Pescetarian",
-      "paleo": "Paleo",
-      "Ketogenic": "Ketogenic",
-      "vegan": "Vegan"
+  const mealTypes = {
+    "meat": "Whole30",
+    "vegetarian": "Vegetarian",
+    "pescetarian": "Pescetarian",
+    "paleo": "Paleo",
+    "Ketogenic": "Ketogenic",
+    "vegan": "Vegan"
+  }
+
+  setRate((headCount * numRecipies * 12.99 + 9.99).toFixed(2))
+  // const
+  // console.log("headCount", headCount)
+
+  const handleMealPref = async (mealType) => {
+    setType(mealType)
+    // console.log('TYPE', type)
+    try {
+      const results = await axios.post('/mealchoice', { type: mealType })
+      setMeals(results.data.results)
+      console.log("results", results)
+    } catch (err) {
+      console.log("UNABLE TO SET MEALS", err)
     }
+  }
 
-    setRate((headCount * numRecipies * 12.99 + 9.99).toFixed(2))
-    // const
-    console.log("headCount", headCount)
-
-    const handleMealPref = async(mealType) => {
-      setType(mealType)
-      console.log('TYPE', type)
-      try {
-        const results = await axios.post('/mealchoice', {type: mealType})
-        setMeals(results.data.results)
-        console.log("results", results)
-      } catch (err) {
-        console.log("UNABLE TO SET MEALS", err)
-      }
-    }
-    console.log('MEALS', meals)
-    console.log("TYPE", type)
+  const submit = () => {
+    setCurrentUser({...currentUser, headCount, numRecipies, type})
+  }
+  // console.log('MEALS', meals)
+  // console.log("TYPE", type)
   return (
     <PersonalizeYourPlanContainer>
       <ProgressMasthead />
@@ -46,38 +50,38 @@ import {Link}  from "react-router-dom";
           </StepOneHeader>
           <StepOneButtonContainer>
 
-            <PreferenceButtons>
-              <Image src="../assets/preferences/meatandveggies.png" width='70' height='40'onClick={()=>handleMealPref(mealTypes['meat'])} ></Image>
-              Whole 30 (Meat)
-            <PreferenceButtons onClick={()=>handleMealPref(mealTypes['meat'])}>
-              {/* <Image src="../assets/preferences/meatandveggies.png" width='70' height='40'onClick={()=>handleMealPref(mealTypes['meat'])} ></Image> */}
-              Whole 30
-            </PreferenceButtons>
+            {/* <PreferenceButtons>
+              <Image src="../assets/preferences/meatandveggies.png" width='70' height='40' onClick={() => handleMealPref(mealTypes['meat'])} ></Image>
+              Whole 30 (Meat) */}
+              <PreferenceButtons onClick={() => handleMealPref(mealTypes['meat'])}>
+                {/* <Image src="../assets/preferences/meatandveggies.png" width='70' height='40'onClick={()=>handleMealPref(mealTypes['meat'])} ></Image> */}
+                Whole 30
+              </PreferenceButtons>
 
-            <PreferenceButtons onClick={()=>handleMealPref(mealTypes['vegetarian'])}>
-              {/* <img src="../assets/preferences/veggies.png" width='70' height='40'onClick={()=>handleMealPref(mealTypes['vegetarian'])}></img> */}
-              Vegetarian
-            </PreferenceButtons>
+              <PreferenceButtons onClick={() => handleMealPref(mealTypes['vegetarian'])}>
+                {/* <img src="../assets/preferences/veggies.png" width='70' height='40'onClick={()=>handleMealPref(mealTypes['vegetarian'])}></img> */}
+                Vegetarian
+              </PreferenceButtons>
 
-            <PreferenceButtons onClick={()=>handleMealPref(mealTypes['ketogenic'])}>
-              {/* <Image src="../assets/preferences/familyfriendly.png" width='40' height='40'></Image> */}
-              Keto
-            </PreferenceButtons>
+              <PreferenceButtons onClick={() => handleMealPref(mealTypes['ketogenic'])}>
+                {/* <Image src="../assets/preferences/familyfriendly.png" width='40' height='40'></Image> */}
+                Keto
+              </PreferenceButtons>
 
-            <PreferenceButtons onClick={()=>handleMealPref(mealTypes['vegan'])}>
-              {/* <Image src="../assets/preferences/fitandwholesome.png" width='60' height='40' onClick={()=>handleMealPref(mealTypes['vegan'])}></Image> */}
-              Vegan
-            </PreferenceButtons>
+              <PreferenceButtons onClick={() => handleMealPref(mealTypes['vegan'])}>
+                {/* <Image src="../assets/preferences/fitandwholesome.png" width='60' height='40' onClick={()=>handleMealPref(mealTypes['vegan'])}></Image> */}
+                Vegan
+              </PreferenceButtons>
 
-            <PreferenceButtons onClick={()=>handleMealPref(mealTypes['paleo'])}>
-              {/* <Image src="../assets/preferences/quickandeasy.png" width='40' height='40' onClick={()=>handleMealPref(mealTypes['paleo'])}></Image> */}
-              Paleo
-            </PreferenceButtons>
+              <PreferenceButtons onClick={() => handleMealPref(mealTypes['paleo'])}>
+                {/* <Image src="../assets/preferences/quickandeasy.png" width='40' height='40' onClick={()=>handleMealPref(mealTypes['paleo'])}></Image> */}
+                Paleo
+              </PreferenceButtons>
 
-            <PreferenceButtons onClick={()=>handleMealPref(mealTypes['pescetarian'])}>
-              {/* <img src="../assets/preferences/pescatarian.png" width='75' height='40' onClick={()=>handleMealPref(mealTypes['pescetarian'])}></img> */}
-              Pescatarian
-            </PreferenceButtons>
+              <PreferenceButtons onClick={() => handleMealPref(mealTypes['pescetarian'])}>
+                {/* <img src="../assets/preferences/pescatarian.png" width='75' height='40' onClick={()=>handleMealPref(mealTypes['pescetarian'])}></img> */}
+                Pescatarian
+              </PreferenceButtons>
 
           </StepOneButtonContainer>
         </StepOne>
@@ -90,10 +94,10 @@ import {Link}  from "react-router-dom";
             <StepTwoText>
               Number of people
             </StepTwoText>
-            <PeopleButton onClick={()=>setHeadCount(2)}>
+            <PeopleButton onClick={() => setHeadCount(2)}>
               2
             </PeopleButton>
-            <PeopleButton onClick={()=>setHeadCount(4)}>
+            <PeopleButton onClick={() => setHeadCount(4)}>
               4
             </PeopleButton>
           </StepTwoNumberOfPeopleContainer>
@@ -102,11 +106,11 @@ import {Link}  from "react-router-dom";
             <StepTwoText>
               Recipes per week
             </StepTwoText>
-            <RecipeButton onClick={()=>setNumRecipies(2)}>2</RecipeButton>
-            <RecipeButton onClick={()=>setNumRecipies(3)}>3</RecipeButton>
-            <RecipeButton onClick={()=>setNumRecipies(4)}>4</RecipeButton>
-            <RecipeButton onClick={()=>setNumRecipies(5)}>5</RecipeButton>
-            <RecipeButton onClick={()=>setNumRecipies(6)}>6</RecipeButton>
+            <RecipeButton onClick={() => setNumRecipies(2)}>2</RecipeButton>
+            <RecipeButton onClick={() => setNumRecipies(3)}>3</RecipeButton>
+            <RecipeButton onClick={() => setNumRecipies(4)}>4</RecipeButton>
+            <RecipeButton onClick={() => setNumRecipies(5)}>5</RecipeButton>
+            <RecipeButton onClick={() => setNumRecipies(6)}>6</RecipeButton>
           </StepTwoNumberOfRecipesContainer>
 
           <OrderSummary>
@@ -129,8 +133,8 @@ import {Link}  from "react-router-dom";
         </StepTwo>
       </StepsContainer>
       <ContinueContainer>
-        <ContinueButton>
-          <Link to="/signup" style={{ textDecoration: 'none' , color: '#26BF00'}}>Select plan & continue</Link>
+        <ContinueButton onClick={submit}>
+          <Link to="/signup" style={{ textDecoration: 'none', color: '#26BF00' }}>Select plan & continue</Link>
         </ContinueButton>
       </ContinueContainer>
     </PersonalizeYourPlanContainer>

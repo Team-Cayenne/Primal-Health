@@ -8,7 +8,7 @@ import axios from 'axios';
 
   const SelectMeals = () =>{
     // !Cheryl
-  const {meals, selectMeals, setSelectMeals, rate, setRate, numRecipies, headCount, specialBuy, setSpecialBuy} = useContext(AppContext);
+  const {meals, selectMeals, setSelectMeals, rate, setRate, numRecipies, headCount, specialBuy, setSpecialBuy, currentUser, setCurrentUser} = useContext(AppContext);
   const [special, setSpecial] = useState([]);
 
     // !Cheryl
@@ -44,11 +44,12 @@ import axios from 'axios';
 
     }
 
-    console.log("SPECIALBUY", specialBuy)
+    const submit = () => {
+      setCurrentUser({...currentUser, selectMeals, specialBuy, rate})
+    }
 
-    console.log("SPECIAL", special)
 
-    console.log('select MEALS', selectMeals)
+
 
   return (
     <div>
@@ -100,7 +101,7 @@ import axios from 'axios';
               </Cost>
           </SummaryBoxContainer>
           <ReviewOrderContainer>
-            <ReviewOrderButton>
+            <ReviewOrderButton onClick={submit}>
             <Link to="/review-order" style={{ textDecoration: 'none' , color: '#26BF00' }}>Review Order</Link>
             </ReviewOrderButton>
           </ReviewOrderContainer>

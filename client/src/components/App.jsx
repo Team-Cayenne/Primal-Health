@@ -53,14 +53,26 @@ const AppProvider = (props) => {
   const [numRecipies, setNumRecipies] = useState(0);
   const [rate, setRate] = useState(0);
   const [specialBuy, setSpecialBuy] = useState([]);
+
   const [users, setUsers] = useState([]);
   const [currentUser, setCurrentUser] = useState({});
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [address1, setAddress1] = useState('');
+  const [address2, setAddress2] = useState('');
+  const [city, setCity] = useState('');
+  const [state, setState] = useState('');
+  const [zip, setZip] = useState('');
+  const [phone, setPhone] = useState('');
+
+  const [creditCard, setCreditCard] = useState('');
+
   // const [id, setId] = useState(0)
 
-  console.log("mealsfromapp", meals)
+  // console.log("mealsfromapp", meals)
   return (
     <AppContext.Provider value= {{
       meals, setMeals,
@@ -73,7 +85,19 @@ const AppProvider = (props) => {
       users, setUsers,
       currentUser, setCurrentUser,
       email, setEmail,
-      password, setPassword
+      password, setPassword,
+      firstName, setFirstName,
+      lastName, setLastName,
+      address1, setAddress1,
+      address2, setAddress2,
+      city, setCity,
+      state, setState,
+      zip, setZip,
+      phone, setPhone,
+      creditCard, setCreditCard
+
+
+
       // id, setId
       }}>
       {props.children}

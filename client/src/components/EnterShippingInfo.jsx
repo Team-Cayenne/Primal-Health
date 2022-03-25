@@ -23,51 +23,75 @@ import { AppContext } from "../context.js";
 
 
 const EnterShippingInfo = () => {
-  const {rate, numRecipies, headCount} = useContext(AppContext);
 
-  const handleInput = (event) => {
-    this.setState({
-      [event.target.id]: event.target.value
-    })
+  const {email, password, rate, numRecipies, headCount, firstName, setFirstName, lastName, setLastName, address1, setAddress1, address2, setAddress2, city, setCity, state, setState, zip, setZip, phone, setPhone, currentUser, setCurrentUser} = useContext(AppContext);
+
+  const getFirstName = (event) => {
+    // setCurrentUser(currentUser[event.target.id] = event.target.value)
+    setFirstName(event.target.value);
   }
 
+  const getLastName = (event) => {
+    // setCurrentUser(currentUser[event.target.id] = event.target.value)
+    setLastName(event.target.value);
+  }
+
+  const getAddress1 = (event) => {
+    // setCurrentUser(currentUser[event.target.id] = event.target.value)
+    setAddress1(event.target.value);
+  }
+
+  const getAddress2 = (event) => {
+    // setCurrentUser(currentUser[event.target.id] = event.target.value)
+    setAddress2(event.target.value);
+  }
+
+  const getCity = (event) => {
+    // setCurrentUser(currentUser[event.target.id] = event.target.value)
+    setCity(event.target.value);
+  }
+
+  const getState = (event) => {
+    // setCurrentUser(currentUser[event.target.id] = event.target.value)
+    setState(event.target.value);
+  }
+
+  const getZip = (event) => {
+    // setCurrentUser(currentUser[event.target.id] = event.target.value)
+    setZip(event.target.value);
+  }
+
+  const getPhone = (event) => {
+    // setCurrentUser(currentUser[event.target.id] = event.target.value)
+    setPhone(event.target.value);
+  }
+
+
   const submit = () => {
-    this.props.user(this.state)
+    setCurrentUser({...currentUser, firstName, lastName, address1, address2, city, state, zip, phone, email, password});
   }
 
   // render() {
     return (
       <div>
         <ProgressMasthead />
-
         <EnterShippingContainer>
-
-          <LeftSide>
-            <div>Shipping Information</div>
-            <ShippingInfoContainer>
-              <ShippingLeft>
-                <FirstName placeholder="First name" id='firstName' onChange={this.handleInput}></FirstName>
-                <Address placeholder="Address" id='address1' onChange={this.handleInput}></Address>
-                <City placeholder="City" id='city' onChange={this.handleInput}></City>
-                <State placeholder="State" id='state' onChange={this.handleInput}></State>
-              </ShippingLeft>
-
-              {/* CORRECT CODE JUST NEED TO ADD MY CHANGES */}
-        {/* <LeftSide>
+        <LeftSide>
           <HeaderText>Shipping Information</HeaderText>
           <ShippingInfoContainer>
+
             <ShippingLeft>
-              <FirstName placeholder="First name" onChange={handleInput}></FirstName>
-              <Address placeholder="Last name" onChange={handleInput}></Address>
-              <City placeholder="City" onChange={handleInput}></City>
-              <State placeholder="State" onChange={handleInput}></State>
-            </ShippingLeft> */}
+              <FirstName placeholder="First name" id='firstName' onChange={getFirstName}></FirstName>
+              <Address placeholder="Address" id='address1' onChange={getAddress1}></Address>
+              <City placeholder="City" id='city' onChange={getCity}></City>
+              <State placeholder="State" id='state' onChange={getState}></State>
+            </ShippingLeft>
 
               <ShippingRight>
-                <LastName placeholder="Last name" id='lastName' onChange={this.handleInput}></LastName>
-                <Apt placeholder="Apt, Suite, Floor" id='address2' onChange={this.handleInput}></Apt>
-                <Zip placeholder="Zip code" id='zip' onChange={this.handleInput}></Zip>
-                <Phone placeholder="Phone Nnmber" id='phone' onChange={this.handleInput}></Phone>
+                <LastName placeholder="Last name" id='lastName' onChange={getLastName}></LastName>
+                <Apt placeholder="Apt, Suite, Floor" id='address2' onChange={getAddress2}></Apt>
+                <Zip placeholder="Zip code" id='zip' onChange={getZip}></Zip>
+                <Phone placeholder="Phone Nnmber" id='phone' onChange={getPhone}></Phone>
               </ShippingRight>
             </ShippingInfoContainer>
           </LeftSide>
@@ -93,7 +117,7 @@ const EnterShippingInfo = () => {
                 </Total>
               </Cost>
             </OrderSummary>
-          <Button onClick={this.submit}>
+          <Button onClick={submit}>
             <Link to="/credit-card-entry" style={{ textDecoration: 'none' , color: '#26BF00' }}>Next Step</Link>
             </Button>
         </RightSide>

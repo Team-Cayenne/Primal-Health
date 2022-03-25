@@ -16,9 +16,10 @@ const addUser = (req, res) => {
     zip: req.body.zip,
     phone: req.body.phone,
     creditCard: req.body.creditCard,
-    subscriptionPrice: 100,
-    mealsPerWeek: 5,
-    mealHeadCount: 2,
+    subscriptionType: req.body.type,
+    subscriptionPrice: req.body.rate,
+    mealsPerWeek: req.body.numRecipies,
+    mealHeadCount: req.body.headCount,
     orders: [
         {
             trackingNumber: 1234,
@@ -79,6 +80,7 @@ const getUsers = (req, res) => {
           zip: doc.data().zip,
           phone: doc.data().phone,
           creditCard: doc.data().creditCard,
+          supscriptionType: doc.data().subscriptionType,
           subscriptionPrice: doc.data().subscriptionPrice,
           mealsPerWeek: doc.data().mealsPerWeek,
           mealHeadCount: doc.data().mealHeadCount,

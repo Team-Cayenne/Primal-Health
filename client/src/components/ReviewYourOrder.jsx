@@ -1,70 +1,83 @@
 import { AppContext } from "../context.js";
 import React, { useContext } from 'react'
+import axios from 'axios';
 import Styled from 'styled-components'
-import {Link}  from "react-router-dom";
+import { Link } from "react-router-dom";
 import ProgressMasthead from '../shared/ProgressMasthead.jsx'
 
 
 
 
-  const ReviewYourOrder = () => {
+const ReviewYourOrder = () => {
 
-    const {meals, setMeals, type, setType, rate, setRate, numRecipies, setNumRecipies,headCount, setHeadCount} = useContext(AppContext);
+  const { currentUser, firstName, lastName, address1, address2, city, state, zip, phone, creditCard, email, password, meals, setMeals, type, setType, rate, setRate, numRecipies, setNumRecipies, headCount, setHeadCount } = useContext(AppContext);
 
-    // refactor this to not use props and use context
-    const submitUser = () => {
-      // props.addUser()
-    }
+  // refactor this to not use props and use context
+  const submitUser = () => {
+    axios.post('/users', currentUser)
+      .then(res => {
+        console.log(res);
+      })
+      .catch(err => {
+        console.log(err);
+      })
+  }
 
-  return (
-    <div>
-      <ProgressMasthead />
+console.log(currentUser)
 
-      <Header>
-        Review your order
-      </Header>
+return (
+  <div>
+    <ProgressMasthead />
 
-      <ReviewYourOrderContainer>
-        <LeftSide>
-          <HeaderText>Shipping Information</HeaderText>
-          <ShippingInfo>
-            <div>Customer Name</div>
-            <div>Customer Address Information</div>
-          </ShippingInfo>
-          <HeaderText>Payment Information</HeaderText>
-          <PaymentInfo>
-            <div>Customer Payment Information</div>
-          </PaymentInfo>
-        </LeftSide>
+    <Header>
+      Review your order
+    </Header>
 
-        <RightSide>
+    <ReviewYourOrderContainer>
+      <LeftSide>
+        <HeaderText>Shipping Information</HeaderText>
+        <ShippingInfo>
+          <div>Customer Address Information</div>
+          <div>{firstName} {lastName}</div>
+          <div>{address1} {address2}</div>
+          <div>{city}, {state} {zip}</div>
+          <div>{phone}</div>
+        </ShippingInfo>
+        <HeaderText>Payment Information</HeaderText>
+        <PaymentInfo>
+          <div>Customer Payment Information</div>
+          <div>XXXX-XXXX-XXXX-{creditCard.slice(creditCard.length-4)}</div>
+        </PaymentInfo>
+      </LeftSide>
+
+      <RightSide>
         <HeaderText>Order Summary</HeaderText>
-          <OrderSummary>
-            <MealSelection>
-              <div>Meat & Veggies</div>
-              <div>Count {headCount} people per week</div>
-              <div>{numRecipies} Meals per week</div>
-            </MealSelection>
-            <Cost>
-              <Shipping>
-                <SummaryText>Shipping</SummaryText>
-                <SummaryText>$9.99</SummaryText>
-              </Shipping>
-              <Total>
-                <div>Total</div>
-                <div>$ {rate}</div>
-              </Total>
-            </Cost>
-          </OrderSummary>
-          <Alcohol>If your order contains alcoholic items, someone over the age of 21 must accept the order.</Alcohol>
-          <Button onClick={submitUser}>
-            <Link to="/order-confirmation" style={{ textDecoration: 'none' , color: '#26BF00' }}>Place Order</Link>
-          </Button>
-        </RightSide>
-      </ReviewYourOrderContainer>
+        <OrderSummary>
+          <MealSelection>
+            <div>Meat & Veggies</div>
+            <div>Count {headCount} people per week</div>
+            <div>{numRecipies} Meals per week</div>
+          </MealSelection>
+          <Cost>
+            <Shipping>
+              <SummaryText>Shipping</SummaryText>
+              <SummaryText>$9.99</SummaryText>
+            </Shipping>
+            <Total>
+              <div>Total</div>
+              <div>$ {rate}</div>
+            </Total>
+          </Cost>
+        </OrderSummary>
+        <Alcohol>If your order contains alcoholic items, someone over the age of 21 must accept the order.</Alcohol>
+        <Button onClick={submitUser}>
+          <Link to="/order-confirmation" style={{ textDecoration: 'none', color: '#26BF00' }}>Place Order</Link>
+        </Button>
+      </RightSide>
+    </ReviewYourOrderContainer>
 
-    </div>
-  )
+  </div>
+)
 }
 
 const Alcohol = Styled.div`
