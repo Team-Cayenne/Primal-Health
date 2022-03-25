@@ -1,3 +1,25 @@
+// import React, { useState, useContext } from 'react';
+// import axios from 'axios';
+// import LandingPage from './LandingPage.jsx'
+// import Nutritional from './Nutritional.jsx'
+// import PersonalizeYourPlan from './PersonalizeYourPlan.jsx'
+// import VideoDetail from './VideoDetail.jsx'
+// import SupplierPage from './SupplierPage.jsx'
+// import ConfirmationPage from './ConfirmationPage.jsx';
+// import TrackingPage from './TrackingPage.jsx';
+// import { BrowserRouter, Routes, Route, Link } from "react-router-dom"
+// import SelectMeals from './SelectMeals.jsx'
+// import UserProfile from './UserProfile.jsx';
+// import UserOrderTracking from './UserOrderTracking.jsx';
+// import GoogleLogin from '../Auth/GoogleLogin.js';
+// import GoogleSignUp from '../Auth/GoogleSignUp.js';
+// import Masthead from '../shared/Masthead.jsx'
+
+// import ReviewYourOrder from './ReviewYourOrder.jsx'
+// import EnterCreditCard from './EnterCreditCard.jsx'
+// import EnterShippingInfo from './EnterShippingInfo.jsx'
+
+
 import React, { useState, useContext } from 'react';
 import axios from 'axios';
 import LandingPage from './LandingPage.jsx'
@@ -46,9 +68,25 @@ const AppProvider = (props) => {
   const [rate, setRate] = useState(0);
   const [specialBuy, setSpecialBuy] = useState([]);
 
+  const [users, setUsers] = useState([]);
+  const [currentUser, setCurrentUser] = useState({});
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [address1, setAddress1] = useState('');
+  const [address2, setAddress2] = useState('');
+  const [city, setCity] = useState('');
+  const [state, setState] = useState('');
+  const [zip, setZip] = useState('');
+  const [phone, setPhone] = useState('');
+
+  const [creditCard, setCreditCard] = useState('');
+
   // const [id, setId] = useState(0)
 
-  console.log("mealsfromapp", meals)
+  // console.log("mealsfromapp", meals)
   return (
     <AppContext.Provider value= {{
       meals, setMeals,
@@ -70,7 +108,23 @@ const AppProvider = (props) => {
       recipe3, recipe3Selected,
       recipe4, recipe4Selected,
       recipe5, recipe5Selected,
-      recipe6, recipe6Selected
+      recipe6, recipe6Selected,
+      users, setUsers,
+      currentUser, setCurrentUser,
+      email, setEmail,
+      password, setPassword,
+      firstName, setFirstName,
+      lastName, setLastName,
+      address1, setAddress1,
+      address2, setAddress2,
+      city, setCity,
+      state, setState,
+      zip, setZip,
+      phone, setPhone,
+      creditCard, setCreditCard
+
+
+
       // id, setId
       }}>
       {props.children}
@@ -184,29 +238,41 @@ export default App;
 
 // import { BrowserRouter, Routes, Route, Link } from "react-router-dom"
 
-// import { BrowserRouter, Routes, Route, Link } from "react-router-dom"
 
-// import axios from 'axios';
+// Allie App Start!!!!!!!!!!!!!
 
 // class App extends React.Component {
 //   constructor(props) {
 //     super(props)
-//     this.state = {}
+//     this.state = {
+//       suppliers: [],
+//       users: [],
+//       user: {},
+//       userToggle: false
+//     }
 
-//     // this.get = this.get.bind(this);
-//     // this.post = this.post.bind(this);
+//     this.getFAQs = this.getFAQs.bind(this);
+//     this.getSuppliers = this.getSuppliers.bind(this);
+//     this.userLogin = this.userLogin.bind(this);
+//     this.getUsers = this.getUsers.bind(this);
+//     this.userSignup = this.userSignup.bind(this);
+//     this.postUser = this.postUser.bind(this);
+//     this.currentUserInfo = this.currentUserInfo.bind(this);
 //   }
 
 //   componentDidMount() {
-//     this.getFAQs()
-//     this.getSuppliers()s
+//     // this.getFAQs()
+//     this.getSuppliers()
+//     this.getUsers();
+
 //   }
+
 
 //   getFAQs() {
 //     axios.get('/faqs')
-//     .then(results => {
-//       console.log('get FAQs results:', results)
-//     })
+//       .then(results => {
+//         console.log('get FAQs results:', results)
+//       })
 //   }
 
 // class App extends React.Component {
@@ -391,7 +457,8 @@ export default App;
 //       for (let i = 0; i < this.state.users.length; i++) {
 //         if (this.state.users[i].email === user.email && this.state.users[i].password === user.password) {
 //           this.setState({
-//             userToggle: true
+//             userToggle: true,
+//             user: this.state.users[i]
 //           })
 //           return;
 //         }
@@ -402,13 +469,60 @@ export default App;
 //       for (let i = 0; i < this.state.users.length; i++) {
 //         if (this.state.users[i].email === user.email) {
 //           this.setState({
-//             userToggle: true
+//             userToggle: true,
+//             user: this.state.users[i]
 //           })
 //           return;
 //         }
 //       }
 //       alert('No User Matching These Credentials');
 //     }
+//   }
+
+  // userSignup(user) {
+  //   if (user.password) {
+  //     for (let i = 0; i < this.state.users.length; i++) {
+  //       if (this.state.users[i].email === user.email) {
+  //         alert('Email Already Exists');
+  //         return;
+  //       }
+  //     }
+  //     // this.postUser(user)
+  //     this.setState({
+  //       userToggle: true,
+  //       user: {
+  //         email: user.email,
+  //         password: user.password
+  //       }
+  //     })
+  //   } else {
+
+  //     for (let i = 0; i < this.state.users.length; i++) {
+  //       if (this.state.users[i].email === user.email) {
+  //         alert('Email Already Exists');
+  //         return;
+  //       }
+
+  //     }
+//       // this.postUser(user);
+//       this.setState({
+//         userToggle: true,
+//         user: {
+//           email: user.email,
+//           password: ''
+//         }
+//       })
+//     }
+//   }
+
+//   currentUserInfo(info) {
+//     let user = this.state.user
+//     for (let key in info) {
+//       user[key] = info[key]
+//     }
+//     this.setState({
+//       user: user
+//     })
 //   }
 
 //   addUser(user) {
@@ -570,7 +684,90 @@ export default App;
 // };
 
 
+  // postUser() {
+
+  //   axios.post('/users', this.state.user)
+  //     .then(res => {
+  //       console.log(res);
+  //       // this.setState({
+  //       //   userToggle: true
+  //       // })
+  //     })
+  //     .catch(err => {
+  //       console.log(err);
+  //     })
+  // }
+
+
+//   render() {
+//     console.log(this.state.users)
+//     return (
+
+//       <div>
+//         {/* {this.state.userToggle
+//         ?<UserProfile user={this.state.user} />
+//         : <GoogleLogin setUser={this.userLogin} />
+//         } */}
+// {/*
+//        {this.state.userToggle
+//         ?<UserProfile user={this.state.user} />
+//         : <GoogleSignUp addUser={this.userSignup} />
+//         } */}
+
+//         <GoogleSignUp addUser={this.userSignup} />
+//         <EnterShippingInfo user={this.currentUserInfo}/>
+//         <EnterCreditCard user={this.currentUserInfo}/>
+//         <ReviewYourOrder addUser={this.postUser} />
+//       </div>
+//       // <LandingPage />
+//       // <div>
+//       //   <div>Primal Health Test</div>
+//       //   {this.state.userToggle
+//       //     ? <SupplierPage suppliers={this.state.suppliers} />
+//       //     : null
+//       //   }
+//       //   {/* <UserProfile /> */}
+//       //   {/* <UserOrderTracking /> */}
+//       // <GoogleLogin setUser={this.userLogin}/>
+//       // <GoogleSignUp addUser={this.userSignup} />
+//       // </div>
+//       // <ConfirmationPage/>
+
+//       // <EnterCreditCard />
+
+//     )
+//   }
 // }
+// // const App = () => {
+// //   return (
+// //     <div>
+// //     <div>Primal Health Test</div>
+// //     <Nutritional/>
+// //     <VideoDetail/>
+// //     <SupplierPage/>
+// //     </div>
+// //   )
+// // }
+// // const App = () => {
+// //   return (
+// //     <div>
+// //     {/* <div>Primal Health Test</div> */}
+// //     <ConfirmationPage/>
+// //     {/* <TrackingPage/> */}
+// //     {/* <Nutritional/>
+// //     <VideoDetail/>
+// //     <SupplierPage/> */}
+// //     </div>
+// //   )
+// // }
+
+
+// // }
+
+// export default App;
+
+
+// Allie App End!!!!!!!!!!!!!
 
 // const App = () => {
 //   return (

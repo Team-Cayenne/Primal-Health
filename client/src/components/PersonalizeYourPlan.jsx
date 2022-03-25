@@ -18,6 +18,7 @@ const PersonalizeYourPlan = (props) => {
     setNumRecipies,
     headCount,
     setHeadCount,
+    currentUser, setCurrentUser,
     whole30,
     whole30Selected,
     vegetarian,
@@ -60,16 +61,20 @@ const PersonalizeYourPlan = (props) => {
   // console.log("headCount", headCount)
 
   const handleMealPref = async (mealType) => {
-    setType(mealType);
-    console.log("TYPE", type);
-    try {
-      const results = await axios.post("/mealchoice", { type: mealType });
-      setMeals(results.data.results);
-      console.log("results", results);
-    } catch (err) {
-      console.log("UNABLE TO SET MEALS", err);
-    }
-  };
+setType(mealType)
+// console.log('TYPE', type)
+try {
+  const results = await axios.post('/mealchoice', { type: mealType })
+  setMeals(results.data.results)
+  console.log("results", results)
+} catch (err) {
+  console.log("UNABLE TO SET MEALS", err)
+}
+}
+
+const submit = () => {
+setCurrentUser({...currentUser, headCount, numRecipies, type})
+}
 
   const whole30S = () => {
     whole30Selected(true);
@@ -183,10 +188,13 @@ const PersonalizeYourPlan = (props) => {
       <Header>Personalize your plan</Header>
       <StepsContainer>
         <StepOne>
-          <StepOneHeader>1. Choose your preferences</StepOneHeader>
+          <StepOneHeader>
+            1. Choose your preferences
+          </StepOneHeader>
           <StepOneButtonContainer>
+
             {/* <PreferenceButtons>
-              <Image src="../assets/preferences/meatandveggies.png" width='70' height='40'onClick={()=>handleMealPref(mealTypes['meat'])} ></Image>
+              <Image src="../assets/preferences/meatandveggies.png" width='70' height='40' onClick={() => handleMealPref(mealTypes['meat'])} ></Image>
               Whole 30 (Meat) */}
 
             {/* border-color: #26BF00;
@@ -381,9 +389,7 @@ const PersonalizeYourPlan = (props) => {
         </StepTwo>
       </StepsContainer>
       <ContinueContainer>
-        <Link to="/signup" style={{ textDecoration: "none", color: "#26BF00" }}>
-          <ContinueButton>Select plan & continue</ContinueButton>
-        </Link>
+          <Link to="/signup" style={{ textDecoration: 'none' , color: '#26BF00'}}><ContinueButton onClick={submit}>Select plan & continue</ContinueButton></Link>
       </ContinueContainer>
     </PersonalizeYourPlanContainer>
   );

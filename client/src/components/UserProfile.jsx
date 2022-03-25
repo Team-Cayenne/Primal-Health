@@ -127,6 +127,7 @@ class UserProfile extends React.Component {
               <UpdateProfileModal changeModal={this.changeModal} />
             ) : null}
           </span>
+
       </div>
     );
   }
