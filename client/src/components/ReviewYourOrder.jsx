@@ -13,6 +13,7 @@ const ReviewYourOrder = () => {
 
   // refactor this to not use props and use context
   const submitUser = () => {
+    console.log(currentUser)
     axios.post('/users', currentUser)
       .then(res => {
         console.log(res);
@@ -22,7 +23,7 @@ const ReviewYourOrder = () => {
       })
   }
 
-console.log(currentUser)
+
 
 return (
   <div>
@@ -65,7 +66,7 @@ return (
         <HeaderText>Payment Information</HeaderText>
         <PaymentContainer>
           <MealSelection>
-            <SummaryText>XXXX-XXXX-XXXX-{creditCard.slice(creditCard.length-4)}</SummaryText>
+            <SummaryText>**** **** **** {creditCard.slice(creditCard.length-4)}</SummaryText>
           </MealSelection>
         </PaymentContainer>
       </LeftSide>

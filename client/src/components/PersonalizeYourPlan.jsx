@@ -13,8 +13,10 @@ import {
   Logo,
 } from "../styles/pesonalizeYourPlan/styles.js";
 
-const PersonalizeYourPlan = (props) => {
+const PersonalizeYourPlan = () => {
+
   const {
+    setSubscriptionRate,
     meals,
     setMeals,
     type,
@@ -64,9 +66,10 @@ const PersonalizeYourPlan = (props) => {
     vegan: "Vegan",
   };
 
-  setRate((headCount * numRecipies * 12.99 + 9.99).toFixed(2));
-  // const
-  // console.log("headCount", headCount)
+    setRate((headCount * numRecipies * 12.99 + 9.99).toFixed(2))
+    setSubscriptionRate((headCount * numRecipies * 12.99 + 9.99).toFixed(2))
+    // const
+    // console.log("headCount", headCount)
 
   const handleMealPref = async (mealType) => {
     setType(mealType);
