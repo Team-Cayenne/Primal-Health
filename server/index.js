@@ -34,6 +34,7 @@ app.post('/faqs', controller.addFAQ);
 
 // app.get('/suppliers', controller.getSuppliers);
 
+
 // FAQ routes
 // app.post('/faqs', controller.addFAQ);
 
