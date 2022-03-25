@@ -5,9 +5,6 @@ import Styled from 'styled-components'
 import { Link } from "react-router-dom";
 import ProgressMasthead from '../shared/ProgressMasthead.jsx'
 
-
-
-
 const ReviewYourOrder = () => {
 
   const { currentUser, firstName, lastName, address1, address2, city, state, zip, phone, creditCard, email, password, meals, setMeals, type, setType, rate, setRate, numRecipies, setNumRecipies, headCount, setHeadCount, specialBuy, selectMeals} = useContext(AppContext);
