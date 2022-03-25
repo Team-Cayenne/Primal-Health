@@ -242,7 +242,7 @@ setCurrentUser({...currentUser, headCount, numRecipies, type})
               }}
               onClick={
                 (() => {handleMealPref(mealTypes["vegetarian"]),
-                vegetarianS()})
+                ()=>vegetarianS()})
               }
             >
               {/* <img src="../assets/preferences/veggies.png" width='70' height='40'onClick={()=>handleMealPref(mealTypes['vegetarian'])}></img> */}
