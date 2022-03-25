@@ -104,7 +104,7 @@ const EnterCreditCard = () => {
             <ImageAndButton>
               <img src="assets/creditcards/creditcards.png" width='123px' height='19px'>
               </img>
-              <AddPaymentButton>Add payment</AddPaymentButton>
+              {/* <AddPaymentButton>Add payment</AddPaymentButton> */}
             </ImageAndButton>
           </PaymentInputContainer>
         </LeftSide>
@@ -140,6 +140,7 @@ const SummaryText = Styled.div`
   font-family: 'Quicksand';
   font-weight: 500;
   font-size: 16px;
+  color: #264654;
 `
 const EnterCreditCardContainer = Styled.div`
   display: flex;
@@ -160,9 +161,10 @@ const PaymentInputContainer = Styled.div`
   border-radius: 5px;
 `
 const HeaderText = Styled.div`
-  font-size: 18px;
-  margin: 20px;
-  font-family: 'Quicksand';
+margin: 20px;
+font-family: 'Quicksand';
+font-size: 20px;
+color: #264654;
 `
 const CardholderName = Styled.input`
   width: 491px;
@@ -212,6 +214,7 @@ const AddPaymentButton = Styled.button`
   border-color: rgba(38, 191, 0, .25);
   color: #26BF00;
   font-size: 12px;
+  font-family: 'Quicksand';
 `
 const RightSide = Styled.div`
   display: flex;
@@ -253,6 +256,7 @@ const Button = Styled.button`
   border-color: rgba(38, 191, 0, .25);
   color: #26BF00;
   font-size: 18px;
+  font-family: 'Quicksand';
   cursor: pointer;
 `
 

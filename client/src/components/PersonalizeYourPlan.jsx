@@ -230,7 +230,7 @@ setCurrentUser({...currentUser, headCount, numRecipies, type})
                 border: whole30 ? "2.5px solid #26BF00" : null,
               }}
               onClick={
-                (() => handleMealPref(mealTypes["meat"]), () => whole30S())
+                (() => {handleMealPref(mealTypes["meat"]), whole30S()})
               }
             >
               {/* <Image src="../assets/preferences/meatandveggies.png" width='70' height='40'onClick={()=>handleMealPref(mealTypes['meat'])} ></Image> */}
@@ -244,8 +244,8 @@ setCurrentUser({...currentUser, headCount, numRecipies, type})
                 border: vegetarian ? "2.5px solid #26BF00" : null,
               }}
               onClick={
-                (() => handleMealPref(mealTypes["vegetarian"]),
-                () => vegetarianS())
+                (() => {handleMealPref(mealTypes["vegetarian"]),
+                vegetarianS()})
               }
             >
               {/* <img src="../assets/preferences/veggies.png" width='70' height='40'onClick={()=>handleMealPref(mealTypes['vegetarian'])}></img> */}
@@ -259,7 +259,7 @@ setCurrentUser({...currentUser, headCount, numRecipies, type})
                 border: keto ? "2.5px solid #26BF00" : null,
               }}
               onClick={
-                (() => handleMealPref(mealTypes["ketogenic"]), () => ketoS())
+                (() => {handleMealPref(mealTypes["Ketogenic"]), ketoS()})
               }
             >
               {/* <Image src="../assets/preferences/familyfriendly.png" width='40' height='40'></Image> */}
@@ -273,7 +273,7 @@ setCurrentUser({...currentUser, headCount, numRecipies, type})
                 border: vegan ? "2.5px solid #26BF00" : null,
               }}
               onClick={
-                (() => handleMealPref(mealTypes["vegan"]), () => veganS())
+                (() => {handleMealPref(mealTypes["vegan"]), veganS()})
               }
             >
               {/* <Image src="../assets/preferences/fitandwholesome.png" width='60' height='40' onClick={()=>handleMealPref(mealTypes['vegan'])}></Image> */}
@@ -287,7 +287,7 @@ setCurrentUser({...currentUser, headCount, numRecipies, type})
                 border: paleo ? "2.5px solid #26BF00" : null,
               }}
               onClick={
-                (() => handleMealPref(mealTypes["paleo"]), () => paleoS())
+                (() => {handleMealPref(mealTypes["paleo"]), paleoS()})
               }
             >
               {/* <Image src="../assets/preferences/quickandeasy.png" width='40' height='40' onClick={()=>handleMealPref(mealTypes['paleo'])}></Image> */}
@@ -301,8 +301,8 @@ setCurrentUser({...currentUser, headCount, numRecipies, type})
                 border: pescatarian ? "2.5px solid #26BF00" : null,
               }}
               onClick={
-                (() => handleMealPref(mealTypes["pescetarian"]),
-                () => pescatarianS())
+                (() => {handleMealPref(mealTypes["pescetarian"]),
+                pescatarianS()})
               }
             >
               {/* <img src="../assets/preferences/pescatarian.png" width='75' height='40' onClick={()=>handleMealPref(mealTypes['pescetarian'])}></img> */}
@@ -321,7 +321,7 @@ setCurrentUser({...currentUser, headCount, numRecipies, type})
                 borderRadius: people2 ? "5px" : null,
                 border: people2 ? "2.5px solid #26BF00" : null,
               }}
-              onClick={(() => setHeadCount(2), () => people2S())}
+              onClick={(() => {setHeadCount(2), people2S()})}
             >
               2
             </PeopleButton>
@@ -331,7 +331,7 @@ setCurrentUser({...currentUser, headCount, numRecipies, type})
                 borderRadius: people4 ? "5px" : null,
                 border: people4 ? "2.5px solid #26BF00" : null,
               }}
-              onClick={(() => setHeadCount(4), () => people4S())}
+              onClick={(() => {setHeadCount(4), people4S()})}
             >
               4
             </PeopleButton>
@@ -345,7 +345,7 @@ setCurrentUser({...currentUser, headCount, numRecipies, type})
                 borderRadius: recipe2 ? "5px" : null,
                 border: recipe2 ? "2.5px solid #26BF00" : null,
               }}
-              onClick={(() => setNumRecipies(2), () => recipe2S())}
+              onClick={(() => {setNumRecipies(2), recipe2S()})}
             >
               2
             </RecipeButton>
@@ -355,7 +355,7 @@ setCurrentUser({...currentUser, headCount, numRecipies, type})
                 borderRadius: recipe3 ? "5px" : null,
                 border: recipe3 ? "2.5px solid #26BF00" : null,
               }}
-              onClick={(() => setNumRecipies(3), () => recipe3S())}
+              onClick={(() => {setNumRecipies(3), recipe3S()})}
             >
               3
             </RecipeButton>
@@ -365,7 +365,7 @@ setCurrentUser({...currentUser, headCount, numRecipies, type})
                 borderRadius: recipe4 ? "5px" : null,
                 border: recipe4 ? "2.5px solid #26BF00" : null,
               }}
-              onClick={(() => setNumRecipies(4), () => recipe4S())}
+              onClick={(() => {setNumRecipies(4), recipe4S()})}
             >
               4
             </RecipeButton>
@@ -375,7 +375,7 @@ setCurrentUser({...currentUser, headCount, numRecipies, type})
                 borderRadius: recipe5 ? "5px" : null,
                 border: recipe5 ? "2.5px solid #26BF00" : null,
               }}
-              onClick={(() => setNumRecipies(5), () => recipe5S())}
+              onClick={(() => {setNumRecipies(5), recipe5S()})}
             >
               5
             </RecipeButton>
@@ -385,7 +385,7 @@ setCurrentUser({...currentUser, headCount, numRecipies, type})
                 borderRadius: recipe6 ? "5px" : null,
                 border: recipe6 ? "2.5px solid #26BF00" : null,
               }}
-              onClick={(() => setNumRecipies(6), () => recipe6S())}
+              onClick={(() => {setNumRecipies(6), recipe6S()})}
             >
               6
             </RecipeButton>
@@ -393,9 +393,9 @@ setCurrentUser({...currentUser, headCount, numRecipies, type})
 
           <OrderSummary>
             <MealSelection>
-              <div>{type}</div>
-              <div>{headCount}: Portion plan</div>
-              <div>{numRecipies}: No. of Recipes</div>
+              <SummaryText>{type}</SummaryText>
+              <SummaryText>{headCount}: Portion plan</SummaryText>
+              <SummaryText>{numRecipies}: No. of Recipes</SummaryText>
             </MealSelection>
             <Cost>
               <Shipping>
@@ -403,8 +403,8 @@ setCurrentUser({...currentUser, headCount, numRecipies, type})
                 <SummaryText>$9.99</SummaryText>
               </Shipping>
               <Total>
-                <div>Total</div>
-                <div>$ {rate}</div>
+                <SummaryText>Total</SummaryText>
+                <SummaryText>$ {rate}</SummaryText>
               </Total>
             </Cost>
           </OrderSummary>
@@ -420,6 +420,7 @@ setCurrentUser({...currentUser, headCount, numRecipies, type})
 const SummaryText = Styled.div`
   font-family: 'Quicksand';
   font-weight: 500;
+  font-size: 16px;
   color: #264654;
 `;
 const PersonalizeYourPlanContainer = Styled.div`
@@ -570,6 +571,7 @@ const ContinueButton = Styled.button`
   border-color: rgba(38, 191, 0, .25);
   color: #26BF00;
   font-size: 18px;
+  font-family: 'Quicksand';
   cursor: pointer;
 `;
 export default PersonalizeYourPlan;

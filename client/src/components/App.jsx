@@ -82,7 +82,6 @@ const AppProvider = (props) => {
   const [state, setState] = useState('');
   const [zip, setZip] = useState('');
   const [phone, setPhone] = useState('');
-
   const [creditCard, setCreditCard] = useState('');
 
   const [toggleProfile, setToggleProfile] = useState(false);

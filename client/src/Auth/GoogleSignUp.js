@@ -131,8 +131,8 @@ import { Progress_container, ProgressText, TextZ, CurrentStep, Logo} from '../st
             Continue with Google
           </GoogleButton>
           </SignUpBox>
+          <Link to="/shipping"><Button>Continue to shipping</Button></Link>
         </SignUpContainer>
-        <Link to="/shipping">Enter Shipping Info</Link>
       </div>
     );
 }
@@ -141,8 +141,8 @@ const SignUpContainer = Styled.div`
   @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
 
   display: flex;
-  justify-content: center;
-  align-items: start;
+  flex-direction: column;
+  align-items: center;
 `
 const Text = Styled.div`
   display: flex;
@@ -204,6 +204,18 @@ const GoogleButton = Styled.button`
   font-size: 18px;
   font-family: 'Quicksand';
   align-items: center;
+  cursor: pointer;
+`
+const Button = Styled.button`
+  width: 277px;
+  height: 55px;
+  margin: 30px 15px 0px 15px;
+  background-color: rgba(38, 191, 0, .25);
+  border-radius: 5px;
+  border-color: rgba(38, 191, 0, .25);
+  color: #26BF00;
+  font-size: 18px;
+  font-family: 'Quicksand';
   cursor: pointer;
 `
 export default GoogleSignUp;
