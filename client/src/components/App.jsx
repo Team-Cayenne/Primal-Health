@@ -2,7 +2,7 @@ import React, { useState, useContext } from 'react';
 import axios from 'axios';
 import LandingPage from './LandingPage.jsx'
 import Nutritional from './Nutritional.jsx'
-// import PersonalizeYourPlan from './PersonalizeYourPlan.jsx'
+import PersonalizeYourPlan from './PersonalizeYourPlan.jsx'
 import VideoDetail from './VideoDetail.jsx'
 import SupplierPage from './SupplierPage.jsx'
 import RecipeModalMenuAndReview from './RecipeModalMenuAndReview.jsx'
@@ -28,6 +28,19 @@ const AppProvider = (props) => {
   const [meals, setMeals] = useState([]);
   const [selectMeals, setSelectMeals] = useState([]);
   const [type, setType] = useState('');
+  const [whole30, whole30Selected] = useState(false);
+  const [vegetarian, vegetarianSelected] = useState(false);
+  const [keto, ketoSelected] = useState(false);
+  const [vegan, veganSelected] = useState(false);
+  const [paleo, paleoSelected] = useState(false);
+  const [pescatarian, pescatarianSelected] = useState(false);
+  const [people2, people2Selected] = useState(false);
+  const [people4, people4Selected] = useState(false);
+  const [recipe2, recipe2Selected] = useState(false);
+  const [recipe3, recipe3Selected] = useState(false);
+  const [recipe4, recipe4Selected] = useState(false);
+  const [recipe5, recipe5Selected] = useState(false);
+  const [recipe6, recipe6Selected] = useState(false);
   const [headCount, setHeadCount] = useState(0);
   const [numRecipies, setNumRecipies] = useState(0);
   const [rate, setRate] = useState(0);
@@ -44,7 +57,20 @@ const AppProvider = (props) => {
       headCount, setHeadCount,
       numRecipies, setNumRecipies,
       rate, setRate,
-      specialBuy, setSpecialBuy
+      specialBuy, setSpecialBuy,
+      whole30, whole30Selected,
+      vegetarian, vegetarianSelected,
+      keto, ketoSelected,
+      vegan, veganSelected,
+      paleo, paleoSelected,
+      pescatarian, pescatarianSelected,
+      people2, people2Selected,
+      people4, people4Selected,
+      recipe2, recipe2Selected,
+      recipe3, recipe3Selected,
+      recipe4, recipe4Selected,
+      recipe5, recipe5Selected,
+      recipe6, recipe6Selected
       // id, setId
       }}>
       {props.children}
@@ -78,7 +104,7 @@ const App = () => {
           <Route path="/user-orders" element={<UserOrderTracking />} />
           <Route path="/nutrition-health" element={<Nutritional />} />
 
-          {/* <Route path="/your-personal-pref" element={<PersonalizeYourPlan/>} /> */}
+          <Route path="/your-personal-pref" element={<PersonalizeYourPlan/>} />
           <Route path="/videos" element={<VideoDetail />} />
           <Route path="/" element={<LandingPage />}>
           {/* <Route path="*" element={<NoPage />} /> */}
