@@ -86,7 +86,7 @@ class UpdateProfileModal extends React.Component {
       meals: 0,
       creditCard: "",
     });
-    this.props.changeModal()
+    this.props.changeModal();
   }
 
   handleUsernameValueChange(event) {
@@ -152,14 +152,17 @@ class UpdateProfileModal extends React.Component {
   render() {
     return (
       <div className="profile-modal-background">
-
         <div className="profile-update-modal">
           <form onSubmit={this.handleuserUpdateSubmit}>
             <div className="update-user-modal-user-info-sections">
               <div className="update-user-modal-user-key">
                 <div className="update-user-modal-user-info">
-                <span className="close-modal" onClick={() => this.props.changeModal()}>&times;</span>
-                  <div>Username:</div>
+                  <span
+                    className="close-modal"
+                    onClick={() => this.props.changeModal()}
+                  >
+                    &times;
+                  </span>
                   <br />
                   <div>First Name:</div>
                   <br />
@@ -200,18 +203,8 @@ class UpdateProfileModal extends React.Component {
               </div>
               <div className="update-user-modal-user-value">
                 <div className="update-user-modal-user-info">
-                  <input
-                    type="text"
-                    placeholder="Username"
-                    maxLength="20"
-                    style={{ width: "300px" }}
-                    value={this.state.username}
-                    onChange={this.handleUsernameValueChange}
-                  />
-
-                  <div></div>
                   <br />
-                  <div></div>
+
                   <input
                     type="text"
                     placeholder="First Name"
@@ -330,8 +323,10 @@ class UpdateProfileModal extends React.Component {
               </div>
             </div>
             <input
-            className="update-user-button"
-            type="submit" value="Submit" />
+              className="update-user-button"
+              type="submit"
+              value="Submit"
+            />
           </form>
           {/* <span className="close-modal" onClick={() => this.props.changeModal()}>&times;</span> */}
         </div>

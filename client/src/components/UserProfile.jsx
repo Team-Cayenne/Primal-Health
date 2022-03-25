@@ -103,7 +103,6 @@ const UserProfile = () => {
               <br />
               <div>{currentUser.type}</div>
               <br />
-              <br />
               <div>{currentUser.numRecipies}</div>
               <br />
               <div>{currentUser.headCount}</div>
