@@ -267,7 +267,7 @@ const Total = Styled.div`
   display: flex;
   justify-content: space-between;
 `
-const Button = Styled.button`
+export const Button = Styled.button`
   width: 277px;
   height: 55px;
   margin: 50px;
