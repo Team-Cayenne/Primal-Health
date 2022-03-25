@@ -1,11 +1,17 @@
 import { AppContext } from "../context.js";
-import React, { useContext } from 'react'
-import Styled from 'styled-components'
-import ProgressMasthead from '../shared/ProgressMasthead.jsx'
-import axios from 'axios';
-import 'regenerator-runtime/runtime'
-import {Link}  from "react-router-dom";
-import { Progress_container, ProgressText, TextZ, CurrentStep, Logo} from '../styles/pesonalizeYourPlan/styles.js';
+import React, { useContext } from "react";
+import Styled from "styled-components";
+import ProgressMasthead from "../shared/ProgressMasthead.jsx";
+import axios from "axios";
+import "regenerator-runtime/runtime";
+import { Link } from "react-router-dom";
+import {
+  Progress_container,
+  ProgressText,
+  TextZ,
+  CurrentStep,
+  Logo,
+} from "../styles/pesonalizeYourPlan/styles.js";
 
 const PersonalizeYourPlan = () => {
 
@@ -21,7 +27,8 @@ const PersonalizeYourPlan = () => {
     setNumRecipies,
     headCount,
     setHeadCount,
-    currentUser, setCurrentUser,
+    currentUser,
+    setCurrentUser,
     whole30,
     whole30Selected,
     vegetarian,
@@ -65,20 +72,20 @@ const PersonalizeYourPlan = () => {
     // console.log("headCount", headCount)
 
   const handleMealPref = async (mealType) => {
-setType(mealType)
-// console.log('TYPE', type)
-try {
-  const results = await axios.post('/mealchoice', { type: mealType })
-  setMeals(results.data.results)
-  console.log("results", results)
-} catch (err) {
-  console.log("UNABLE TO SET MEALS", err)
-}
-}
+    setType(mealType);
+    // console.log('TYPE', type)
+    try {
+      const results = await axios.post("/mealchoice", { type: mealType });
+      setMeals(results.data.results);
+      console.log("results", results);
+    } catch (err) {
+      console.log("UNABLE TO SET MEALS", err);
+    }
+  };
 
-const submit = () => {
-setCurrentUser({...currentUser, headCount, numRecipies, type})
-}
+  const submit = () => {
+    setCurrentUser({ ...currentUser, headCount, numRecipies, type });
+  };
 
   const whole30S = () => {
     whole30Selected(true);
@@ -190,31 +197,39 @@ setCurrentUser({...currentUser, headCount, numRecipies, type})
     <PersonalizeYourPlanContainer>
       {/*##### Top, with the progress bar #####*/}
       <Progress_container>
-      <Logo>
-        <Link to="/" style={{ textDecoration: 'none' , color: '#264654', fontFamily: 'Quicksand' }}>
-        <img className='logo' src='assets/masthead/Masthead-logo-yellow.png' width='156' height='51'></img>
-
-        </Link>
-      </Logo>
-      <ProgressText>
-        <CurrentStep>Select Plan -----</CurrentStep>
-        <TextZ>Register -----</TextZ>
-        <TextZ>Delivery Info -----</TextZ>
-        <TextZ>Payment Info -----</TextZ>
-        <TextZ>Select Meals -----</TextZ>
-        <TextZ>Review Order -----</TextZ>
-        <TextZ>All Done!</TextZ>
-      </ProgressText>
-    </Progress_container>
+        <Logo>
+          <Link
+            to="/"
+            style={{
+              textDecoration: "none",
+              color: "#264654",
+              fontFamily: "Quicksand",
+            }}
+          >
+            <img
+              className="logo"
+              src="assets/masthead/Masthead-logo-yellow.png"
+              width="156"
+              height="51"
+            ></img>
+          </Link>
+        </Logo>
+        <ProgressText>
+          <CurrentStep>Select Plan -----</CurrentStep>
+          <TextZ>Register -----</TextZ>
+          <TextZ>Delivery Info -----</TextZ>
+          <TextZ>Payment Info -----</TextZ>
+          <TextZ>Select Meals -----</TextZ>
+          <TextZ>Review Order -----</TextZ>
+          <TextZ>All Done!</TextZ>
+        </ProgressText>
+      </Progress_container>
       {/*##### end of the TOP ##### */}
       <Header>Personalize your plan</Header>
       <StepsContainer>
         <StepOne>
-          <StepOneHeader>
-            1. Choose your preferences
-          </StepOneHeader>
+          <StepOneHeader>1. Choose your preferences</StepOneHeader>
           <StepOneButtonContainer>
-
             {/* <PreferenceButtons>
               <Image src="../assets/preferences/meatandveggies.png" width='70' height='40' onClick={() => handleMealPref(mealTypes['meat'])} ></Image>
               Whole 30 (Meat) */}
@@ -229,9 +244,9 @@ setCurrentUser({...currentUser, headCount, numRecipies, type})
                 borderRadius: whole30 ? "10px" : null,
                 border: whole30 ? "2.5px solid #26BF00" : null,
               }}
-              onClick={
-                (() => {handleMealPref(mealTypes["meat"]), whole30S()})
-              }
+              onClick={() => {
+                handleMealPref(mealTypes["meat"]), whole30S();
+              }}
             >
               {/* <Image src="../assets/preferences/meatandveggies.png" width='70' height='40'onClick={()=>handleMealPref(mealTypes['meat'])} ></Image> */}
               Whole 30
@@ -243,10 +258,9 @@ setCurrentUser({...currentUser, headCount, numRecipies, type})
                 borderRadius: vegetarian ? "10px" : null,
                 border: vegetarian ? "2.5px solid #26BF00" : null,
               }}
-              onClick={
-                (() => {handleMealPref(mealTypes["vegetarian"]),
-                vegetarianS()})
-              }
+              onClick={() => {
+                handleMealPref(mealTypes["vegetarian"]), vegetarianS();
+              }}
             >
               {/* <img src="../assets/preferences/veggies.png" width='70' height='40'onClick={()=>handleMealPref(mealTypes['vegetarian'])}></img> */}
               Vegetarian
@@ -258,9 +272,9 @@ setCurrentUser({...currentUser, headCount, numRecipies, type})
                 borderRadius: keto ? "10px" : null,
                 border: keto ? "2.5px solid #26BF00" : null,
               }}
-              onClick={
-                (() => {handleMealPref(mealTypes["Ketogenic"]), ketoS()})
-              }
+              onClick={() => {
+                handleMealPref(mealTypes["Ketogenic"]), ketoS();
+              }}
             >
               {/* <Image src="../assets/preferences/familyfriendly.png" width='40' height='40'></Image> */}
               Keto
@@ -272,9 +286,9 @@ setCurrentUser({...currentUser, headCount, numRecipies, type})
                 borderRadius: vegan ? "10px" : null,
                 border: vegan ? "2.5px solid #26BF00" : null,
               }}
-              onClick={
-                (() => {handleMealPref(mealTypes["vegan"]), veganS()})
-              }
+              onClick={() => {
+                handleMealPref(mealTypes["vegan"]), veganS();
+              }}
             >
               {/* <Image src="../assets/preferences/fitandwholesome.png" width='60' height='40' onClick={()=>handleMealPref(mealTypes['vegan'])}></Image> */}
               Vegan
@@ -286,9 +300,9 @@ setCurrentUser({...currentUser, headCount, numRecipies, type})
                 borderRadius: paleo ? "10px" : null,
                 border: paleo ? "2.5px solid #26BF00" : null,
               }}
-              onClick={
-                (() => {handleMealPref(mealTypes["paleo"]), paleoS()})
-              }
+              onClick={() => {
+                handleMealPref(mealTypes["paleo"]), paleoS();
+              }}
             >
               {/* <Image src="../assets/preferences/quickandeasy.png" width='40' height='40' onClick={()=>handleMealPref(mealTypes['paleo'])}></Image> */}
               Paleo
@@ -300,10 +314,9 @@ setCurrentUser({...currentUser, headCount, numRecipies, type})
                 borderRadius: pescatarian ? "10px" : null,
                 border: pescatarian ? "2.5px solid #26BF00" : null,
               }}
-              onClick={
-                (() => {handleMealPref(mealTypes["pescetarian"]),
-                pescatarianS()})
-              }
+              onClick={() => {
+                handleMealPref(mealTypes["pescetarian"]), pescatarianS();
+              }}
             >
               {/* <img src="../assets/preferences/pescatarian.png" width='75' height='40' onClick={()=>handleMealPref(mealTypes['pescetarian'])}></img> */}
               Pescatarian
@@ -321,7 +334,9 @@ setCurrentUser({...currentUser, headCount, numRecipies, type})
                 borderRadius: people2 ? "5px" : null,
                 border: people2 ? "2.5px solid #26BF00" : null,
               }}
-              onClick={(() => {setHeadCount(2), people2S()})}
+              onClick={() => {
+                setHeadCount(2), people2S();
+              }}
             >
               2
             </PeopleButton>
@@ -331,7 +346,9 @@ setCurrentUser({...currentUser, headCount, numRecipies, type})
                 borderRadius: people4 ? "5px" : null,
                 border: people4 ? "2.5px solid #26BF00" : null,
               }}
-              onClick={(() => {setHeadCount(4), people4S()})}
+              onClick={() => {
+                setHeadCount(4), people4S();
+              }}
             >
               4
             </PeopleButton>
@@ -345,7 +362,9 @@ setCurrentUser({...currentUser, headCount, numRecipies, type})
                 borderRadius: recipe2 ? "5px" : null,
                 border: recipe2 ? "2.5px solid #26BF00" : null,
               }}
-              onClick={(() => {setNumRecipies(2), recipe2S()})}
+              onClick={() => {
+                setNumRecipies(2), recipe2S();
+              }}
             >
               2
             </RecipeButton>
@@ -355,7 +374,9 @@ setCurrentUser({...currentUser, headCount, numRecipies, type})
                 borderRadius: recipe3 ? "5px" : null,
                 border: recipe3 ? "2.5px solid #26BF00" : null,
               }}
-              onClick={(() => {setNumRecipies(3), recipe3S()})}
+              onClick={() => {
+                setNumRecipies(3), recipe3S();
+              }}
             >
               3
             </RecipeButton>
@@ -365,7 +386,9 @@ setCurrentUser({...currentUser, headCount, numRecipies, type})
                 borderRadius: recipe4 ? "5px" : null,
                 border: recipe4 ? "2.5px solid #26BF00" : null,
               }}
-              onClick={(() => {setNumRecipies(4), recipe4S()})}
+              onClick={() => {
+                setNumRecipies(4), recipe4S();
+              }}
             >
               4
             </RecipeButton>
@@ -375,7 +398,9 @@ setCurrentUser({...currentUser, headCount, numRecipies, type})
                 borderRadius: recipe5 ? "5px" : null,
                 border: recipe5 ? "2.5px solid #26BF00" : null,
               }}
-              onClick={(() => {setNumRecipies(5), recipe5S()})}
+              onClick={() => {
+                setNumRecipies(5), recipe5S();
+              }}
             >
               5
             </RecipeButton>
@@ -385,7 +410,9 @@ setCurrentUser({...currentUser, headCount, numRecipies, type})
                 borderRadius: recipe6 ? "5px" : null,
                 border: recipe6 ? "2.5px solid #26BF00" : null,
               }}
-              onClick={(() => {setNumRecipies(6), recipe6S()})}
+              onClick={() => {
+                setNumRecipies(6), recipe6S();
+              }}
             >
               6
             </RecipeButton>
@@ -411,7 +438,11 @@ setCurrentUser({...currentUser, headCount, numRecipies, type})
         </StepTwo>
       </StepsContainer>
       <ContinueContainer>
-          <Link to="/signup" style={{ textDecoration: 'none' , color: '#26BF00'}}><ContinueButton onClick={submit}>Select plan & continue</ContinueButton></Link>
+        <Link to="/signup" style={{ textDecoration: "none", color: "#26BF00" }}>
+          <ContinueButton onClick={submit}>
+            Select plan & continue
+          </ContinueButton>
+        </Link>
       </ContinueContainer>
     </PersonalizeYourPlanContainer>
   );
