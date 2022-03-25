@@ -5,7 +5,7 @@ import {Link}  from "react-router-dom";
 import ProgressMasthead from '../shared/ProgressMasthead.jsx'
 
 const ReviewYourOrder = () => {
-  const {meals, setMeals, type, setType, rate, setRate, numRecipies, setNumRecipies,headCount, setHeadCount} = useContext(AppContext);
+  const {meals, setMeals, type, setType, rate, setRate, numRecipies, setNumRecipies,headCount, setHeadCount, specialBuy, selectMeals} = useContext(AppContext);
 
   return (
     <div>
@@ -32,9 +32,25 @@ const ReviewYourOrder = () => {
         <HeaderText>Order Summary</HeaderText>
           <OrderSummary>
             <MealSelection>
-              <div>Meat & Veggies</div>
-              <div>Count {headCount} people per week</div>
-              <div>{numRecipies} Meals per week</div>
+              <SummaryText>{type}</SummaryText>
+              <SummaryText>{numRecipies} Meals for {headCount} people per week</SummaryText>
+              <SummaryText>{numRecipies} Meals per week</SummaryText>
+                <div>
+                  {selectMeals.map((oneMeal, i) => {
+                    return <div>
+                      <SummaryText> - {oneMeal}</SummaryText>
+                      {/* <SummaryText>$ {item.price}</SummaryText> */}
+                      </div>
+                  })}
+                </div>
+                <div>
+                  {specialBuy.map((item, i) => {
+                    return <div>
+                      <SummaryText>{item.title} ${item.price}</SummaryText>
+                      {/* <SummaryText>$ {item.price}</SummaryText> */}
+                      </div>
+                  })}
+                </div>
             </MealSelection>
             <Cost>
               <Shipping>
@@ -42,15 +58,13 @@ const ReviewYourOrder = () => {
                 <SummaryText>$9.99</SummaryText>
               </Shipping>
               <Total>
-                <div>Total</div>
-                <div>$ {rate}</div>
+                <SummaryText>Total</SummaryText>
+                <SummaryText>${rate}</SummaryText>
               </Total>
             </Cost>
           </OrderSummary>
           <Alcohol>If your order contains alcoholic items, someone over the age of 21 must accept the order.</Alcohol>
-          <Button>
-            <Link to="/order-confirmation" style={{ textDecoration: 'none' , color: '#26BF00' }}>Place Order</Link>
-          </Button>
+            <Link to="/order-confirmation" style={{ textDecoration: 'none' , color: '#26BF00' }}><Button>Place Order</Button></Link>
         </RightSide>
       </ReviewYourOrderContainer>
 
@@ -72,6 +86,7 @@ const HeaderText = Styled.div`
 const SummaryText = Styled.div`
   font-family: 'Quicksand';
   font-weight: 500;
+  font-size: 16px;
 `
 const Header = Styled.div`
   font-family: 'Quicksand';
@@ -126,7 +141,8 @@ const OrderSummary = Styled.div`
   display: flex;
   flex-direction: column;
   width: 400px;
-  height: 200px;
+  height: 300px;
+  overflow: auto;
   border: 1px solid #C4C4C4;
   border-radius: 5px;
 `
@@ -149,5 +165,6 @@ const Button = Styled.button`
   border-color: rgba(38, 191, 0, .25);
   color: #26BF00;
   font-size: 18px;
+  cursor: pointer;
 `
 export default ReviewYourOrder

@@ -23,9 +23,7 @@ const LandingPage= () =>{
           <MainSubText><CheckMark>✓</CheckMark>Locally Sourced</MainSubText>
           <MainSubText><CheckMark>✓</CheckMark>Commitment-Free</MainSubText>
           <MainSubText><CheckMark>✓</CheckMark>Weekly Recipes</MainSubText>
-          <Button>
-          <Link to="/your-personal-pref" style={{ textDecoration: 'none' , color: '#26BF00' }}>View Plans</Link>
-          </Button>
+          <Link to="/your-personal-pref" style={{ textDecoration: 'none' , color: '#26BF00' }}><Button>View Plans</Button></Link>
         </MainTextContainer>
         <img src='/assets/landingpage/newMainTestFlipped.jpeg' width="414" height="412" ></img>
       </Main>
@@ -75,7 +73,7 @@ const LandingPage= () =>{
 const LandingPageContainer = Styled.div`
   display: flex;
   flex-direction: column;
-  `
+`
 const YellowSeperator = Styled.div`
   width: 100%;
   height: 95px;
@@ -149,6 +147,7 @@ const Button = Styled.button`
   font-size: 18px;
   font-family: 'Lato';
   font-weight: 500;
+  cursor: pointer;
 `
 const FAQContainer = Styled.div`
   display: flex;

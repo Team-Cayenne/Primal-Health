@@ -81,7 +81,6 @@ const App = () => {
           <Route path="/your-personal-pref" element={<PersonalizeYourPlan/>} />
           <Route path="/videos" element={<VideoDetail />} />
           <Route path="/" element={<LandingPage />}>
-          <Route index element={<SupplierPage />} />
           {/* <Route path="*" element={<NoPage />} /> */}
           </Route>
         </Routes>

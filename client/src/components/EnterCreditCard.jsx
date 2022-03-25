@@ -5,7 +5,7 @@ import {Link}  from "react-router-dom";
 import ProgressMasthead from '../shared/ProgressMasthead.jsx'
 
 const EnterCreditCard = () =>{
-  const {rate, numRecipies, headCount} = useContext(AppContext);
+  const {rate, numRecipies, headCount, type} = useContext(AppContext);
 
   const handleInput = (e) => {
     console.log(e.target.value)
@@ -42,9 +42,9 @@ const EnterCreditCard = () =>{
           <HeaderText>Order Summary</HeaderText>
           <OrderSummary>
             <MealSelection>
-              <div>Meat & Veggies</div>
-              <div>4 Meals for {headCount} people per week</div>
-              <div>{numRecipies} Meals per week</div>
+              <SummaryText>{type}</SummaryText>
+              <SummaryText>{numRecipies} Meals for {headCount} people per week</SummaryText>
+              <SummaryText>{numRecipies * headCount} Meals per week</SummaryText>
             </MealSelection>
             <Cost>
               <Shipping>
@@ -52,14 +52,13 @@ const EnterCreditCard = () =>{
                 <SummaryText>$9.99</SummaryText>
               </Shipping>
               <Total>
-                <div>Total</div>
-                <div>$ {rate}</div>
+                <SummaryText>Total</SummaryText>
+                <SummaryText>${rate}</SummaryText>
               </Total>
             </Cost>
           </OrderSummary>
-          <Button onClick={handleClick}>
-          <Link to="/select-meals" style={{ textDecoration: 'none' , color: '#26BF00' }}>Next Step</Link>
-          </Button>
+          <Link to="/select-meals" style={{ textDecoration: 'none' , color: '#26BF00' }}><Button onClick={handleClick}>Next Step</Button>
+          </Link>
         </RightSide>
       </EnterCreditCardContainer>
     </div>
@@ -69,6 +68,7 @@ const EnterCreditCard = () =>{
 const SummaryText = Styled.div`
   font-family: 'Quicksand';
   font-weight: 500;
+  font-size: 16px;
 `
 const EnterCreditCardContainer = Styled.div`
   display: flex;
@@ -182,6 +182,7 @@ const Button = Styled.button`
   border-color: rgba(38, 191, 0, .25);
   color: #26BF00;
   font-size: 18px;
+  cursor: pointer;
 `
 
 export default EnterCreditCard
