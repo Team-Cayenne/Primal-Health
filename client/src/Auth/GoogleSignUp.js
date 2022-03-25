@@ -1,26 +1,44 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
+import { AppContext } from '../context.js';
 import auth from "./firebase";
+import axios from 'axios';
 import Styled from 'styled-components'
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import {Link}  from "react-router-dom";
 import ProgressMasthead from '../shared/ProgressMasthead.jsx'
 
 
-export default class GoogleSignUp extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      email: '',
-      password: ''
-    }
+ const GoogleSignUp = () => {
+  // constructor(props) {
+  //   super(props)
+  //   this.state = {
+  //     email: '',
+  //     password: ''
+  //   }
 
-    this.googleLogin = this.googleLogin.bind(this);
-    this.addEmail = this.addEmail.bind(this);
-    this.addPassword = this.addPassword.bind(this);
-    this.submit = this.submit.bind(this);
+  //   this.googleLogin = this.googleLogin.bind(this);
+  //   this.addEmail = this.addEmail.bind(this);
+  //   this.addPassword = this.addPassword.bind(this);
+  //   this.submit = this.submit.bind(this);
+  // }
+
+  const { users, setUsers, currentUser, setCurrentUser, email, setEmail, password, setPassword } = useContext(AppContext);
+
+  useEffect(() => {
+    getUsers();
+  }, []);
+
+  const getUsers = () => {
+    axios.get('/users')
+      .then(results => {
+        setUsers(results.data)
+      })
+      .catch(err => {
+        console.log(err);
+      })
   }
 
-  googleLogin() {
+  const googleLogin = () => {
     const provider = new GoogleAuthProvider();
     const auth = getAuth();
     signInWithPopup(auth, provider)
@@ -29,8 +47,7 @@ export default class GoogleSignUp extends React.Component {
         const token = credential.accessToken;
         // The signed-in user info.
         const user = result.user;
-
-        this.props.addUser(user)
+        userSignup(user)
 
       })
       .catch((err) => {
@@ -44,29 +61,60 @@ export default class GoogleSignUp extends React.Component {
       })
   }
 
-  addEmail(event) {
-    this.setState({
-      email: event.target.value
-    })
-  }
 
-  addPassword(event) {
-    this.setState({
-      password: event.target.value
-    })
-  }
-
-  submit() {
-    if (this.state.email.length === 0 || this.state.password.length === 0) {
-      alert('Please Complete Form')
-    } else if (this.state.email.indexOf('@') === -1) {
-      alert('Must Have Valid Email')
+  const userSignup = (user) => {
+    if (user.password) {
+      for (let i = 0; i < users.length; i++) {
+        if (users[i].email === user.email) {
+          alert('Email Already Exists');
+          return;
+        }
+      }
+      setCurrentUser({...currentUser, email, password})
     } else {
-      this.props.addUser(this.state)
+      for (let i = 0; i < users.length; i++) {
+        if (users[i].email === user.email) {
+          alert('Email Already Exists');
+          return;
+        }
+      }
+      setEmail(user.email)
     }
   }
 
-  render() {
+
+  // postUser() {
+  //   axios.post('/users', this.state.user)
+  //     .then(res => {
+  //       console.log(res);
+  //       // this.setState({
+  //       //   userToggle: true
+  //       // })
+  //     })
+  //     .catch(err => {
+  //       console.log(err);
+  //     })
+  // }
+
+  const addEmail = (event) => {
+    setEmail(event.target.value);
+  }
+
+  const addPassword = (event) => {
+    setPassword(event.target.value);
+  }
+
+
+  const submit = () => {
+    if (email.length === 0 || password.length === 0) {
+      alert('Please Complete Form')
+    } else if (email.indexOf('@') === -1) {
+      alert('Must Have Valid Email')
+    } else {
+      userSignup({email: email, password: password})
+    }
+  }
+
     return (
       <div>
         <ProgressMasthead/>
@@ -75,11 +123,11 @@ export default class GoogleSignUp extends React.Component {
           <SignUpBox>
             <Header2>Get Started</Header2>
           <Text>Email</Text>
-          <Email type='email' onChange={this.addEmail}></Email>
+          <Email type='email' onChange={addEmail}></Email>
           <Text>Password</Text>
-          <Password onChange={this.addPassword}></Password>
-          <SignUpButton onClick={this.submit}>Sign Up</SignUpButton>
-          <GoogleButton onClick={this.googleLogin} className="login-button">
+          <Password type='password' onChange={addPassword}></Password>
+          <SignUpButton onClick={submit}>Sign Up</SignUpButton>
+          <GoogleButton onClick={googleLogin} className="login-button">
           <img width="20px" style={{margin: '20px'}} alt="Google sign-in" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png" />
             Continue with Google
           </GoogleButton>
@@ -88,7 +136,6 @@ export default class GoogleSignUp extends React.Component {
         <Link to="/shipping">Enter Shipping Info</Link>
       </div>
     );
-  }
 }
 
 const SignUpContainer = Styled.div`
@@ -160,3 +207,4 @@ const GoogleButton = Styled.button`
   align-items: center;
   cursor: pointer;
 `
+export default GoogleSignUp;

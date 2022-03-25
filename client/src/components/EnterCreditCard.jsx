@@ -1,39 +1,89 @@
 import { AppContext } from "../context.js";
 import React, { useContext } from 'react'
 import Styled from 'styled-components'
-import {Link}  from "react-router-dom";
+import { Link } from "react-router-dom";
 import ProgressMasthead from '../shared/ProgressMasthead.jsx'
 
-const EnterCreditCard = () =>{
-  const {rate, numRecipies, headCount, type} = useContext(AppContext);
 
-  const handleInput = (e) => {
-    console.log(e.target.value)
+const EnterCreditCard = () => {
+
+  const { email, password, rate, type, numRecipies, headCount, creditCard, setCreditCard, setCurrentUser, currentUser } = useContext(AppContext);
+
+  const handleInput = (event) => {
+    setCreditCard(event.target.value)
   }
 
-  const handleClick = (e) => {
-    console.log('clicked')
+  const submit = () => {
+    setCurrentUser({ ...currentUser, creditCard, email, password });
   }
+
 
   return (
+    //     <div>
+    //       <ProgressMasthead />
+
+    //       <EnterCreditCardContainer>
+    //         <LeftSide>
+    //           <div>Payment Information</div>
+    //           <PaymentInputContainer>
+    //             <HeaderText>Add credit or debit card</HeaderText>
+    //             <CardholderName placeholder="Cardholder name" ></CardholderName>
+    //             <CardNumberInfoContainer>
+    //               <CardNumber placeholder="Card number" onChange={handleInput}></CardNumber>
+    //               <CardExp placeholder="Exp date"></CardExp>
+    //               <CardCVV placeholder="CVV"></CardCVV>
+    //             </CardNumberInfoContainer>
+    //             <ImageAndButton>
+    //               <img src="../../public/assets/creditcards/creditcards.png" width='123px' height='19px'>
+    //               </img>
+    //               <AddPaymentButton onClick={submit}>Add payment</AddPaymentButton>
+    //             </ImageAndButton>
+    //           </PaymentInputContainer>
+    //         </LeftSide>
+
+    //         <RightSide>
+    //           <div>Order Summary</div>
+    //           <OrderSummary>
+    //             <MealSelection>
+    //               <div>Meat & Veggies</div>
+    //               <div>4 Meals for 5 people per week</div>
+    //               <div>20 Meals per week</div>
+    //             </MealSelection>
+    //             <Cost>
+    //               <Shipping>
+    //                 <div>Shipping</div>
+    //                 <div>$9.99</div>
+    //               </Shipping>
+    //               <Total>
+    //                 <div>Total</div>
+    //                 <div>$199.80</div>
+    //               </Total>
+    //             </Cost>
+    //           </OrderSummary>
+    //           <div>If your order contains alcoholic items, someone over the age of 21 must accept the order.</div>
+    //           <Button >Next Step</Button>
+    //         </RightSide>
+    //       </EnterCreditCardContainer>
+    //     </div>
+    //   )
+    // }
     <div>
       <ProgressMasthead />
-
       <EnterCreditCardContainer>
         <LeftSide>
-            <HeaderText>Payment Information</HeaderText>
+          <HeaderText>Payment Information</HeaderText>
           <PaymentInputContainer>
             <HeaderText>Add credit or debit card</HeaderText>
-            <CardholderName placeholder="Cardholder name" onChange={handleInput}></CardholderName>
+            <CardholderName placeholder="Cardholder name" ></CardholderName>
             <CardNumberInfoContainer>
               <CardNumber placeholder="Card number" onChange={handleInput}></CardNumber>
-              <CardExp placeholder="Exp date" onChange={handleInput}></CardExp>
-              <CardCVV placeholder="CVV" onChange={handleInput}></CardCVV>
+              <CardExp placeholder="Exp date" ></CardExp>
+              <CardCVV placeholder="CVV" ></CardCVV>
             </CardNumberInfoContainer>
             <ImageAndButton>
               <img src="assets/creditcards/creditcards.png" width='123px' height='19px'>
               </img>
-              <AddPaymentButton onClick={handleClick}>Add payment</AddPaymentButton>
+              <AddPaymentButton>Add payment</AddPaymentButton>
             </ImageAndButton>
           </PaymentInputContainer>
         </LeftSide>
@@ -57,7 +107,7 @@ const EnterCreditCard = () =>{
               </Total>
             </Cost>
           </OrderSummary>
-          <Link to="/select-meals" style={{ textDecoration: 'none' , color: '#26BF00' }}><Button onClick={handleClick}>Next Step</Button>
+          <Link to="/select-meals" style={{ textDecoration: 'none' , color: '#26BF00' }}><Button onClick={submit}>Next Step</Button>
           </Link>
         </RightSide>
       </EnterCreditCardContainer>
@@ -185,4 +235,4 @@ const Button = Styled.button`
   cursor: pointer;
 `
 
-export default EnterCreditCard
+export default EnterCreditCard;
