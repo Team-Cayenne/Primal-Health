@@ -74,11 +74,11 @@ const PersonalizeYourPlan = (props) => {
 
   const handleMealPref = async (mealType) => {
     setType(mealType);
-    // console.log('TYPE', type)
+
     try {
       const results = await axios.post("/mealchoice", { type: mealType });
       setMeals(results.data.results);
-      console.log("results", results);
+
     } catch (err) {
       console.log("UNABLE TO SET MEALS", err);
     }
@@ -192,11 +192,8 @@ const whole30S = () => {
     recipe6Selected(true);
   };
 
-  // console.log('MEALS', meals)
-  // console.log("TYPE", type)
   return (
     <PersonalizeYourPlanContainer>
-      {/*##### Top, with the progress bar #####*/}
       <Progress_container>
         <Logo>
           <Link
@@ -225,19 +222,11 @@ const whole30S = () => {
           <TextZ>All Done!</TextZ>
         </ProgressText>
       </Progress_container>
-      {/*##### end of the TOP ##### */}
       <Header>Personalize your plan</Header>
       <StepsContainer>
         <StepOne>
           <StepOneHeader>1. Choose your preferences</StepOneHeader>
           <StepOneButtonContainer>
-            {/* <PreferenceButtons>
-              <Image src="../assets/preferences/meatandveggies.png" width='70' height='40' onClick={() => handleMealPref(mealTypes['meat'])} ></Image>
-              Whole 30 (Meat) */}
-
-            {/* border-color: #26BF00;
-    border-radius: 10px;
-    border: 2.5px solid #26BF00; */}
 
             <PreferenceButtons
               style={{
@@ -249,7 +238,6 @@ const whole30S = () => {
                 handleMealPref(mealTypes["meat"]), whole30S();
               }}
             >
-              {/* <Image src="../assets/preferences/meatandveggies.png" width='70' height='40'onClick={()=>handleMealPref(mealTypes['meat'])} ></Image> */}
               Whole 30
             </PreferenceButtons>
 
@@ -263,7 +251,6 @@ const whole30S = () => {
                 handleMealPref(mealTypes["vegetarian"]), vegetarianS();
               }}
             >
-              {/* <img src="../assets/preferences/veggies.png" width='70' height='40'onClick={()=>handleMealPref(mealTypes['vegetarian'])}></img> */}
               Vegetarian
             </PreferenceButtons>
 
@@ -277,7 +264,6 @@ const whole30S = () => {
                 handleMealPref(mealTypes["Ketogenic"]), ketoS();
               }}
             >
-              {/* <Image src="../assets/preferences/familyfriendly.png" width='40' height='40'></Image> */}
               Keto
             </PreferenceButtons>
 
@@ -291,7 +277,6 @@ const whole30S = () => {
                 handleMealPref(mealTypes["vegan"]), veganS();
               }}
             >
-              {/* <Image src="../assets/preferences/fitandwholesome.png" width='60' height='40' onClick={()=>handleMealPref(mealTypes['vegan'])}></Image> */}
               Vegan
             </PreferenceButtons>
 
@@ -305,7 +290,6 @@ const whole30S = () => {
                 handleMealPref(mealTypes["paleo"]), paleoS();
               }}
             >
-              {/* <Image src="../assets/preferences/quickandeasy.png" width='40' height='40' onClick={()=>handleMealPref(mealTypes['paleo'])}></Image> */}
               Paleo
             </PreferenceButtons>
 
@@ -319,7 +303,6 @@ const whole30S = () => {
                 handleMealPref(mealTypes["pescetarian"]), pescatarianS();
               }}
             >
-              {/* <img src="../assets/preferences/pescatarian.png" width='75' height='40' onClick={()=>handleMealPref(mealTypes['pescetarian'])}></img> */}
               Pescatarian
             </PreferenceButtons>
           </StepOneButtonContainer>

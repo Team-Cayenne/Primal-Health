@@ -23,7 +23,6 @@ import { Footer } from './EnterShippingInfo.jsx';
     const getSuppliers=()=> {
       axios.get('/suppliers')
         .then(results => {
-          console.log('GET SUPPLIERS', results)
           setSpecial(results.data)
         })
         .catch(err => {
@@ -31,17 +30,13 @@ import { Footer } from './EnterShippingInfo.jsx';
         })
     }
 
-    // const mealPlan= new Array(numRecipies)
-
     const userSelectedRecipes = (title) => {
-      console.log("click")
       if (selectMeals.length < numRecipies) {
         setSelectMeals([...selectMeals, title])
       }
     }
 
     const userBuysSpecial = (title, price) => {
-      console.log("click")
       setSpecialBuy([...specialBuy, {title, price}])
       setRate((+rate + price).toFixed(2))
 
@@ -56,8 +51,6 @@ import { Footer } from './EnterShippingInfo.jsx';
 
   return (
     <div>
-    {/* <ProgressMasthead /> */}
-    {/*##### Top, with the progress bar #####*/}
     <Progress_container>
       <Logo>
         <Link to="/" style={{ textDecoration: 'none' , color: '#264654', fontFamily: 'Quicksand' }}>
@@ -75,14 +68,12 @@ import { Footer } from './EnterShippingInfo.jsx';
           <TextZ>All Done!</TextZ>
         </ProgressText>
       </Progress_container>
-    {/*##### end of the TOP ##### */}
       <SelectRecipesContainer>
         <RecipesContainer>
           <HeaderText>
             Select Recipes
           </HeaderText>
           <OneRecipeRow>
-            {/* testMeals replace with meals if API is functioning */}
             {meals.map((meal, i)=> {
               return <OneRecipe key={i} onClick={()=>userSelectedRecipes(meal.title)}>
               <img src={meal.image} width='170' height='150' style={{cursor: 'pointer'}}></img>
@@ -106,7 +97,6 @@ import { Footer } from './EnterShippingInfo.jsx';
                   {selectMeals.map((oneMeal, i) => {
                     return <div>
                       <SummaryText> - {oneMeal}</SummaryText>
-                      {/* <SummaryText>$ {item.price}</SummaryText> */}
                       </div>
                   })}
                 </div>

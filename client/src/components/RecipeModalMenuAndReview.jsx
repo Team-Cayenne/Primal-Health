@@ -25,13 +25,6 @@ const RecipeModalMenuAndReview= (props) =>{
   console.log("render")
   return (
     <ModalContainer>
-      {/* <div className="Title">{props.recipeTitle}</div> */}
-      {/* <img src={props.image} width='170' height='150'/> */}
-      {/* <div dangerouslySetInnerHTML={{__html: props.recipe.images}} /> */}
-      {/* {props.recipe.results&&props.recipe.results.length&&props.recipe.results[0].steps.map((step, i) => { */}
-        {/* // console.log("STEP", step) */}
-        {/* return <div> {step.number},  {step.step}</div> */}
-      {/* })} */}
       <NutritionalInfoModalMenuAndReview nutrition={nutrition} closeNutModal={closeNutModal}setCloseNutModal={setCloseNutModal}/>
       <RecipeCard>
       <img src={props.recipe.images?.url} width='603' height='auto'/>

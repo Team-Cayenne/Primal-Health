@@ -22,57 +22,7 @@ const EnterCreditCard = () => {
 
 
   return (
-    //     <div>
-    //       <ProgressMasthead />
-
-    //       <EnterCreditCardContainer>
-    //         <LeftSide>
-    //           <div>Payment Information</div>
-    //           <PaymentInputContainer>
-    //             <HeaderText>Add credit or debit card</HeaderText>
-    //             <CardholderName placeholder="Cardholder name" ></CardholderName>
-    //             <CardNumberInfoContainer>
-    //               <CardNumber placeholder="Card number" onChange={handleInput}></CardNumber>
-    //               <CardExp placeholder="Exp date"></CardExp>
-    //               <CardCVV placeholder="CVV"></CardCVV>
-    //             </CardNumberInfoContainer>
-    //             <ImageAndButton>
-    //               <img src="../../public/assets/creditcards/creditcards.png" width='123px' height='19px'>
-    //               </img>
-    //               <AddPaymentButton onClick={submit}>Add payment</AddPaymentButton>
-    //             </ImageAndButton>
-    //           </PaymentInputContainer>
-    //         </LeftSide>
-
-    //         <RightSide>
-    //           <div>Order Summary</div>
-    //           <OrderSummary>
-    //             <MealSelection>
-    //               <div>Meat & Veggies</div>
-    //               <div>4 Meals for 5 people per week</div>
-    //               <div>20 Meals per week</div>
-    //             </MealSelection>
-    //             <Cost>
-    //               <Shipping>
-    //                 <div>Shipping</div>
-    //                 <div>$9.99</div>
-    //               </Shipping>
-    //               <Total>
-    //                 <div>Total</div>
-    //                 <div>$199.80</div>
-    //               </Total>
-    //             </Cost>
-    //           </OrderSummary>
-    //           <div>If your order contains alcoholic items, someone over the age of 21 must accept the order.</div>
-    //           <Button >Next Step</Button>
-    //         </RightSide>
-    //       </EnterCreditCardContainer>
-    //     </div>
-    //   )
-    // }
     <div>
-      {/* <ProgressMasthead /> */}
-      {/*##### Top, with the progress bar #####*/}
       <Progress_container>
         <Logo>
           <Link to="/" style={{ textDecoration: 'none' , color: '#264654', fontFamily: 'Quicksand' }}>
@@ -90,7 +40,6 @@ const EnterCreditCard = () => {
             <TextZ>All Done!</TextZ>
           </ProgressText>
         </Progress_container>
-      {/*##### end of the TOP ##### */}
       <EnterCreditCardContainer style={{display: 'flex', marginTop: '100px'}}>
         <LeftSide>
           <HeaderText>Payment Information</HeaderText>
@@ -105,7 +54,6 @@ const EnterCreditCard = () => {
             <ImageAndButton>
               <img src="assets/creditcards/creditcards.png" width='123px' height='19px'>
               </img>
-              {/* <AddPaymentButton>Add payment</AddPaymentButton> */}
             </ImageAndButton>
           </PaymentInputContainer>
         </LeftSide>

@@ -3,7 +3,6 @@ import React, { useContext } from 'react'
 import {Link}  from "react-router-dom";
 import Styled from 'styled-components'
 import { MainContainer } from '../styles/confirmationPage/styles';
-// import { TopContainer, Logo } from '../styles/confirmationPage/top';
 import { MiddleContainer, ThankYou, OrderID, ThankYouRow, OrderConfirmation,
   OrderTitle, TrackYourOrderButton, InnerPTitle, InnerPText } from '../styles/confirmationPage/middle';
 import { BottomContainer } from '../styles/confirmationPage/bottom';
@@ -15,10 +14,6 @@ const ConfirmationPage = () =>{
 
   return (
     <MainContainer>
-      {/* <TopContainer>
-        <Logo/>
-      </TopContainer> */}
-      {/*##### Top, with the progress bar #####*/}
       <Progress_container>
         <Logo>
           <Link to="/" style={{ textDecoration: 'none' , color: '#264654', fontFamily: 'Quicksand' }}>
@@ -36,7 +31,6 @@ const ConfirmationPage = () =>{
             <TextZ style={{color: '#26BF00'}}>All Done!</TextZ>
           </ProgressText>
         </Progress_container>
-      {/*##### end of the TOP ##### */}
       <MiddleContainer>
         <ThankYouRow>
           <ThankYou>Thank you for you order!</ThankYou>
@@ -52,15 +46,13 @@ const ConfirmationPage = () =>{
                   {selectMeals.map((oneMeal, i) => {
                     return <div>
                       <Items> - {oneMeal}</Items>
-                      {/* <SummaryText>$ {item.price}</SummaryText> */}
                       </div>
                   })}
 
 
                   {specialBuy.map((item, i) => {
                     return <div>
-                      <Items> - {item.title} ${item.price}</Items>
-                      {/* <SummaryText>$ {item.price}</SummaryText> */}
+                      <Items> - {item.title} $ {item.price}</Items>
                       </div>
                   })}
 
@@ -73,7 +65,7 @@ const ConfirmationPage = () =>{
           <InnerPTitle>Payment:</InnerPTitle>
           <InnerPText>
             Date: 03/25/2022 <br/>
-            Type: Paid with Visa **** **** **** {currentUser.creditCard.slice(currentUser.creditCard.length - 4)} <br/> <div style={{textAlign:'end', marginTop: '40px', marginRight:'60px', fontFamily:'Quicksand', fontWeight:'bold'}}>Total: ${rate}</div> <br/>
+            Type: Paid with Visa **** **** **** {currentUser.creditCard.slice(currentUser.creditCard.length - 4)} <br/> <div style={{textAlign:'end', marginTop: '40px', marginRight:'60px', fontFamily:'Quicksand', fontWeight:'bold'}}>Total: $ {rate}</div> <br/>
           </InnerPText>
         </OrderConfirmation>
           <Link to="/tracking">
