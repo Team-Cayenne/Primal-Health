@@ -17,8 +17,18 @@ This project was a 1 week sprint in which our team attempted to complete a MVP f
 ## Tech Stack
 -JavaScript, React, Node, Firebase, Webpack, CSS, Styled Components, Jest, Axios, Babel, Express, Spoonacular API, Edamam API, React Router, Logo Design, Trello
 ## Video Demo
+### Demo of an existing customer login into the site.  Since the cached google login is not saved on the site, a popup error appears stating that user is not recognized in the application's database.  However, the manually saved user information is recognized and retrieved from the database, dynamically rendering the user's account information.
 
-![test](http://g.recordit.co/lG3QtXZv2K.gif)
+![966504C5-32E3-4448-AF4E-34F30DAC0FA5_1_105_c](https://user-images.githubusercontent.com/84425240/160258872-c396d528-bf76-4db4-976e-2cb039ccd1ec.jpeg)
+
+### Demo of a new customer signup.  Throughout each frame, the user's personal information and preferences are saved and stored in the database once the order is completed.
+
+![B85708DD-C671-47B2-8C94-5C224A82910E_1_105_c](https://user-images.githubusercontent.com/84425240/160259060-1a2a34ac-b2f1-44df-8adf-c15d9aeaaf71.jpeg)
+
+### Demo of the newly registered user and current user's experience.  The account information renders the users account information and the user has access to the rest of the site.  The site's additional features are access to nutritionists, exercise videos, recipe and nutritional information related to their weekly meal preference, supplier information and live feed/video's introducing the supplier.  *Please view Fairuse Disclaimer below.
+
+![45067BA5-1C5F-4ACF-B8D3-F87B931785B9_1_105_c](https://user-images.githubusercontent.com/84425240/160259324-76e35cf8-664c-400a-a05a-56518b801861.jpeg)
+
 ## Technical Challenges (Anticipated and Unexpected)
 -Within a short time frame, we were all individually committed to learning new methods and techniques affecting the entire project.  Firebase, figma, styled components, react router were programs or methods we agreed to use.  Each required research and were implemented successfully over the course of 6 days.  Additionally, the size of the project was very large.  The client asked for multiple features including a sub app within the main app.  We scaled the project into phases so we could meet realistic expectations within the allotted time.
 ## Technical Achievements
@@ -41,4 +51,10 @@ This project was a 1 week sprint in which our team attempted to complete a MVP f
 ## Non MVP Tickets?
 -The nutritional portion of the site was not planned to be included in our first phase, however, we did add the visuals to build off of.
 
+### *DISCLAIMER & FAIRUSE STATEMENT:
+This application may contain copyrighted material, the use of which may not have been specifically authorized by the copyright owner.  This material is available in an effort to demonstrate the creation of an E-Commerce website in relation to an educational project.  Visuals and videos have been used that were not easily duplicated in the creation of the project.
+
+*This should constitute a "fair use" of any such copyrighted material (referenced and provided for in section 107 of the US Copyright Law) 
+
+*If you wish to use any copyrighted material from this application for purpose of your own that go beyond "fair use", you must obtain expressed permission from the copyright owner.
 
