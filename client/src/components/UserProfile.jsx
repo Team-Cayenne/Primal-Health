@@ -39,7 +39,7 @@ const UserProfile = () => {
             </div>
             <br />
             <div className="profile-health-logger">
-              <a href="">Health Logger</a>
+              {/* <a href="">Health Logger</a> */}
             </div>
             <br />
           </div>

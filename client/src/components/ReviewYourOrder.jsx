@@ -12,9 +12,8 @@ const ReviewYourOrder = () => {
 
   const { currentUser, firstName, lastName, address1, address2, city, state, zip, phone, creditCard, email, password, meals, setMeals, type, setType, rate, setRate, numRecipies, setNumRecipies, headCount, setHeadCount, specialBuy, selectMeals} = useContext(AppContext);
 
-  // refactor this to not use props and use context
+
   const submitUser = () => {
-    console.log(currentUser)
     axios.post('/users', currentUser)
       .then(res => {
         console.log(res);
@@ -28,7 +27,6 @@ const ReviewYourOrder = () => {
 
 return (
   <div>
-    {/*##### Top, with the progress bar #####*/}
       <Progress_container>
         <Logo>
           <Link to="/" style={{ textDecoration: 'none' , color: '#264654', fontFamily: 'Quicksand' }}>
@@ -46,7 +44,6 @@ return (
             <TextZ>All Done!</TextZ>
         </ProgressText>
       </Progress_container>
-      {/*##### end of the TOP ##### */}
 
     <Header>
       Review your order
@@ -103,7 +100,7 @@ return (
               </Shipping>
               <Total>
                 <SummaryText>Total</SummaryText>
-                <SummaryText>${rate}</SummaryText>
+                <SummaryText>$ {rate} </SummaryText>
               </Total>
             </Cost>
           </OrderSummary>
