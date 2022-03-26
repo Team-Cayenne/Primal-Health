@@ -18,7 +18,7 @@ This project was a 1 week sprint in which our team attempted to complete a MVP f
 -JavaScript, React, Node, Firebase, Webpack, CSS, Styled Components, Jest, Axios, Babel, Express, Spoonacular API, Edamam API, React Router, Logo Design, Trello
 ## Video Demo
 
-![test](https://imgur.com/a/Y3MI4BJ)
+![test](http://g.recordit.co/eQaylv7G4v.gif)
 ## Technical Challenges (Anticipated and Unexpected)
 -Within a short time frame, we were all individually committed to learning new methods and techniques affecting the entire project.  Firebase, figma, styled components, react router were programs or methods we agreed to use.  Each required research and were implemented successfully over the course of 6 days.  Additionally, the size of the project was very large.  The client asked for multiple features including a sub app within the main app.  We scaled the project into phases so we could meet realistic expectations within the allotted time.
 ## Technical Achievements
