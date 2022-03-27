@@ -1,11 +1,11 @@
 # Primal-Health: "Reconnect With Your Roots!"
 
 ## Contributers:
-Allie Diorio, Andy Nguyen, Austin Pakola, Cheryl Casas, Yuriy Kuptsov
-
-Architect: Allie Diorio
-UI Manager: Andy Nguyen
-Project Manager: Cheryl Casas
+- Architect: Allie Diorio, https://github.com/alliediorio
+- UI Manager: Andy Nguyen, https://github.com/andynguyenh
+- Austin Pakola: https://github.com/Pak-Attack
+- Project Manager:  Cheryl Casas, https://github.com/Cherylcc227
+- Yuriy Kuptsov: https://github.com/MSVyk
 
 ## Introduction
 This project was a 1 week sprint in which our team attempted to complete a MVP for Rachel, the COO of Primal Health.  Primal Health's request was an E-commerce site, focusing on biodynamically produced meal plan delivery subsciptions with an additional Nutrition and Health education resource.  Due to the short time constraints, our teams focus was on the profit revenue streaming component of the application, the food delivery aspect and its corresponding user story.
