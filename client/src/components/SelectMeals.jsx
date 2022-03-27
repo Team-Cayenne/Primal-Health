@@ -4,11 +4,14 @@ import Styled from 'styled-components'
 import ProgressMasthead from '../shared/ProgressMasthead.jsx'
 import {Link}  from "react-router-dom";
 import axios from 'axios';
+import { Progress_container, ProgressText, TextZ, CurrentStep, Logo} from '../styles/pesonalizeYourPlan/styles.js';
+import { Footer } from './EnterShippingInfo.jsx';
+
 
 
   const SelectMeals = () =>{
     // !Cheryl
-  const {meals, selectMeals, setSelectMeals} = useContext(AppContext);
+  const {meals, selectMeals, setSelectMeals, rate, setRate, numRecipies, headCount, specialBuy, setSpecialBuy, type, currentUser, setCurrentUser} = useContext(AppContext);
   const [special, setSpecial] = useState([]);
 
     // !Cheryl
@@ -20,179 +23,60 @@ import axios from 'axios';
     const getSuppliers=()=> {
       axios.get('/suppliers')
         .then(results => {
-          console.log('GET SUPPLIERS', results)
           setSpecial(results.data)
         })
         .catch(err => {
           console.log(err);
         })
     }
-    console.log("SPECIAL", special)
-    const testMeals = [
-      {
-        id: 716381,
-        title: 'Nigerian Snail Stew',
-        image: 'https://spoonacular.com/recipeImages/716381-312x231.jpg',
-        imageType: 'jpg'
-      },
-      {
-        id: 769774,
-        title: 'Shredded Roast Beef Stuffed Sweet Potatoes (Whole 30 & PALEO)',
-        image: 'https://spoonacular.com/recipeImages/769774-312x231.jpg',
-        imageType: 'jpg'
-      },
-      {
-        id: 639851,
-        title: 'Cod with Tomato-Olive-Chorizo Sauce and Mashed Potatoes',
-        image: 'https://spoonacular.com/recipeImages/639851-312x231.jpg',
-        imageType: 'jpg'
-      },
-      {
-        id: 633344,
-        title: 'Bacon Wrapped Pork Tenderloin',
-        image: 'https://spoonacular.com/recipeImages/633344-312x231.jpg',
-        imageType: 'jpg'
-      },
-      {
-        id: 716330,
-        title: 'Chicken and Mango Skewer',
-        image: 'https://spoonacular.com/recipeImages/716330-312x231.jpg',
-        imageType: 'jpg'
-      },
-      {
-        id: 659135,
-        title: 'Salmon with roasted vegetables',
-        image: 'https://spoonacular.com/recipeImages/659135-312x231.jpg',
-        imageType: 'jpg'
-      },
-      {
-        id: 638626,
-        title: 'Chimichurri Skirt Steak with Grilled Asparagus',
-        image: 'https://spoonacular.com/recipeImages/638626-312x231.jpg',
-        imageType: 'jpg'
-      },
-      {
-        id: 1046982,
-        title: 'How to Make the Perfect Sweet Potato Sloppy Joes',
-        image: 'https://spoonacular.com/recipeImages/1046982-312x231.jpg',
-        imageType: 'jpg'
-      },
-      {
-        id: 661578,
-        title: 'Steamed Plaice & Spinach Rolls',
-        image: 'https://spoonacular.com/recipeImages/661578-312x231.jpg',
-        imageType: 'jpg'
-      },
-      {
-        id: 648257,
-        title: 'Italian Steamed Artichokes',
-        image: 'https://spoonacular.com/recipeImages/648257-312x231.jpg',
-        imageType: 'jpg'
-      },
-      {
-        id: 648627,
-        title: 'Juicy & Tender ~ Pork Loin Roast',
-        image: 'https://spoonacular.com/recipeImages/648627-312x231.jpg',
-        imageType: 'jpg'
-      },
-      {
-        id: 648247,
-        title: 'Italian Seafood Stew',
-        image: 'https://spoonacular.com/recipeImages/648247-312x231.jpg',
-        imageType: 'jpg'
-      },
-      {
-        id: 665831,
-        title: 'fennel, Peppers, Lettuce Salad',
-        image: 'https://spoonacular.com/recipeImages/665831-312x231.jpg',
-        imageType: 'jpg'
-      },
-      {
-        id: 645856,
-        title: 'Grilled Salmon With Cherry, Pineapple, Mango Salsa',
-        image: 'https://spoonacular.com/recipeImages/645856-312x231.jpg',
-        imageType: 'jpg'
-      },
-      {
-        id: 654435,
-        title: 'Pan Seared Salmon',
-        image: 'https://spoonacular.com/recipeImages/654435-312x231.jpg',
-        imageType: 'jpg'
-      },
-      {
-        id: 659674,
-        title: 'Seared Pork Chops with Mango Salsa',
-        image: 'https://spoonacular.com/recipeImages/659674-312x231.jpg',
-        imageType: 'jpg'
-      },
-      {
-        id: 665261,
-        title: 'Whole Chicken Dinner',
-        image: 'https://spoonacular.com/recipeImages/665261-312x231.jpg',
-        imageType: 'jpg'
-      },
-      {
-        id: 716427,
-        title: 'Roasted Butterflied Chicken w. Onions & Carrots',
-        image: 'https://spoonacular.com/recipeImages/716427-312x231.jpg',
-        imageType: 'jpg'
-      },
-      {
-        id: 648721,
-        title: 'Kale and Roasted Sweet Potato Soup with Chicken Sausage',
-        image: 'https://spoonacular.com/recipeImages/648721-312x231.jpg',
-        imageType: 'jpg'
-      },
-      {
-        id: 643061,
-        title: 'Flank Steak with Herbed Salsa',
-        image: 'https://spoonacular.com/recipeImages/643061-312x231.jpg',
-        imageType: 'jpg'
-      },
-      {
-        id: 645863,
-        title: 'Grilled Salmon With Mango Salsa',
-        image: 'https://spoonacular.com/recipeImages/645863-312x231.jpg',
-        imageType: 'jpg'
-      },
-      {
-        id: 645422,
-        title: 'Sausages with Green Cabbage Mash',
-        image: 'https://spoonacular.com/recipeImages/645422-312x231.jpg',
-        imageType: 'jpg'
-      },
-      {
-        id: 640990,
-        title: 'Cuban Flank Steak With Avocado and Tomato Salad',
-        image: 'https://spoonacular.com/recipeImages/640990-312x231.jpg',
-        imageType: 'jpg'
-      },
-      {
-        id: 654352,
-        title: 'Pak Choi and Bean Sprouts Salad',
-        image: 'https://spoonacular.com/recipeImages/654352-312x231.jpg',
-        imageType: 'jpg'
-      },
-      {
-        id: 633088,
-        title: 'Authentic Jamaican Curry Chicken',
-        image: 'https://spoonacular.com/recipeImages/633088-312x231.jpg',
-        imageType: 'jpg'
+
+    const userSelectedRecipes = (title) => {
+      if (selectMeals.length < numRecipies) {
+        setSelectMeals([...selectMeals, title])
       }
-    ]
+    }
+
+    const userBuysSpecial = (title, price) => {
+      setSpecialBuy([...specialBuy, {title, price}])
+      setRate((+rate + price).toFixed(2))
+
+    }
+
+    const submit = () => {
+      setCurrentUser({...currentUser, selectMeals, specialBuy, rate})
+    }
+
+
+
 
   return (
     <div>
-    <ProgressMasthead />
+    <Progress_container>
+      <Logo>
+        <Link to="/" style={{ textDecoration: 'none' , color: '#264654', fontFamily: 'Quicksand' }}>
+        <img className='logo' src='assets/masthead/Masthead-logo-yellow.png' width='156' height='51'></img>
+
+        </Link>
+      </Logo>
+      <ProgressText>
+        <CurrentStep>Select Plan -----</CurrentStep>
+          <TextZ style={{color: '#26BF00'}}>Register -----</TextZ>
+          <TextZ style={{color: '#26BF00'}}>Delivery Info -----</TextZ>
+          <TextZ style={{color: '#26BF00'}}>Payment Info -----</TextZ>
+          <TextZ style={{color: '#26BF00'}}>Select Meals -----</TextZ>
+          <TextZ>Review Order -----</TextZ>
+          <TextZ>All Done!</TextZ>
+        </ProgressText>
+      </Progress_container>
       <SelectRecipesContainer>
         <RecipesContainer>
           <HeaderText>
-            <div>Select Recipes</div>
+            Select Recipes
           </HeaderText>
           <OneRecipeRow>
-            {testMeals.map((meal, i)=> {
-              return <OneRecipe key={i}>
-              <img src={meal.image} width='170' height='150'></img>
+            {meals.map((meal, i)=> {
+              return <OneRecipe key={i} onClick={()=>userSelectedRecipes(meal.title)}>
+              <img src={meal.image} width='170' height='150' style={{cursor: 'pointer'}}></img>
               <RecipeName>{meal.title}</RecipeName>
               </OneRecipe>
             })}
@@ -201,63 +85,89 @@ import axios from 'axios';
 
         <OrderSummaryContainer>
           <HeaderText>
-            <div>Order Summary</div>
+            Order Summary
           </HeaderText>
             <SummaryBoxContainer>
               <MealSelection>
-                <div>Meat & Veggies</div>
-                <div>4 Meals for 5 people per week</div>
-                <div>20 Meals per week</div>
+                <SummaryText>{type}</SummaryText>
+                <SummaryText>{numRecipies} Meals for {headCount} people per week</SummaryText>
+                <SummaryText>{numRecipies * headCount} Portions per week</SummaryText>
+                {/* <SummaryText>{selectMeals}</SummaryText> */}
+                <div>
+                  {selectMeals.map((oneMeal, i) => {
+                    return <div>
+                      <SummaryText> - {oneMeal}</SummaryText>
+                      </div>
+                  })}
+                </div>
+                <div>
+                  {specialBuy.map((item, i) => {
+                    return <div>
+                      <SummaryText> - {item.title} ${item.price}</SummaryText>
+                      {/* <SummaryText>$ {item.price}</SummaryText> */}
+                      </div>
+                  })}
+                </div>
               </MealSelection>
               <Cost>
                 <Shipping>
-                  <div>Shipping</div>
-                  <div>$9.99</div>
+                  <SummaryText>Shipping</SummaryText>
+                  <SummaryText>$9.99</SummaryText>
                 </Shipping>
                 <Total>
-                  <div>Total</div>
-                  <div>$272.79</div>
+                  <SummaryText>Total</SummaryText>
+                  <SummaryText>$ {rate}</SummaryText>
                 </Total>
               </Cost>
           </SummaryBoxContainer>
           <ReviewOrderContainer>
-            <ReviewOrderButton>
-            <Link to="/review-order">Review Order</Link>
-            </ReviewOrderButton>
+            <Link to="/review-order" style={{ textDecoration: 'none' , color: '#26BF00' }}>
+              <ReviewOrderButton onClick={submit}>Review Order</ReviewOrderButton>
+            </Link>
           </ReviewOrderContainer>
         </OrderSummaryContainer>
 
       </SelectRecipesContainer>
+
         <SpecialtyHeader>
-          Add Specialty Items
+          <div style={{display: 'flex', color: '#264654', fontFamily: 'Quicksand', justifyContent: 'center', fontWeight: '600',
+        margin: '50px', fontSize: '1.2em', borderTop: '1px solid #264654', lineHeight: '80px'}}>Add Specialty Items</div>
         </SpecialtyHeader>
           <SpecialtyItemsContainer>
             {/* testMeals replace with special with working API */}
-            {testMeals.map((item, i) => {
-              return <OneSpecialty>
-                <img src={item.food_item_url} width='170' height='150'/>
-                <p>{item.supplier_name}</p>
+            {special.map((item, i) => {
+              return <OneSpecialty onClick={()=>userBuysSpecial(item.food_item, item.food_item_price)}>
+                <img src={item.food_item_url} width='153' height='135' style={{cursor: 'pointer'}}/>
+                <SpecialtyName>{item.supplier_name}</SpecialtyName>
+                <SpecialtyName>{item.food_item}</SpecialtyName>
               </OneSpecialty>
             })}
           </SpecialtyItemsContainer>
+          <Footer style={{marginTop: '50px'}}></Footer>
     </div>
   )
 }
-
+const SummaryText = Styled.div`
+  font-family: 'Quicksand';
+  font-weight: 500;
+  font-size: 16px;
+  color: #264654;
+`
 const SelectRecipesContainer = Styled.div`
   display: flex;
   flex-direction: row;
   justify-content: center;
   margin-top: 50px;
-  justify-content: space-evenly;
 `
 const RecipesContainer = Styled.div`
   display: flex;
   flex-direction: column;
+// align-items:center;
 `
 const OneRecipeRow = Styled.div`
   display: flex;
   flex-wrap: wrap;
+  width: 800px;
   margin-top: 10px;
   gap: 20px
 `
@@ -266,6 +176,8 @@ const OneRecipe = Styled.div`
   flex-direction: column;
 `
 const RecipeName = Styled.div`
+  font-family: 'Quicksand';
+  margin-top: 10px;
   font-size: 12px;
   width: 160px
 `
@@ -281,7 +193,8 @@ const SummaryBoxContainer = Styled.div`
   flex-direction: column;
   margin-top: 10px;
   width: 400px;
-  height: 200px;
+  height: 300px;
+  overflow: auto;
   border: 1px solid #C4C4C4;
   border-radius: 5px;
   font-size: 13px;
@@ -298,12 +211,13 @@ const ReviewOrderButton = Styled.button`
   border-color: rgba(38, 191, 0, .25);
   color: #26BF00;
   font-size: 18px;
+  cursor: pointer;
 `
 const HeaderText = Styled.div`
-  @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
-  font-family: 'Lato', sans-serif;
-  font-size: 18px;
-  margin-left: 5px;
+  margin: 20px;
+  font-family: 'Quicksand';
+  font-size: 20px;
+  color: #264654;
 `
 const MealSelection = Styled.div`
   margin: 15px 15px 30px 15px;
@@ -312,16 +226,6 @@ const MealSelection = Styled.div`
 const Cost = Styled.div`
   margin: 0px 15px 0px 15px;
   line-height: 25px;
-`
-const OrderSummary = Styled.div`
-  display: flex;
-  flex-direction: column;
-  margin-top: 20px;
-  margin-left: 86.5px;
-  width: 400px;
-  height: 200px;
-  border: 1px solid #C4C4C4;
-  border-radius: 5px;
 `
 const Shipping = Styled.div`
   display: flex;
@@ -332,11 +236,13 @@ const Shipping = Styled.div`
 const Total = Styled.div`
   display: flex;
   justify-content: space-between;
+  margin-bottom: 20px;
 `
 const SpecialtyHeader =  Styled.div`
   font-size: 18px;
   margin: 30px 20px 10px 20px;
   text-align: center;
+  font-family: 'Quicksand';
 `
 const SpecialtyItemsContainer = Styled.div`
   display: flex;
@@ -349,9 +255,8 @@ const OneSpecialty = Styled.div`
   margin: 0px 5px;
 `
 const SpecialtyName = Styled.div`
-  font-size: 9px;
-`
-const SpecialtyInfo = Styled.div`
-  font-size: 9px;
+  margin-top: 5px;
+  font-size: 16px;
+  font-family: 'Quicksand';
 `
 export default SelectMeals

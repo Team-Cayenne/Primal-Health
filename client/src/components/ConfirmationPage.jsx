@@ -1,45 +1,76 @@
-import React from 'react'
+import { AppContext } from "../context.js";
+import React, { useContext } from 'react'
 import {Link}  from "react-router-dom";
+import Styled from 'styled-components'
 import { MainContainer } from '../styles/confirmationPage/styles';
-import { TopContainer, Logo } from '../styles/confirmationPage/top';
 import { MiddleContainer, ThankYou, OrderID, ThankYouRow, OrderConfirmation,
-  OrderTitle, Line, TrackYourOrderButton, InnerPTittle, InnerPText } from '../styles/confirmationPage/middle';
+  OrderTitle, TrackYourOrderButton, InnerPTitle, InnerPText } from '../styles/confirmationPage/middle';
 import { BottomContainer } from '../styles/confirmationPage/bottom';
+import { Progress_container, ProgressText, TextZ, CurrentStep, Logo} from '../styles/pesonalizeYourPlan/styles.js';
+
 
 const ConfirmationPage = () =>{
+  const {meals, setMeals, type, setType, rate, setRate, numRecipies, setNumRecipies,headCount, setHeadCount, selectMeals, specialBuy, currentUser, firstName, lastName, address1, address2, city, state, zip, phone, creditCard,} = useContext(AppContext);
 
   return (
     <MainContainer>
-      <TopContainer>
-        <Logo/>
-      </TopContainer>
+      <Progress_container>
+        <Logo>
+          <Link to="/" style={{ textDecoration: 'none' , color: '#264654', fontFamily: 'Quicksand' }}>
+          <img className='logo' src='assets/masthead/Masthead-logo-yellow.png' width='156' height='51'></img>
+
+          </Link>
+        </Logo>
+        <ProgressText>
+          <CurrentStep>Select Plan -----</CurrentStep>
+            <TextZ style={{color: '#26BF00'}}>Register -----</TextZ>
+            <TextZ style={{color: '#26BF00'}}>Delivery Info -----</TextZ>
+            <TextZ style={{color: '#26BF00'}}>Payment Info -----</TextZ>
+            <TextZ style={{color: '#26BF00'}}>Select Meals -----</TextZ>
+            <TextZ style={{color: '#26BF00'}}>Review Order -----</TextZ>
+            <TextZ style={{color: '#26BF00'}}>All Done!</TextZ>
+          </ProgressText>
+        </Progress_container>
       <MiddleContainer>
         <ThankYouRow>
-          <ThankYou>Thank you for you order</ThankYou>
-          <OrderID>#102b4s28j45620f02</OrderID>
+          <ThankYou>Thank you for you order!</ThankYou>
+          <OrderID>Order Number #102b4s28j45620f02</OrderID>
         </ThankYouRow>
         <OrderConfirmation>
-          <OrderTitle> Order confirmation </OrderTitle>
-          <Line>____________________________</Line>
-          <InnerPTittle>Meat and Veggins Plan:</InnerPTittle>
+          <OrderTitle> Order Confirmation </OrderTitle>
+          <InnerPTitle>{type} Plan:</InnerPTitle>
           <InnerPText>
-            4 Recipes for 5 people per week <br/>
-            20 Meals per week
+            {numRecipies} Recipes for {headCount} people per week <br/>
+            {numRecipies * headCount} Meals per week
+
+                  {selectMeals.map((oneMeal, i) => {
+                    return <div>
+                      <Items> - {oneMeal}</Items>
+                      </div>
+                  })}
+
+
+                  {specialBuy.map((item, i) => {
+                    return <div>
+                      <Items> - {item.title} $ {item.price}</Items>
+                      </div>
+                  })}
+
           </InnerPText>
-          <InnerPTittle>Shipping Information:</InnerPTittle>
+          <InnerPTitle>Shipping Information:</InnerPTitle>
           <InnerPText>
-            Name: John Smith <br/>
-            Address: 104 Centre St, CA, 05478
+            Name: {currentUser.firstName} {currentUser.lastName} <br/>
+            Address: {currentUser.address1} {currentUser.address2}, {currentUser.city}, {currentUser.state} {currentUser.zip}
           </InnerPText>
-          <InnerPTittle>Payment:</InnerPTittle>
+          <InnerPTitle>Payment:</InnerPTitle>
           <InnerPText>
-            Date: 04/13/2022 <br/>
-            Type: Paid with Visa **** **** **** 4012 <br/><div style={{alignSelf: 'flex-end', marginLeft: '300px'}}>$199.80</div> <br/>
+            Date: 03/25/2022 <br/>
+            Type: Paid with Visa **** **** **** {currentUser.creditCard.slice(currentUser.creditCard.length - 4)} <br/> <div style={{textAlign:'end', marginTop: '40px', marginRight:'60px', fontFamily:'Quicksand', fontWeight:'bold'}}>Total: $ {rate}</div> <br/>
           </InnerPText>
         </OrderConfirmation>
-          <TrackYourOrderButton>
-            <Link to="/tracking">Place Order</Link>
-          </TrackYourOrderButton>
+          <Link to="/tracking">
+            <TrackYourOrderButton>Continue to tracking</TrackYourOrderButton>
+          </Link>
       </MiddleContainer>
       <BottomContainer>
       </BottomContainer>
@@ -48,4 +79,14 @@ const ConfirmationPage = () =>{
 
 }
 
+const Items = Styled.div`
+  display: flex;
+  margin: 5px 0px 0px;
+  font-size: 16px;
+  color: #264654;
+  font-family: 'Quicksand';
+`
+
+//<TrackYourOrderButton onClick={routeChange}>Track your order</TrackYourOrderButton>
 export default ConfirmationPage
+

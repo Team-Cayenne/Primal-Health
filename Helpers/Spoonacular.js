@@ -5,7 +5,7 @@ const config = require("../config.js")
 const getMeals = async ({type}) => {
   console.log("config.apiKey=====>", config.apiKey)
   try {
-    const response = await axios(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${config.apiKey}&diet=${type}&number=25&maxReadyTime=50&type=main course`)
+    const response = await axios(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${config.apiKey}&diet=${type}&number=8&maxReadyTime=50&type=main course`)
 
       console.log('response.data response.data', response.data)
       return response.data
@@ -29,9 +29,9 @@ const getRecipeSteps = async ({id}) => {
 
 const getRecipeImages = async ({id}) => {
   try {
-    // const response = await axios(`https://api.spoonacular.com/recipes/${id}/ingredientWidget.png?apiKey=${config.apiKey}&measure=us`)
+    const response = await axios(`https://api.spoonacular.com/recipes/${id}/card?apiKey=${config.apiKey}`)
 
-    const response = await axios(`https://api.spoonacular.com/recipes/${id}/ingredientWidget?apiKey=${config.apiKey}&measure=us`)
+    // const response = await axios(`https://api.spoonacular.com/recipes/${id}/ingredientWidget?apiKey=${config.apiKey}&measure=us`)
     //add and return list from db
       console.log('response.data response.data', response.data)
       return response.data
@@ -52,8 +52,6 @@ const getNutritional = async ({id}) => {
     throw new Error("Unable to retrieve data from API")
   }
 }
-
-
 
   module.exports = {
     getMeals,

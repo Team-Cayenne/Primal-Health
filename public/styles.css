@@ -5,22 +5,25 @@
   box-sizing: border-box;
   font-family: sans-serif;
 }
-
+.mainSubText {
+  font-family: Quicksand;
+}
 /* Default font-size is 16px. 1Rem=default font-size.
 Reset font-size to make calculations easier. Setting font-size to 62.5% makes 1Rem=10px. Using rems also allows the app to be responsive to screen size changes  */
 
-
-
-/* html {
-  font-size: 200%;
-} */
+html {
+  font-size: 62.5%;
+}
 
 /* Supplier Page */
 .logo-image {
   object-fit: cover;
-  height: 100px;
-  width: 100px;
+  height: 150px;
+  width: 150px;
   cursor: pointer;
+  border-radius: 50%;
+  border: 3px solid #26BF00;
+  margin: 100px;
 }
 
 .supplier-modal-container {
@@ -31,37 +34,59 @@ Reset font-size to make calculations easier. Setting font-size to 62.5% makes 1R
 
 .supplier-modal {
   position: fixed;
-  top: 15%;
-  left: 25%;
   max-width: 50%;
   max-height: 80%;
   background-color: white;
   margin: auto;
   padding: 40px;
   border: 2px solid black;
-  box-shadow: 0 40px 40px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+  box-shadow: 0 40px 40px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   animation-name: animatetop;
   animation-duration: 1s;
   z-index: 1;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  color:  black;
+  color: black;
   font-weight: bold;
+}
+
+.supplier-modal-contents {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .supplier-modal-image {
   object-fit: cover;
   height: 100px;
   width: 100px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.supplier-modal-text {
+  text-align: center;
 }
 
 .close-modal {
   cursor: pointer;
+  align-items: flex-end;
 }
 
-
 /* UserProfile */
+
+.user-profile {
+  margin-left: 3%;
+
+}
+
+.user-profile-title {
+  text-align: center;
+  margin-top: 5%;
+  margin-bottom: 2%;
+}
+
 .profile-order-history {
   cursor: pointer;
 }
@@ -74,13 +99,33 @@ Reset font-size to make calculations easier. Setting font-size to 62.5% makes 1R
   cursor: pointer;
 }
 
-.user-info {
+.profile-sections {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+
+}
+
+.profile-links {
+  grid-column: 2 / 2;
+  background-color: #FFE5A4;
+  justify-content: center;
+  padding: 15%;
+  border-radius: 10%;
+  height: 150px;
+}
+
+.user-info-data {
+  grid-column: 4 / 7;
+  background-color: #FFE5A4;
   display: flex;
   flex-direction: row;
+  justify-content: center;
+  padding: 5%;
+  border-radius: 10%;
 }
 
 .user-key {
-  margin-right: 200px;
+  margin-right: 10%;
 }
 
 .profile-update-modal-container {
@@ -92,44 +137,115 @@ Reset font-size to make calculations easier. Setting font-size to 62.5% makes 1R
 .profile-update-modal {
   position: fixed;
   top: 15%;
-  left: 25%;
   max-width: 50%;
   max-height: 80%;
   background-color: white;
   margin: auto;
   padding: 40px;
-  border: 2px solid black;
-  box-shadow: 0 40px 40px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+  box-shadow: 0 40px 40px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   animation-name: animatetop;
   animation-duration: 1s;
   z-index: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
-  color:  black;
-  font-weight: bold;
+  color: black;
 }
 
-/* UserOrderTracking */
-.order-history {
+.profile-modal-background {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.update-user-modal-user-info-sections {
   display: flex;
   flex-direction: row;
 }
 
+.update-user-modal-user-key {
+  margin-right: 10%;
+  width: 300px;
+}
+
+.update-user-modal-user-value {
+  margin-right: 10%;
+  width: 300px;
+}
+
+.update-user-button {
+  background: rgba(38, 191, 0, .25);
+  border-color: rgba(38, 191, 0, .25);
+  border-radius: 5px;
+  color: #26BF00;
+  height: 50px;
+  width: 130px;
+  font-size: 18px;
+  font-family: 'Lato';
+  font-weight: semi-bold;
+}
+
+/* UserOrderTracking */
+
+.user-orders {
+  margin-top: 5%;
+}
+
+.user-orders-title {
+  text-align: center;
+  margin-bottom: 1%;
+}
+
+.order-history {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 1%;
+}
+
+.order {
+  background-color: #FFE5A4;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 2%;
+  width: 30%;
+  border-radius: 10%;
+
+}
+
 .order-key {
-  margin-right: 200px;
+  width: 50%;
+  margin-right: 3%;
+  padding: 1%;
 }
 
 .order-value {
-  margin-bottom: 20px;
+  padding: 1%;
 }
+
+.video-detail-title {
+  margin-top: 5%;
+  text-align: center;
+}
+
+.video-detail-intro {
+  text-align: center;
+}
+
 
 html {
   font-size: medium;
 }
 
 .nutritionalExperts {
-  display: flex
+  display: flex;
 }
 
 .nutritionistInfo {
@@ -178,5 +294,10 @@ html {
   to {
     transform: rotate(360deg);
   }
+}
+
+/* Menu Page */
+.mealImage {
+  border-radius: 11px;
 }
 

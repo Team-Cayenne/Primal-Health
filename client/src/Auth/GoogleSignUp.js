@@ -1,26 +1,34 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
+import { AppContext } from '../context.js';
 import auth from "./firebase";
+import axios from 'axios';
 import Styled from 'styled-components'
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import {Link}  from "react-router-dom";
 import ProgressMasthead from '../shared/ProgressMasthead.jsx'
+import { Progress_container, ProgressText, TextZ, CurrentStep, Logo} from '../styles/pesonalizeYourPlan/styles.js';
+import { Footer } from "../components/EnterShippingInfo.jsx"
 
 
-export default class GoogleSignUp extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      email: '',
-      password: ''
-    }
+ const GoogleSignUp = () => {
 
-    this.googleLogin = this.googleLogin.bind(this);
-    this.addEmail = this.addEmail.bind(this);
-    this.addPassword = this.addPassword.bind(this);
-    this.submit = this.submit.bind(this);
+  const { users, setUsers, currentUser, setCurrentUser, email, setEmail, password, setPassword } = useContext(AppContext);
+
+  useEffect(() => {
+    getUsers();
+  }, []);
+
+  const getUsers = () => {
+    axios.get('/users')
+      .then(results => {
+        setUsers(results.data)
+      })
+      .catch(err => {
+        console.log(err);
+      })
   }
 
-  googleLogin() {
+  const googleLogin = () => {
     const provider = new GoogleAuthProvider();
     const auth = getAuth();
     signInWithPopup(auth, provider)
@@ -29,8 +37,7 @@ export default class GoogleSignUp extends React.Component {
         const token = credential.accessToken;
         // The signed-in user info.
         const user = result.user;
-
-        this.props.addUser(user)
+        userSignup(user)
 
       })
       .catch((err) => {
@@ -44,56 +51,100 @@ export default class GoogleSignUp extends React.Component {
       })
   }
 
-  addEmail(event) {
-    this.setState({
-      email: event.target.value
-    })
-  }
 
-  addPassword(event) {
-    this.setState({
-      password: event.target.value
-    })
-  }
+  // const emailLogin = () => {
 
-  submit() {
-    if (this.state.email.length === 0 || this.state.password.length === 0) {
-      alert('Please Complete Form')
-    } else if (this.state.email.indexOf('@') === -1) {
-      alert('Must Have Valid Email')
+  // }
+
+
+  const userSignup = (user) => {
+    if (user.password) {
+      for (let i = 0; i < users.length; i++) {
+        if (users[i].email === user.email) {
+          alert('Email Already Exists');
+          return;
+        }
+      }
+      setCurrentUser({...currentUser, email, password})
     } else {
-      this.props.addUser(this.state)
+      for (let i = 0; i < users.length; i++) {
+        if (users[i].email === user.email) {
+          alert('Email Already Exists');
+          return;
+        }
+      }
+      setEmail(user.email)
     }
   }
 
-  render() {
+
+  const addEmail = (event) => {
+    setEmail(event.target.value);
+  }
+
+  const addPassword = (event) => {
+    setPassword(event.target.value);
+  }
+
+
+  const submit = () => {
+    if (email.length === 0 || password.length === 0) {
+      alert('Please Complete Form')
+    } else if (email.indexOf('@') === -1) {
+      alert('Must Have Valid Email')
+    } else {
+      userSignup({email: email, password: password})
+    }
+  }
+
     return (
       <div>
-        <ProgressMasthead/>
+        {/*##### Top, with the progress bar #####*/}
+        <Progress_container>
+        <Logo>
+          <Link to="/" style={{ textDecoration: 'none' , color: '#264654', fontFamily: 'Quicksand' }}>
+          <img className='logo' src='assets/masthead/Masthead-logo-yellow.png' width='156' height='51'></img>
+
+          </Link>
+        </Logo>
+        <ProgressText>
+          <CurrentStep>Select Plan -----</CurrentStep>
+            <TextZ style={{color: '#26BF00'}}>Register -----</TextZ>
+            <TextZ>Delivery Info -----</TextZ>
+            <TextZ>Payment Info -----</TextZ>
+            <TextZ>Select Meals -----</TextZ>
+            <TextZ>Review Order -----</TextZ>
+            <TextZ>All Done!</TextZ>
+          </ProgressText>
+        </Progress_container>
+      {/*##### end of the TOP ##### */}
         <Header>Create an account</Header>
         <SignUpContainer>
           <SignUpBox>
             <Header2>Get Started</Header2>
           <Text>Email</Text>
-          <Email type='email' onChange={this.addEmail}></Email>
+          <Email type='email' onChange={addEmail}></Email>
           <Text>Password</Text>
-          <Password onChange={this.addPassword}></Password>
-          <SignUpButton onClick={this.submit}>Sign Up</SignUpButton>
-          <GoogleButton onClick={this.googleLogin} className="login-button">GOOGLE</GoogleButton>
+          <Password type='password' onChange={addPassword}></Password>
+          <SignUpButton onClick={submit}>Sign Up</SignUpButton>
+          <GoogleButton onClick={googleLogin} className="login-button">
+          <img width="20px" style={{margin: '20px'}} alt="Google sign-in" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png" />
+            Continue with Google
+          </GoogleButton>
           </SignUpBox>
+          <Link to="/shipping"><Button>Continue to shipping</Button></Link>
         </SignUpContainer>
-        <Link to="/shipping">Enter Shipping Info</Link>
+        <Footer style={{marginTop: '50px'}}></Footer>
       </div>
     );
-  }
 }
 
 const SignUpContainer = Styled.div`
   @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
 
   display: flex;
-  justify-content: center;
-  align-items: start;
+  flex-direction: column;
+  align-items: center;
 `
 const Text = Styled.div`
   display: flex;
@@ -128,10 +179,12 @@ const SignUpBox = Styled.div`
 const Email = Styled.input`
   width: 451px;
   height: 34px;
+  padding-left: 10px;
 `
 const Password = Styled.input`
   width: 451px;
   height: 34px;
+  padding-left: 10px;
 `
 const SignUpButton = Styled.button`
   width: 277px;
@@ -143,10 +196,28 @@ const SignUpButton = Styled.button`
   color: #26BF00;
   font-size: 18px;
   font-family: 'Quicksand';
+  cursor: pointer;
 `
 const GoogleButton = Styled.button`
+  display: flex;
   width: 277px;
   height: 55px;
   margin: 10px;
+  font-size: 18px;
   font-family: 'Quicksand';
+  align-items: center;
+  cursor: pointer;
 `
+const Button = Styled.button`
+  width: 277px;
+  height: 55px;
+  margin: 30px 15px 0px 15px;
+  background-color: rgba(38, 191, 0, .25);
+  border-radius: 5px;
+  border-color: rgba(38, 191, 0, .25);
+  color: #26BF00;
+  font-size: 18px;
+  font-family: 'Quicksand';
+  cursor: pointer;
+`
+export default GoogleSignUp;

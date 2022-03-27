@@ -3,19 +3,24 @@ const firebase = require('../database');
 
 // Users
 const addUser = (req, res) => {
-  let password = req.body.password || '';
-  let firstName = req.body.displayName || '';
+
   let user = {
-    firstName: firstName,
-    lastName: "",
+    firstName: req.body.firstName,
+    lastName: req.body.lastName,
     email: req.body.email,
-    password: password,
-    address: "",
-    creditCardInfo: 1234,
-    username: "",
-    subscriptionPrice: 100,
-    mealsPerWeek: 5,
-    mealHeadCount: 2,
+    password: req.body.password,
+    address1: req.body.address1,
+    address2: req.body.address2,
+    city: req.body.city,
+    state: req.body.state,
+    zip: req.body.zip,
+    phone: req.body.phone,
+    creditCard: req.body.creditCard,
+    type: req.body.type,
+    subscriptionRate: req.body.subscriptionRate,
+    rate: req.body.rate,
+    numRecipies: req.body.numRecipies,
+    headCount: req.body.headCount,
     orders: [
         {
             trackingNumber: 1234,
@@ -67,13 +72,20 @@ const getUsers = (req, res) => {
           user_id: doc.id,
           firstName: doc.data().firstName,
           lastName: doc.data().lastName,
+          password: doc.data().password,
           email: doc.data().email,
-          address: doc.data().address,
-          creditCardInfo: doc.data().creditCardInfo,
-          username: doc.data().username,
-          subscriptionPrice: doc.data().subscriptionPrice,
-          mealsPerWeek: doc.data().mealsPerWeek,
-          mealHeadCount: doc.data().mealHeadCount,
+          address1: doc.data().address1,
+          address2: doc.data().address2,
+          city: doc.data().city,
+          state: doc.data().state,
+          zip: doc.data().zip,
+          phone: doc.data().phone,
+          creditCard: doc.data().creditCard,
+          type: doc.data().type,
+          subscriptionRate: doc.data().subscriptionRate,
+          rate: doc.data().rate,
+          numRecipies: doc.data().numRecipies,
+          headCount: doc.data().headCount,
           orders: doc.data().orders,
           addToCart: doc.data().addToCart
         })
