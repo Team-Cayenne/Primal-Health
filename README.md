@@ -1,11 +1,11 @@
 # Primal-Health: "Reconnect With Your Roots!"
 
-Contributers:
-Allie Diorio, Andy Nguyen, Austin Pakola, Cheryl Casas, Yuriy Kuptsov
-
-Architect: Allie Diorio
-UI Manager: Andy Nguyen
-Project Manager: Cheryl Casas
+## Contributers:
+- Architect: Allie Diorio, https://github.com/alliediorio
+- UI Manager: Andy Nguyen, https://github.com/andynguyenh
+- Austin Pakola: https://github.com/Pak-Attack
+- Project Manager:  Cheryl Casas, https://github.com/Cherylcc227
+- Yuriy Kuptsov: https://github.com/MSVyk
 
 ## Introduction
 This project was a 1 week sprint in which our team attempted to complete a MVP for Rachel, the COO of Primal Health.  Primal Health's request was an E-commerce site, focusing on biodynamically produced meal plan delivery subsciptions with an additional Nutrition and Health education resource.  Due to the short time constraints, our teams focus was on the profit revenue streaming component of the application, the food delivery aspect and its corresponding user story.
@@ -15,10 +15,60 @@ This project was a 1 week sprint in which our team attempted to complete a MVP f
 -Primal Health was born out of a passionate desire to expose and engage local communities to a healthy lifestlye and community with local purveyors and health professionals.
 
 ## Tech Stack
--JavaScript, React, Node, Firebase, Webpack, CSS, Styled Components, Jest, Axios, Babel, Express, Spoonacular API, Edamam API, React Router, Logo Design, Trello
-## Video Demo
+-JavaScript, React, Node, Firebase, Webpack, CSS, Styled Components, Axios, Babel, Express, Spoonacular API, React Router, Logo Design (Eve), Trello
 
-![test](https://imgur.com/a/Y3MI4BJ)
+![0AF95113-2D53-4895-A61C-A33D1D3EC5A1_4_5005_c](https://user-images.githubusercontent.com/84425240/160262500-1bb32766-ba1f-405e-93b0-3b7238f384b4.jpeg)![517DD816-C2E0-477F-91E0-4093B07884C6_4_5005_c](https://user-images.githubusercontent.com/84425240/160262341-cc31b28d-8fbe-42d1-8e13-965c8a5bc41a.jpeg)![158F7AA9-36F9-4C14-8016-BD981E726D3F_4_5005_c](https://user-images.githubusercontent.com/84425240/160262356-c7f8d47e-a4e5-44de-9f08-a8049905434d.jpeg)![95583001-0CCC-4F8F-B06A-4555D02FA25B_4_5005_c](https://user-images.githubusercontent.com/84425240/160262359-812a364e-1530-4f36-bede-22102fc8c628.jpeg)![F25C4CED-2A46-404D-B7E4-2B69061B165A_4_5005_c](https://user-images.githubusercontent.com/84425240/160262366-ded79f23-16f4-42d7-9db2-0788a8af04fc.jpeg)![0EBA9878-9C20-4AAF-B498-EADEC186CB8E_4_5005_c](https://user-images.githubusercontent.com/84425240/160262369-057dc8fa-94a3-4f54-8948-d573d89fd6dd.jpeg)![4B345CC4-392E-4DBF-B013-4AAA0FDCAE4D_4_5005_c](https://user-images.githubusercontent.com/84425240/160262391-3d23d67f-572b-4fea-956f-86aea021ef20.jpeg)![398DF3EA-1757-42A3-B065-BEA1D6171D93_4_5005_c](https://user-images.githubusercontent.com/84425240/160262502-03773361-d21b-433c-87ef-9275d160ec27.jpeg)![3C99FF49-7A7B-41E9-AFA2-09876B09C127_4_5005_c](https://user-images.githubusercontent.com/84425240/160262507-3fa38f83-5d49-49c7-bb9d-a7c85ea2d103.jpeg)![EAC051D8-3A8F-4D73-9CCB-88A801AF0564_4_5005_c](https://user-images.githubusercontent.com/84425240/160262511-3b8730d4-d904-470e-866a-f0c2079ab064.jpeg)![B7E53939-DF8E-4690-A2CB-E761AA33F07E_4_5005_c](https://user-images.githubusercontent.com/84425240/160262513-51aeffb2-e788-4b8d-88c6-51ae2f637e3c.jpeg)![0D44EF41-758F-4B5A-B866-6F3769838492_4_5005_c](https://user-images.githubusercontent.com/84425240/160262514-3f867fdf-aca6-402b-ad89-e57686dd58fa.jpeg)
+
+
+## GIF Demos Of User Story Per Frame, Figma Blueprint, Firebase Schema and Trello Workspace
+### Demo of an existing customer login into the site.  Since the cached google login is not saved on the site, a popup error appears stating that user is not recognized in the application's database.  However, the manually saved user information is recognized and retrieved from the database, dynamically rendering the user's account information.
+![Existing User Signin](http://g.recordit.co/9kUZulACJH.gif)
+
+### Demo of a new customer signup.  Throughout each frame, the user's personal information and preferences are saved and stored in the database once the order is completed.  In the gif below, a new user starts by adding their meal preference, their portion size and number of meals per week.  The meal preference displayed is based on the "Whole 30" diet. From there, the user is taken to the signup screen
+![Preferences to signup](http://g.recordit.co/e2InHeKj7y.gif)
+
+### The gif below shows an attempt for a current user to sign in, resulting in a popup error recognizing the user already exists. A new user's information is entered and stored in the database, allowing them to move forward to the shipping information page.
+![Signup to shipping](http://g.recordit.co/RB9c3x9RMP.gif)
+
+### The gif below is the entry of shipping information for the new user.  Notice, the preferences that were selected earlier are stored as a state using React useContext, and is rendered on the right portion of this screen.  The next frame is collecting the user's payment information.
+![Shipping to Credit Card](http://g.recordit.co/eDQKIGEHJa.gif)
+
+### The gif below collects the user's credit card information and then leads to the "Select Your Meals" page.
+![Credit Card to Select Meals](http://g.recordit.co/yr1sGnqlFj.gif)
+
+### The gif below enables the user to select their meals (up to their number of meals previously selected), and any additional specialty items they may want.  The meals and items are stored as React state and rendered to the right of the screen.  Additionally, the price updates per additional specialty item. The user is now taken to the "Review Order" page.
+![Meals to Review your order](http://g.recordit.co/EHHofV1o4N.gif)
+
+### The gif below dynamically renders the states previously stored in the previous frames.  Upon clicking the "Submit" button, the information is posted to the database.  The user is now routed to the shipping progress bar, indicating the order has been placed.
+![Review to Confirm](http://g.recordit.co/ZEUyfuglV0.gif)
+
+### The gif below routes the user to the shipping progress bar, indicating the order has been placed. Notice that within this frames, the progress bar on the top portion renders green as the user progresses.
+![Confirm to shipping bar](http://g.recordit.co/AKX9JoUCu3.gif)
+
+### The gif below takes the user back to the "Home" page once the transaction and shipping have been confirmed.
+![Shipping bar to home page](http://g.recordit.co/9kgA6NAymJ.gif)
+
+### The gif below shows the newly created user information dynamically rendering under their account information.
+![Home page to User](http://g.recordit.co/gGvxtr0Qko.gif)
+
+### The gif below features the "Nutrition & Health" section, which shows nutritionist information and embedded exercise videos * These videos are representative of the health videos that would be displayed to promote healthy lifestyle for this demonstrative project, please view the Fairuse Disclaimer below*   
+![User to Health&Nutrition&Video](http://g.recordit.co/xywt696xjP.gif)
+
+### The gif below features the "Recipe" section which shows each meal as per the user's preferred meal plan.  Upon clicking each meal's recipe card and nutritional information per serving is available through a modal popup. The modal information is retrieved from a post request to the Spoonacular API.
+![Nutritional to Recipe](http://g.recordit.co/tgtWliDiwq.gif)
+
+### The gif below features the "Supplier" section which shows suppliers of the products used in the meal kits.  Supplier information and their specialized item is available through a modal popup.  The modal information is retrieved from a get request from the database. The page also includes a link that features live feed and informational videos * These videos are representative of the supplier's products used in this demonstrative project, please view the Fairuse Disclaimer below*   
+![Recipe to Suppliers](http://g.recordit.co/XvGyN9wgo1.gif)
+
+### Figma Blueprint
+![499D46E5-60F3-43D6-A74C-7E0D7E507050](https://user-images.githubusercontent.com/84425240/160262848-97d319f5-9fbd-49c8-8417-8561ee93520a.jpeg)
+
+### Firebase Schema
+![DFF8F834-B0F6-4ADE-84D4-99673429ED94](https://user-images.githubusercontent.com/84425240/160262853-1d4ae21e-6672-4dad-9072-c094772a304e.jpeg)
+
+### Trello Workspace
+![Trello](http://g.recordit.co/1g4eXkoC9c.gif)
+
 ## Technical Challenges (Anticipated and Unexpected)
 -Within a short time frame, we were all individually committed to learning new methods and techniques affecting the entire project.  Firebase, figma, styled components, react router were programs or methods we agreed to use.  Each required research and were implemented successfully over the course of 6 days.  Additionally, the size of the project was very large.  The client asked for multiple features including a sub app within the main app.  We scaled the project into phases so we could meet realistic expectations within the allotted time.
 ## Technical Achievements
@@ -41,4 +91,17 @@ This project was a 1 week sprint in which our team attempted to complete a MVP f
 ## Non MVP Tickets?
 -The nutritional portion of the site was not planned to be included in our first phase, however, we did add the visuals to build off of.
 
+## INSTALLATION INSTRUCTIONS:
+
+- Exectue 'npm install' to install all of the above dependencies and development dependencies for this repo.
+- Execute 'npm run build' and 'npm run watch' to allow for transpilation with updating on each save.
+- Execute 'npm run start' to the Express server connection to the app.
+
+
+### *DISCLAIMER & FAIRUSE STATEMENT:*
+*This application may contain copyrighted material, the use of which may not have been specifically authorized by the copyright owner.  This material is available in relation to a school related project in an effort to demonstrate the Software Engineering technical and practical skills in the creation of an E-Commerce website.  Visuals and videos have been used that were not easily duplicated in the creation of the project.*
+
+*This should constitute a "fair use" of any such copyrighted material (referenced and provided for in section 107 of the US Copyright Law)*
+
+*If you wish to use any copyrighted material from this application for purpose of your own that go beyond "fair use", you must obtain expressed permission from the copyright owner.*
 
