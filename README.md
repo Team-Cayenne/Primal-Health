@@ -91,6 +91,13 @@ This project was a 1 week sprint in which our team attempted to complete a MVP f
 ## Non MVP Tickets?
 -The nutritional portion of the site was not planned to be included in our first phase, however, we did add the visuals to build off of.
 
+## INSTALLATION INSTRUCTIONS:
+
+- Exectue 'npm install' to install all of the above dependencies and development dependencies for this repo.
+- Execute 'npm run build' and 'npm run watch' to allow for transpilation with updating on each save.
+- Execute 'npm run start' to the Express server connection to the app.
+
+
 ### *DISCLAIMER & FAIRUSE STATEMENT:*
 *This application may contain copyrighted material, the use of which may not have been specifically authorized by the copyright owner.  This material is available in relation to a school related project in an effort to demonstrate the Software Engineering technical and practical skills in the creation of an E-Commerce website.  Visuals and videos have been used that were not easily duplicated in the creation of the project.*
 
