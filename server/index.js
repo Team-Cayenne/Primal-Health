@@ -5,10 +5,11 @@ const config = require("../config.js");
 const path = require("path");
 const app = express();
 const PORT = 3000;
+const compression = require("compression");
 const { getMeals, getRecipeSteps, getRecipeImages, getNutritional } = require ("../Helpers/Spoonacular")
 app.use(express.static(path.join(__dirname, "..", "public")));
 app.use(express.json());
-
+app.use(compression());
 
 
 // User routes
