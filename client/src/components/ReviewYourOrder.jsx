@@ -5,15 +5,15 @@ import Styled from 'styled-components'
 import {Link}  from "react-router-dom";
 import ProgressMasthead from '../shared/ProgressMasthead.jsx';
 import { Progress_container, ProgressText, TextZ, CurrentStep, Logo} from '../styles/pesonalizeYourPlan/styles.js';
+import { Footer } from './EnterShippingInfo.jsx';
 
 
 const ReviewYourOrder = () => {
 
   const { currentUser, firstName, lastName, address1, address2, city, state, zip, phone, creditCard, email, password, meals, setMeals, type, setType, rate, setRate, numRecipies, setNumRecipies, headCount, setHeadCount, specialBuy, selectMeals} = useContext(AppContext);
 
-  // refactor this to not use props and use context
+
   const submitUser = () => {
-    console.log(currentUser)
     axios.post('/users', currentUser)
       .then(res => {
         console.log(res);
@@ -27,7 +27,6 @@ const ReviewYourOrder = () => {
 
 return (
   <div>
-    {/*##### Top, with the progress bar #####*/}
       <Progress_container>
         <Logo>
           <Link to="/" style={{ textDecoration: 'none' , color: '#264654', fontFamily: 'Quicksand' }}>
@@ -45,7 +44,6 @@ return (
             <TextZ>All Done!</TextZ>
         </ProgressText>
       </Progress_container>
-      {/*##### end of the TOP ##### */}
 
     <Header>
       Review your order
@@ -66,7 +64,7 @@ return (
         <HeaderText>Payment Information</HeaderText>
         <PaymentContainer>
           <MealSelection>
-            <SummaryText>**** **** **** {creditCard.slice(creditCard.length-4)}</SummaryText>
+            <SummaryText>**** **** **** {creditCard?.slice(creditCard.length-4)}</SummaryText>
           </MealSelection>
         </PaymentContainer>
       </LeftSide>
@@ -102,7 +100,7 @@ return (
               </Shipping>
               <Total>
                 <SummaryText>Total</SummaryText>
-                <SummaryText>${rate}</SummaryText>
+                <SummaryText>$ {rate} </SummaryText>
               </Total>
             </Cost>
           </OrderSummary>
@@ -110,6 +108,7 @@ return (
             <Link to="/order-confirmation" style={{ textDecoration: 'none' , color: '#26BF00' }}><Button onClick={submitUser}>Place Order</Button></Link>
         </RightSide>
       </ReviewYourOrderContainer>
+      <Footer style={{display: 'flex', marginTop: '150px'}}></Footer>
 
   </div>
 )

@@ -5,65 +5,40 @@ import ProgressMasthead from '../shared/ProgressMasthead.jsx'
 import { AppContext } from "../context.js";
 import { Progress_container, ProgressText, TextZ, CurrentStep, Logo} from '../styles/pesonalizeYourPlan/styles.js';
 
-// class EnterShippingInfo extends React.Component {
-//   constructor(props) {
-//     super(props)
-//     this.state = {
-//       firstName: '',
-//       lastName: '',
-//       address1: '',
-//       address2: '',
-//       city: '',
-//       state: '',
-//       zip: '',
-//       phone: ''
-//     }
-//     this.handleInput = this.handleInput.bind(this);
-//     this.submit = this.submit.bind(this);
-//   }
-
 
 const EnterShippingInfo = () => {
 
   const {email, password, rate, subscriptionRate, numRecipies, headCount, type, firstName, setFirstName, lastName, setLastName, address1, setAddress1, address2, setAddress2, city, setCity, state, setState, zip, setZip, phone, setPhone, currentUser, setCurrentUser} = useContext(AppContext);
 
   const getFirstName = (event) => {
-    // setCurrentUser(currentUser[event.target.id] = event.target.value)
     setFirstName(event.target.value);
   }
 
   const getLastName = (event) => {
-    // setCurrentUser(currentUser[event.target.id] = event.target.value)
     setLastName(event.target.value);
   }
 
   const getAddress1 = (event) => {
-    // setCurrentUser(currentUser[event.target.id] = event.target.value)
     setAddress1(event.target.value);
   }
 
   const getAddress2 = (event) => {
-    // setCurrentUser(currentUser[event.target.id] = event.target.value)
     setAddress2(event.target.value);
   }
 
   const getCity = (event) => {
-    // setCurrentUser(currentUser[event.target.id] = event.target.value)
     setCity(event.target.value);
   }
 
   const getState = (event) => {
-    // setCurrentUser(currentUser[event.target.id] = event.target.value)
     setState(event.target.value);
   }
 
   const getZip = (event) => {
-    // setCurrentUser(currentUser[event.target.id] = event.target.value)
     setZip(event.target.value);
   }
 
   const getPhone = (event) => {
-    // setCurrentUser(currentUser[event.target.id] = event.target.value)
     setPhone(event.target.value);
   }
 
@@ -75,7 +50,6 @@ const EnterShippingInfo = () => {
   // render() {
     return (
       <div>
-        {/*##### Top, with the progress bar #####*/}
         <Progress_container>
           <Logo>
             <Link to="/" style={{ textDecoration: 'none' , color: '#264654', fontFamily: 'Quicksand' }}>
@@ -94,7 +68,7 @@ const EnterShippingInfo = () => {
           </ProgressText>
         </Progress_container>
         {/*##### end of the TOP ##### */}
-        <EnterShippingContainer>
+        <EnterShippingContainer style={{display: 'flex', marginTop: '100px'}}>
         <LeftSide>
           <HeaderText>Shipping Information</HeaderText>
           <ShippingInfoContainer>
@@ -138,6 +112,7 @@ const EnterShippingInfo = () => {
             </Link>
         </RightSide>
       </EnterShippingContainer>
+      <Footer style={{display: 'flex', marginTop: '220px'}}></Footer>
     </div>
   )
 }
@@ -269,7 +244,7 @@ const Total = Styled.div`
   display: flex;
   justify-content: space-between;
 `
-const Button = Styled.button`
+export const Button = Styled.button`
   width: 277px;
   height: 55px;
   margin: 50px;

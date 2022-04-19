@@ -5,6 +5,7 @@ import ProgressMasthead from '../shared/ProgressMasthead.jsx'
 import {Link}  from "react-router-dom";
 import axios from 'axios';
 import { Progress_container, ProgressText, TextZ, CurrentStep, Logo} from '../styles/pesonalizeYourPlan/styles.js';
+import { Footer } from './EnterShippingInfo.jsx';
 
 
 
@@ -22,7 +23,6 @@ import { Progress_container, ProgressText, TextZ, CurrentStep, Logo} from '../st
     const getSuppliers=()=> {
       axios.get('/suppliers')
         .then(results => {
-          console.log('GET SUPPLIERS', results)
           setSpecial(results.data)
         })
         .catch(err => {
@@ -30,19 +30,15 @@ import { Progress_container, ProgressText, TextZ, CurrentStep, Logo} from '../st
         })
     }
 
-    // const mealPlan= new Array(numRecipies)
-
     const userSelectedRecipes = (title) => {
-      console.log("click")
       if (selectMeals.length < numRecipies) {
         setSelectMeals([...selectMeals, title])
       }
     }
 
     const userBuysSpecial = (title, price) => {
-      console.log("click")
       setSpecialBuy([...specialBuy, {title, price}])
-      setRate(+rate + price)
+      setRate((+rate + price).toFixed(2))
 
     }
 
@@ -55,8 +51,6 @@ import { Progress_container, ProgressText, TextZ, CurrentStep, Logo} from '../st
 
   return (
     <div>
-    {/* <ProgressMasthead /> */}
-    {/*##### Top, with the progress bar #####*/}
     <Progress_container>
       <Logo>
         <Link to="/" style={{ textDecoration: 'none' , color: '#264654', fontFamily: 'Quicksand' }}>
@@ -74,14 +68,12 @@ import { Progress_container, ProgressText, TextZ, CurrentStep, Logo} from '../st
           <TextZ>All Done!</TextZ>
         </ProgressText>
       </Progress_container>
-    {/*##### end of the TOP ##### */}
       <SelectRecipesContainer>
         <RecipesContainer>
           <HeaderText>
             Select Recipes
           </HeaderText>
           <OneRecipeRow>
-            {/* testMeals replace with meals if API is functioning */}
             {meals.map((meal, i)=> {
               return <OneRecipe key={i} onClick={()=>userSelectedRecipes(meal.title)}>
               <img src={meal.image} width='170' height='150' style={{cursor: 'pointer'}}></img>
@@ -99,13 +91,12 @@ import { Progress_container, ProgressText, TextZ, CurrentStep, Logo} from '../st
               <MealSelection>
                 <SummaryText>{type}</SummaryText>
                 <SummaryText>{numRecipies} Meals for {headCount} people per week</SummaryText>
-                <SummaryText>{numRecipies * headCount} Meals per week</SummaryText>
+                <SummaryText>{numRecipies * headCount} Portions per week</SummaryText>
                 {/* <SummaryText>{selectMeals}</SummaryText> */}
                 <div>
                   {selectMeals.map((oneMeal, i) => {
                     return <div>
                       <SummaryText> - {oneMeal}</SummaryText>
-                      {/* <SummaryText>$ {item.price}</SummaryText> */}
                       </div>
                   })}
                 </div>
@@ -125,7 +116,7 @@ import { Progress_container, ProgressText, TextZ, CurrentStep, Logo} from '../st
                 </Shipping>
                 <Total>
                   <SummaryText>Total</SummaryText>
-                  <SummaryText>${rate}</SummaryText>
+                  <SummaryText>$ {rate}</SummaryText>
                 </Total>
               </Cost>
           </SummaryBoxContainer>
@@ -139,7 +130,8 @@ import { Progress_container, ProgressText, TextZ, CurrentStep, Logo} from '../st
       </SelectRecipesContainer>
 
         <SpecialtyHeader>
-          Add Specialty Items
+          <div style={{display: 'flex', color: '#264654', fontFamily: 'Quicksand', justifyContent: 'center', fontWeight: '600',
+        margin: '50px', fontSize: '1.2em', borderTop: '1px solid #264654', lineHeight: '80px'}}>Add Specialty Items</div>
         </SpecialtyHeader>
           <SpecialtyItemsContainer>
             {/* testMeals replace with special with working API */}
@@ -151,6 +143,7 @@ import { Progress_container, ProgressText, TextZ, CurrentStep, Logo} from '../st
               </OneSpecialty>
             })}
           </SpecialtyItemsContainer>
+          <Footer style={{marginTop: '50px'}}></Footer>
     </div>
   )
 }

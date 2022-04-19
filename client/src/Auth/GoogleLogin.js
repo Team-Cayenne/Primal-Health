@@ -7,6 +7,7 @@ import { getAuth, signInWithPopup, GoogleAuthProvider, signInWithEmailAndPasswor
 import {Link}  from "react-router-dom";
 import ProgressMasthead from '../shared/ProgressMasthead.jsx';
 import { Progress_container, ProgressText, TextZ, CurrentStep, Logo} from '../styles/pesonalizeYourPlan/styles.js';
+import { Footer } from "../components/EnterShippingInfo.jsx";
 
 
 
@@ -142,6 +143,7 @@ const GoogleLogin = () => {
             <Link to="/"><BottomButtons>Return Home</BottomButtons></Link>
           </BottomButtonContainer>
         </LoginContainer>
+        <Footer style={{display: 'flex', marginTop: '50px'}}></Footer>
       </div>
     );
 

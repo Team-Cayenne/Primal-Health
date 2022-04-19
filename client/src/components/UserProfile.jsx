@@ -3,6 +3,8 @@ import React, { useContext } from 'react'
 import UpdateProfileModal from './UpdateProfileModal.jsx';
 import Masthead from '../shared/Masthead.jsx'
 import { Link } from "react-router-dom";
+import { Footer } from "./EnterShippingInfo.jsx";
+import { SeperatorTitle, SeperatorBar } from "../styles/nutritionalPage/styles.js";
 
 const UserProfile = () => {
   // constructor(props) {
@@ -24,8 +26,9 @@ const UserProfile = () => {
   return (
     <div>
       <Masthead />
+        <SeperatorBar> <SeperatorTitle>Your Homepage</SeperatorTitle></SeperatorBar>
       <div className="user-profile">
-        <h2 className="user-profile-title">Your Homepage</h2>
+
         <div className="profile-sections">
           <div className="profile-links">
             <div>Links</div>
@@ -36,7 +39,7 @@ const UserProfile = () => {
             </div>
             <br />
             <div className="profile-health-logger">
-              <a href="">Health Logger</a>
+              {/* <a href="">Health Logger</a> */}
             </div>
             <br />
           </div>
@@ -127,6 +130,7 @@ const UserProfile = () => {
           <UpdateProfileModal changeModal={changeModal} />
         ) : null}
       </span>
+      <Footer style={{display: 'flex', marginTop: '50px'}}></Footer>
 
     </div>
   );
